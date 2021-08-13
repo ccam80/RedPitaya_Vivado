@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="testbench_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="axi_vip_pkg" />
+            <top_module name="glbl" />
+            <top_module name="std" />
+            <top_module name="testbench" />
+            <top_module name="xil_common_vip_pkg" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="35064100fs"></ZoomStartTime>
+      <ZoomEndTime time="36278101fs"></ZoomEndTime>
+      <Cursor1Time time="35356100fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="189"></NameColumnWidth>
+      <ValueColumnWidth column_width="87"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="28" />
+   <wvobject type="protoinst" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_ADC">
+      <obj_property name="children_use_element_short_name">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+      <obj_property name="EnumTransactionColorTable">fff,fff=blank</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00E600</obj_property>
+      <obj_property name="Render_Data">/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_ADC.streamWaveData</obj_property>
+      <obj_property name="Number_Overlay">2</obj_property>
+      <obj_property name="Overlay_Object_0">/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_ADC.linkStarve</obj_property>
+      <obj_property name="Overlay_Color_0">#99E600</obj_property>
+      <obj_property name="Overlay_Object_1">/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_ADC.linkStall</obj_property>
+      <obj_property name="Overlay_Color_1">#E64C00</obj_property>
+      <obj_property name="Detail_Data">/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_ADC.streamTooltipData</obj_property>
+      <obj_property name="ElementShortName">S_AXIS_ADC</obj_property>
+      <obj_property name="ObjectShortName">S_AXIS_ADC</obj_property>
+   </wvobject>
+   <wvobject type="protoinst" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_ADD">
+      <obj_property name="children_use_element_short_name">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+      <obj_property name="EnumTransactionColorTable">fff,fff=blank</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00E600</obj_property>
+      <obj_property name="Render_Data">/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_ADD.streamWaveData</obj_property>
+      <obj_property name="Number_Overlay">2</obj_property>
+      <obj_property name="Overlay_Object_0">/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_ADD.linkStarve</obj_property>
+      <obj_property name="Overlay_Color_0">#99E600</obj_property>
+      <obj_property name="Overlay_Object_1">/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_ADD.linkStall</obj_property>
+      <obj_property name="Overlay_Color_1">#E64C00</obj_property>
+      <obj_property name="Detail_Data">/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_ADD.streamTooltipData</obj_property>
+      <obj_property name="ElementShortName">S_AXIS_ADD</obj_property>
+      <obj_property name="ObjectShortName">S_AXIS_ADD</obj_property>
+   </wvobject>
+   <wvobject type="protoinst" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_MULT">
+      <obj_property name="children_use_element_short_name">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+      <obj_property name="EnumTransactionColorTable">fff,fff=blank</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00E600</obj_property>
+      <obj_property name="Render_Data">/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_MULT.streamWaveData</obj_property>
+      <obj_property name="Number_Overlay">2</obj_property>
+      <obj_property name="Overlay_Object_0">/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_MULT.linkStarve</obj_property>
+      <obj_property name="Overlay_Color_0">#99E600</obj_property>
+      <obj_property name="Overlay_Object_1">/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_MULT.linkStall</obj_property>
+      <obj_property name="Overlay_Color_1">#E64C00</obj_property>
+      <obj_property name="Detail_Data">/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_MULT.streamTooltipData</obj_property>
+      <obj_property name="ElementShortName">S_AXIS_MULT</obj_property>
+      <obj_property name="ObjectShortName">S_AXIS_MULT</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/sw/system_i/phase_0/cfg_data">
+      <obj_property name="ElementShortName">cfg_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">cfg_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/sw/system_i/mult_0/P">
+      <obj_property name="ElementShortName">P[14:0]</obj_property>
+      <obj_property name="ObjectShortName">P[14:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="protoinst" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_ADC">
+      <obj_property name="ElementShortName">S_AXIS_ADC</obj_property>
+      <obj_property name="ObjectShortName">S_AXIS_ADC</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_ADC_tdata">
+      <obj_property name="ElementShortName">S_AXIS_ADC_tdata[15:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXIS_ADC_tdata[15:0]</obj_property>
+   </wvobject>
+   <wvobject type="protoinst" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS">
+      <obj_property name="children_use_element_short_name">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+      <obj_property name="EnumTransactionColorTable">fff,fff=blank</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00E600</obj_property>
+      <obj_property name="Render_Data">/testbench/sw/system_i/output_combiner/M_AXIS.streamWaveData</obj_property>
+      <obj_property name="Number_Overlay">2</obj_property>
+      <obj_property name="Overlay_Object_0">/testbench/sw/system_i/output_combiner/M_AXIS.linkStarve</obj_property>
+      <obj_property name="Overlay_Color_0">#99E600</obj_property>
+      <obj_property name="Overlay_Object_1">/testbench/sw/system_i/output_combiner/M_AXIS.linkStall</obj_property>
+      <obj_property name="Overlay_Color_1">#E64C00</obj_property>
+      <obj_property name="Detail_Data">/testbench/sw/system_i/output_combiner/M_AXIS.streamTooltipData</obj_property>
+      <obj_property name="ElementShortName">M_AXIS</obj_property>
+      <obj_property name="ObjectShortName">M_AXIS</obj_property>
+   </wvobject>
+   <wvobject type="vbus" fp_name="vbus206">
+      <obj_property name="label">DAC 1</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS.TDATA[29]">
+         <obj_property name="ElementShortName">[29]</obj_property>
+         <obj_property name="ObjectShortName">[29]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS.TDATA[28]">
+         <obj_property name="ElementShortName">[28]</obj_property>
+         <obj_property name="ObjectShortName">[28]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS.TDATA[27]">
+         <obj_property name="ElementShortName">[27]</obj_property>
+         <obj_property name="ObjectShortName">[27]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS.TDATA[26]">
+         <obj_property name="ElementShortName">[26]</obj_property>
+         <obj_property name="ObjectShortName">[26]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS.TDATA[25]">
+         <obj_property name="ElementShortName">[25]</obj_property>
+         <obj_property name="ObjectShortName">[25]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS.TDATA[24]">
+         <obj_property name="ElementShortName">[24]</obj_property>
+         <obj_property name="ObjectShortName">[24]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS.TDATA[23]">
+         <obj_property name="ElementShortName">[23]</obj_property>
+         <obj_property name="ObjectShortName">[23]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS.TDATA[22]">
+         <obj_property name="ElementShortName">[22]</obj_property>
+         <obj_property name="ObjectShortName">[22]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS.TDATA[21]">
+         <obj_property name="ElementShortName">[21]</obj_property>
+         <obj_property name="ObjectShortName">[21]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS.TDATA[20]">
+         <obj_property name="ElementShortName">[20]</obj_property>
+         <obj_property name="ObjectShortName">[20]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS.TDATA[19]">
+         <obj_property name="ElementShortName">[19]</obj_property>
+         <obj_property name="ObjectShortName">[19]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS.TDATA[18]">
+         <obj_property name="ElementShortName">[18]</obj_property>
+         <obj_property name="ObjectShortName">[18]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS.TDATA[17]">
+         <obj_property name="ElementShortName">[17]</obj_property>
+         <obj_property name="ObjectShortName">[17]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS.TDATA[16]">
+         <obj_property name="ElementShortName">[16]</obj_property>
+         <obj_property name="ObjectShortName">[16]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="vbus" fp_name="vbus205">
+      <obj_property name="label">New Virtual Bus 1</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS.TDATA[13]">
+         <obj_property name="ElementShortName">[13]</obj_property>
+         <obj_property name="ObjectShortName">[13]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS.TDATA[12]">
+         <obj_property name="ElementShortName">[12]</obj_property>
+         <obj_property name="ObjectShortName">[12]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS.TDATA[11]">
+         <obj_property name="ElementShortName">[11]</obj_property>
+         <obj_property name="ObjectShortName">[11]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS.TDATA[10]">
+         <obj_property name="ElementShortName">[10]</obj_property>
+         <obj_property name="ObjectShortName">[10]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS.TDATA[9]">
+         <obj_property name="ElementShortName">[9]</obj_property>
+         <obj_property name="ObjectShortName">[9]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS.TDATA[8]">
+         <obj_property name="ElementShortName">[8]</obj_property>
+         <obj_property name="ObjectShortName">[8]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS.TDATA[7]">
+         <obj_property name="ElementShortName">[7]</obj_property>
+         <obj_property name="ObjectShortName">[7]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS.TDATA[6]">
+         <obj_property name="ElementShortName">[6]</obj_property>
+         <obj_property name="ObjectShortName">[6]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS.TDATA[5]">
+         <obj_property name="ElementShortName">[5]</obj_property>
+         <obj_property name="ObjectShortName">[5]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS.TDATA[4]">
+         <obj_property name="ElementShortName">[4]</obj_property>
+         <obj_property name="ObjectShortName">[4]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS.TDATA[3]">
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">[3]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS.TDATA[2]">
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">[2]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS.TDATA[1]">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">[1]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_combiner/M_AXIS.TDATA[0]">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">[0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/M_AXIS_tdata">
+      <obj_property name="ElementShortName">M_AXIS_tdata[15:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXIS_tdata[15:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/sw/system_i/dds_stream/inst/m_axis_tdata">
+      <obj_property name="ElementShortName">m_axis_tdata[15:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axis_tdata[15:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/sw/system_i/mult_0/P">
+      <obj_property name="ElementShortName">P[14:0]</obj_property>
+      <obj_property name="ObjectShortName">P[14:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/sw/system_i/mult_0/A">
+      <obj_property name="ElementShortName">A[23:0]</obj_property>
+      <obj_property name="ObjectShortName">A[23:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/sw/system_i/dds_0/m_axis_data_tdata">
+      <obj_property name="ElementShortName">m_axis_data_tdata[47:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axis_data_tdata[47:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/sw/system_i/dac_0/aclk">
+      <obj_property name="ElementShortName">aclk</obj_property>
+      <obj_property name="ObjectShortName">aclk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/sw/system_i/dac_0/ddr_clk">
+      <obj_property name="ElementShortName">ddr_clk</obj_property>
+      <obj_property name="ObjectShortName">ddr_clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/sw/system_i/dac_0/wrt_clk">
+      <obj_property name="ElementShortName">wrt_clk</obj_property>
+      <obj_property name="ObjectShortName">wrt_clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/sw/system_i/dac_0/locked">
+      <obj_property name="ElementShortName">locked</obj_property>
+      <obj_property name="ObjectShortName">locked</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/sw/system_i/dac_0/dac_clk">
+      <obj_property name="ElementShortName">dac_clk</obj_property>
+      <obj_property name="ObjectShortName">dac_clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/sw/system_i/dac_0/dac_rst">
+      <obj_property name="ElementShortName">dac_rst</obj_property>
+      <obj_property name="ObjectShortName">dac_rst</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/sw/system_i/dac_0/dac_sel">
+      <obj_property name="ElementShortName">dac_sel</obj_property>
+      <obj_property name="ObjectShortName">dac_sel</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/sw/system_i/dac_0/dac_wrt">
+      <obj_property name="ElementShortName">dac_wrt</obj_property>
+      <obj_property name="ObjectShortName">dac_wrt</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/sw/system_i/dac_0/dac_dat">
+      <obj_property name="ElementShortName">dac_dat[13:0]</obj_property>
+      <obj_property name="ObjectShortName">dac_dat[13:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/sw/system_i/dac_0/s_axis_tready">
+      <obj_property name="ElementShortName">s_axis_tready</obj_property>
+      <obj_property name="ObjectShortName">s_axis_tready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/sw/system_i/dac_0/s_axis_tdata">
+      <obj_property name="ElementShortName">s_axis_tdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axis_tdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/sw/system_i/dac_0/s_axis_tvalid">
+      <obj_property name="ElementShortName">s_axis_tvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axis_tvalid</obj_property>
+   </wvobject>
+   <wvobject type="protoinst" fp_name="/testbench/sw/system_i/dac_0/S_AXIS">
+      <obj_property name="ElementShortName">S_AXIS</obj_property>
+      <obj_property name="ObjectShortName">S_AXIS</obj_property>
+   </wvobject>
+</wave_config>

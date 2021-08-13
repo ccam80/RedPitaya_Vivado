@@ -1,0 +1,10 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../adc_test.ip_user_files/bd/system/ip/system_rst_0_0/sim/system_rst_0_0.vhd" \
+"../../../../adc_test.ip_user_files/bd/system/ip/system_cic_0_0/sim/system_cic_0_0.vhd" \
+"../../../../adc_test.ip_user_files/bd/system/ip/system_dds_0_0/sim/system_dds_0_0.vhd" \
+"../../../../adc_test.ip_user_files/bd/system/ip/system_mult_0_0/sim/system_mult_0_0.vhd" \
+"../../../../adc_test.ip_user_files/bd/system/ip/system_cic_0_1/sim/system_cic_0_1.vhd" \
+
+# Do not sort compile order
+nosort

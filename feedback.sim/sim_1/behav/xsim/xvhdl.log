@@ -1,0 +1,10 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.ip_user_files/bd/system/ip/system_rst_0_0/sim/system_rst_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'system_rst_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.ip_user_files/bd/system/ip/system_cic_0_0/sim/system_cic_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'system_cic_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.ip_user_files/bd/system/ip/system_dds_0_0/sim/system_dds_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'system_dds_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.ip_user_files/bd/system/ip/system_mult_0_0/sim/system_mult_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'system_mult_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.ip_user_files/bd/system/ip/system_cic_0_1/sim/system_cic_0_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'system_cic_0_1'

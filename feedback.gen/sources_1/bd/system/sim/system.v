@@ -1,7 +1,7 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-//Date        : Fri Aug 13 10:40:12 2021
+//Date        : Fri Aug 13 13:50:04 2021
 //Host        : acoustics-VirtualBox running 64-bit Ubuntu 20.04.2 LTS
 //Command     : generate_target system.bd
 //Design      : system
@@ -583,7 +583,7 @@ Output Mux
 
 Output Mux
  */
-(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=43,numReposBlks=39,numNonXlnxBlks=19,numHierBlks=4,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=2,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"=13,\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"=10,synth_mode=Global}" *) (* HW_HANDOFF = "system.hwdef" *) 
+(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=44,numReposBlks=40,numNonXlnxBlks=19,numHierBlks=4,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=2,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"=13,\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"=10,synth_mode=Global}" *) (* HW_HANDOFF = "system.hwdef" *) 
 module system
    (DDR_addr,
     DDR_ba,
@@ -702,6 +702,7 @@ module system
   wire cic_1_M_AXIS_DATA_TVALID;
   wire [127:0]concat_1_dout;
   wire [0:0]const_0_dout;
+  wire [1:0]const_1_dout;
   wire [63:0]conv_0_M_AXIS_TDATA;
   wire conv_0_M_AXIS_TREADY;
   wire conv_0_M_AXIS_TVALID;
@@ -864,7 +865,8 @@ module system
         .S_AXIS_ADD_tvalid(b_const_16b_M_AXIS_TVALID),
         .S_AXIS_MULT_tdata(a_const_16Q16_M_AXIS_TDATA),
         .S_AXIS_MULT_tvalid(a_const_16Q16_M_AXIS_TVALID),
-        .aclk(pll_0_clk_out1));
+        .aclk(pll_0_clk_out1),
+        .select(const_1_dout));
   system_ch1_output_dac_mem_split_0 CIC_config_replicator
        (.aclk(pll_0_clk_out1),
         .aresetn(rst_0_peripheral_aresetn),
@@ -963,6 +965,8 @@ module system
         .s_axis_data_tvalid(output_binary_conver_0_M_AXIS_TVALID));
   system_const_0_0 const_0
        (.dout(const_0_dout));
+  system_const_0_1 const_1
+       (.dout(const_1_dout));
   system_conv_0_0 conv_0
        (.aclk(pll_0_clk_out1),
         .aresetn(slice_0_dout),

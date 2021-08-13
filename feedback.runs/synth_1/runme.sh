@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.runs/synth_1'
+HD_PWD='/home/acoustics/Documents/RP/RP_feedback/feedback.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

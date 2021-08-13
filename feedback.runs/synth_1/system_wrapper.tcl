@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "/home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.runs/synth_1/system_wrapper.tcl"
+  variable script "/home/acoustics/Documents/RP/RP_feedback/feedback.runs/synth_1/system_wrapper.tcl"
   variable category "vivado_synth"
 }
 
@@ -83,37 +83,37 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir /home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.cache/wt [current_project]
-set_property parent.project_path /home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.xpr [current_project]
+set_property webtalk.parent_dir /home/acoustics/Documents/RP/RP_feedback/feedback.cache/wt [current_project]
+set_property parent.project_path /home/acoustics/Documents/RP/RP_feedback/feedback.xpr [current_project]
 set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_repo_paths /home/acoustics/Documents/RP/Pavel_Demin/tmp/cores [current_project]
 update_ip_catalog
-set_property ip_output_repo /home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.cache/ip [current_project]
+set_property ip_output_repo /home/acoustics/Documents/RP/RP_feedback/feedback.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 set_property verilog_define TOOL_VIVADO [current_fileset]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
-  /home/acoustics/Documents/RP/Pavel_Demin/projects/adc_test/AXI4_Multiplier.v
-  /home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.srcs/sources_1/new/output_binary_converter.v
-  /home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.gen/sources_1/bd/system/hdl/system_wrapper.v
+  /home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/imports/adc_test/AXI4_Multiplier.v
+  /home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/new/output_binary_converter.v
+  /home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/imports/system_wrapper.v
 }
-add_files /home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.srcs/sources_1/bd/system/system.bd
-set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.gen/sources_1/bd/system/ip/system_pll_0_0/system_pll_0_0_board.xdc]
-set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.gen/sources_1/bd/system/ip/system_pll_0_0/system_pll_0_0.xdc]
-set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.gen/sources_1/bd/system/ip/system_pll_0_0/system_pll_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.gen/sources_1/bd/system/ip/system_ps_0_0/system_ps_0_0.xdc]
-set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.gen/sources_1/bd/system/ip/system_rst_0_0/system_rst_0_0_board.xdc]
-set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.gen/sources_1/bd/system/ip/system_rst_0_0/system_rst_0_0.xdc]
-set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.gen/sources_1/bd/system/ip/system_xbar_0/system_xbar_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_0/system_axis_broadcaster_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_2/system_axis_broadcaster_0_2_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.gen/sources_1/bd/system/ip/system_ch1_mem_fb_split_0/system_ch1_mem_fb_split_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.gen/sources_1/bd/system/ip/system_ch1_output_dac_mem_split_0/system_ch1_output_dac_mem_split_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.gen/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.gen/sources_1/bd/system/system_ooc.xdc]
+add_files /home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/bd/system/system.bd
+set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_pll_0_0/system_pll_0_0_board.xdc]
+set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_pll_0_0/system_pll_0_0.xdc]
+set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_pll_0_0/system_pll_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ps_0_0/system_ps_0_0.xdc]
+set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_rst_0_0/system_rst_0_0_board.xdc]
+set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_rst_0_0/system_rst_0_0.xdc]
+set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_xbar_0/system_xbar_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_0/system_axis_broadcaster_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_2/system_axis_broadcaster_0_2_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ch1_mem_fb_split_0/system_ch1_mem_fb_split_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ch1_output_dac_mem_split_0/system_ch1_output_dac_mem_split_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/system_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -124,11 +124,11 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc /home/acoustics/Documents/RP/Pavel_Demin/cfg/clocks.xdc
-set_property used_in_implementation false [get_files /home/acoustics/Documents/RP/Pavel_Demin/cfg/clocks.xdc]
+read_xdc /home/acoustics/Documents/RP/RP_feedback/feedback.srcs/constrs_1/imports/cfg/clocks.xdc
+set_property used_in_implementation false [get_files /home/acoustics/Documents/RP/RP_feedback/feedback.srcs/constrs_1/imports/cfg/clocks.xdc]
 
-read_xdc /home/acoustics/Documents/RP/Pavel_Demin/cfg/ports.xdc
-set_property used_in_implementation false [get_files /home/acoustics/Documents/RP/Pavel_Demin/cfg/ports.xdc]
+read_xdc /home/acoustics/Documents/RP/RP_feedback/feedback.srcs/constrs_1/imports/cfg/ports.xdc
+set_property used_in_implementation false [get_files /home/acoustics/Documents/RP/RP_feedback/feedback.srcs/constrs_1/imports/cfg/ports.xdc]
 
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]

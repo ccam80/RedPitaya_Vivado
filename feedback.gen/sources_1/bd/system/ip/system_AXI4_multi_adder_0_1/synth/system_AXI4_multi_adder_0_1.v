@@ -52,11 +52,12 @@
 
 (* X_CORE_INFO = "AXI4_multi_adder,Vivado 2020.2" *)
 (* CHECK_LICENSE_TYPE = "system_AXI4_multi_adder_0_1,AXI4_multi_adder,{}" *)
-(* CORE_GENERATION_INFO = "system_AXI4_multi_adder_0_1,AXI4_multi_adder,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=AXI4_multi_adder,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,ADC_DATA_WIDTH=16,MULT_CONST_WIDTH=32,ADD_CONST_WIDTH=16,DAC_DATA_WIDTH=14,AXIS_TDATA_WIDTH=16}" *)
+(* CORE_GENERATION_INFO = "system_AXI4_multi_adder_0_1,AXI4_multi_adder,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=AXI4_multi_adder,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,ADC_DATA_WIDTH=16,MULT_CONST_WIDTH=32,ADD_CONST_WIDTH=16,DAC_DATA_WIDTH=14,AXIS_TDATA_WIDTH=16,SELECT_WIDTH=2}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_AXI4_multi_adder_0_1 (
   aclk,
+  select,
   S_AXIS_MULT_tdata,
   S_AXIS_MULT_tvalid,
   S_AXIS_ADD_tdata,
@@ -70,6 +71,7 @@ module system_AXI4_multi_adder_0_1 (
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF M_AXIS:S_AXIS_ADC:S_AXIS_ADD:S_AXIS_MULT, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *)
 input wire aclk;
+input wire [1 : 0] select;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_MULT TDATA" *)
 input wire [31 : 0] S_AXIS_MULT_tdata;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXIS_MULT, FREQ_HZ 125000000, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *)
@@ -96,9 +98,11 @@ output wire M_AXIS_tvalid;
     .MULT_CONST_WIDTH(32),
     .ADD_CONST_WIDTH(16),
     .DAC_DATA_WIDTH(14),
-    .AXIS_TDATA_WIDTH(16)
+    .AXIS_TDATA_WIDTH(16),
+    .SELECT_WIDTH(2)
   ) inst (
     .aclk(aclk),
+    .select(select),
     .S_AXIS_MULT_tdata(S_AXIS_MULT_tdata),
     .S_AXIS_MULT_tvalid(S_AXIS_MULT_tvalid),
     .S_AXIS_ADD_tdata(S_AXIS_ADD_tdata),

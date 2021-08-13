@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.441942",
-   "Default View_TopLeft":"-3256,165",
+   "Default View_ScaleFactor":"0.717937",
+   "Default View_TopLeft":"-531,949",
    "ExpandedHierarchyInLayout":"",
    "comment_0":"Hardware
 ",
@@ -59,7 +59,7 @@ preplace inst slice_1 -pg 1 -lvl 4 -x -1760 -y 150 -defaultsOSRD
 preplace inst slice_2 -pg 1 -lvl 4 -x -1760 -y 250 -defaultsOSRD
 preplace inst slice_3 -pg 1 -lvl 4 -x -1760 -y 350 -defaultsOSRD
 preplace inst rate_0 -pg 1 -lvl 5 -x -1390 -y 260 -defaultsOSRD
-preplace inst cic_0 -pg 1 -lvl 8 -x -180 -y 1020 -defaultsOSRD
+preplace inst cic_0 -pg 1 -lvl 8 -x -160 -y 1020 -defaultsOSRD
 preplace inst conv_0 -pg 1 -lvl 13 -x 1650 -y 890 -defaultsOSRD
 preplace inst writer_0 -pg 1 -lvl 14 -x 1980 -y 1040 -defaultsOSRD
 preplace inst slice_4 -pg 1 -lvl 4 -x -1760 -y 450 -defaultsOSRD
@@ -79,75 +79,77 @@ preplace inst ch1_mem_fb_split -pg 1 -lvl 6 -x -910 -y 1220 -defaultsOSRD
 preplace inst b_const_16b -pg 1 -lvl 5 -x -1390 -y 740 -defaultsOSRD
 preplace inst ch1_output_dac_mem_split -pg 1 -lvl 9 -x 310 -y 1410 -defaultsOSRD
 preplace inst cic_1 -pg 1 -lvl 11 -x 1000 -y 1140 -defaultsOSRD
-preplace inst CIC_config_replicator -pg 1 -lvl 7 -x -560 -y 300 -defaultsOSRD
+preplace inst CIC_config_replicator -pg 1 -lvl 7 -x -540 -y 300 -defaultsOSRD
 preplace inst axis_combiner_0 -pg 1 -lvl 12 -x 1350 -y 1050 -defaultsOSRD
 preplace inst output_combiner -pg 1 -lvl 15 -x 2327 -y 540 -defaultsOSRD
 preplace inst dds_stream -pg 1 -lvl 14 -x 1980 -y 640 -defaultsOSRD
 preplace inst output_binary_conver_0 -pg 1 -lvl 10 -x 670 -y 1280 -defaultsOSRD
-preplace inst AXI4_multi_adder_0 -pg 1 -lvl 8 -x -180 -y 1320 -defaultsOSRD
+preplace inst const_1 -pg 1 -lvl 7 -x -540 -y 1170 -defaultsOSRD
+preplace inst AXI4_multi_adder_0 -pg 1 -lvl 8 -x -160 -y 1320 -defaultsOSRD
 preplace netloc adc_clk_p_i_1 1 0 1 NJ 1130
 preplace netloc adc_clk_n_i_1 1 0 1 NJ 1110
 preplace netloc adc_dat_a_i_1 1 0 3 NJ 130 N 130 -2320
 preplace netloc adc_dat_b_i_1 1 0 3 NJ 150 -2820 140 -2340
 preplace netloc adc_0_adc_csn 1 3 14 -1990 1110 -1570 920 N 920 N 920 N 920 N 920 N 920 N 920 N 920 1540 970 1790 930 N 930 2500 990 2850
-preplace netloc pll_0_clk_out2 1 1 15 N 1100 N 1100 -2000 1130 -1590 1230 -1270 1130 N 1130 -390 1120 40 1030 N 1030 N 1030 1160 1230 1520 1240 N 1240 N 1240 2510
-preplace netloc pll_0_clk_out3 1 1 15 -2820 1150 N 1150 N 1150 -1600 1240 -1260 1140 N 1140 N 1140 N 1140 N 1140 800 1230 1150 1220 1530 1230 N 1230 N 1230 2520
-preplace netloc pll_0_locked 1 1 15 -2810 890 -2310 810 N 810 N 810 N 810 N 810 N 810 10 960 N 960 N 960 N 960 1520 980 1840 950 N 950 2530
+preplace netloc pll_0_clk_out2 1 1 15 N 1100 N 1100 -2000 1130 -1590 1230 -1270 1130 -700 1110 N 1110 30 1030 N 1030 N 1030 1160 1230 N 1230 N 1230 N 1230 2510
+preplace netloc pll_0_clk_out3 1 1 15 -2820 1150 N 1150 N 1150 -1600 1240 -1260 1140 -740 1230 -340 1200 N 1200 N 1200 800 1240 N 1240 N 1240 N 1240 N 1240 2530
+preplace netloc pll_0_locked 1 1 15 -2810 890 -2310 810 N 810 N 810 N 810 N 810 N 810 0 960 N 960 N 960 N 960 1510 980 1840 950 N 950 2520
 preplace netloc dac_0_dac_clk 1 16 1 2850 840n
 preplace netloc dac_0_dac_rst 1 16 1 2840 860n
 preplace netloc dac_0_dac_sel 1 16 1 2850 880n
 preplace netloc dac_0_dac_wrt 1 16 1 2840 900n
 preplace netloc dac_0_dac_dat 1 16 1 2840 930n
 preplace netloc cfg_0_cfg_data 1 3 1 -1960 50n
-preplace netloc rst_0_peripheral_aresetn 1 1 14 -2800 150 -2330 820 -1960 1140 -1530 1220 -1250 1120 -730 1110 -360 1110 30 1040 N 1040 840 1040 1170 570 N 570 N 570 N
+preplace netloc rst_0_peripheral_aresetn 1 1 14 -2800 150 -2330 820 -1960 1140 -1530 1220 -1250 1120 -720 1100 -330 1120 20 1040 N 1040 830 1040 1170 570 N 570 N 570 N
 preplace netloc slice_2_dout 1 4 1 -1520 250n
 preplace netloc slice_0_dout 1 4 9 N 50 N 50 N 50 N 50 N 50 N 50 N 50 N 50 1540
-preplace netloc slice_3_dout 1 4 10 N 350 N 350 -720 380 -400 360 N 360 N 360 N 360 N 360 N 360 1770
+preplace netloc slice_3_dout 1 4 10 N 350 N 350 -710 380 -370 360 N 360 N 360 N 360 N 360 N 360 1770
 preplace netloc slice_4_dout 1 4 1 N 450
 preplace netloc dds_0_m_axis_data_tdata 1 9 4 500 440 N 440 N 440 N
 preplace netloc slice_6_dout 1 4 9 N 650 -1240 550 N 550 N 550 N 550 510 460 N 460 N 460 N
 preplace netloc dna_0_dna_data 1 9 6 N 780 N 780 N 780 N 780 N 780 2130
 preplace netloc writer_0_sts_data 1 14 1 2120 1050n
-preplace netloc concat_1_dout 1 2 14 -2290 870 -1940 940 -1560 930 N 930 N 930 N 930 N 930 N 930 N 930 N 930 1530 990 1830 940 N 940 2490
-preplace netloc pll_0_clk_out1 1 1 15 -2820 600 -2300 920 -1980 1120 -1540 1210 -1240 1100 -750 1030 -370 1130 20 1150 510 1150 810 1050 1190 890 1520 630 1820 710 2140 870 N
+preplace netloc concat_1_dout 1 2 14 -2290 870 -1940 940 -1560 930 N 930 N 930 N 930 N 930 N 930 N 930 N 930 1520 990 1830 940 N 940 2490
+preplace netloc pll_0_clk_out1 1 1 15 -2820 600 -2300 920 -1980 1120 -1540 1210 -1240 1100 -740 1030 -350 1130 10 1150 510 1150 790 1050 1190 890 1510 630 1820 710 2140 870 N
 preplace netloc slice_1_dout 1 4 10 NJ 150 NJ 150 NJ 150 NJ 150 NJ 150 NJ 150 N 150 NJ 150 NJ 150 1800
-preplace netloc const_0_dout 1 1 14 -2780 910 N 910 -1950 950 -1550J 1090 NJ 1090 -740J 1160 NJ 1160 NJ 1160 NJ 1160 790 1240 NJ 1240 1540J 1220 NJ 1220 2140
+preplace netloc const_0_dout 1 1 14 -2780 910 N 910 -1950 950 -1550J 1090 NJ 1090 -730J 1240 -330J 1210 NJ 1210 NJ 1210 790 1230 1150J 1220 NJ 1220 NJ 1220 2140
 preplace netloc mult_0_P 1 13 1 1810 440n
 preplace netloc slice_5_dout 1 4 1 -1520 550n
 preplace netloc slice_7_dout 1 4 1 N 750
-preplace netloc ch1_mem_fb_split_M00_AXIS 1 6 2 -720 990 N
-preplace netloc rate_0_M_AXIS 1 5 2 N 260 -750
-preplace netloc ch1_output_dac_mem_split1_M00_AXIS 1 7 1 -370 290n
+preplace netloc const_1_dout 1 7 1 -380 1170n
+preplace netloc ch1_mem_fb_split_M00_AXIS 1 6 2 -710 990 N
+preplace netloc rate_0_M_AXIS 1 5 2 N 260 -720
+preplace netloc ch1_output_dac_mem_split1_M00_AXIS 1 7 1 -350 290n
 preplace netloc channel_split_M00_AXIS 1 4 2 -1580 1200 NJ
-preplace netloc b_const_16b_M_AXIS 1 5 3 NJ 740 NJ 740 -400
-preplace netloc a_const_16Q16_M_AXIS 1 5 3 NJ 570 NJ 570 -380
+preplace netloc b_const_16b_M_AXIS 1 5 3 NJ 740 NJ 740 -370
+preplace netloc a_const_16Q16_M_AXIS 1 5 3 NJ 570 NJ 570 -360
 preplace netloc cic_1_M_AXIS_DATA 1 11 1 1180 1040n
 preplace netloc ps_0_axi_periph_M01_AXI 1 2 1 -2310 550n
 preplace netloc ps_0_axi_periph_M00_AXI 1 2 1 -2360 690n
 preplace netloc ps_0_M_AXI_GP0 1 1 2 -2770 160 -2370
-preplace netloc phase_0_M_AXIS 1 5 4 N 440 N 440 N 440 0
-preplace netloc writer_0_M_AXI 1 1 14 -2790 880 N 880 -1950 820 N 820 N 820 N 820 N 820 0 850 500 810 N 810 N 810 N 810 N 810 2120
+preplace netloc phase_0_M_AXIS 1 5 4 N 440 N 440 N 440 -10
+preplace netloc writer_0_M_AXI 1 1 14 -2790 880 N 880 -1950 820 N 820 N 820 N 820 N 820 -10 850 500 810 N 810 N 810 N 810 N 810 2120
 preplace netloc conv_0_M_AXIS 1 13 1 1780 890n
-preplace netloc ch1_output_dac_mem_split1_M01_AXIS 1 7 4 NJ 310 NJ 310 N 310 830
+preplace netloc ch1_output_dac_mem_split1_M01_AXIS 1 7 4 NJ 310 NJ 310 N 310 820
 preplace netloc ps_0_FIXED_IO 1 2 15 -2350 -10 N -10 N -10 N -10 N -10 N -10 N -10 N -10 N -10 N -10 N -10 N -10 N -10 N -10 2840
 preplace netloc adc_0_M_AXIS 1 3 1 -1970 990n
 preplace netloc cic_0_M_AXIS_DATA 1 8 4 NJ 1020 NJ 1020 N 1020 N
-preplace netloc axis_combiner_0_M_AXIS 1 12 1 1510 870n
+preplace netloc axis_combiner_0_M_AXIS 1 12 1 1530 870n
 preplace netloc ps_0_DDR 1 2 15 -2360 -20 N -20 N -20 N -20 N -20 N -20 N -20 N -20 N -20 N -20 N -20 N -20 N -20 N -20 2850
 preplace netloc ch1_output_dac_mem_split_M01_AXIS 1 9 6 520 520 N 520 NJ 520 NJ 520 1760J 510 NJ
-preplace netloc ch1_mem_fb_split_M01_AXIS 1 6 2 -730 1290 NJ
-preplace netloc AXI4_multi_adder_0_M_AXIS 1 8 1 0 1300n
+preplace netloc ch1_mem_fb_split_M01_AXIS 1 6 2 -750 1280 NJ
+preplace netloc AXI4_multi_adder_0_M_AXIS 1 8 1 -10 1320n
 preplace netloc axis_combiner_1_M_AXIS 1 15 1 2530 540n
 preplace netloc phase_1_M_AXIS 1 14 1 2120 530n
 preplace netloc ch1_output_dac_mem_split_M00_AXIS 1 9 1 530 1270n
-preplace netloc output_binary_conver_0_M_AXIS 1 10 1 820 1110n
+preplace netloc output_binary_conver_0_M_AXIS 1 10 1 810 1110n
 preplace cgraphic comment_3 place top -1045 -5 textcolor 4 linecolor 3 linewidth 2
 preplace cgraphic comment_2 place top -1454 -25 textcolor 4 linecolor 3 linewidth 2
 preplace cgraphic comment_1 place top -1736 -30 textcolor 4 linecolor 3 linewidth 2
 preplace cgraphic comment_0 place top -2248 -5 textcolor 4 linecolor 3 linewidth 2
 preplace cgraphic comment_5 place top 2084 -85 textcolor 4 linecolor 3 linewidth 2
 preplace cgraphic comment_4 place top 1828 -92 textcolor 4 linecolor 3 linewidth 2
-levelinfo -pg 1 -3080 -2940 -2570 -2130 -1760 -1390 -910 -560 -180 310 670 1000 1350 1650 1980 2327 2717 2870
+levelinfo -pg 1 -3080 -2940 -2570 -2130 -1760 -1390 -910 -540 -160 310 670 1000 1350 1650 1980 2327 2717 2870
 pagesize -pg 1 -db -bbox -sgen -3260 -410 3040 1850
 "
 }

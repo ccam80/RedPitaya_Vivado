@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Aug 13 10:40:15 2021" VIVADOVERSION="2020.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Aug 13 13:50:06 2021" VIVADOVERSION="2020.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z010" NAME="system" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -238,6 +238,7 @@
         <PARAMETER NAME="ADD_CONST_WIDTH" VALUE="16"/>
         <PARAMETER NAME="DAC_DATA_WIDTH" VALUE="14"/>
         <PARAMETER NAME="AXIS_TDATA_WIDTH" VALUE="16"/>
+        <PARAMETER NAME="SELECT_WIDTH" VALUE="2"/>
         <PARAMETER NAME="Component_Name" VALUE="system_AXI4_multi_adder_0_1"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
@@ -245,6 +246,11 @@
         <PORT CLKFREQUENCY="125000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="pll_0_clk_out1">
           <CONNECTIONS>
             <CONNECTION INSTANCE="pll_0" PORT="clk_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="select" RIGHT="0" SIGIS="undef" SIGNAME="const_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="const_1" PORT="dout"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="31" NAME="S_AXIS_MULT_tdata" RIGHT="0" SIGIS="undef" SIGNAME="AXI4_multi_adder_0_S_AXIS_MULT_tdata">
@@ -1877,6 +1883,23 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="status_concat_1" PORT="In0"/>
             <CONNECTION INSTANCE="rst_0" PORT="ext_reset_in"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="7" FULLNAME="/const_1" HWVERSION="1.1" INSTANCE="const_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="2"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x0"/>
+        <PARAMETER NAME="Component_Name" VALUE="system_const_0_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="1" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="const_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="AXI4_multi_adder_0" PORT="select"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

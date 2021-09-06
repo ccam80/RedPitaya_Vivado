@@ -3,7 +3,7 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Fri Aug 13 13:59:32 2021">
+<application name="pa" timeStamp="Fri Aug 13 14:25:36 2021">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="6c7026ef6bfa4211a105f00160a334d8" type="ProjectID"/>
 <property name="ProjectIteration" value="41" type="ProjectIteration"/>
@@ -29,7 +29,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="EditPaste" value="21" type="JavaHandler"/>
 <property name="EditProperties" value="2" type="JavaHandler"/>
 <property name="EditUndo" value="9" type="JavaHandler"/>
-<property name="ExitApp" value="4" type="JavaHandler"/>
+<property name="ExitApp" value="5" type="JavaHandler"/>
 <property name="FilePrintCmdHandler" value="1" type="JavaHandler"/>
 <property name="IPPackagerHandler" value="3" type="JavaHandler"/>
 <property name="OpenBlockDesign" value="88" type="JavaHandler"/>
@@ -50,7 +50,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="SetTopNode" value="3" type="JavaHandler"/>
 <property name="ShowProductWebPage" value="2" type="JavaHandler"/>
 <property name="ShowSource" value="1" type="JavaHandler"/>
-<property name="ShowView" value="8" type="JavaHandler"/>
+<property name="ShowView" value="9" type="JavaHandler"/>
 <property name="SimulationBreak" value="20" type="JavaHandler"/>
 <property name="SimulationRelaunch" value="3" type="JavaHandler"/>
 <property name="SimulationRestart" value="4" type="JavaHandler"/>
@@ -72,7 +72,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="BaseDialogUtils_OPEN_IN_SPECIFIED_LAYOUT" value="1" type="GuiHandlerData"/>
 <property name="BaseDialog_APPLY" value="4" type="GuiHandlerData"/>
 <property name="BaseDialog_CANCEL" value="111" type="GuiHandlerData"/>
-<property name="BaseDialog_OK" value="177" type="GuiHandlerData"/>
+<property name="BaseDialog_OK" value="178" type="GuiHandlerData"/>
 <property name="BaseDialog_YES" value="26" type="GuiHandlerData"/>
 <property name="CheckTimingResultTreeTablePanel_CHECK_TIMING_RESULT_TREE_TABLE" value="3" type="GuiHandlerData"/>
 <property name="CmdMsgDialog_MESSAGES" value="22" type="GuiHandlerData"/>
@@ -101,9 +101,9 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="IPStatusTablePanel_IP_STATUS_TABLE" value="1" type="GuiHandlerData"/>
 <property name="InstTermTablePanel_LOAD_NET_DELAYS" value="1" type="GuiHandlerData"/>
 <property name="LogMonitor_MONITOR" value="9" type="GuiHandlerData"/>
-<property name="MainMenuMgr_CHECKPOINT" value="2" type="GuiHandlerData"/>
+<property name="MainMenuMgr_CHECKPOINT" value="3" type="GuiHandlerData"/>
 <property name="MainMenuMgr_EDIT" value="4" type="GuiHandlerData"/>
-<property name="MainMenuMgr_FILE" value="14" type="GuiHandlerData"/>
+<property name="MainMenuMgr_FILE" value="16" type="GuiHandlerData"/>
 <property name="MainMenuMgr_FLOORPLANNING" value="4" type="GuiHandlerData"/>
 <property name="MainMenuMgr_FLOW" value="6" type="GuiHandlerData"/>
 <property name="MainMenuMgr_IO" value="1" type="GuiHandlerData"/>
@@ -112,7 +112,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="MainMenuMgr_OPEN" value="2" type="GuiHandlerData"/>
 <property name="MainMenuMgr_OPEN_BLOCK_DESIGN" value="4" type="GuiHandlerData"/>
 <property name="MainMenuMgr_OPEN_RECENT_PROJECT" value="9" type="GuiHandlerData"/>
-<property name="MainMenuMgr_PROJECT" value="9" type="GuiHandlerData"/>
+<property name="MainMenuMgr_PROJECT" value="11" type="GuiHandlerData"/>
 <property name="MainMenuMgr_REPORTS" value="16" type="GuiHandlerData"/>
 <property name="MainMenuMgr_SETTINGS" value="2" type="GuiHandlerData"/>
 <property name="MainMenuMgr_TIMING" value="2" type="GuiHandlerData"/>
@@ -212,6 +212,11 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="XPG_TabbedPane_TABBED_PANE" value="2" type="GuiHandlerData"/>
 <property name="XPG_TextField_VALUE_OF_SPECIFIED_PARAMETER" value="9" type="GuiHandlerData"/>
 <property name="XPG_TextField_VALUE_OF_SPECIFIED_PARAMETER_MANUAL" value="1" type="GuiHandlerData"/>
+</item>
+<item name="Other">
+<property name="GuiMode" value="19" type="GuiMode"/>
+<property name="BatchMode" value="0" type="BatchMode"/>
+<property name="TclMode" value="12" type="TclMode"/>
 </item>
 </section>
 </application>

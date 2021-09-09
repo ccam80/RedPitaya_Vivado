@@ -2693,12 +2693,6 @@
               "xbar/S00_AXI"
             ]
           },
-          "xbar_to_m01_couplers": {
-            "interface_ports": [
-              "xbar/M01_AXI",
-              "m01_couplers/S_AXI"
-            ]
-          },
           "ps_0_axi_periph_to_s00_couplers": {
             "interface_ports": [
               "S00_AXI",
@@ -2709,6 +2703,12 @@
             "interface_ports": [
               "xbar/M00_AXI",
               "m00_couplers/S_AXI"
+            ]
+          },
+          "xbar_to_m01_couplers": {
+            "interface_ports": [
+              "xbar/M01_AXI",
+              "m01_couplers/S_AXI"
             ]
           },
           "m01_couplers_to_ps_0_axi_periph": {
@@ -3403,22 +3403,16 @@
       }
     },
     "interface_nets": {
-      "ch1_output_dac_mem_split_M00_AXIS": {
-        "interface_ports": [
-          "output_binary_conver_0/S_AXIS",
-          "ch1_output_dac_mem_split/M00_AXIS"
-        ]
-      },
       "output_binary_conver_0_M_AXIS": {
         "interface_ports": [
           "output_binary_conver_0/M_AXIS",
           "cic_1/S_AXIS_DATA"
         ]
       },
-      "ps_0_M_AXI_GP0": {
+      "adc_0_M_AXIS": {
         "interface_ports": [
-          "ps_0/M_AXI_GP0",
-          "ps_0_axi_periph/S00_AXI"
+          "adc_0/M_AXIS",
+          "channel_split/S_AXIS"
         ]
       },
       "phase_0_M_AXIS": {
@@ -3445,16 +3439,28 @@
           "cic_1/S_AXIS_CONFIG"
         ]
       },
+      "ch1_output_dac_mem_split_M00_AXIS": {
+        "interface_ports": [
+          "output_binary_conver_0/S_AXIS",
+          "ch1_output_dac_mem_split/M00_AXIS"
+        ]
+      },
+      "ps_0_M_AXI_GP0": {
+        "interface_ports": [
+          "ps_0/M_AXI_GP0",
+          "ps_0_axi_periph/S00_AXI"
+        ]
+      },
       "ps_0_FIXED_IO": {
         "interface_ports": [
           "FIXED_IO",
           "ps_0/FIXED_IO"
         ]
       },
-      "cic_0_M_AXIS_DATA": {
+      "ps_0_DDR": {
         "interface_ports": [
-          "cic_0/M_AXIS_DATA",
-          "axis_combiner_0/S00_AXIS"
+          "DDR",
+          "ps_0/DDR"
         ]
       },
       "axis_combiner_0_M_AXIS": {
@@ -3463,10 +3469,10 @@
           "conv_0/S_AXIS"
         ]
       },
-      "ps_0_DDR": {
+      "cic_0_M_AXIS_DATA": {
         "interface_ports": [
-          "DDR",
-          "ps_0/DDR"
+          "cic_0/M_AXIS_DATA",
+          "axis_combiner_0/S00_AXIS"
         ]
       },
       "ch1_output_dac_mem_split_M01_AXIS": {
@@ -3481,12 +3487,6 @@
           "AXI4_multi_adder_0/S_AXIS_ADC"
         ]
       },
-      "AXI4_multi_adder_0_M_AXIS": {
-        "interface_ports": [
-          "AXI4_multi_adder_0/M_AXIS",
-          "ch1_output_dac_mem_split/S_AXIS"
-        ]
-      },
       "axis_combiner_1_M_AXIS": {
         "interface_ports": [
           "output_combiner/M_AXIS",
@@ -3499,10 +3499,10 @@
           "output_combiner/S01_AXIS"
         ]
       },
-      "adc_0_M_AXIS": {
+      "AXI4_multi_adder_0_M_AXIS": {
         "interface_ports": [
-          "adc_0/M_AXIS",
-          "channel_split/S_AXIS"
+          "AXI4_multi_adder_0/M_AXIS",
+          "ch1_output_dac_mem_split/S_AXIS"
         ]
       },
       "ch1_mem_fb_split_M00_AXIS": {
@@ -3523,16 +3523,16 @@
           "cic_0/S_AXIS_CONFIG"
         ]
       },
-      "channel_split_M00_AXIS": {
-        "interface_ports": [
-          "channel_split/M00_AXIS",
-          "ch1_mem_fb_split/S_AXIS"
-        ]
-      },
       "b_const_16b_M_AXIS": {
         "interface_ports": [
           "b_const_16b/M_AXIS",
           "AXI4_multi_adder_0/S_AXIS_ADD"
+        ]
+      },
+      "channel_split_M00_AXIS": {
+        "interface_ports": [
+          "channel_split/M00_AXIS",
+          "ch1_mem_fb_split/S_AXIS"
         ]
       },
       "a_const_16Q16_M_AXIS": {
@@ -3808,8 +3808,8 @@
         "comment_1": "I/O\n",
         "comment_2": "Reg Breakout\n",
         "comment_3": "Processing/sig generation\n",
-        "comment_4": "Output Mux\n",
-        "comment_5": "Output Mux\n"
+        "comment_4": "Demux output and DAC\n\n",
+        "comment_5": "Save to RAM\n"
       }
     },
     "addressing": {

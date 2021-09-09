@@ -125,9 +125,10 @@ if { ${design_name} eq "" } {
 " [get_bd_designs $design_name]
   set_property USER_COMMENTS.comment_3 "Processing/sig generation
 " [get_bd_designs $design_name]
-  set_property USER_COMMENTS.comment_4 "Output Mux
+  set_property USER_COMMENTS.comment_4 "Demux output and DAC
+
 " [get_bd_designs $design_name]
-  set_property USER_COMMENTS.comment_5 "Output Mux
+  set_property USER_COMMENTS.comment_5 "Save to RAM
 " [get_bd_designs $design_name]
 
 common::send_gid_msg -ssname BD::TCL -id 2005 -severity "INFO" "Currently the variable <design_name> is equal to \"$design_name\"."

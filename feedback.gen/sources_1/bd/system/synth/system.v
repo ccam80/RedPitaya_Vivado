@@ -1,7 +1,7 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-//Date        : Fri Aug 13 13:50:04 2021
+//Date        : Thu Sep  9 12:22:48 2021
 //Host        : acoustics-VirtualBox running 64-bit Ubuntu 20.04.2 LTS
 //Command     : generate_target system.bd
 //Design      : system
@@ -579,11 +579,12 @@ Reg Breakout
 
 Processing/sig generation
 
-Output Mux
+Demux output and DAC
 
-Output Mux
+
+Save to RAM
  */
-(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=44,numReposBlks=40,numNonXlnxBlks=19,numHierBlks=4,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=2,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"=13,\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"=10,synth_mode=Global}" *) (* HW_HANDOFF = "system.hwdef" *) 
+(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=44,numReposBlks=40,numNonXlnxBlks=19,numHierBlks=4,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=2,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"=13,\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"=10,synth_mode=Global}" *) (* HW_HANDOFF = "system.hwdef" *) 
 module system
    (DDR_addr,
     DDR_ba,

@@ -71,7 +71,7 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 1
-set_param synth.incrementalSynthesisCache ./.Xil/Vivado-16482-acoustics-VirtualBox/incrSyn
+set_param synth.incrementalSynthesisCache ./.Xil/Vivado-1735-acoustics-VirtualBox/incrSyn
 set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL-1065} -limit 10000
 set_msg_config -id {Synth 8-256} -limit 10000
@@ -96,8 +96,8 @@ set_property verilog_define TOOL_VIVADO [current_fileset]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
-  /home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/imports/adc_test/AXI4_Multiplier.v
   /home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/new/output_binary_converter.v
+  /home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/imports/adc_test/AXI4_Multiplier.v
   /home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/imports/system_wrapper.v
 }
 add_files /home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/bd/system/system.bd

@@ -57,7 +57,7 @@
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_AXI4_multi_adder_0_1 (
   aclk,
-  select,
+  sel,
   S_AXIS_MULT_tdata,
   S_AXIS_MULT_tvalid,
   S_AXIS_ADD_tdata,
@@ -71,7 +71,7 @@ module system_AXI4_multi_adder_0_1 (
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF M_AXIS:S_AXIS_ADC:S_AXIS_ADD:S_AXIS_MULT, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *)
 input wire aclk;
-input wire [1 : 0] select;
+input wire [1 : 0] sel;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_MULT TDATA" *)
 input wire [31 : 0] S_AXIS_MULT_tdata;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXIS_MULT, FREQ_HZ 125000000, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *)
@@ -102,7 +102,7 @@ output wire M_AXIS_tvalid;
     .SELECT_WIDTH(2)
   ) inst (
     .aclk(aclk),
-    .select(select),
+    .sel(sel),
     .S_AXIS_MULT_tdata(S_AXIS_MULT_tdata),
     .S_AXIS_MULT_tvalid(S_AXIS_MULT_tvalid),
     .S_AXIS_ADD_tdata(S_AXIS_ADD_tdata),

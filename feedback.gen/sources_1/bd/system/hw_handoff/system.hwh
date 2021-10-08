@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Sep  9 12:22:50 2021" VIVADOVERSION="2020.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Oct  8 14:01:37 2021" VIVADOVERSION="2020.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z010" NAME="system" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -248,7 +248,7 @@
             <CONNECTION INSTANCE="pll_0" PORT="clk_out1"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="select" RIGHT="0" SIGIS="undef" SIGNAME="const_1_dout">
+        <PORT DIR="I" LEFT="1" NAME="sel" RIGHT="0" SIGIS="undef" SIGNAME="const_1_dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="const_1" PORT="dout"/>
           </CONNECTIONS>
@@ -1378,7 +1378,7 @@
         <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
         <PARAMETER NAME="HAS_ACLKEN" VALUE="0"/>
         <PARAMETER NAME="M00_TDATA_REMAP" VALUE="tdata[15:0]"/>
-        <PARAMETER NAME="M01_TDATA_REMAP" VALUE="tdata[15:0]"/>
+        <PARAMETER NAME="M01_TDATA_REMAP" VALUE="tdata[31:16]"/>
         <PARAMETER NAME="M02_TDATA_REMAP" VALUE="TDATA[7:0]"/>
         <PARAMETER NAME="M03_TDATA_REMAP" VALUE="TDATA[7:0]"/>
         <PARAMETER NAME="M04_TDATA_REMAP" VALUE="TDATA[7:0]"/>
@@ -1899,7 +1899,7 @@
       <PORTS>
         <PORT DIR="O" LEFT="1" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="const_1_dout">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="AXI4_multi_adder_0" PORT="select"/>
+            <CONNECTION INSTANCE="AXI4_multi_adder_0" PORT="sel"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

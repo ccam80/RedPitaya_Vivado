@@ -128,7 +128,7 @@ set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
   set_param chipscope.maxJobs 1
-  set_param synth.incrementalSynthesisCache ./.Xil/Vivado-16482-acoustics-VirtualBox/incrSyn
+  set_param synth.incrementalSynthesisCache ./.Xil/Vivado-1735-acoustics-VirtualBox/incrSyn
   open_checkpoint system_wrapper_routed.dcp
   set_property webtalk.parent_dir /home/acoustics/Documents/RP/RP_feedback/feedback.cache/wt [current_project]
 set_property TOP system_wrapper [current_fileset]

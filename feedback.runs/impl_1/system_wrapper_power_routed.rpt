@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date             : Fri Aug 13 13:57:29 2021
+| Date             : Fri Oct  8 14:25:37 2021
 | Host             : acoustics-VirtualBox running 64-bit Ubuntu 20.04.2 LTS
 | Command          : report_power -file system_wrapper_power_routed.rpt -pb system_wrapper_power_summary_routed.pb -rpx system_wrapper_power_routed.rpx
 | Design           : system_wrapper
@@ -52,15 +52,15 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
-| Clocks                  |     0.021 |        8 |       --- |             --- |
-| Slice Logic             |     0.025 |     8287 |       --- |             --- |
-|   LUT as Logic          |     0.020 |     2489 |     17600 |           14.14 |
-|   Register              |     0.003 |     3853 |     35200 |           10.95 |
-|   CARRY4                |     0.002 |      270 |      4400 |            6.14 |
+| Clocks                  |     0.022 |        8 |       --- |             --- |
+| Slice Logic             |     0.025 |     8454 |       --- |             --- |
+|   LUT as Logic          |     0.020 |     2614 |     17600 |           14.85 |
+|   Register              |     0.003 |     3869 |     35200 |           10.99 |
+|   CARRY4                |     0.002 |      294 |      4400 |            6.68 |
 |   LUT as Shift Register |    <0.001 |      120 |      6000 |            2.00 |
 |   F7/F8 Muxes           |    <0.001 |       18 |     17600 |            0.10 |
 |   Others                |     0.000 |      596 |       --- |             --- |
-| Signals                 |     0.026 |     5735 |       --- |             --- |
+| Signals                 |     0.025 |     5884 |       --- |             --- |
 | Block RAM               |     0.007 |      2.5 |        60 |            4.17 |
 | PLL                     |     0.105 |        1 |         2 |           50.00 |
 | DSPs                    |     0.009 |        8 |        80 |           10.00 |
@@ -159,18 +159,18 @@ Table of Contents
 +------------------------+-----------+
 | system_wrapper         |     1.754 |
 |   system_i             |     1.472 |
-|     AXI4_multi_adder_0 |     0.005 |
-|       inst             |     0.005 |
+|     AXI4_multi_adder_0 |     0.006 |
+|       inst             |     0.006 |
 |     cfg_0              |     0.002 |
 |       inst             |     0.002 |
 |     cic_0              |     0.026 |
 |       U0               |     0.026 |
-|     cic_1              |     0.025 |
-|       U0               |     0.025 |
-|     dac_0              |     0.004 |
-|       inst             |     0.004 |
-|     dds_0              |     0.016 |
-|       U0               |     0.016 |
+|     cic_1              |     0.024 |
+|       U0               |     0.024 |
+|     dac_0              |     0.005 |
+|       inst             |     0.005 |
+|     dds_0              |     0.015 |
+|       U0               |     0.015 |
 |     mult_0             |     0.002 |
 |       U0               |     0.002 |
 |     pll_0              |     0.106 |

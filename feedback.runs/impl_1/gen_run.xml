@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1628819416">
+<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1633655713">
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="BITSTR-SYSDEF" Name="system_wrapper.sysdef"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
@@ -77,19 +77,19 @@
   <File Type="PA-TCL" Name="system_wrapper.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/imports/adc_test/AXI4_Multiplier.v">
+    <File Path="$PSRCDIR/sources_1/new/output_binary_converter.v">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../Pavel_Demin/projects/adc_test/AXI4_Multiplier.v"/>
-        <Attr Name="ImportTime" Val="1628743372"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../Pavel_Demin/tmp/adc_test.srcs/sources_1/new/output_binary_converter.v"/>
+        <Attr Name="ImportTime" Val="1628743250"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/output_binary_converter.v">
+    <File Path="$PSRCDIR/sources_1/imports/adc_test/AXI4_Multiplier.v">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../Pavel_Demin/tmp/adc_test.srcs/sources_1/new/output_binary_converter.v"/>
-        <Attr Name="ImportTime" Val="1628743250"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../Pavel_Demin/projects/adc_test/AXI4_Multiplier.v"/>
+        <Attr Name="ImportTime" Val="1628743372"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -168,9 +168,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Performance_NetDelay_high" Flow="Vivado Implementation 2020">
-      <Desc>To compensate for optimistic delay estimation, add extra delay cost to long distance and high fanout connections. (high setting, most pessimistic)</Desc>
-    </StratHandle>
+    <StratHandle Name="Performance_NetDelay_high" Flow="Vivado Implementation 2020"/>
     <Step Id="init_design"/>
     <Step Id="opt_design"/>
     <Step Id="power_opt_design"/>

@@ -116,9 +116,6 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axis
 # IP: bd/system/ip/system_axis_combiner_0_1/system_axis_combiner_0_1.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axis_combiner_0_1 || ORIG_REF_NAME==system_axis_combiner_0_1} -quiet] -quiet
 
-# IP: bd/system/ip/system_AXI4_multi_adder_0_1/system_AXI4_multi_adder_0_1.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_AXI4_multi_adder_0_1 || ORIG_REF_NAME==system_AXI4_multi_adder_0_1} -quiet] -quiet
-
 # IP: bd/system/ip/system_phase_0_2/system_phase_0_2.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_phase_0_2 || ORIG_REF_NAME==system_phase_0_2} -quiet] -quiet
 
@@ -127,6 +124,9 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_outp
 
 # IP: bd/system/ip/system_const_0_1/system_const_0_1.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_const_0_1 || ORIG_REF_NAME==system_const_0_1} -quiet] -quiet
+
+# IP: bd/system/ip/system_AXI4_multi_adder_0_1/system_AXI4_multi_adder_0_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_AXI4_multi_adder_0_1 || ORIG_REF_NAME==system_AXI4_multi_adder_0_1} -quiet] -quiet
 
 # IP: bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_0 || ORIG_REF_NAME==system_auto_pc_0} -quiet] -quiet

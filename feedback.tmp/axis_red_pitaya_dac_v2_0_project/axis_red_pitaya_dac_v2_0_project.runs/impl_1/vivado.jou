@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Thu Oct  7 11:42:21 2021
+# Process ID: 35384
+# Current directory: /home/acoustics/Documents/RP/RP_feedback/feedback.tmp/axis_red_pitaya_dac_v2_0_project/axis_red_pitaya_dac_v2_0_project.runs/impl_1
+# Command line: vivado -log axis_red_pitaya_dac.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source axis_red_pitaya_dac.tcl -notrace
+# Log file: /home/acoustics/Documents/RP/RP_feedback/feedback.tmp/axis_red_pitaya_dac_v2_0_project/axis_red_pitaya_dac_v2_0_project.runs/impl_1/axis_red_pitaya_dac.vdi
+# Journal file: /home/acoustics/Documents/RP/RP_feedback/feedback.tmp/axis_red_pitaya_dac_v2_0_project/axis_red_pitaya_dac_v2_0_project.runs/impl_1/vivado.jou
+#-----------------------------------------------------------
+source axis_red_pitaya_dac.tcl -notrace

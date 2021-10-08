@@ -290,7 +290,7 @@ proc create_root_design { parentCell } {
   set channel_split [ create_bd_cell -type ip -vlnv xilinx.com:ip:axis_broadcaster:1.1 channel_split ]
   set_property -dict [ list \
    CONFIG.M00_TDATA_REMAP {tdata[15:0]} \
-   CONFIG.M01_TDATA_REMAP {tdata[15:0]} \
+   CONFIG.M01_TDATA_REMAP {tdata[31:16]} \
    CONFIG.M_TDATA_NUM_BYTES {2} \
    CONFIG.S_TDATA_NUM_BYTES {4} \
  ] $channel_split
@@ -1276,7 +1276,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net cfg_0_cfg_data [get_bd_pins cfg_0/cfg_data] [get_bd_pins slice_0/din] [get_bd_pins slice_1/din] [get_bd_pins slice_2/din] [get_bd_pins slice_3/din] [get_bd_pins slice_4/din] [get_bd_pins slice_5/din] [get_bd_pins slice_6/din] [get_bd_pins slice_7/din]
   connect_bd_net -net concat_1_dout [get_bd_pins status_concat_1/dout] [get_bd_pins sts_0/sts_data]
   connect_bd_net -net const_0_dout [get_bd_pins const_0/dout] [get_bd_pins rst_0/ext_reset_in] [get_bd_pins status_concat_1/In0]
-  connect_bd_net -net const_1_dout [get_bd_pins AXI4_multi_adder_0/select] [get_bd_pins const_1/dout]
+  connect_bd_net -net const_1_dout [get_bd_pins AXI4_multi_adder_0/sel] [get_bd_pins const_1/dout]
   connect_bd_net -net dac_0_dac_clk [get_bd_ports dac_clk_o] [get_bd_pins dac_0/dac_clk]
   connect_bd_net -net dac_0_dac_dat [get_bd_ports dac_dat_o] [get_bd_pins dac_0/dac_dat]
   connect_bd_net -net dac_0_dac_rst [get_bd_ports dac_rst_o] [get_bd_pins dac_0/dac_rst]

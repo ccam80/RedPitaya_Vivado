@@ -260,7 +260,7 @@
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.HAS_TSTRB">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.M00_TDATA_REMAP">tdata[15:0]</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.M00_TUSER_REMAP">1&apos;b0</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.M01_TDATA_REMAP">tdata[15:0]</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.M01_TDATA_REMAP">tdata[31:16]</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.M01_TUSER_REMAP">1&apos;b0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.M02_TDATA_REMAP">TDATA[7:0]</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.M02_TUSER_REMAP">1&apos;b0</spirit:configurableElementValue>

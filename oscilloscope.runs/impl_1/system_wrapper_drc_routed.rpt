@@ -1,0 +1,56 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
+| Date         : Fri Oct  8 14:44:05 2021
+| Host         : acoustics-VirtualBox running 64-bit Ubuntu 20.04.2 LTS
+| Command      : report_drc -file system_wrapper_drc_routed.rpt -pb system_wrapper_drc_routed.pb -rpx system_wrapper_drc_routed.rpx
+| Design       : system_wrapper
+| Device       : xc7z010clg400-1
+| Speed File   : -1
+| Design State : Fully Routed
+------------------------------------------------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max violations: <unlimited>
+             Violations found: 4
++--------+----------+-------------------------------------------------------------------+------------+
+| Rule   | Severity | Description                                                       | Violations |
++--------+----------+-------------------------------------------------------------------+------------+
+| AVAL-4 | Advisory | enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND | 4          |
++--------+----------+-------------------------------------------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+AVAL-4#1 Advisory
+enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
+system_i/dds_0/U0/i_synth/i_dds/I_SINCOS.i_comp_eff.i_eff/MULT_PI_U/i_synth_option.i_synth_model/opt_vx7.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+Related violations: <none>
+
+AVAL-4#2 Advisory
+enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
+system_i/dds_0/U0/i_synth/i_dds/I_SINCOS.i_comp_eff.i_eff/S1_COS_U/i_synth_option.i_synth_model/opt_vx7.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+Related violations: <none>
+
+AVAL-4#3 Advisory
+enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
+system_i/dds_0/U0/i_synth/i_dds/I_SINCOS.i_comp_eff.i_eff/SECOND_ORDER_APPROXIMATION.S2_COS_U/i_synth_option.i_synth_model/opt_vx7.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+Related violations: <none>
+
+AVAL-4#4 Advisory
+enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
+system_i/mult_0/U0/i_synth/i_synth_option.i_synth_model/opt_7series.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+Related violations: <none>
+
+

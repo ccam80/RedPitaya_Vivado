@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/acoustics/oscilloscope.runs/synth_1'
+HD_PWD='/home/acoustics/Documents/RP/RP_feedback/oscilloscope.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

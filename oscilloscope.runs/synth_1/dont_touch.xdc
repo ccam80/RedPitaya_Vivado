@@ -71,9 +71,6 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_mult
 # IP: bd/system/ip/system_slice_5_0/system_slice_5_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_slice_5_0 || ORIG_REF_NAME==system_slice_5_0} -quiet] -quiet
 
-# IP: bd/system/ip/system_slice_7_0/system_slice_7_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_slice_7_0 || ORIG_REF_NAME==system_slice_7_0} -quiet] -quiet
-
 # IP: bd/system/ip/system_phase_1_0/system_phase_1_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_phase_1_0 || ORIG_REF_NAME==system_phase_1_0} -quiet] -quiet
 
@@ -92,9 +89,6 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_xbar
 # IP: bd/system/ip/system_ps_0_axi_periph_0/system_ps_0_axi_periph_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_ps_0_axi_periph_0 || ORIG_REF_NAME==system_ps_0_axi_periph_0} -quiet] -quiet
 
-# IP: bd/system/ip/system_phase_0_1/system_phase_0_1.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_phase_0_1 || ORIG_REF_NAME==system_phase_0_1} -quiet] -quiet
-
 # IP: bd/system/ip/system_phase_0_2/system_phase_0_2.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_phase_0_2 || ORIG_REF_NAME==system_phase_0_2} -quiet] -quiet
 
@@ -104,25 +98,25 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_conv
 # IP: bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_0 || ORIG_REF_NAME==system_auto_pc_0} -quiet] -quiet
 
-# XDC: /home/acoustics/oscilloscope.gen/sources_1/bd/system/ip/system_pll_0_0/system_pll_0_0_board.xdc
+# XDC: /home/acoustics/Documents/RP/RP_feedback/oscilloscope.gen/sources_1/bd/system/ip/system_pll_0_0/system_pll_0_0_board.xdc
 set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==system_pll_0_0 || ORIG_REF_NAME==system_pll_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
 
-# XDC: /home/acoustics/oscilloscope.gen/sources_1/bd/system/ip/system_pll_0_0/system_pll_0_0.xdc
+# XDC: /home/acoustics/Documents/RP/RP_feedback/oscilloscope.gen/sources_1/bd/system/ip/system_pll_0_0/system_pll_0_0.xdc
 #dup# set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==system_pll_0_0 || ORIG_REF_NAME==system_pll_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
 
-# XDC: /home/acoustics/oscilloscope.gen/sources_1/bd/system/ip/system_pll_0_0/system_pll_0_0_ooc.xdc
+# XDC: /home/acoustics/Documents/RP/RP_feedback/oscilloscope.gen/sources_1/bd/system/ip/system_pll_0_0/system_pll_0_0_ooc.xdc
 
-# XDC: /home/acoustics/oscilloscope.gen/sources_1/bd/system/ip/system_ps_0_0/system_ps_0_0.xdc
+# XDC: /home/acoustics/Documents/RP/RP_feedback/oscilloscope.gen/sources_1/bd/system/ip/system_ps_0_0/system_ps_0_0.xdc
 set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==system_ps_0_0 || ORIG_REF_NAME==system_ps_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
 
-# XDC: /home/acoustics/oscilloscope.gen/sources_1/bd/system/ip/system_rst_0_0/system_rst_0_0_board.xdc
+# XDC: /home/acoustics/Documents/RP/RP_feedback/oscilloscope.gen/sources_1/bd/system/ip/system_rst_0_0/system_rst_0_0_board.xdc
 set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==system_rst_0_0 || ORIG_REF_NAME==system_rst_0_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
 
-# XDC: /home/acoustics/oscilloscope.gen/sources_1/bd/system/ip/system_rst_0_0/system_rst_0_0.xdc
+# XDC: /home/acoustics/Documents/RP/RP_feedback/oscilloscope.gen/sources_1/bd/system/ip/system_rst_0_0/system_rst_0_0.xdc
 #dup# set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==system_rst_0_0 || ORIG_REF_NAME==system_rst_0_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
 
-# XDC: /home/acoustics/oscilloscope.gen/sources_1/bd/system/ip/system_xbar_0/system_xbar_0_ooc.xdc
+# XDC: /home/acoustics/Documents/RP/RP_feedback/oscilloscope.gen/sources_1/bd/system/ip/system_xbar_0/system_xbar_0_ooc.xdc
 
-# XDC: /home/acoustics/oscilloscope.gen/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc
+# XDC: /home/acoustics/Documents/RP/RP_feedback/oscilloscope.gen/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc
 
-# XDC: /home/acoustics/oscilloscope.gen/sources_1/bd/system/system_ooc.xdc
+# XDC: /home/acoustics/Documents/RP/RP_feedback/oscilloscope.gen/sources_1/bd/system/system_ooc.xdc

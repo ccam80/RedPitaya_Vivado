@@ -1,6 +1,6 @@
-set_property SRC_FILE_INFO {cfile:/home/acoustics/oscilloscope.gen/sources_1/bd/system/ip/system_pll_0_0/system_pll_0_0.xdc rfile:../../../oscilloscope.gen/sources_1/bd/system/ip/system_pll_0_0/system_pll_0_0.xdc id:1 order:EARLY scoped_inst:system_i/pll_0/inst} [current_design]
-set_property SRC_FILE_INFO {cfile:/home/acoustics/oscilloscope.gen/sources_1/bd/system/ip/system_ps_0_0/system_ps_0_0.xdc rfile:../../../oscilloscope.gen/sources_1/bd/system/ip/system_ps_0_0/system_ps_0_0.xdc id:2 order:EARLY scoped_inst:system_i/ps_0/inst} [current_design]
-set_property SRC_FILE_INFO {cfile:/home/acoustics/oscilloscope.srcs/constrs_1/imports/cfg/ports.xdc rfile:../../../oscilloscope.srcs/constrs_1/imports/cfg/ports.xdc id:3} [current_design]
+set_property SRC_FILE_INFO {cfile:/home/acoustics/Documents/RP/RP_feedback/oscilloscope.gen/sources_1/bd/system/ip/system_pll_0_0/system_pll_0_0.xdc rfile:../../../oscilloscope.gen/sources_1/bd/system/ip/system_pll_0_0/system_pll_0_0.xdc id:1 order:EARLY scoped_inst:system_i/pll_0/inst} [current_design]
+set_property SRC_FILE_INFO {cfile:/home/acoustics/Documents/RP/RP_feedback/oscilloscope.gen/sources_1/bd/system/ip/system_ps_0_0/system_ps_0_0.xdc rfile:../../../oscilloscope.gen/sources_1/bd/system/ip/system_ps_0_0/system_ps_0_0.xdc id:2 order:EARLY scoped_inst:system_i/ps_0/inst} [current_design]
+set_property SRC_FILE_INFO {cfile:/home/acoustics/Documents/RP/RP_feedback/oscilloscope.srcs/constrs_1/imports/cfg/ports.xdc rfile:../../../oscilloscope.srcs/constrs_1/imports/cfg/ports.xdc id:3} [current_design]
 current_instance system_i/pll_0/inst
 set_property src_info {type:SCOPED_XDC file:1 line:57 export:INPUT save:INPUT read:READ} [current_design]
 set_input_jitter [get_clocks -of_objects [get_ports clk_in1_p]] 0.08

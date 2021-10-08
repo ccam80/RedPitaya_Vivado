@@ -215,12 +215,6 @@ proc create_root_design { parentCell } {
    CONFIG.ADC_DATA_WIDTH {14} \
  ] $adc_0
 
-  # Create instance: b_const_16b, and set properties
-  set b_const_16b [ create_bd_cell -type ip -vlnv pavel-demin:user:axis_constant:1.0 b_const_16b ]
-  set_property -dict [ list \
-   CONFIG.AXIS_TDATA_WIDTH {16} \
- ] $b_const_16b
-
   # Create instance: cfg_0, and set properties
   set cfg_0 [ create_bd_cell -type ip -vlnv pavel-demin:user:axi_cfg_register:1.0 cfg_0 ]
   set_property -dict [ list \
@@ -236,12 +230,12 @@ proc create_root_design { parentCell } {
    CONFIG.Filter_Type {Decimation} \
    CONFIG.Fixed_Or_Initial_Rate {4} \
    CONFIG.HAS_ARESETN {true} \
-   CONFIG.Input_Data_Width {16} \
+   CONFIG.Input_Data_Width {32} \
    CONFIG.Input_Sample_Frequency {125} \
    CONFIG.Maximum_Rate {6250} \
    CONFIG.Minimum_Rate {4} \
    CONFIG.Number_Of_Stages {6} \
-   CONFIG.Output_Data_Width {16} \
+   CONFIG.Output_Data_Width {32} \
    CONFIG.Quantization {Truncation} \
    CONFIG.Sample_Rate_Changes {Programmable} \
    CONFIG.Use_Xtreme_DSP_Slice {false} \
@@ -1106,14 +1100,6 @@ proc create_root_design { parentCell } {
    CONFIG.DIN_WIDTH {160} \
  ] $slice_6
 
-  # Create instance: slice_7, and set properties
-  set slice_7 [ create_bd_cell -type ip -vlnv pavel-demin:user:port_slicer:1.0 slice_7 ]
-  set_property -dict [ list \
-   CONFIG.DIN_FROM {159} \
-   CONFIG.DIN_TO {144} \
-   CONFIG.DIN_WIDTH {160} \
- ] $slice_7
-
   # Create instance: status_concat_1, and set properties
   set status_concat_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconcat:2.1 status_concat_1 ]
   set_property -dict [ list \
@@ -1159,7 +1145,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net adc_clk_p_i_1 [get_bd_ports adc_clk_p_i] [get_bd_pins pll_0/clk_in1_p]
   connect_bd_net -net adc_dat_a_i_1 [get_bd_ports adc_dat_a_i] [get_bd_pins adc_0/adc_dat_a]
   connect_bd_net -net adc_dat_b_i_1 [get_bd_ports adc_dat_b_i] [get_bd_pins adc_0/adc_dat_b]
-  connect_bd_net -net cfg_0_cfg_data [get_bd_pins cfg_0/cfg_data] [get_bd_pins slice_0/din] [get_bd_pins slice_1/din] [get_bd_pins slice_2/din] [get_bd_pins slice_3/din] [get_bd_pins slice_4/din] [get_bd_pins slice_5/din] [get_bd_pins slice_6/din] [get_bd_pins slice_7/din]
+  connect_bd_net -net cfg_0_cfg_data [get_bd_pins cfg_0/cfg_data] [get_bd_pins slice_0/din] [get_bd_pins slice_1/din] [get_bd_pins slice_2/din] [get_bd_pins slice_3/din] [get_bd_pins slice_4/din] [get_bd_pins slice_5/din] [get_bd_pins slice_6/din]
   connect_bd_net -net concat_1_dout [get_bd_pins status_concat_1/dout] [get_bd_pins sts_0/sts_data]
   connect_bd_net -net const_0_dout [get_bd_pins const_0/dout] [get_bd_pins rst_0/ext_reset_in] [get_bd_pins status_concat_1/In0]
   connect_bd_net -net dac_0_dac_clk [get_bd_ports dac_clk_o] [get_bd_pins dac_0/dac_clk]
@@ -1170,7 +1156,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net dds_0_m_axis_data_tdata [get_bd_pins dds_0/m_axis_data_tdata] [get_bd_pins mult_0/A]
   connect_bd_net -net dna_0_dna_data [get_bd_pins dna_0/dna_data] [get_bd_pins status_concat_1/In1]
   connect_bd_net -net mult_0_P [get_bd_pins dds_stream/cfg_data] [get_bd_pins mult_0/P]
-  connect_bd_net -net pll_0_clk_out1 [get_bd_pins a_const_16Q16/aclk] [get_bd_pins adc_0/aclk] [get_bd_pins b_const_16b/aclk] [get_bd_pins cfg_0/aclk] [get_bd_pins cic_0/aclk] [get_bd_pins conv_0/aclk] [get_bd_pins conv_1/aclk] [get_bd_pins dac_0/aclk] [get_bd_pins dds_0/aclk] [get_bd_pins dds_stream/aclk] [get_bd_pins dna_0/aclk] [get_bd_pins mult_0/CLK] [get_bd_pins phase_0/aclk] [get_bd_pins pll_0/clk_out1] [get_bd_pins ps_0/M_AXI_GP0_ACLK] [get_bd_pins ps_0/S_AXI_ACP_ACLK] [get_bd_pins ps_0_axi_periph/ACLK] [get_bd_pins ps_0_axi_periph/M00_ACLK] [get_bd_pins ps_0_axi_periph/M01_ACLK] [get_bd_pins ps_0_axi_periph/S00_ACLK] [get_bd_pins rate_0/aclk] [get_bd_pins rst_0/slowest_sync_clk] [get_bd_pins sts_0/aclk] [get_bd_pins writer_0/aclk]
+  connect_bd_net -net pll_0_clk_out1 [get_bd_pins a_const_16Q16/aclk] [get_bd_pins adc_0/aclk] [get_bd_pins cfg_0/aclk] [get_bd_pins cic_0/aclk] [get_bd_pins conv_0/aclk] [get_bd_pins conv_1/aclk] [get_bd_pins dac_0/aclk] [get_bd_pins dds_0/aclk] [get_bd_pins dds_stream/aclk] [get_bd_pins dna_0/aclk] [get_bd_pins mult_0/CLK] [get_bd_pins phase_0/aclk] [get_bd_pins pll_0/clk_out1] [get_bd_pins ps_0/M_AXI_GP0_ACLK] [get_bd_pins ps_0/S_AXI_ACP_ACLK] [get_bd_pins ps_0_axi_periph/ACLK] [get_bd_pins ps_0_axi_periph/M00_ACLK] [get_bd_pins ps_0_axi_periph/M01_ACLK] [get_bd_pins ps_0_axi_periph/S00_ACLK] [get_bd_pins rate_0/aclk] [get_bd_pins rst_0/slowest_sync_clk] [get_bd_pins sts_0/aclk] [get_bd_pins writer_0/aclk]
   connect_bd_net -net pll_0_clk_out2 [get_bd_pins dac_0/ddr_clk] [get_bd_pins pll_0/clk_out2]
   connect_bd_net -net pll_0_clk_out3 [get_bd_pins dac_0/wrt_clk] [get_bd_pins pll_0/clk_out3]
   connect_bd_net -net pll_0_locked [get_bd_pins dac_0/locked] [get_bd_pins pll_0/locked] [get_bd_pins rst_0/dcm_locked]
@@ -1182,7 +1168,6 @@ proc create_root_design { parentCell } {
   connect_bd_net -net slice_4_dout [get_bd_pins phase_0/cfg_data] [get_bd_pins slice_4/dout]
   connect_bd_net -net slice_5_dout [get_bd_pins a_const_16Q16/cfg_data] [get_bd_pins slice_5/dout]
   connect_bd_net -net slice_6_dout [get_bd_pins mult_0/B] [get_bd_pins slice_6/dout]
-  connect_bd_net -net slice_7_dout [get_bd_pins b_const_16b/cfg_data] [get_bd_pins slice_7/dout]
   connect_bd_net -net writer_0_sts_data [get_bd_pins status_concat_1/In2] [get_bd_pins writer_0/sts_data]
 
   # Create address segments

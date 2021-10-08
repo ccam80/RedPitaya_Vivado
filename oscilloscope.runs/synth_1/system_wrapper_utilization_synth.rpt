@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date         : Fri Oct  8 14:41:50 2021
+| Date         : Fri Oct  8 15:22:58 2021
 | Host         : acoustics-VirtualBox running 64-bit Ubuntu 20.04.2 LTS
 | Command      : report_utilization -file system_wrapper_utilization_synth.rpt -pb system_wrapper_utilization_synth.pb
 | Design       : system_wrapper
@@ -30,13 +30,13 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                | 2278 |     0 |     17600 | 12.94 |
-|   LUT as Logic             | 2164 |     0 |     17600 | 12.30 |
-|   LUT as Memory            |  114 |     0 |      6000 |  1.90 |
+| Slice LUTs*                | 2746 |     0 |     17600 | 15.60 |
+|   LUT as Logic             | 2584 |     0 |     17600 | 14.68 |
+|   LUT as Memory            |  162 |     0 |      6000 |  2.70 |
 |     LUT as Distributed RAM |    0 |     0 |           |       |
-|     LUT as Shift Register  |  114 |     0 |           |       |
-| Slice Registers            | 2910 |     0 |     35200 |  8.27 |
-|   Register as Flip Flop    | 2910 |     0 |     35200 |  8.27 |
+|     LUT as Shift Register  |  162 |     0 |           |       |
+| Slice Registers            | 3420 |     0 |     35200 |  9.72 |
+|   Register as Flip Flop    | 3420 |     0 |     35200 |  9.72 |
 |   Register as Latch        |    0 |     0 |     35200 |  0.00 |
 | F7 Muxes                   |    7 |     0 |      8800 |  0.08 |
 | F8 Muxes                   |    2 |     0 |      4400 |  0.05 |
@@ -59,7 +59,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 33    |          Yes |         Set |            - |
-| 2877  |          Yes |       Reset |            - |
+| 3387  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -96,7 +96,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+--------+
 |          Site Type          | Used | Fixed | Available |  Util% |
 +-----------------------------+------+-------+-----------+--------+
-| Bonded IOB                  |   65 |     0 |       100 |  65.00 |
+| Bonded IOB                  |   79 |     0 |       100 |  79.00 |
 | Bonded IPADs                |    0 |     0 |         2 |   0.00 |
 | Bonded IOPADs               |  130 |     0 |       130 | 100.00 |
 | PHY_CONTROL                 |    0 |     0 |         2 |   0.00 |
@@ -153,19 +153,19 @@ Table of Contents
 +-----------+------+----------------------+
 |  Ref Name | Used |  Functional Category |
 +-----------+------+----------------------+
-| FDRE      | 2877 |         Flop & Latch |
-| LUT6      |  841 |                  LUT |
-| LUT2      |  464 |                  LUT |
-| LUT3      |  342 |                  LUT |
-| LUT5      |  265 |                  LUT |
-| LUT4      |  175 |                  LUT |
-| CARRY4    |  148 |           CarryLogic |
+| FDRE      | 3387 |         Flop & Latch |
+| LUT6      | 1008 |                  LUT |
+| LUT2      |  560 |                  LUT |
+| LUT3      |  374 |                  LUT |
+| LUT4      |  347 |                  LUT |
+| CARRY4    |  180 |           CarryLogic |
+| LUT5      |  167 |                  LUT |
+| LUT1      |  137 |                  LUT |
 | BIBUF     |  130 |                   IO |
-| LUT1      |  124 |                  LUT |
-| SRL16E    |   67 |   Distributed Memory |
+| SRL16E    |  115 |   Distributed Memory |
 | SRLC32E   |   47 |   Distributed Memory |
+| IBUF      |   44 |                   IO |
 | FDSE      |   33 |         Flop & Latch |
-| IBUF      |   30 |                   IO |
 | OBUF      |   19 |                   IO |
 | ODDR      |   18 |                   IO |
 | OBUFT     |   14 |                   IO |

@@ -32,7 +32,6 @@
       "dds_0": "",
       "mult_0": "",
       "slice_5": "",
-      "slice_7": "",
       "a_const_16Q16": "",
       "dna_0": "",
       "status_concat_1": "",
@@ -45,7 +44,6 @@
         "m00_couplers": {},
         "m01_couplers": {}
       },
-      "b_const_16b": "",
       "dds_stream": "",
       "conv_1": ""
     },
@@ -2042,7 +2040,7 @@
             "value": "true"
           },
           "Input_Data_Width": {
-            "value": "16"
+            "value": "32"
           },
           "Input_Sample_Frequency": {
             "value": "125"
@@ -2057,7 +2055,7 @@
             "value": "6"
           },
           "Output_Data_Width": {
-            "value": "16"
+            "value": "32"
           },
           "Quantization": {
             "value": "Truncation"
@@ -2279,23 +2277,6 @@
           },
           "DIN_TO": {
             "value": "96"
-          },
-          "DIN_WIDTH": {
-            "value": "160"
-          }
-        }
-      },
-      "slice_7": {
-        "vlnv": "pavel-demin:user:port_slicer:1.0",
-        "xci_name": "system_slice_7_0",
-        "xci_path": "ip/system_slice_7_0/system_slice_7_0.xci",
-        "inst_hier_path": "slice_7",
-        "parameters": {
-          "DIN_FROM": {
-            "value": "159"
-          },
-          "DIN_TO": {
-            "value": "144"
           },
           "DIN_WIDTH": {
             "value": "160"
@@ -2678,22 +2659,10 @@
           }
         },
         "interface_nets": {
-          "xbar_to_m01_couplers": {
-            "interface_ports": [
-              "xbar/M01_AXI",
-              "m01_couplers/S_AXI"
-            ]
-          },
           "s00_couplers_to_xbar": {
             "interface_ports": [
               "s00_couplers/M_AXI",
               "xbar/S00_AXI"
-            ]
-          },
-          "m00_couplers_to_ps_0_axi_periph": {
-            "interface_ports": [
-              "M00_AXI",
-              "m00_couplers/M_AXI"
             ]
           },
           "xbar_to_m00_couplers": {
@@ -2702,16 +2671,28 @@
               "m00_couplers/S_AXI"
             ]
           },
-          "m01_couplers_to_ps_0_axi_periph": {
-            "interface_ports": [
-              "M01_AXI",
-              "m01_couplers/M_AXI"
-            ]
-          },
           "ps_0_axi_periph_to_s00_couplers": {
             "interface_ports": [
               "S00_AXI",
               "s00_couplers/S_AXI"
+            ]
+          },
+          "m00_couplers_to_ps_0_axi_periph": {
+            "interface_ports": [
+              "M00_AXI",
+              "m00_couplers/M_AXI"
+            ]
+          },
+          "xbar_to_m01_couplers": {
+            "interface_ports": [
+              "xbar/M01_AXI",
+              "m01_couplers/S_AXI"
+            ]
+          },
+          "m01_couplers_to_ps_0_axi_periph": {
+            "interface_ports": [
+              "M01_AXI",
+              "m01_couplers/M_AXI"
             ]
           }
         },
@@ -2742,17 +2723,6 @@
           }
         }
       },
-      "b_const_16b": {
-        "vlnv": "pavel-demin:user:axis_constant:1.0",
-        "xci_name": "system_phase_0_1",
-        "xci_path": "ip/system_phase_0_1/system_phase_0_1.xci",
-        "inst_hier_path": "b_const_16b",
-        "parameters": {
-          "AXIS_TDATA_WIDTH": {
-            "value": "16"
-          }
-        }
-      },
       "dds_stream": {
         "vlnv": "pavel-demin:user:axis_constant:1.0",
         "xci_name": "system_phase_0_2",
@@ -2780,22 +2750,16 @@
       }
     },
     "interface_nets": {
-      "conv_1_M_AXIS": {
-        "interface_ports": [
-          "conv_1/M_AXIS",
-          "dac_0/S_AXIS"
-        ]
-      },
       "phase_0_M_AXIS": {
         "interface_ports": [
           "dds_0/S_AXIS_PHASE",
           "phase_0/M_AXIS"
         ]
       },
-      "writer_0_M_AXI": {
+      "conv_1_M_AXIS": {
         "interface_ports": [
-          "writer_0/M_AXI",
-          "ps_0/S_AXI_ACP"
+          "conv_1/M_AXIS",
+          "dac_0/S_AXIS"
         ]
       },
       "conv_0_M_AXIS": {
@@ -2820,6 +2784,12 @@
         "interface_ports": [
           "DDR",
           "ps_0/DDR"
+        ]
+      },
+      "writer_0_M_AXI": {
+        "interface_ports": [
+          "writer_0/M_AXI",
+          "ps_0/S_AXI_ACP"
         ]
       },
       "ps_0_axi_periph_M01_AXI": {
@@ -2948,8 +2918,7 @@
           "slice_3/din",
           "slice_4/din",
           "slice_6/din",
-          "slice_5/din",
-          "slice_7/din"
+          "slice_5/din"
         ]
       },
       "rst_0_peripheral_aresetn": {
@@ -3037,7 +3006,6 @@
           "a_const_16Q16/aclk",
           "cic_0/aclk",
           "conv_0/aclk",
-          "b_const_16b/aclk",
           "rate_0/aclk",
           "dna_0/aclk",
           "mult_0/CLK",
@@ -3072,12 +3040,6 @@
         "ports": [
           "slice_5/dout",
           "a_const_16Q16/cfg_data"
-        ]
-      },
-      "slice_7_dout": {
-        "ports": [
-          "slice_7/dout",
-          "b_const_16b/cfg_data"
         ]
       }
     },

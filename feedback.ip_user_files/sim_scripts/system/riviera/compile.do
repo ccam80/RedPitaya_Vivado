@@ -16,13 +16,8 @@ vlib riviera/cic_compiler_v4_0_15
 vlib riviera/axis_infrastructure_v1_1_0
 vlib riviera/axis_register_slice_v1_1_22
 vlib riviera/axis_dwidth_converter_v1_1_21
-vlib riviera/xbip_pipe_v3_0_6
-vlib riviera/xbip_bram18k_v3_0_6
-vlib riviera/mult_gen_v12_0_16
 vlib riviera/xbip_dsp48_wrapper_v3_0_4
-vlib riviera/xbip_dsp48_addsub_v3_0_6
-vlib riviera/xbip_dsp48_multadd_v3_0_6
-vlib riviera/dds_compiler_v6_0_20
+vlib riviera/xbip_pipe_v3_0_6
 vlib riviera/xbip_dsp48_macro_v3_0_18
 vlib riviera/xlconcat_v2_1_4
 vlib riviera/generic_baseblocks_v2_1_0
@@ -30,9 +25,14 @@ vlib riviera/axi_register_slice_v2_1_22
 vlib riviera/fifo_generator_v13_2_5
 vlib riviera/axi_data_fifo_v2_1_21
 vlib riviera/axi_crossbar_v2_1_23
+vlib riviera/axi_protocol_converter_v2_1_22
 vlib riviera/axis_broadcaster_v1_1_21
 vlib riviera/axis_combiner_v1_1_20
-vlib riviera/axi_protocol_converter_v2_1_22
+vlib riviera/xbip_bram18k_v3_0_6
+vlib riviera/mult_gen_v12_0_16
+vlib riviera/xbip_dsp48_addsub_v3_0_6
+vlib riviera/xbip_dsp48_multadd_v3_0_6
+vlib riviera/dds_compiler_v6_0_20
 
 vmap xilinx_vip riviera/xilinx_vip
 vmap xpm riviera/xpm
@@ -49,13 +49,8 @@ vmap cic_compiler_v4_0_15 riviera/cic_compiler_v4_0_15
 vmap axis_infrastructure_v1_1_0 riviera/axis_infrastructure_v1_1_0
 vmap axis_register_slice_v1_1_22 riviera/axis_register_slice_v1_1_22
 vmap axis_dwidth_converter_v1_1_21 riviera/axis_dwidth_converter_v1_1_21
-vmap xbip_pipe_v3_0_6 riviera/xbip_pipe_v3_0_6
-vmap xbip_bram18k_v3_0_6 riviera/xbip_bram18k_v3_0_6
-vmap mult_gen_v12_0_16 riviera/mult_gen_v12_0_16
 vmap xbip_dsp48_wrapper_v3_0_4 riviera/xbip_dsp48_wrapper_v3_0_4
-vmap xbip_dsp48_addsub_v3_0_6 riviera/xbip_dsp48_addsub_v3_0_6
-vmap xbip_dsp48_multadd_v3_0_6 riviera/xbip_dsp48_multadd_v3_0_6
-vmap dds_compiler_v6_0_20 riviera/dds_compiler_v6_0_20
+vmap xbip_pipe_v3_0_6 riviera/xbip_pipe_v3_0_6
 vmap xbip_dsp48_macro_v3_0_18 riviera/xbip_dsp48_macro_v3_0_18
 vmap xlconcat_v2_1_4 riviera/xlconcat_v2_1_4
 vmap generic_baseblocks_v2_1_0 riviera/generic_baseblocks_v2_1_0
@@ -63,9 +58,14 @@ vmap axi_register_slice_v2_1_22 riviera/axi_register_slice_v2_1_22
 vmap fifo_generator_v13_2_5 riviera/fifo_generator_v13_2_5
 vmap axi_data_fifo_v2_1_21 riviera/axi_data_fifo_v2_1_21
 vmap axi_crossbar_v2_1_23 riviera/axi_crossbar_v2_1_23
+vmap axi_protocol_converter_v2_1_22 riviera/axi_protocol_converter_v2_1_22
 vmap axis_broadcaster_v1_1_21 riviera/axis_broadcaster_v1_1_21
 vmap axis_combiner_v1_1_20 riviera/axis_combiner_v1_1_20
-vmap axi_protocol_converter_v2_1_22 riviera/axi_protocol_converter_v2_1_22
+vmap xbip_bram18k_v3_0_6 riviera/xbip_bram18k_v3_0_6
+vmap mult_gen_v12_0_16 riviera/mult_gen_v12_0_16
+vmap xbip_dsp48_addsub_v3_0_6 riviera/xbip_dsp48_addsub_v3_0_6
+vmap xbip_dsp48_multadd_v3_0_6 riviera/xbip_dsp48_multadd_v3_0_6
+vmap dds_compiler_v6_0_20 riviera/dds_compiler_v6_0_20
 
 vlog -work xilinx_vip  -sv2k12 "+incdir+/tools/Xilinx/Vivado/2020.2/data/xilinx_vip/include" \
 "/tools/Xilinx/Vivado/2020.2/data/xilinx_vip/hdl/axi4stream_vip_axi4streampc.sv" \
@@ -162,29 +162,11 @@ vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../feedback.gen/sources_1/bd/
 "../../../bd/system/ipshared/457f/src/axis_constant.v" \
 "../../../bd/system/ip/system_phase_0_0/sim/system_phase_0_0.v" \
 
-vcom -work xbip_pipe_v3_0_6 -93 \
-"../../../../feedback.gen/sources_1/bd/system/ipshared/7468/hdl/xbip_pipe_v3_0_vh_rfs.vhd" \
-
-vcom -work xbip_bram18k_v3_0_6 -93 \
-"../../../../feedback.gen/sources_1/bd/system/ipshared/d367/hdl/xbip_bram18k_v3_0_vh_rfs.vhd" \
-
-vcom -work mult_gen_v12_0_16 -93 \
-"../../../../feedback.gen/sources_1/bd/system/ipshared/ce84/hdl/mult_gen_v12_0_vh_rfs.vhd" \
-
 vcom -work xbip_dsp48_wrapper_v3_0_4 -93 \
 "../../../../feedback.gen/sources_1/bd/system/ipshared/cdbf/hdl/xbip_dsp48_wrapper_v3_0_vh_rfs.vhd" \
 
-vcom -work xbip_dsp48_addsub_v3_0_6 -93 \
-"../../../../feedback.gen/sources_1/bd/system/ipshared/910d/hdl/xbip_dsp48_addsub_v3_0_vh_rfs.vhd" \
-
-vcom -work xbip_dsp48_multadd_v3_0_6 -93 \
-"../../../../feedback.gen/sources_1/bd/system/ipshared/b0ac/hdl/xbip_dsp48_multadd_v3_0_vh_rfs.vhd" \
-
-vcom -work dds_compiler_v6_0_20 -93 \
-"../../../../feedback.gen/sources_1/bd/system/ipshared/398e/hdl/dds_compiler_v6_0_vh_rfs.vhd" \
-
-vcom -work xil_defaultlib -93 \
-"../../../bd/system/ip/system_dds_0_0/sim/system_dds_0_0.vhd" \
+vcom -work xbip_pipe_v3_0_6 -93 \
+"../../../../feedback.gen/sources_1/bd/system/ipshared/7468/hdl/xbip_pipe_v3_0_vh_rfs.vhd" \
 
 vcom -work xbip_dsp48_macro_v3_0_18 -93 \
 "../../../../feedback.gen/sources_1/bd/system/ipshared/f5aa/hdl/xbip_dsp48_macro_v3_0_vh_rfs.vhd" \
@@ -193,9 +175,6 @@ vcom -work xil_defaultlib -93 \
 "../../../bd/system/ip/system_mult_0_0/sim/system_mult_0_0.vhd" \
 
 vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../feedback.gen/sources_1/bd/system/ipshared/d0f7" "+incdir+../../../../feedback.gen/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../feedback.gen/sources_1/bd/system/ipshared/34f8/hdl" "+incdir+../../../../feedback.gen/sources_1/bd/system/ipshared/8713/hdl" "+incdir+/tools/Xilinx/Vivado/2020.2/data/xilinx_vip/include" \
-"../../../bd/system/ip/system_slice_5_0/sim/system_slice_5_0.v" \
-"../../../bd/system/ip/system_slice_7_0/sim/system_slice_7_0.v" \
-"../../../bd/system/ip/system_phase_1_0/sim/system_phase_1_0.v" \
 "../../../bd/system/ipshared/5f76/src/dna_reader.v" \
 "../../../bd/system/ip/system_dna_0_0/sim/system_dna_0_0.v" \
 
@@ -230,6 +209,12 @@ vlog -work axi_crossbar_v2_1_23  -v2k5 "+incdir+../../../../feedback.gen/sources
 
 vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../feedback.gen/sources_1/bd/system/ipshared/d0f7" "+incdir+../../../../feedback.gen/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../feedback.gen/sources_1/bd/system/ipshared/34f8/hdl" "+incdir+../../../../feedback.gen/sources_1/bd/system/ipshared/8713/hdl" "+incdir+/tools/Xilinx/Vivado/2020.2/data/xilinx_vip/include" \
 "../../../bd/system/ip/system_xbar_0/sim/system_xbar_0.v" \
+
+vlog -work axi_protocol_converter_v2_1_22  -v2k5 "+incdir+../../../../feedback.gen/sources_1/bd/system/ipshared/d0f7" "+incdir+../../../../feedback.gen/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../feedback.gen/sources_1/bd/system/ipshared/34f8/hdl" "+incdir+../../../../feedback.gen/sources_1/bd/system/ipshared/8713/hdl" "+incdir+/tools/Xilinx/Vivado/2020.2/data/xilinx_vip/include" \
+"../../../../feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
+
+vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../feedback.gen/sources_1/bd/system/ipshared/d0f7" "+incdir+../../../../feedback.gen/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../feedback.gen/sources_1/bd/system/ipshared/34f8/hdl" "+incdir+../../../../feedback.gen/sources_1/bd/system/ipshared/8713/hdl" "+incdir+/tools/Xilinx/Vivado/2020.2/data/xilinx_vip/include" \
+"../../../bd/system/ip/system_auto_pc_0/sim/system_auto_pc_0.v" \
 "../../../bd/system/ip/system_axis_broadcaster_0_0/hdl/tdata_system_axis_broadcaster_0_0.v" \
 "../../../bd/system/ip/system_axis_broadcaster_0_0/hdl/tuser_system_axis_broadcaster_0_0.v" \
 
@@ -243,7 +228,6 @@ vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../feedback.gen/sources_1/bd/
 "../../../bd/system/ip/system_axis_broadcaster_0_2/hdl/tuser_system_axis_broadcaster_0_2.v" \
 "../../../bd/system/ip/system_axis_broadcaster_0_2/hdl/top_system_axis_broadcaster_0_2.v" \
 "../../../bd/system/ip/system_axis_broadcaster_0_2/sim/system_axis_broadcaster_0_2.v" \
-"../../../bd/system/ip/system_phase_0_1/sim/system_phase_0_1.v" \
 "../../../bd/system/ip/system_ch1_mem_fb_split_0/hdl/tdata_system_ch1_mem_fb_split_0.v" \
 "../../../bd/system/ip/system_ch1_mem_fb_split_0/hdl/tuser_system_ch1_mem_fb_split_0.v" \
 "../../../bd/system/ip/system_ch1_mem_fb_split_0/hdl/top_system_ch1_mem_fb_split_0.v" \
@@ -266,14 +250,31 @@ vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../feedback.gen/sources_1/bd/
 "../../../bd/system/ip/system_axis_combiner_0_1/sim/system_axis_combiner_0_1.v" \
 "../../../bd/system/ip/system_phase_0_2/sim/system_phase_0_2.v" \
 "../../../bd/system/ip/system_output_binary_conver_0_0/sim/system_output_binary_conver_0_0.v" \
-"../../../bd/system/ip/system_const_0_1/sim/system_const_0_1.v" \
-"../../../bd/system/ip/system_AXI4_multi_adder_0_1/sim/system_AXI4_multi_adder_0_1.v" \
+"../../../bd/system/ip/system_slice_7_1/sim/system_slice_7_1.v" \
+"../../../bd/system/ip/system_b_const_16b_1/sim/system_b_const_16b_1.v" \
+"../../../bd/system/ip/system_const_1_0/sim/system_const_1_0.v" \
 
-vlog -work axi_protocol_converter_v2_1_22  -v2k5 "+incdir+../../../../feedback.gen/sources_1/bd/system/ipshared/d0f7" "+incdir+../../../../feedback.gen/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../feedback.gen/sources_1/bd/system/ipshared/34f8/hdl" "+incdir+../../../../feedback.gen/sources_1/bd/system/ipshared/8713/hdl" "+incdir+/tools/Xilinx/Vivado/2020.2/data/xilinx_vip/include" \
-"../../../../feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
+vcom -work xbip_bram18k_v3_0_6 -93 \
+"../../../../feedback.gen/sources_1/bd/system/ipshared/d367/hdl/xbip_bram18k_v3_0_vh_rfs.vhd" \
+
+vcom -work mult_gen_v12_0_16 -93 \
+"../../../../feedback.gen/sources_1/bd/system/ipshared/ce84/hdl/mult_gen_v12_0_vh_rfs.vhd" \
+
+vcom -work xbip_dsp48_addsub_v3_0_6 -93 \
+"../../../../feedback.gen/sources_1/bd/system/ipshared/910d/hdl/xbip_dsp48_addsub_v3_0_vh_rfs.vhd" \
+
+vcom -work xbip_dsp48_multadd_v3_0_6 -93 \
+"../../../../feedback.gen/sources_1/bd/system/ipshared/b0ac/hdl/xbip_dsp48_multadd_v3_0_vh_rfs.vhd" \
+
+vcom -work dds_compiler_v6_0_20 -93 \
+"../../../../feedback.gen/sources_1/bd/system/ipshared/398e/hdl/dds_compiler_v6_0_vh_rfs.vhd" \
+
+vcom -work xil_defaultlib -93 \
+"../../../bd/system/ip/system_dds_0_0/sim/system_dds_0_0.vhd" \
 
 vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../feedback.gen/sources_1/bd/system/ipshared/d0f7" "+incdir+../../../../feedback.gen/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../feedback.gen/sources_1/bd/system/ipshared/34f8/hdl" "+incdir+../../../../feedback.gen/sources_1/bd/system/ipshared/8713/hdl" "+incdir+/tools/Xilinx/Vivado/2020.2/data/xilinx_vip/include" \
-"../../../bd/system/ip/system_auto_pc_0/sim/system_auto_pc_0.v" \
+"../../../bd/system/ip/system_slice_6_1/sim/system_slice_6_1.v" \
+"../../../bd/system/ip/system_feedback_combined_0_0/sim/system_feedback_combined_0_0.v" \
 "../../../bd/system/sim/system.v" \
 
 vlog -work xil_defaultlib \

@@ -12,20 +12,21 @@ source system_wrapper.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/acoustics/Documents/RP/Pavel_Demin/tmp/cores'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2020.2/data/ip'.
+INFO: [IP_Flow 19-1976] HDL Parser: Replacing 'PHASE_WIDTH' by 30 for port or parameter 'phase'
+INFO: [IP_Flow 19-1976] HDL Parser: Replacing 'PHASE_WIDTH' by 30 for port or parameter 'start_phase'
+INFO: [IP_Flow 19-1976] HDL Parser: Replacing 'PHASE_WIDTH' by 30 for port or parameter 'stop_phase'
+INFO: [IP_Flow 19-1976] HDL Parser: Replacing 'PHASE_WIDTH' by 30 for port or parameter 'dds_phase_in'
 INFO: [IP_Flow 19-5107] Inferred bus interface 'M_AXIS' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
 INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXIS_ADC' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
-INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXIS_ADD' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
-INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXIS_MULT' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXIS_CFG' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
 INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
 INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'M_AXIS'.
 INFO: [IP_Flow 19-4728] Bus Interface 'M_AXIS': Added interface parameter 'FREQ_HZ' with value '125000000'.
 INFO: [IP_Flow 19-4728] Bus Interface 'S_AXIS_ADC': Added interface parameter 'FREQ_HZ' with value '125000000'.
-INFO: [IP_Flow 19-4728] Bus Interface 'S_AXIS_ADD': Added interface parameter 'FREQ_HZ' with value '125000000'.
-INFO: [IP_Flow 19-4728] Bus Interface 'S_AXIS_MULT': Added interface parameter 'FREQ_HZ' with value '125000000'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXIS_CFG': Added interface parameter 'FREQ_HZ' with value '125000000'.
 INFO: [IP_Flow 19-7067] Note that bus interface 'M_AXIS' has a fixed FREQ_HZ of '125000000'. This value will be respected whenever this IP is instantiated in IP Integrator.
 INFO: [IP_Flow 19-7067] Note that bus interface 'S_AXIS_ADC' has a fixed FREQ_HZ of '125000000'. This value will be respected whenever this IP is instantiated in IP Integrator.
-INFO: [IP_Flow 19-7067] Note that bus interface 'S_AXIS_ADD' has a fixed FREQ_HZ of '125000000'. This value will be respected whenever this IP is instantiated in IP Integrator.
-INFO: [IP_Flow 19-7067] Note that bus interface 'S_AXIS_MULT' has a fixed FREQ_HZ of '125000000'. This value will be respected whenever this IP is instantiated in IP Integrator.
+INFO: [IP_Flow 19-7067] Note that bus interface 'S_AXIS_CFG' has a fixed FREQ_HZ of '125000000'. This value will be respected whenever this IP is instantiated in IP Integrator.
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/acoustics/Documents/RP/Pavel_Demin/tmp/cores'.
 INFO: [IP_Flow 19-5107] Inferred bus interface 'M_AXIS' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
@@ -38,7 +39,7 @@ INFO: [IP_Flow 19-7067] Note that bus interface 'M_AXIS' has a fixed FREQ_HZ of 
 INFO: [IP_Flow 19-7067] Note that bus interface 'S_AXIS' has a fixed FREQ_HZ of '125000000'. This value will be respected whenever this IP is instantiated in IP Integrator.
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/acoustics/Documents/RP/Pavel_Demin/tmp/cores'.
-add_files: Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2300.676 ; gain = 8.020 ; free physical = 1323 ; free virtual = 8459
+add_files: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2316.184 ; gain = 24.027 ; free physical = 8483 ; free virtual = 15255
 Command: synth_design -top system_wrapper -part xc7z010clg400-1 -directive PerformanceOptimized -fsm_extraction one_hot -keep_equivalent_registers -resource_sharing off -no_lc -shreg_min_size 5
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
@@ -46,24 +47,13 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010
 INFO: [Device 21-403] Loading part xc7z010clg400-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 249087
+INFO: [Synth 8-7075] Helper process launched with PID 24020
+WARNING: [Synth 8-2507] parameter declaration becomes local in feedback_combined with formal parameter declaration list [/home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/new/feedback_combined.v:79]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:17 ; elapsed = 00:00:31 . Memory (MB): peak = 2300.742 ; gain = 0.000 ; free physical = 838 ; free virtual = 7879
+Starting RTL Elaboration : Time (s): cpu = 00:00:17 ; elapsed = 00:00:33 . Memory (MB): peak = 2316.250 ; gain = 0.000 ; free physical = 7812 ; free virtual = 14642
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'system_wrapper' [/home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/imports/system_wrapper.v:12]
 INFO: [Synth 8-6157] synthesizing module 'system' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:588]
-INFO: [Synth 8-6157] synthesizing module 'system_AXI4_multi_adder_0_1' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_AXI4_multi_adder_0_1/synth/system_AXI4_multi_adder_0_1.v:58]
-INFO: [Synth 8-6157] synthesizing module 'AXI4_multi_adder' [/home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/imports/adc_test/AXI4_Multiplier.v:23]
-	Parameter ADC_DATA_WIDTH bound to: 16 - type: integer 
-	Parameter MULT_CONST_WIDTH bound to: 32 - type: integer 
-	Parameter ADD_CONST_WIDTH bound to: 16 - type: integer 
-	Parameter DAC_DATA_WIDTH bound to: 14 - type: integer 
-	Parameter AXIS_TDATA_WIDTH bound to: 16 - type: integer 
-	Parameter SELECT_WIDTH bound to: 2 - type: integer 
-	Parameter PADDING_WIDTH bound to: 2 - type: integer 
-	Parameter RESULT_WIDTH bound to: 64 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'AXI4_multi_adder' (1#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/imports/adc_test/AXI4_Multiplier.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'system_AXI4_multi_adder_0_1' (2#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_AXI4_multi_adder_0_1/synth/system_AXI4_multi_adder_0_1.v:58]
 INFO: [Synth 8-6157] synthesizing module 'system_ch1_output_dac_mem_split_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ch1_output_dac_mem_split_0/synth/system_ch1_output_dac_mem_split_0.v:57]
 INFO: [Synth 8-6157] synthesizing module 'top_system_ch1_output_dac_mem_split_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ch1_output_dac_mem_split_0/hdl/top_system_ch1_output_dac_mem_split_0.v:60]
 	Parameter C_FAMILY bound to: zynq - type: string 
@@ -156,7 +146,7 @@ INFO: [Synth 8-6157] synthesizing module 'axis_infrastructure_v1_1_0_util_vector
 	Parameter P_TID_INDX bound to: 16 - type: integer 
 	Parameter P_TDEST_INDX bound to: 16 - type: integer 
 	Parameter P_TUSER_INDX bound to: 16 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axis_infrastructure_v1_1_0_util_vector2axis' (3#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:992]
+INFO: [Synth 8-6155] done synthesizing module 'axis_infrastructure_v1_1_0_util_vector2axis' (1#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:992]
 INFO: [Synth 8-6157] synthesizing module 'axis_infrastructure_v1_1_0_util_axis2vector' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:810]
 	Parameter C_TDATA_WIDTH bound to: 16 - type: integer 
 	Parameter C_TID_WIDTH bound to: 1 - type: integer 
@@ -190,29 +180,24 @@ INFO: [Synth 8-6157] synthesizing module 'axis_infrastructure_v1_1_0_util_axis2v
 	Parameter P_TID_INDX bound to: 16 - type: integer 
 	Parameter P_TDEST_INDX bound to: 16 - type: integer 
 	Parameter P_TUSER_INDX bound to: 16 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axis_infrastructure_v1_1_0_util_axis2vector' (4#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:810]
-INFO: [Synth 8-6155] done synthesizing module 'axis_broadcaster_v1_1_21_core' (5#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/30ef/hdl/axis_broadcaster_v1_1_vl_rfs.v:59]
+INFO: [Synth 8-6155] done synthesizing module 'axis_infrastructure_v1_1_0_util_axis2vector' (2#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:810]
+INFO: [Synth 8-6155] done synthesizing module 'axis_broadcaster_v1_1_21_core' (3#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/30ef/hdl/axis_broadcaster_v1_1_vl_rfs.v:59]
 INFO: [Synth 8-6157] synthesizing module 'tdata_system_ch1_output_dac_mem_split_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ch1_output_dac_mem_split_0/hdl/tdata_system_ch1_output_dac_mem_split_0.v:49]
 	Parameter C_S_AXIS_TDATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_M_AXIS_TDATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'tdata_system_ch1_output_dac_mem_split_0' (6#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ch1_output_dac_mem_split_0/hdl/tdata_system_ch1_output_dac_mem_split_0.v:49]
+INFO: [Synth 8-6155] done synthesizing module 'tdata_system_ch1_output_dac_mem_split_0' (4#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ch1_output_dac_mem_split_0/hdl/tdata_system_ch1_output_dac_mem_split_0.v:49]
 INFO: [Synth 8-6157] synthesizing module 'tuser_system_ch1_output_dac_mem_split_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ch1_output_dac_mem_split_0/hdl/tuser_system_ch1_output_dac_mem_split_0.v:49]
 	Parameter C_S_AXIS_TUSER_WIDTH bound to: 2 - type: integer 
 	Parameter C_M_AXIS_TUSER_WIDTH bound to: 2 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'tuser_system_ch1_output_dac_mem_split_0' (7#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ch1_output_dac_mem_split_0/hdl/tuser_system_ch1_output_dac_mem_split_0.v:49]
-INFO: [Synth 8-6155] done synthesizing module 'top_system_ch1_output_dac_mem_split_0' (8#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ch1_output_dac_mem_split_0/hdl/top_system_ch1_output_dac_mem_split_0.v:60]
-INFO: [Synth 8-6155] done synthesizing module 'system_ch1_output_dac_mem_split_0' (9#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ch1_output_dac_mem_split_0/synth/system_ch1_output_dac_mem_split_0.v:57]
-INFO: [Synth 8-6157] synthesizing module 'system_phase_1_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_phase_1_0/synth/system_phase_1_0.v:57]
-INFO: [Synth 8-6157] synthesizing module 'axis_constant' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/457f/src/axis_constant.v:4]
-	Parameter AXIS_TDATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axis_constant' (10#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/457f/src/axis_constant.v:4]
-INFO: [Synth 8-6155] done synthesizing module 'system_phase_1_0' (11#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_phase_1_0/synth/system_phase_1_0.v:57]
+INFO: [Synth 8-6155] done synthesizing module 'tuser_system_ch1_output_dac_mem_split_0' (5#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ch1_output_dac_mem_split_0/hdl/tuser_system_ch1_output_dac_mem_split_0.v:49]
+INFO: [Synth 8-6155] done synthesizing module 'top_system_ch1_output_dac_mem_split_0' (6#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ch1_output_dac_mem_split_0/hdl/top_system_ch1_output_dac_mem_split_0.v:60]
+INFO: [Synth 8-6155] done synthesizing module 'system_ch1_output_dac_mem_split_0' (7#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ch1_output_dac_mem_split_0/synth/system_ch1_output_dac_mem_split_0.v:57]
 INFO: [Synth 8-6157] synthesizing module 'system_adc_0_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_adc_0_0/synth/system_adc_0_0.v:57]
 INFO: [Synth 8-6157] synthesizing module 'axis_red_pitaya_adc' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/afda/src/axis_red_pitaya_adc.v:4]
 	Parameter ADC_DATA_WIDTH bound to: 14 - type: integer 
 	Parameter PADDING_WIDTH bound to: 2 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axis_red_pitaya_adc' (12#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/afda/src/axis_red_pitaya_adc.v:4]
-INFO: [Synth 8-6155] done synthesizing module 'system_adc_0_0' (13#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_adc_0_0/synth/system_adc_0_0.v:57]
+INFO: [Synth 8-6155] done synthesizing module 'axis_red_pitaya_adc' (8#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/afda/src/axis_red_pitaya_adc.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'system_adc_0_0' (9#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_adc_0_0/synth/system_adc_0_0.v:57]
 INFO: [Synth 8-6157] synthesizing module 'system_axis_combiner_0_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_combiner_0_0/synth/system_axis_combiner_0_0.v:57]
 INFO: [Synth 8-6157] synthesizing module 'axis_combiner_v1_1_20_top' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/23ef/hdl/axis_combiner_v1_1_vl_rfs.v:56]
 	Parameter C_FAMILY bound to: zynq - type: string 
@@ -277,7 +262,7 @@ INFO: [Synth 8-6157] synthesizing module 'axis_infrastructure_v1_1_0_util_axis2v
 	Parameter P_TID_INDX bound to: 32 - type: integer 
 	Parameter P_TDEST_INDX bound to: 32 - type: integer 
 	Parameter P_TUSER_INDX bound to: 32 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axis_infrastructure_v1_1_0_util_axis2vector__parameterized0' (13#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:810]
+INFO: [Synth 8-6155] done synthesizing module 'axis_infrastructure_v1_1_0_util_axis2vector__parameterized0' (9#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:810]
 INFO: [Synth 8-6157] synthesizing module 'axis_infrastructure_v1_1_0_util_vector2axis__parameterized0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:992]
 	Parameter C_TDATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_TID_WIDTH bound to: 1 - type: integer 
@@ -311,16 +296,11 @@ INFO: [Synth 8-6157] synthesizing module 'axis_infrastructure_v1_1_0_util_vector
 	Parameter P_TID_INDX bound to: 32 - type: integer 
 	Parameter P_TDEST_INDX bound to: 32 - type: integer 
 	Parameter P_TUSER_INDX bound to: 32 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axis_infrastructure_v1_1_0_util_vector2axis__parameterized0' (13#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:992]
-INFO: [Synth 8-6155] done synthesizing module 'axis_combiner_v1_1_20_top' (14#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/23ef/hdl/axis_combiner_v1_1_vl_rfs.v:56]
-INFO: [Synth 8-6155] done synthesizing module 'system_axis_combiner_0_0' (15#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_combiner_0_0/synth/system_axis_combiner_0_0.v:57]
-WARNING: [Synth 8-7071] port 's_axis_tready' of module 'system_axis_combiner_0_0' is unconnected for instance 'axis_combiner_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:892]
-WARNING: [Synth 8-7023] instance 'axis_combiner_0' of module 'system_axis_combiner_0_0' has 8 connections declared, but only 7 given [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:892]
-INFO: [Synth 8-6157] synthesizing module 'system_phase_0_1' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_phase_0_1/synth/system_phase_0_1.v:57]
-INFO: [Synth 8-6157] synthesizing module 'axis_constant__parameterized0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/457f/src/axis_constant.v:4]
-	Parameter AXIS_TDATA_WIDTH bound to: 16 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axis_constant__parameterized0' (15#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/457f/src/axis_constant.v:4]
-INFO: [Synth 8-6155] done synthesizing module 'system_phase_0_1' (16#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_phase_0_1/synth/system_phase_0_1.v:57]
+INFO: [Synth 8-6155] done synthesizing module 'axis_infrastructure_v1_1_0_util_vector2axis__parameterized0' (9#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:992]
+INFO: [Synth 8-6155] done synthesizing module 'axis_combiner_v1_1_20_top' (10#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/23ef/hdl/axis_combiner_v1_1_vl_rfs.v:56]
+INFO: [Synth 8-6155] done synthesizing module 'system_axis_combiner_0_0' (11#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_combiner_0_0/synth/system_axis_combiner_0_0.v:57]
+WARNING: [Synth 8-7071] port 's_axis_tready' of module 'system_axis_combiner_0_0' is unconnected for instance 'axis_combiner_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:874]
+WARNING: [Synth 8-7023] instance 'axis_combiner_0' of module 'system_axis_combiner_0_0' has 8 connections declared, but only 7 given [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:874]
 INFO: [Synth 8-6157] synthesizing module 'system_cfg_0_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_cfg_0_0/synth/system_cfg_0_0.v:57]
 INFO: [Synth 8-6157] synthesizing module 'axi_cfg_register' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/df40/src/axi_cfg_register.v:4]
 	Parameter CFG_DATA_WIDTH bound to: 160 - type: integer 
@@ -334,9 +314,9 @@ INFO: [Synth 8-6157] synthesizing module 'FDRE' [/tools/Xilinx/Vivado/2020.2/scr
 	Parameter IS_C_INVERTED bound to: 1'b0 
 	Parameter IS_D_INVERTED bound to: 1'b0 
 	Parameter IS_R_INVERTED bound to: 1'b0 
-INFO: [Synth 8-6155] done synthesizing module 'FDRE' (17#1) [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:13724]
-INFO: [Synth 8-6155] done synthesizing module 'axi_cfg_register' (18#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/df40/src/axi_cfg_register.v:4]
-INFO: [Synth 8-6155] done synthesizing module 'system_cfg_0_0' (19#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_cfg_0_0/synth/system_cfg_0_0.v:57]
+INFO: [Synth 8-6155] done synthesizing module 'FDRE' (12#1) [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:13724]
+INFO: [Synth 8-6155] done synthesizing module 'axi_cfg_register' (13#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/df40/src/axi_cfg_register.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'system_cfg_0_0' (14#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_cfg_0_0/synth/system_cfg_0_0.v:57]
 INFO: [Synth 8-6157] synthesizing module 'system_axis_broadcaster_0_2' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_2/synth/system_axis_broadcaster_0_2.v:57]
 INFO: [Synth 8-6157] synthesizing module 'top_system_axis_broadcaster_0_2' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_2/hdl/top_system_axis_broadcaster_0_2.v:60]
 	Parameter C_FAMILY bound to: zynq - type: string 
@@ -429,7 +409,7 @@ INFO: [Synth 8-6157] synthesizing module 'axis_infrastructure_v1_1_0_util_vector
 	Parameter P_TID_INDX bound to: 16 - type: integer 
 	Parameter P_TDEST_INDX bound to: 16 - type: integer 
 	Parameter P_TUSER_INDX bound to: 16 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axis_infrastructure_v1_1_0_util_vector2axis__parameterized1' (19#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:992]
+INFO: [Synth 8-6155] done synthesizing module 'axis_infrastructure_v1_1_0_util_vector2axis__parameterized1' (14#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:992]
 INFO: [Synth 8-6157] synthesizing module 'axis_infrastructure_v1_1_0_util_axis2vector__parameterized1' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:810]
 	Parameter C_TDATA_WIDTH bound to: 16 - type: integer 
 	Parameter C_TID_WIDTH bound to: 1 - type: integer 
@@ -463,18 +443,18 @@ INFO: [Synth 8-6157] synthesizing module 'axis_infrastructure_v1_1_0_util_axis2v
 	Parameter P_TID_INDX bound to: 16 - type: integer 
 	Parameter P_TDEST_INDX bound to: 16 - type: integer 
 	Parameter P_TUSER_INDX bound to: 16 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axis_infrastructure_v1_1_0_util_axis2vector__parameterized1' (19#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:810]
-INFO: [Synth 8-6155] done synthesizing module 'axis_broadcaster_v1_1_21_core__parameterized0' (19#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/30ef/hdl/axis_broadcaster_v1_1_vl_rfs.v:59]
+INFO: [Synth 8-6155] done synthesizing module 'axis_infrastructure_v1_1_0_util_axis2vector__parameterized1' (14#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:810]
+INFO: [Synth 8-6155] done synthesizing module 'axis_broadcaster_v1_1_21_core__parameterized0' (14#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/30ef/hdl/axis_broadcaster_v1_1_vl_rfs.v:59]
 INFO: [Synth 8-6157] synthesizing module 'tdata_system_axis_broadcaster_0_2' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_2/hdl/tdata_system_axis_broadcaster_0_2.v:49]
 	Parameter C_S_AXIS_TDATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_M_AXIS_TDATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'tdata_system_axis_broadcaster_0_2' (20#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_2/hdl/tdata_system_axis_broadcaster_0_2.v:49]
+INFO: [Synth 8-6155] done synthesizing module 'tdata_system_axis_broadcaster_0_2' (15#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_2/hdl/tdata_system_axis_broadcaster_0_2.v:49]
 INFO: [Synth 8-6157] synthesizing module 'tuser_system_axis_broadcaster_0_2' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_2/hdl/tuser_system_axis_broadcaster_0_2.v:49]
 	Parameter C_S_AXIS_TUSER_WIDTH bound to: 2 - type: integer 
 	Parameter C_M_AXIS_TUSER_WIDTH bound to: 2 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'tuser_system_axis_broadcaster_0_2' (21#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_2/hdl/tuser_system_axis_broadcaster_0_2.v:49]
-INFO: [Synth 8-6155] done synthesizing module 'top_system_axis_broadcaster_0_2' (22#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_2/hdl/top_system_axis_broadcaster_0_2.v:60]
-INFO: [Synth 8-6155] done synthesizing module 'system_axis_broadcaster_0_2' (23#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_2/synth/system_axis_broadcaster_0_2.v:57]
+INFO: [Synth 8-6155] done synthesizing module 'tuser_system_axis_broadcaster_0_2' (16#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_2/hdl/tuser_system_axis_broadcaster_0_2.v:49]
+INFO: [Synth 8-6155] done synthesizing module 'top_system_axis_broadcaster_0_2' (17#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_2/hdl/top_system_axis_broadcaster_0_2.v:60]
+INFO: [Synth 8-6155] done synthesizing module 'system_axis_broadcaster_0_2' (18#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_2/synth/system_axis_broadcaster_0_2.v:57]
 INFO: [Synth 8-6157] synthesizing module 'system_ch1_mem_fb_split_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ch1_mem_fb_split_0/synth/system_ch1_mem_fb_split_0.v:57]
 INFO: [Synth 8-6157] synthesizing module 'top_system_ch1_mem_fb_split_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ch1_mem_fb_split_0/hdl/top_system_ch1_mem_fb_split_0.v:60]
 	Parameter C_FAMILY bound to: zynq - type: string 
@@ -509,13 +489,13 @@ INFO: [Synth 8-6157] synthesizing module 'top_system_ch1_mem_fb_split_0' [/home/
 INFO: [Synth 8-6157] synthesizing module 'tdata_system_ch1_mem_fb_split_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ch1_mem_fb_split_0/hdl/tdata_system_ch1_mem_fb_split_0.v:49]
 	Parameter C_S_AXIS_TDATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_M_AXIS_TDATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'tdata_system_ch1_mem_fb_split_0' (24#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ch1_mem_fb_split_0/hdl/tdata_system_ch1_mem_fb_split_0.v:49]
+INFO: [Synth 8-6155] done synthesizing module 'tdata_system_ch1_mem_fb_split_0' (19#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ch1_mem_fb_split_0/hdl/tdata_system_ch1_mem_fb_split_0.v:49]
 INFO: [Synth 8-6157] synthesizing module 'tuser_system_ch1_mem_fb_split_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ch1_mem_fb_split_0/hdl/tuser_system_ch1_mem_fb_split_0.v:49]
 	Parameter C_S_AXIS_TUSER_WIDTH bound to: 2 - type: integer 
 	Parameter C_M_AXIS_TUSER_WIDTH bound to: 2 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'tuser_system_ch1_mem_fb_split_0' (25#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ch1_mem_fb_split_0/hdl/tuser_system_ch1_mem_fb_split_0.v:49]
-INFO: [Synth 8-6155] done synthesizing module 'top_system_ch1_mem_fb_split_0' (26#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ch1_mem_fb_split_0/hdl/top_system_ch1_mem_fb_split_0.v:60]
-INFO: [Synth 8-6155] done synthesizing module 'system_ch1_mem_fb_split_0' (27#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ch1_mem_fb_split_0/synth/system_ch1_mem_fb_split_0.v:57]
+INFO: [Synth 8-6155] done synthesizing module 'tuser_system_ch1_mem_fb_split_0' (20#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ch1_mem_fb_split_0/hdl/tuser_system_ch1_mem_fb_split_0.v:49]
+INFO: [Synth 8-6155] done synthesizing module 'top_system_ch1_mem_fb_split_0' (21#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ch1_mem_fb_split_0/hdl/top_system_ch1_mem_fb_split_0.v:60]
+INFO: [Synth 8-6155] done synthesizing module 'system_ch1_mem_fb_split_0' (22#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ch1_mem_fb_split_0/synth/system_ch1_mem_fb_split_0.v:57]
 INFO: [Synth 8-6157] synthesizing module 'system_axis_broadcaster_0_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_0/synth/system_axis_broadcaster_0_0.v:57]
 INFO: [Synth 8-6157] synthesizing module 'top_system_axis_broadcaster_0_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_0/hdl/top_system_axis_broadcaster_0_0.v:60]
 	Parameter C_FAMILY bound to: zynq - type: string 
@@ -608,7 +588,7 @@ INFO: [Synth 8-6157] synthesizing module 'axis_infrastructure_v1_1_0_util_vector
 	Parameter P_TID_INDX bound to: 32 - type: integer 
 	Parameter P_TDEST_INDX bound to: 32 - type: integer 
 	Parameter P_TUSER_INDX bound to: 32 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axis_infrastructure_v1_1_0_util_vector2axis__parameterized2' (27#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:992]
+INFO: [Synth 8-6155] done synthesizing module 'axis_infrastructure_v1_1_0_util_vector2axis__parameterized2' (22#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:992]
 INFO: [Synth 8-6157] synthesizing module 'axis_infrastructure_v1_1_0_util_axis2vector__parameterized2' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:810]
 	Parameter C_TDATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_TID_WIDTH bound to: 1 - type: integer 
@@ -642,20 +622,20 @@ INFO: [Synth 8-6157] synthesizing module 'axis_infrastructure_v1_1_0_util_axis2v
 	Parameter P_TID_INDX bound to: 32 - type: integer 
 	Parameter P_TDEST_INDX bound to: 32 - type: integer 
 	Parameter P_TUSER_INDX bound to: 32 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axis_infrastructure_v1_1_0_util_axis2vector__parameterized2' (27#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:810]
-INFO: [Synth 8-6155] done synthesizing module 'axis_broadcaster_v1_1_21_core__parameterized1' (27#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/30ef/hdl/axis_broadcaster_v1_1_vl_rfs.v:59]
+INFO: [Synth 8-6155] done synthesizing module 'axis_infrastructure_v1_1_0_util_axis2vector__parameterized2' (22#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:810]
+INFO: [Synth 8-6155] done synthesizing module 'axis_broadcaster_v1_1_21_core__parameterized1' (22#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/30ef/hdl/axis_broadcaster_v1_1_vl_rfs.v:59]
 INFO: [Synth 8-6157] synthesizing module 'tdata_system_axis_broadcaster_0_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_0/hdl/tdata_system_axis_broadcaster_0_0.v:49]
 	Parameter C_S_AXIS_TDATA_WIDTH bound to: 64 - type: integer 
 	Parameter C_M_AXIS_TDATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'tdata_system_axis_broadcaster_0_0' (28#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_0/hdl/tdata_system_axis_broadcaster_0_0.v:49]
+INFO: [Synth 8-6155] done synthesizing module 'tdata_system_axis_broadcaster_0_0' (23#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_0/hdl/tdata_system_axis_broadcaster_0_0.v:49]
 INFO: [Synth 8-6157] synthesizing module 'tuser_system_axis_broadcaster_0_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_0/hdl/tuser_system_axis_broadcaster_0_0.v:49]
 	Parameter C_S_AXIS_TUSER_WIDTH bound to: 2 - type: integer 
 	Parameter C_M_AXIS_TUSER_WIDTH bound to: 2 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'tuser_system_axis_broadcaster_0_0' (29#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_0/hdl/tuser_system_axis_broadcaster_0_0.v:49]
-INFO: [Synth 8-6155] done synthesizing module 'top_system_axis_broadcaster_0_0' (30#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_0/hdl/top_system_axis_broadcaster_0_0.v:60]
-INFO: [Synth 8-6155] done synthesizing module 'system_axis_broadcaster_0_0' (31#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_0/synth/system_axis_broadcaster_0_0.v:57]
-WARNING: [Synth 8-689] width (16) of port connection 'm_axis_tdata' does not match port width (32) of module 'system_axis_broadcaster_0_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:943]
-WARNING: [Synth 8-689] width (1) of port connection 'm_axis_tvalid' does not match port width (2) of module 'system_axis_broadcaster_0_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:944]
+INFO: [Synth 8-6155] done synthesizing module 'tuser_system_axis_broadcaster_0_0' (24#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_0/hdl/tuser_system_axis_broadcaster_0_0.v:49]
+INFO: [Synth 8-6155] done synthesizing module 'top_system_axis_broadcaster_0_0' (25#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_0/hdl/top_system_axis_broadcaster_0_0.v:60]
+INFO: [Synth 8-6155] done synthesizing module 'system_axis_broadcaster_0_0' (26#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_0/synth/system_axis_broadcaster_0_0.v:57]
+WARNING: [Synth 8-689] width (16) of port connection 'm_axis_tdata' does not match port width (32) of module 'system_axis_broadcaster_0_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:920]
+WARNING: [Synth 8-689] width (1) of port connection 'm_axis_tvalid' does not match port width (2) of module 'system_axis_broadcaster_0_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:921]
 INFO: [Synth 8-638] synthesizing module 'system_cic_0_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_cic_0_0/synth/system_cic_0_0.vhd:74]
 	Parameter C_COMPONENT_NAME bound to: system_cic_0_0 - type: string 
 	Parameter C_FILTER_TYPE bound to: 1 - type: integer 
@@ -695,17 +675,17 @@ INFO: [Synth 8-638] synthesizing module 'system_cic_0_0' [/home/acoustics/Docume
 	Parameter C_HAS_ACLKEN bound to: 0 - type: integer 
 	Parameter C_HAS_ARESETN bound to: 1 - type: integer 
 INFO: [Synth 8-3491] module 'cic_compiler_v4_0_15' declared at '/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/0aa2/hdl/cic_compiler_v4_0_vh_rfs.vhd:16133' bound to instance 'U0' of component 'cic_compiler_v4_0_15' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_cic_0_0/synth/system_cic_0_0.vhd:169]
-INFO: [Synth 8-256] done synthesizing module 'system_cic_0_0' (44#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_cic_0_0/synth/system_cic_0_0.vhd:74]
-WARNING: [Synth 8-7071] port 's_axis_data_tready' of module 'system_cic_0_0' is unconnected for instance 'cic_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:947]
-WARNING: [Synth 8-7023] instance 'cic_0' of module 'system_cic_0_0' has 10 connections declared, but only 9 given [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:947]
+INFO: [Synth 8-256] done synthesizing module 'system_cic_0_0' (39#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_cic_0_0/synth/system_cic_0_0.vhd:74]
+WARNING: [Synth 8-7071] port 's_axis_data_tready' of module 'system_cic_0_0' is unconnected for instance 'cic_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:924]
+WARNING: [Synth 8-7023] instance 'cic_0' of module 'system_cic_0_0' has 10 connections declared, but only 9 given [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:924]
 INFO: [Synth 8-638] synthesizing module 'system_cic_0_1' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_cic_0_1/synth/system_cic_0_1.vhd:74]
 	Parameter C_COMPONENT_NAME bound to: system_cic_0_1 - type: string 
 	Parameter C_FILTER_TYPE bound to: 1 - type: integer 
 	Parameter C_NUM_STAGES bound to: 6 - type: integer 
 	Parameter C_DIFF_DELAY bound to: 1 - type: integer 
 	Parameter C_RATE bound to: 4 - type: integer 
-	Parameter C_INPUT_WIDTH bound to: 16 - type: integer 
-	Parameter C_OUTPUT_WIDTH bound to: 16 - type: integer 
+	Parameter C_INPUT_WIDTH bound to: 14 - type: integer 
+	Parameter C_OUTPUT_WIDTH bound to: 14 - type: integer 
 	Parameter C_USE_DSP bound to: 0 - type: integer 
 	Parameter C_HAS_ROUNDING bound to: 0 - type: integer 
 	Parameter C_NUM_CHANNELS bound to: 1 - type: integer 
@@ -717,18 +697,18 @@ INFO: [Synth 8-638] synthesizing module 'system_cic_0_1' [/home/acoustics/Docume
 	Parameter C_USE_STREAMING_INTERFACE bound to: 1 - type: integer 
 	Parameter C_FAMILY bound to: zynq - type: string 
 	Parameter C_XDEVICEFAMILY bound to: zynq - type: string 
-	Parameter C_C1 bound to: 23 - type: integer 
-	Parameter C_C2 bound to: 22 - type: integer 
-	Parameter C_C3 bound to: 21 - type: integer 
-	Parameter C_C4 bound to: 20 - type: integer 
-	Parameter C_C5 bound to: 20 - type: integer 
-	Parameter C_C6 bound to: 19 - type: integer 
-	Parameter C_I1 bound to: 87 - type: integer 
-	Parameter C_I2 bound to: 74 - type: integer 
-	Parameter C_I3 bound to: 62 - type: integer 
-	Parameter C_I4 bound to: 51 - type: integer 
-	Parameter C_I5 bound to: 40 - type: integer 
-	Parameter C_I6 bound to: 29 - type: integer 
+	Parameter C_C1 bound to: 21 - type: integer 
+	Parameter C_C2 bound to: 20 - type: integer 
+	Parameter C_C3 bound to: 19 - type: integer 
+	Parameter C_C4 bound to: 18 - type: integer 
+	Parameter C_C5 bound to: 18 - type: integer 
+	Parameter C_C6 bound to: 17 - type: integer 
+	Parameter C_I1 bound to: 85 - type: integer 
+	Parameter C_I2 bound to: 72 - type: integer 
+	Parameter C_I3 bound to: 60 - type: integer 
+	Parameter C_I4 bound to: 49 - type: integer 
+	Parameter C_I5 bound to: 38 - type: integer 
+	Parameter C_I6 bound to: 27 - type: integer 
 	Parameter C_S_AXIS_CONFIG_TDATA_WIDTH bound to: 16 - type: integer 
 	Parameter C_S_AXIS_DATA_TDATA_WIDTH bound to: 16 - type: integer 
 	Parameter C_M_AXIS_DATA_TDATA_WIDTH bound to: 16 - type: integer 
@@ -737,21 +717,15 @@ INFO: [Synth 8-638] synthesizing module 'system_cic_0_1' [/home/acoustics/Docume
 	Parameter C_HAS_ACLKEN bound to: 0 - type: integer 
 	Parameter C_HAS_ARESETN bound to: 1 - type: integer 
 INFO: [Synth 8-3491] module 'cic_compiler_v4_0_15' declared at '/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/0aa2/hdl/cic_compiler_v4_0_vh_rfs.vhd:16133' bound to instance 'U0' of component 'cic_compiler_v4_0_15' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_cic_0_1/synth/system_cic_0_1.vhd:169]
-INFO: [Synth 8-256] done synthesizing module 'system_cic_0_1' (45#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_cic_0_1/synth/system_cic_0_1.vhd:74]
-WARNING: [Synth 8-7071] port 's_axis_data_tready' of module 'system_cic_0_1' is unconnected for instance 'cic_1' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:957]
-WARNING: [Synth 8-7023] instance 'cic_1' of module 'system_cic_0_1' has 10 connections declared, but only 9 given [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:957]
+INFO: [Synth 8-256] done synthesizing module 'system_cic_0_1' (40#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_cic_0_1/synth/system_cic_0_1.vhd:74]
+WARNING: [Synth 8-7071] port 's_axis_data_tready' of module 'system_cic_0_1' is unconnected for instance 'cic_1' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:934]
+WARNING: [Synth 8-7023] instance 'cic_1' of module 'system_cic_0_1' has 10 connections declared, but only 9 given [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:934]
 INFO: [Synth 8-6157] synthesizing module 'system_const_0_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_const_0_0/synth/system_const_0_0.v:57]
 INFO: [Synth 8-6157] synthesizing module 'xlconstant_v1_1_7_xlconstant' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/fcfc/hdl/xlconstant_v1_1_vl_rfs.v:23]
 	Parameter CONST_VAL bound to: 1'b1 
 	Parameter CONST_WIDTH bound to: 1 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'xlconstant_v1_1_7_xlconstant' (46#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/fcfc/hdl/xlconstant_v1_1_vl_rfs.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'system_const_0_0' (47#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_const_0_0/synth/system_const_0_0.v:57]
-INFO: [Synth 8-6157] synthesizing module 'system_const_0_1' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_const_0_1/synth/system_const_0_1.v:57]
-INFO: [Synth 8-6157] synthesizing module 'xlconstant_v1_1_7_xlconstant__parameterized0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/fcfc/hdl/xlconstant_v1_1_vl_rfs.v:23]
-	Parameter CONST_VAL bound to: 2'b00 
-	Parameter CONST_WIDTH bound to: 2 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'xlconstant_v1_1_7_xlconstant__parameterized0' (47#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/fcfc/hdl/xlconstant_v1_1_vl_rfs.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'system_const_0_1' (48#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_const_0_1/synth/system_const_0_1.v:57]
+INFO: [Synth 8-6155] done synthesizing module 'xlconstant_v1_1_7_xlconstant' (41#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/fcfc/hdl/xlconstant_v1_1_vl_rfs.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'system_const_0_0' (42#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_const_0_0/synth/system_const_0_0.v:57]
 INFO: [Synth 8-6157] synthesizing module 'system_conv_0_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_conv_0_0/synth/system_conv_0_0.v:57]
 INFO: [Synth 8-6157] synthesizing module 'axis_dwidth_converter_v1_1_21_axis_dwidth_converter' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/6614/hdl/axis_dwidth_converter_v1_1_vl_rfs.v:810]
 	Parameter C_FAMILY bound to: zynq - type: string 
@@ -835,7 +809,7 @@ INFO: [Synth 8-6157] synthesizing module 'axis_dwidth_converter_v1_1_21_axisc_up
 	Parameter SM_ACTIVE bound to: 3'b101 
 	Parameter SM_END bound to: 3'b011 
 	Parameter SM_END_TO_ACTIVE bound to: 3'b010 
-INFO: [Synth 8-6155] done synthesizing module 'axis_dwidth_converter_v1_1_21_axisc_upsizer' (49#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/6614/hdl/axis_dwidth_converter_v1_1_vl_rfs.v:437]
+INFO: [Synth 8-6155] done synthesizing module 'axis_dwidth_converter_v1_1_21_axisc_upsizer' (43#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/6614/hdl/axis_dwidth_converter_v1_1_vl_rfs.v:437]
 INFO: [Synth 8-6157] synthesizing module 'axis_register_slice_v1_1_22_axis_register_slice' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/ebcc/hdl/axis_register_slice_v1_1_vl_rfs.v:2838]
 	Parameter C_FAMILY bound to: zynq - type: string 
 	Parameter C_AXIS_TDATA_WIDTH bound to: 32 - type: integer 
@@ -901,7 +875,7 @@ INFO: [Synth 8-6157] synthesizing module 'axis_infrastructure_v1_1_0_util_axis2v
 	Parameter P_TID_INDX bound to: 32 - type: integer 
 	Parameter P_TDEST_INDX bound to: 32 - type: integer 
 	Parameter P_TUSER_INDX bound to: 32 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axis_infrastructure_v1_1_0_util_axis2vector__parameterized3' (49#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:810]
+INFO: [Synth 8-6155] done synthesizing module 'axis_infrastructure_v1_1_0_util_axis2vector__parameterized3' (43#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:810]
 INFO: [Synth 8-6157] synthesizing module 'axis_register_slice_v1_1_22_axisc_register_slice' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/ebcc/hdl/axis_register_slice_v1_1_vl_rfs.v:1936]
 	Parameter C_FAMILY bound to: zynq - type: string 
 	Parameter C_DATA_WIDTH bound to: 32 - type: integer 
@@ -910,7 +884,7 @@ INFO: [Synth 8-6157] synthesizing module 'axis_register_slice_v1_1_22_axisc_regi
 	Parameter C_PIPELINES_MASTER bound to: 0 - type: integer 
 	Parameter C_PIPELINES_SLAVE bound to: 0 - type: integer 
 	Parameter C_PIPELINES_MIDDLE bound to: 0 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axis_register_slice_v1_1_22_axisc_register_slice' (50#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/ebcc/hdl/axis_register_slice_v1_1_vl_rfs.v:1936]
+INFO: [Synth 8-6155] done synthesizing module 'axis_register_slice_v1_1_22_axisc_register_slice' (44#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/ebcc/hdl/axis_register_slice_v1_1_vl_rfs.v:1936]
 INFO: [Synth 8-6157] synthesizing module 'axis_infrastructure_v1_1_0_util_vector2axis__parameterized3' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:992]
 	Parameter C_TDATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_TID_WIDTH bound to: 1 - type: integer 
@@ -944,8 +918,8 @@ INFO: [Synth 8-6157] synthesizing module 'axis_infrastructure_v1_1_0_util_vector
 	Parameter P_TID_INDX bound to: 32 - type: integer 
 	Parameter P_TDEST_INDX bound to: 32 - type: integer 
 	Parameter P_TUSER_INDX bound to: 32 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axis_infrastructure_v1_1_0_util_vector2axis__parameterized3' (50#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:992]
-INFO: [Synth 8-6155] done synthesizing module 'axis_register_slice_v1_1_22_axis_register_slice' (51#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/ebcc/hdl/axis_register_slice_v1_1_vl_rfs.v:2838]
+INFO: [Synth 8-6155] done synthesizing module 'axis_infrastructure_v1_1_0_util_vector2axis__parameterized3' (44#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:992]
+INFO: [Synth 8-6155] done synthesizing module 'axis_register_slice_v1_1_22_axis_register_slice' (45#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/ebcc/hdl/axis_register_slice_v1_1_vl_rfs.v:2838]
 INFO: [Synth 8-6157] synthesizing module 'axis_register_slice_v1_1_22_axis_register_slice__parameterized0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/ebcc/hdl/axis_register_slice_v1_1_vl_rfs.v:2838]
 	Parameter C_FAMILY bound to: zynq - type: string 
 	Parameter C_AXIS_TDATA_WIDTH bound to: 64 - type: integer 
@@ -1011,7 +985,7 @@ INFO: [Synth 8-6157] synthesizing module 'axis_infrastructure_v1_1_0_util_axis2v
 	Parameter P_TID_INDX bound to: 64 - type: integer 
 	Parameter P_TDEST_INDX bound to: 64 - type: integer 
 	Parameter P_TUSER_INDX bound to: 64 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axis_infrastructure_v1_1_0_util_axis2vector__parameterized4' (51#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:810]
+INFO: [Synth 8-6155] done synthesizing module 'axis_infrastructure_v1_1_0_util_axis2vector__parameterized4' (45#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:810]
 INFO: [Synth 8-6157] synthesizing module 'axis_register_slice_v1_1_22_axisc_register_slice__parameterized0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/ebcc/hdl/axis_register_slice_v1_1_vl_rfs.v:1936]
 	Parameter C_FAMILY bound to: zynq - type: string 
 	Parameter C_DATA_WIDTH bound to: 64 - type: integer 
@@ -1020,7 +994,7 @@ INFO: [Synth 8-6157] synthesizing module 'axis_register_slice_v1_1_22_axisc_regi
 	Parameter C_PIPELINES_MASTER bound to: 0 - type: integer 
 	Parameter C_PIPELINES_SLAVE bound to: 0 - type: integer 
 	Parameter C_PIPELINES_MIDDLE bound to: 0 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axis_register_slice_v1_1_22_axisc_register_slice__parameterized0' (51#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/ebcc/hdl/axis_register_slice_v1_1_vl_rfs.v:1936]
+INFO: [Synth 8-6155] done synthesizing module 'axis_register_slice_v1_1_22_axisc_register_slice__parameterized0' (45#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/ebcc/hdl/axis_register_slice_v1_1_vl_rfs.v:1936]
 INFO: [Synth 8-6157] synthesizing module 'axis_infrastructure_v1_1_0_util_vector2axis__parameterized4' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:992]
 	Parameter C_TDATA_WIDTH bound to: 64 - type: integer 
 	Parameter C_TID_WIDTH bound to: 1 - type: integer 
@@ -1054,10 +1028,10 @@ INFO: [Synth 8-6157] synthesizing module 'axis_infrastructure_v1_1_0_util_vector
 	Parameter P_TID_INDX bound to: 64 - type: integer 
 	Parameter P_TDEST_INDX bound to: 64 - type: integer 
 	Parameter P_TUSER_INDX bound to: 64 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axis_infrastructure_v1_1_0_util_vector2axis__parameterized4' (51#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:992]
-INFO: [Synth 8-6155] done synthesizing module 'axis_register_slice_v1_1_22_axis_register_slice__parameterized0' (51#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/ebcc/hdl/axis_register_slice_v1_1_vl_rfs.v:2838]
-INFO: [Synth 8-6155] done synthesizing module 'axis_dwidth_converter_v1_1_21_axis_dwidth_converter' (52#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/6614/hdl/axis_dwidth_converter_v1_1_vl_rfs.v:810]
-INFO: [Synth 8-6155] done synthesizing module 'system_conv_0_0' (53#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_conv_0_0/synth/system_conv_0_0.v:57]
+INFO: [Synth 8-6155] done synthesizing module 'axis_infrastructure_v1_1_0_util_vector2axis__parameterized4' (45#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:992]
+INFO: [Synth 8-6155] done synthesizing module 'axis_register_slice_v1_1_22_axis_register_slice__parameterized0' (45#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/ebcc/hdl/axis_register_slice_v1_1_vl_rfs.v:2838]
+INFO: [Synth 8-6155] done synthesizing module 'axis_dwidth_converter_v1_1_21_axis_dwidth_converter' (46#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/6614/hdl/axis_dwidth_converter_v1_1_vl_rfs.v:810]
+INFO: [Synth 8-6155] done synthesizing module 'system_conv_0_0' (47#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_conv_0_0/synth/system_conv_0_0.v:57]
 INFO: [Synth 8-6157] synthesizing module 'system_dac_0_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_dac_0_0/synth/system_dac_0_0.v:57]
 INFO: [Synth 8-6157] synthesizing module 'axis_red_pitaya_dac' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/f42e/src/axis_red_pitaya_dac.v:4]
 	Parameter DAC_DATA_WIDTH bound to: 14 - type: integer 
@@ -1069,9 +1043,9 @@ INFO: [Synth 8-6157] synthesizing module 'ODDR' [/tools/Xilinx/Vivado/2020.2/scr
 	Parameter IS_D1_INVERTED bound to: 1'b0 
 	Parameter IS_D2_INVERTED bound to: 1'b0 
 	Parameter SRTYPE bound to: SYNC - type: string 
-INFO: [Synth 8-6155] done synthesizing module 'ODDR' (54#1) [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:49791]
-INFO: [Synth 8-6155] done synthesizing module 'axis_red_pitaya_dac' (55#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/f42e/src/axis_red_pitaya_dac.v:4]
-INFO: [Synth 8-6155] done synthesizing module 'system_dac_0_0' (56#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_dac_0_0/synth/system_dac_0_0.v:57]
+INFO: [Synth 8-6155] done synthesizing module 'ODDR' (48#1) [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:49791]
+INFO: [Synth 8-6155] done synthesizing module 'axis_red_pitaya_dac' (49#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/f42e/src/axis_red_pitaya_dac.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'system_dac_0_0' (50#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_dac_0_0/synth/system_dac_0_0.v:57]
 INFO: [Synth 8-638] synthesizing module 'system_dds_0_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_dds_0_0/synth/system_dds_0_0.vhd:69]
 WARNING: [Synth 8-5640] Port 'debug_axi_pinc_in' is missing in component declaration [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_dds_0_0/synth/system_dds_0_0.vhd:72]
 WARNING: [Synth 8-5640] Port 'debug_axi_poff_in' is missing in component declaration [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_dds_0_0/synth/system_dds_0_0.vhd:72]
@@ -1091,11 +1065,11 @@ WARNING: [Synth 8-5640] Port 'debug_phase_nd' is missing in component declaratio
 	Parameter C_LATENCY bound to: 10 - type: integer 
 	Parameter C_MEM_TYPE bound to: 1 - type: integer 
 	Parameter C_NEGATIVE_COSINE bound to: 0 - type: integer 
-	Parameter C_NEGATIVE_SINE bound to: 1 - type: integer 
+	Parameter C_NEGATIVE_SINE bound to: 0 - type: integer 
 	Parameter C_NOISE_SHAPING bound to: 2 - type: integer 
-	Parameter C_OUTPUTS_REQUIRED bound to: 2 - type: integer 
+	Parameter C_OUTPUTS_REQUIRED bound to: 0 - type: integer 
 	Parameter C_OUTPUT_FORM bound to: 0 - type: integer 
-	Parameter C_OUTPUT_WIDTH bound to: 24 - type: integer 
+	Parameter C_OUTPUT_WIDTH bound to: 26 - type: integer 
 	Parameter C_PHASE_ANGLE_WIDTH bound to: 11 - type: integer 
 	Parameter C_PHASE_INCREMENT bound to: 3 - type: integer 
 	Parameter C_PHASE_INCREMENT_VALUE bound to: 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 - type: string 
@@ -1118,7 +1092,7 @@ WARNING: [Synth 8-5640] Port 'debug_phase_nd' is missing in component declaratio
 	Parameter C_S_CONFIG_SYNC_MODE bound to: 0 - type: integer 
 	Parameter C_S_CONFIG_TDATA_WIDTH bound to: 1 - type: integer 
 	Parameter C_HAS_M_DATA bound to: 1 - type: integer 
-	Parameter C_M_DATA_TDATA_WIDTH bound to: 48 - type: integer 
+	Parameter C_M_DATA_TDATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_M_DATA_HAS_TUSER bound to: 0 - type: integer 
 	Parameter C_M_DATA_TUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_HAS_M_PHASE bound to: 0 - type: integer 
@@ -1127,21 +1101,142 @@ WARNING: [Synth 8-5640] Port 'debug_phase_nd' is missing in component declaratio
 	Parameter C_M_PHASE_TUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_DEBUG_INTERFACE bound to: 0 - type: integer 
 	Parameter C_CHAN_WIDTH bound to: 1 - type: integer 
-INFO: [Synth 8-3491] module 'dds_compiler_v6_0_20' declared at '/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/398e/hdl/dds_compiler_v6_0_vh_rfs.vhd:47308' bound to instance 'U0' of component 'dds_compiler_v6_0_20' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_dds_0_0/synth/system_dds_0_0.vhd:182]
-INFO: [Synth 8-256] done synthesizing module 'system_dds_0_0' (70#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_dds_0_0/synth/system_dds_0_0.vhd:69]
-WARNING: [Synth 8-7071] port 'm_axis_data_tvalid' of module 'system_dds_0_0' is unconnected for instance 'dds_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:993]
-WARNING: [Synth 8-7023] instance 'dds_0' of module 'system_dds_0_0' has 5 connections declared, but only 4 given [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:993]
+INFO: [Synth 8-3491] module 'dds_compiler_v6_0_20' declared at '/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/ip/dds_compiler_1/hdl/dds_compiler_v6_0_vh_rfs.vhd:47308' bound to instance 'U0' of component 'dds_compiler_v6_0_20' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_dds_0_0/synth/system_dds_0_0.vhd:182]
+INFO: [Synth 8-256] done synthesizing module 'system_dds_0_0' (64#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_dds_0_0/synth/system_dds_0_0.vhd:69]
+WARNING: [Synth 8-7071] port 'm_axis_data_tvalid' of module 'system_dds_0_0' is unconnected for instance 'dds_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:968]
+WARNING: [Synth 8-7023] instance 'dds_0' of module 'system_dds_0_0' has 5 connections declared, but only 4 given [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:968]
 INFO: [Synth 8-6157] synthesizing module 'system_phase_0_2' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_phase_0_2/synth/system_phase_0_2.v:57]
-INFO: [Synth 8-6155] done synthesizing module 'system_phase_0_2' (71#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_phase_0_2/synth/system_phase_0_2.v:57]
+INFO: [Synth 8-6157] synthesizing module 'axis_constant' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/457f/src/axis_constant.v:4]
+	Parameter AXIS_TDATA_WIDTH bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'axis_constant' (65#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/457f/src/axis_constant.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'system_phase_0_2' (66#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_phase_0_2/synth/system_phase_0_2.v:57]
 INFO: [Synth 8-6157] synthesizing module 'system_dna_0_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_dna_0_0/synth/system_dna_0_0.v:57]
 INFO: [Synth 8-6157] synthesizing module 'dna_reader' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5f76/src/dna_reader.v:4]
 	Parameter CNTR_WIDTH bound to: 16 - type: integer 
 	Parameter DATA_WIDTH bound to: 57 - type: integer 
 INFO: [Synth 8-6157] synthesizing module 'DNA_PORT' [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:11984]
 	Parameter SIM_DNA_VALUE bound to: 57'b000000000000000000000000000000000000000000000000000000000 
-INFO: [Synth 8-6155] done synthesizing module 'DNA_PORT' (72#1) [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:11984]
-INFO: [Synth 8-6155] done synthesizing module 'dna_reader' (73#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5f76/src/dna_reader.v:4]
-INFO: [Synth 8-6155] done synthesizing module 'system_dna_0_0' (74#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_dna_0_0/synth/system_dna_0_0.v:57]
+INFO: [Synth 8-6155] done synthesizing module 'DNA_PORT' (67#1) [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:11984]
+INFO: [Synth 8-6155] done synthesizing module 'dna_reader' (68#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5f76/src/dna_reader.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'system_dna_0_0' (69#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_dna_0_0/synth/system_dna_0_0.v:57]
+INFO: [Synth 8-6157] synthesizing module 'system_b_const_16b_1' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_b_const_16b_1/synth/system_b_const_16b_1.v:57]
+INFO: [Synth 8-6157] synthesizing module 'axis_constant__parameterized0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/457f/src/axis_constant.v:4]
+	Parameter AXIS_TDATA_WIDTH bound to: 96 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'axis_constant__parameterized0' (69#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/457f/src/axis_constant.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'system_b_const_16b_1' (70#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_b_const_16b_1/synth/system_b_const_16b_1.v:57]
+INFO: [Synth 8-6157] synthesizing module 'system_feedback_combined_0_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_feedback_combined_0_0/synth/system_feedback_combined_0_0.v:59]
+INFO: [Synth 8-6157] synthesizing module 'feedback_combined' [/home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/new/feedback_combined.v:24]
+	Parameter ADC_DATA_WIDTH bound to: 16 - type: integer 
+	Parameter DDS_OUT_WIDTH bound to: 16 - type: integer 
+	Parameter MULT_CONST_OFFSET bound to: 32 - type: integer 
+	Parameter MULT_CONST_WIDTH bound to: 32 - type: integer 
+	Parameter FIXED_PHASE_OFFSET bound to: 0 - type: integer 
+	Parameter FIXED_PHASE_WIDTH bound to: 32 - type: integer 
+	Parameter ADD_CONST_WIDTH bound to: 16 - type: integer 
+	Parameter ADD_CONST_OFFSET bound to: 80 - type: integer 
+	Parameter FREQ_WIDTH bound to: 32 - type: integer 
+	Parameter START_FREQ_OFFSET bound to: 0 - type: integer 
+	Parameter STOP_FREQ_OFFSET bound to: 32 - type: integer 
+	Parameter INTERVAL_OFFSET bound to: 64 - type: integer 
+	Parameter INTERVAL_WIDTH bound to: 32 - type: integer 
+	Parameter DAC_DATA_WIDTH bound to: 14 - type: integer 
+	Parameter CFG_WIDTH bound to: 96 - type: integer 
+	Parameter AXIS_TDATA_WIDTH bound to: 16 - type: integer 
+	Parameter SELECT_WIDTH bound to: 2 - type: integer 
+	Parameter PADDING_WIDTH bound to: 2 - type: integer 
+	Parameter RESULT_WIDTH bound to: 64 - type: integer 
+	Parameter PHASE_WIDTH bound to: 30 - type: integer 
+	Parameter FCLK bound to: 125000000 - type: integer 
+	Parameter fixed bound to: 0 - type: integer 
+	Parameter sweep bound to: 1 - type: integer 
+	Parameter lin bound to: 2 - type: integer 
+	Parameter fancy bound to: 3 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'c_counter_binary_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/ip/c_counter_binary_0/synth/c_counter_binary_0.vhd:68]
+	Parameter C_IMPLEMENTATION bound to: 1 - type: integer 
+	Parameter C_VERBOSITY bound to: 0 - type: integer 
+	Parameter C_XDEVICEFAMILY bound to: zynq - type: string 
+	Parameter C_WIDTH bound to: 32 - type: integer 
+	Parameter C_HAS_CE bound to: 1 - type: integer 
+	Parameter C_HAS_SCLR bound to: 1 - type: integer 
+	Parameter C_RESTRICT_COUNT bound to: 0 - type: integer 
+	Parameter C_COUNT_TO bound to: 1 - type: string 
+	Parameter C_COUNT_BY bound to: 1 - type: string 
+	Parameter C_COUNT_MODE bound to: 0 - type: integer 
+	Parameter C_THRESH0_VALUE bound to: 1 - type: string 
+	Parameter C_CE_OVERRIDES_SYNC bound to: 0 - type: integer 
+	Parameter C_HAS_THRESH0 bound to: 0 - type: integer 
+	Parameter C_HAS_LOAD bound to: 0 - type: integer 
+	Parameter C_LOAD_LOW bound to: 0 - type: integer 
+	Parameter C_LATENCY bound to: 2 - type: integer 
+	Parameter C_FB_LATENCY bound to: 0 - type: integer 
+	Parameter C_AINIT_VAL bound to: 0 - type: string 
+	Parameter C_SINIT_VAL bound to: 0 - type: string 
+	Parameter C_SCLR_OVERRIDES_SSET bound to: 1 - type: integer 
+	Parameter C_HAS_SSET bound to: 0 - type: integer 
+	Parameter C_HAS_SINIT bound to: 0 - type: integer 
+INFO: [Synth 8-3491] module 'c_counter_binary_v12_0_14' declared at '/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/ip/c_counter_binary_0/hdl/c_counter_binary_v12_0_vh_rfs.vhd:2146' bound to instance 'U0' of component 'c_counter_binary_v12_0_14' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/ip/c_counter_binary_0/synth/c_counter_binary_0.vhd:127]
+INFO: [Synth 8-256] done synthesizing module 'c_counter_binary_0' (75#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/ip/c_counter_binary_0/synth/c_counter_binary_0.vhd:68]
+INFO: [Synth 8-638] synthesizing module 'dds_compiler_1' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/ip/dds_compiler_1/synth/dds_compiler_1.vhd:69]
+WARNING: [Synth 8-5640] Port 'debug_axi_pinc_in' is missing in component declaration [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/ip/dds_compiler_1/synth/dds_compiler_1.vhd:72]
+WARNING: [Synth 8-5640] Port 'debug_axi_poff_in' is missing in component declaration [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/ip/dds_compiler_1/synth/dds_compiler_1.vhd:72]
+WARNING: [Synth 8-5640] Port 'debug_axi_resync_in' is missing in component declaration [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/ip/dds_compiler_1/synth/dds_compiler_1.vhd:72]
+WARNING: [Synth 8-5640] Port 'debug_axi_chan_in' is missing in component declaration [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/ip/dds_compiler_1/synth/dds_compiler_1.vhd:72]
+WARNING: [Synth 8-5640] Port 'debug_core_nd' is missing in component declaration [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/ip/dds_compiler_1/synth/dds_compiler_1.vhd:72]
+WARNING: [Synth 8-5640] Port 'debug_phase' is missing in component declaration [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/ip/dds_compiler_1/synth/dds_compiler_1.vhd:72]
+WARNING: [Synth 8-5640] Port 'debug_phase_nd' is missing in component declaration [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/ip/dds_compiler_1/synth/dds_compiler_1.vhd:72]
+	Parameter C_XDEVICEFAMILY bound to: zynq - type: string 
+	Parameter C_MODE_OF_OPERATION bound to: 0 - type: integer 
+	Parameter C_MODULUS bound to: 9 - type: integer 
+	Parameter C_ACCUMULATOR_WIDTH bound to: 30 - type: integer 
+	Parameter C_CHANNELS bound to: 1 - type: integer 
+	Parameter C_HAS_PHASE_OUT bound to: 0 - type: integer 
+	Parameter C_HAS_PHASEGEN bound to: 1 - type: integer 
+	Parameter C_HAS_SINCOS bound to: 1 - type: integer 
+	Parameter C_LATENCY bound to: 8 - type: integer 
+	Parameter C_MEM_TYPE bound to: 1 - type: integer 
+	Parameter C_NEGATIVE_COSINE bound to: 0 - type: integer 
+	Parameter C_NEGATIVE_SINE bound to: 0 - type: integer 
+	Parameter C_NOISE_SHAPING bound to: 1 - type: integer 
+	Parameter C_OUTPUTS_REQUIRED bound to: 0 - type: integer 
+	Parameter C_OUTPUT_FORM bound to: 0 - type: integer 
+	Parameter C_OUTPUT_WIDTH bound to: 16 - type: integer 
+	Parameter C_PHASE_ANGLE_WIDTH bound to: 14 - type: integer 
+	Parameter C_PHASE_INCREMENT bound to: 3 - type: integer 
+	Parameter C_PHASE_INCREMENT_VALUE bound to: 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 - type: string 
+	Parameter C_RESYNC bound to: 0 - type: integer 
+	Parameter C_PHASE_OFFSET bound to: 0 - type: integer 
+	Parameter C_PHASE_OFFSET_VALUE bound to: 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 - type: string 
+	Parameter C_OPTIMISE_GOAL bound to: 0 - type: integer 
+	Parameter C_USE_DSP48 bound to: 0 - type: integer 
+	Parameter C_POR_MODE bound to: 0 - type: integer 
+	Parameter C_AMPLITUDE bound to: 0 - type: integer 
+	Parameter C_HAS_ACLKEN bound to: 0 - type: integer 
+	Parameter C_HAS_ARESETN bound to: 0 - type: integer 
+	Parameter C_HAS_TLAST bound to: 0 - type: integer 
+	Parameter C_HAS_TREADY bound to: 0 - type: integer 
+	Parameter C_HAS_S_PHASE bound to: 1 - type: integer 
+	Parameter C_S_PHASE_TDATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_PHASE_HAS_TUSER bound to: 0 - type: integer 
+	Parameter C_S_PHASE_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_HAS_S_CONFIG bound to: 0 - type: integer 
+	Parameter C_S_CONFIG_SYNC_MODE bound to: 0 - type: integer 
+	Parameter C_S_CONFIG_TDATA_WIDTH bound to: 1 - type: integer 
+	Parameter C_HAS_M_DATA bound to: 1 - type: integer 
+	Parameter C_M_DATA_TDATA_WIDTH bound to: 16 - type: integer 
+	Parameter C_M_DATA_HAS_TUSER bound to: 0 - type: integer 
+	Parameter C_M_DATA_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_HAS_M_PHASE bound to: 0 - type: integer 
+	Parameter C_M_PHASE_TDATA_WIDTH bound to: 1 - type: integer 
+	Parameter C_M_PHASE_HAS_TUSER bound to: 0 - type: integer 
+	Parameter C_M_PHASE_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_DEBUG_INTERFACE bound to: 0 - type: integer 
+	Parameter C_CHAN_WIDTH bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'dds_compiler_v6_0_20' declared at '/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/ip/dds_compiler_1/hdl/dds_compiler_v6_0_vh_rfs.vhd:47308' bound to instance 'U0' of component 'dds_compiler_v6_0_20' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/ip/dds_compiler_1/synth/dds_compiler_1.vhd:174]
+INFO: [Synth 8-256] done synthesizing module 'dds_compiler_1' (77#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/ip/dds_compiler_1/synth/dds_compiler_1.vhd:69]
+INFO: [Synth 8-6155] done synthesizing module 'feedback_combined' (78#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/new/feedback_combined.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'system_feedback_combined_0_0' (79#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_feedback_combined_0_0/synth/system_feedback_combined_0_0.v:59]
+WARNING: [Synth 8-7071] port 'trig_out' of module 'system_feedback_combined_0_0' is unconnected for instance 'feedback_combined_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:987]
+WARNING: [Synth 8-7023] instance 'feedback_combined_0' of module 'system_feedback_combined_0_0' has 10 connections declared, but only 9 given [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:987]
 INFO: [Synth 8-638] synthesizing module 'system_mult_0_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_mult_0_0/synth/system_mult_0_0.vhd:68]
 	Parameter C_VERBOSITY bound to: 0 - type: integer 
 	Parameter C_MODEL_TYPE bound to: 0 - type: integer 
@@ -1195,20 +1290,23 @@ INFO: [Synth 8-638] synthesizing module 'system_mult_0_0' [/home/acoustics/Docum
 	Parameter C_REG_CONFIG bound to: 00000000000011000011000001000100 - type: string 
 	Parameter C_TEST_CORE bound to: 0 - type: integer 
 INFO: [Synth 8-3491] module 'xbip_dsp48_macro_v3_0_18' declared at '/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/f5aa/hdl/xbip_dsp48_macro_v3_0_vh_rfs.vhd:5013' bound to instance 'U0' of component 'xbip_dsp48_macro_v3_0_18' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_mult_0_0/synth/system_mult_0_0.vhd:208]
-INFO: [Synth 8-256] done synthesizing module 'system_mult_0_0' (78#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_mult_0_0/synth/system_mult_0_0.vhd:68]
+INFO: [Synth 8-256] done synthesizing module 'system_mult_0_0' (83#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_mult_0_0/synth/system_mult_0_0.vhd:68]
 INFO: [Synth 8-6157] synthesizing module 'system_output_binary_conver_0_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_output_binary_conver_0_0/synth/system_output_binary_conver_0_0.v:58]
 INFO: [Synth 8-6157] synthesizing module 'output_binary_converter' [/home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/new/output_binary_converter.v:23]
 	Parameter TDATA_WIDTH bound to: 16 - type: integer 
 	Parameter DAC_DATA_WIDTH bound to: 14 - type: integer 
 	Parameter PADDING_WIDTH bound to: 2 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'output_binary_converter' (79#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/new/output_binary_converter.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'system_output_binary_conver_0_0' (80#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_output_binary_conver_0_0/synth/system_output_binary_conver_0_0.v:58]
+INFO: [Synth 8-6155] done synthesizing module 'output_binary_converter' (84#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/new/output_binary_converter.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'system_output_binary_conver_0_0' (85#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_output_binary_conver_0_0/synth/system_output_binary_conver_0_0.v:58]
 INFO: [Synth 8-6157] synthesizing module 'system_axis_combiner_0_1' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_combiner_0_1/synth/system_axis_combiner_0_1.v:57]
-INFO: [Synth 8-6155] done synthesizing module 'system_axis_combiner_0_1' (81#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_combiner_0_1/synth/system_axis_combiner_0_1.v:57]
-WARNING: [Synth 8-7071] port 's_axis_tready' of module 'system_axis_combiner_0_1' is unconnected for instance 'output_combiner' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1018]
-WARNING: [Synth 8-7023] instance 'output_combiner' of module 'system_axis_combiner_0_1' has 8 connections declared, but only 7 given [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1018]
+INFO: [Synth 8-6155] done synthesizing module 'system_axis_combiner_0_1' (86#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_combiner_0_1/synth/system_axis_combiner_0_1.v:57]
+WARNING: [Synth 8-7071] port 's_axis_tready' of module 'system_axis_combiner_0_1' is unconnected for instance 'output_combiner' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1008]
+WARNING: [Synth 8-7023] instance 'output_combiner' of module 'system_axis_combiner_0_1' has 8 connections declared, but only 7 given [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1008]
 INFO: [Synth 8-6157] synthesizing module 'system_phase_0_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_phase_0_0/synth/system_phase_0_0.v:57]
-INFO: [Synth 8-6155] done synthesizing module 'system_phase_0_0' (82#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_phase_0_0/synth/system_phase_0_0.v:57]
+INFO: [Synth 8-6157] synthesizing module 'axis_constant__parameterized1' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/457f/src/axis_constant.v:4]
+	Parameter AXIS_TDATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'axis_constant__parameterized1' (86#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/457f/src/axis_constant.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'system_phase_0_0' (87#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_phase_0_0/synth/system_phase_0_0.v:57]
 INFO: [Synth 8-6157] synthesizing module 'system_pll_0_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_pll_0_0/system_pll_0_0.v:72]
 INFO: [Synth 8-6157] synthesizing module 'system_pll_0_0_clk_wiz' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_pll_0_0/system_pll_0_0_clk_wiz.v:70]
 INFO: [Synth 8-6157] synthesizing module 'IBUFDS' [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:32998]
@@ -1219,7 +1317,7 @@ INFO: [Synth 8-6157] synthesizing module 'IBUFDS' [/tools/Xilinx/Vivado/2020.2/s
 	Parameter IBUF_LOW_PWR bound to: TRUE - type: string 
 	Parameter IFD_DELAY_VALUE bound to: AUTO - type: string 
 	Parameter IOSTANDARD bound to: DEFAULT - type: string 
-INFO: [Synth 8-6155] done synthesizing module 'IBUFDS' (83#1) [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:32998]
+INFO: [Synth 8-6155] done synthesizing module 'IBUFDS' (88#1) [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:32998]
 INFO: [Synth 8-6157] synthesizing module 'PLLE2_ADV' [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:61526]
 	Parameter BANDWIDTH bound to: OPTIMIZED - type: string 
 	Parameter CLKFBOUT_MULT bound to: 8 - type: integer 
@@ -1252,11 +1350,11 @@ INFO: [Synth 8-6157] synthesizing module 'PLLE2_ADV' [/tools/Xilinx/Vivado/2020.
 	Parameter REF_JITTER1 bound to: 0.010000 - type: double 
 	Parameter REF_JITTER2 bound to: 0.010000 - type: double 
 	Parameter STARTUP_WAIT bound to: FALSE - type: string 
-INFO: [Synth 8-6155] done synthesizing module 'PLLE2_ADV' (84#1) [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:61526]
+INFO: [Synth 8-6155] done synthesizing module 'PLLE2_ADV' (89#1) [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:61526]
 INFO: [Synth 8-6157] synthesizing module 'BUFG' [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:1083]
-INFO: [Synth 8-6155] done synthesizing module 'BUFG' (85#1) [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:1083]
-INFO: [Synth 8-6155] done synthesizing module 'system_pll_0_0_clk_wiz' (86#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_pll_0_0/system_pll_0_0_clk_wiz.v:70]
-INFO: [Synth 8-6155] done synthesizing module 'system_pll_0_0' (87#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_pll_0_0/system_pll_0_0.v:72]
+INFO: [Synth 8-6155] done synthesizing module 'BUFG' (90#1) [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:1083]
+INFO: [Synth 8-6155] done synthesizing module 'system_pll_0_0_clk_wiz' (91#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_pll_0_0/system_pll_0_0_clk_wiz.v:70]
+INFO: [Synth 8-6155] done synthesizing module 'system_pll_0_0' (92#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_pll_0_0/system_pll_0_0.v:72]
 INFO: [Synth 8-6157] synthesizing module 'system_ps_0_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ps_0_0/synth/system_ps_0_0.v:60]
 INFO: [Synth 8-6157] synthesizing module 'processing_system7_v5_5_processing_system7' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ps_0_0/hdl/verilog/processing_system7_v5_5_processing_system7.v:161]
 	Parameter C_USE_DEFAULT_ACP_USER_VAL bound to: 1 - type: integer 
@@ -1316,10 +1414,10 @@ INFO: [Synth 8-6157] synthesizing module 'processing_system7_v5_5_processing_sys
 	Parameter C_GP0_EN_MODIFIABLE_TXN bound to: 1 - type: integer 
 	Parameter C_GP1_EN_MODIFIABLE_TXN bound to: 1 - type: integer 
 INFO: [Synth 8-6157] synthesizing module 'BIBUF' [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:730]
-INFO: [Synth 8-6155] done synthesizing module 'BIBUF' (88#1) [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:730]
+INFO: [Synth 8-6155] done synthesizing module 'BIBUF' (93#1) [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:730]
 INFO: [Synth 8-6157] synthesizing module 'PS7' [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:62034]
-INFO: [Synth 8-6155] done synthesizing module 'PS7' (89#1) [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:62034]
-INFO: [Synth 8-6155] done synthesizing module 'processing_system7_v5_5_processing_system7' (90#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ps_0_0/hdl/verilog/processing_system7_v5_5_processing_system7.v:161]
+INFO: [Synth 8-6155] done synthesizing module 'PS7' (94#1) [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:62034]
+INFO: [Synth 8-6155] done synthesizing module 'processing_system7_v5_5_processing_system7' (95#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ps_0_0/hdl/verilog/processing_system7_v5_5_processing_system7.v:161]
 WARNING: [Synth 8-7071] port 'M_AXI_GP0_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ps_0_0/synth/system_ps_0_0.v:500]
 WARNING: [Synth 8-7071] port 'M_AXI_GP1_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ps_0_0/synth/system_ps_0_0.v:500]
 WARNING: [Synth 8-7071] port 'S_AXI_GP0_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ps_0_0/synth/system_ps_0_0.v:500]
@@ -1334,37 +1432,37 @@ WARNING: [Synth 8-7071] port 'DMA1_RSTN' of module 'processing_system7_v5_5_proc
 WARNING: [Synth 8-7071] port 'DMA2_RSTN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ps_0_0/synth/system_ps_0_0.v:500]
 WARNING: [Synth 8-7071] port 'DMA3_RSTN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ps_0_0/synth/system_ps_0_0.v:500]
 WARNING: [Synth 8-7023] instance 'inst' of module 'processing_system7_v5_5_processing_system7' has 685 connections declared, but only 672 given [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ps_0_0/synth/system_ps_0_0.v:500]
-INFO: [Synth 8-6155] done synthesizing module 'system_ps_0_0' (91#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ps_0_0/synth/system_ps_0_0.v:60]
-WARNING: [Synth 8-7071] port 'GPIO_O' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1038]
-WARNING: [Synth 8-7071] port 'GPIO_T' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1038]
-WARNING: [Synth 8-7071] port 'SPI0_SCLK_O' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1038]
-WARNING: [Synth 8-7071] port 'SPI0_SCLK_T' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1038]
-WARNING: [Synth 8-7071] port 'SPI0_MOSI_O' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1038]
-WARNING: [Synth 8-7071] port 'SPI0_MOSI_T' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1038]
-WARNING: [Synth 8-7071] port 'SPI0_MISO_O' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1038]
-WARNING: [Synth 8-7071] port 'SPI0_MISO_T' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1038]
-WARNING: [Synth 8-7071] port 'SPI0_SS_O' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1038]
-WARNING: [Synth 8-7071] port 'SPI0_SS1_O' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1038]
-WARNING: [Synth 8-7071] port 'SPI0_SS2_O' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1038]
-WARNING: [Synth 8-7071] port 'SPI0_SS_T' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1038]
-WARNING: [Synth 8-7071] port 'USB0_PORT_INDCTL' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1038]
-WARNING: [Synth 8-7071] port 'USB0_VBUS_PWRSELECT' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1038]
-WARNING: [Synth 8-7071] port 'S_AXI_ACP_ARREADY' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1038]
-WARNING: [Synth 8-7071] port 'S_AXI_ACP_RLAST' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1038]
-WARNING: [Synth 8-7071] port 'S_AXI_ACP_RVALID' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1038]
-WARNING: [Synth 8-7071] port 'S_AXI_ACP_BRESP' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1038]
-WARNING: [Synth 8-7071] port 'S_AXI_ACP_RRESP' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1038]
-WARNING: [Synth 8-7071] port 'S_AXI_ACP_BID' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1038]
-WARNING: [Synth 8-7071] port 'S_AXI_ACP_RID' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1038]
-WARNING: [Synth 8-7071] port 'S_AXI_ACP_RDATA' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1038]
-WARNING: [Synth 8-7071] port 'FCLK_CLK0' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1038]
-WARNING: [Synth 8-7071] port 'FCLK_RESET0_N' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1038]
-WARNING: [Synth 8-7023] instance 'ps_0' of module 'system_ps_0_0' has 123 connections declared, but only 99 given [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1038]
-INFO: [Synth 8-6157] synthesizing module 'system_ps_0_axi_periph_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1307]
+INFO: [Synth 8-6155] done synthesizing module 'system_ps_0_0' (96#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ps_0_0/synth/system_ps_0_0.v:60]
+WARNING: [Synth 8-7071] port 'GPIO_O' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1028]
+WARNING: [Synth 8-7071] port 'GPIO_T' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1028]
+WARNING: [Synth 8-7071] port 'SPI0_SCLK_O' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1028]
+WARNING: [Synth 8-7071] port 'SPI0_SCLK_T' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1028]
+WARNING: [Synth 8-7071] port 'SPI0_MOSI_O' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1028]
+WARNING: [Synth 8-7071] port 'SPI0_MOSI_T' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1028]
+WARNING: [Synth 8-7071] port 'SPI0_MISO_O' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1028]
+WARNING: [Synth 8-7071] port 'SPI0_MISO_T' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1028]
+WARNING: [Synth 8-7071] port 'SPI0_SS_O' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1028]
+WARNING: [Synth 8-7071] port 'SPI0_SS1_O' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1028]
+WARNING: [Synth 8-7071] port 'SPI0_SS2_O' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1028]
+WARNING: [Synth 8-7071] port 'SPI0_SS_T' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1028]
+WARNING: [Synth 8-7071] port 'USB0_PORT_INDCTL' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1028]
+WARNING: [Synth 8-7071] port 'USB0_VBUS_PWRSELECT' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1028]
+WARNING: [Synth 8-7071] port 'S_AXI_ACP_ARREADY' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1028]
+WARNING: [Synth 8-7071] port 'S_AXI_ACP_RLAST' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1028]
+WARNING: [Synth 8-7071] port 'S_AXI_ACP_RVALID' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1028]
+WARNING: [Synth 8-7071] port 'S_AXI_ACP_BRESP' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1028]
+WARNING: [Synth 8-7071] port 'S_AXI_ACP_RRESP' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1028]
+WARNING: [Synth 8-7071] port 'S_AXI_ACP_BID' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1028]
+WARNING: [Synth 8-7071] port 'S_AXI_ACP_RID' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1028]
+WARNING: [Synth 8-7071] port 'S_AXI_ACP_RDATA' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1028]
+WARNING: [Synth 8-7071] port 'FCLK_CLK0' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1028]
+WARNING: [Synth 8-7071] port 'FCLK_RESET0_N' of module 'system_ps_0_0' is unconnected for instance 'ps_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1028]
+WARNING: [Synth 8-7023] instance 'ps_0' of module 'system_ps_0_0' has 123 connections declared, but only 99 given [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1028]
+INFO: [Synth 8-6157] synthesizing module 'system_ps_0_axi_periph_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1300]
 INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_1TR9QEX' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:12]
-INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_1TR9QEX' (92#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_1TR9QEX' (97#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:12]
 INFO: [Synth 8-6157] synthesizing module 'm01_couplers_imp_IH4294' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:137]
-INFO: [Synth 8-6155] done synthesizing module 'm01_couplers_imp_IH4294' (93#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:137]
+INFO: [Synth 8-6155] done synthesizing module 'm01_couplers_imp_IH4294' (98#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:137]
 INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_1OVXGTK' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:269]
 INFO: [Synth 8-6157] synthesizing module 'system_auto_pc_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_auto_pc_0/synth/system_auto_pc_0.v:58]
 INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_22_axi_protocol_converter' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:4808]
@@ -1411,20 +1509,20 @@ INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_22_b2s_cmd
 INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_22_b2s_incr_cmd' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:3092]
 	Parameter C_AXI_ADDR_WIDTH bound to: 32 - type: integer 
 	Parameter L_AXI_ADDR_LOW_BIT bound to: 12 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_22_b2s_incr_cmd' (94#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:3092]
+INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_22_b2s_incr_cmd' (99#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:3092]
 INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_22_b2s_wrap_cmd' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:2902]
 	Parameter C_AXI_ADDR_WIDTH bound to: 32 - type: integer 
 	Parameter L_AXI_ADDR_LOW_BIT bound to: 12 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_22_b2s_wrap_cmd' (95#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:2902]
-INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_22_b2s_cmd_translator' (96#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:3464]
+INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_22_b2s_wrap_cmd' (100#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:2902]
+INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_22_b2s_cmd_translator' (101#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:3464]
 INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_22_b2s_wr_cmd_fsm' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:3224]
 	Parameter SM_IDLE bound to: 2'b00 
 	Parameter SM_CMD_EN bound to: 2'b01 
 	Parameter SM_CMD_ACCEPTED bound to: 2'b10 
 	Parameter SM_DONE_WAIT bound to: 2'b11 
 INFO: [Synth 8-226] default block is never used [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:3277]
-INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_22_b2s_wr_cmd_fsm' (97#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:3224]
-INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_22_b2s_aw_channel' (98#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:3971]
+INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_22_b2s_wr_cmd_fsm' (102#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:3224]
+INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_22_b2s_aw_channel' (103#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:3971]
 INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_22_b2s_b_channel' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:3606]
 	Parameter C_ID_WIDTH bound to: 12 - type: integer 
 	Parameter LP_RESP_OKAY bound to: 2'b00 
@@ -1445,7 +1543,7 @@ INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_22_b2s_sim
 	Parameter C_EMPTY_PRE bound to: 2'b00 
 	Parameter C_FULL bound to: 2'b10 
 	Parameter C_FULL_PRE bound to: 2'b01 
-INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_22_b2s_simple_fifo' (99#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:2816]
+INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_22_b2s_simple_fifo' (104#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:2816]
 INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_22_b2s_simple_fifo__parameterized0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:2816]
 	Parameter C_WIDTH bound to: 2 - type: integer 
 	Parameter C_AWIDTH bound to: 2 - type: integer 
@@ -1454,8 +1552,8 @@ INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_22_b2s_sim
 	Parameter C_EMPTY_PRE bound to: 2'b00 
 	Parameter C_FULL bound to: 2'b10 
 	Parameter C_FULL_PRE bound to: 2'b01 
-INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_22_b2s_simple_fifo__parameterized0' (99#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:2816]
-INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_22_b2s_b_channel' (100#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:3606]
+INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_22_b2s_simple_fifo__parameterized0' (104#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:2816]
+INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_22_b2s_b_channel' (105#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:3606]
 INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_22_b2s_ar_channel' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:4082]
 	Parameter C_ID_WIDTH bound to: 12 - type: integer 
 	Parameter C_AXI_ADDR_WIDTH bound to: 32 - type: integer 
@@ -1465,8 +1563,8 @@ INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_22_b2s_rd_
 	Parameter SM_CMD_ACCEPTED bound to: 2'b10 
 	Parameter SM_DONE bound to: 2'b11 
 INFO: [Synth 8-226] default block is never used [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:3395]
-INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_22_b2s_rd_cmd_fsm' (101#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:3334]
-INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_22_b2s_ar_channel' (102#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:4082]
+INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_22_b2s_rd_cmd_fsm' (106#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:3334]
+INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_22_b2s_ar_channel' (107#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:4082]
 INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_22_b2s_r_channel' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:3811]
 	Parameter C_ID_WIDTH bound to: 12 - type: integer 
 	Parameter C_DATA_WIDTH bound to: 32 - type: integer 
@@ -1484,7 +1582,7 @@ INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_22_b2s_sim
 	Parameter C_EMPTY_PRE bound to: 5'b00000 
 	Parameter C_FULL bound to: 5'b11110 
 	Parameter C_FULL_PRE bound to: 5'b11010 
-INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_22_b2s_simple_fifo__parameterized1' (102#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:2816]
+INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_22_b2s_simple_fifo__parameterized1' (107#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:2816]
 INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_22_b2s_simple_fifo__parameterized2' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:2816]
 	Parameter C_WIDTH bound to: 13 - type: integer 
 	Parameter C_AWIDTH bound to: 5 - type: integer 
@@ -1493,8 +1591,8 @@ INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_22_b2s_sim
 	Parameter C_EMPTY_PRE bound to: 5'b00000 
 	Parameter C_FULL bound to: 5'b11110 
 	Parameter C_FULL_PRE bound to: 5'b11010 
-INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_22_b2s_simple_fifo__parameterized2' (102#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:2816]
-INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_22_b2s_r_channel' (103#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:3811]
+INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_22_b2s_simple_fifo__parameterized2' (107#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:2816]
+INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_22_b2s_r_channel' (108#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:3811]
 INFO: [Synth 8-6157] synthesizing module 'axi_register_slice_v2_1_22_axi_register_slice' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/af2c/hdl/axi_register_slice_v2_1_vl_rfs.v:3726]
 	Parameter C_FAMILY bound to: virtex6 - type: string 
 	Parameter C_AXI_PROTOCOL bound to: 1 - type: integer 
@@ -1699,9 +1797,8 @@ INFO: [Synth 8-6157] synthesizing module 'axi_infrastructure_v1_1_0_axi2vector' 
 	Parameter G_AXI_RUSER_INDEX bound to: 47 - type: integer 
 	Parameter G_AXI_RUSER_WIDTH bound to: 0 - type: integer 
 	Parameter G_AXI_RPAYLOAD_WIDTH bound to: 47 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axi_infrastructure_v1_1_0_axi2vector' (104#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v:60]
+INFO: [Synth 8-6155] done synthesizing module 'axi_infrastructure_v1_1_0_axi2vector' (109#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v:60]
 INFO: [Synth 8-6157] synthesizing module 'axi_infrastructure_v1_1_0_vector2axi' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v:474]
-INFO: [Common 17-14] Message 'Synth 8-6157' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 	Parameter C_AXI_PROTOCOL bound to: 1 - type: integer 
 	Parameter C_AXI_ID_WIDTH bound to: 12 - type: integer 
 	Parameter C_AXI_ADDR_WIDTH bound to: 32 - type: integer 
@@ -1793,24 +1890,27 @@ INFO: [Common 17-14] Message 'Synth 8-6157' appears 100 times and further instan
 	Parameter G_AXI_RUSER_INDEX bound to: 47 - type: integer 
 	Parameter G_AXI_RUSER_WIDTH bound to: 0 - type: integer 
 	Parameter G_AXI_RPAYLOAD_WIDTH bound to: 47 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axi_infrastructure_v1_1_0_vector2axi' (105#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v:474]
+INFO: [Synth 8-6155] done synthesizing module 'axi_infrastructure_v1_1_0_vector2axi' (110#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v:474]
+INFO: [Synth 8-6157] synthesizing module 'axi_register_slice_v2_1_22_axic_register_slice' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/af2c/hdl/axi_register_slice_v2_1_vl_rfs.v:1498]
 	Parameter C_FAMILY bound to: virtex6 - type: string 
 	Parameter C_DATA_WIDTH bound to: 66 - type: integer 
 	Parameter C_REG_CONFIG bound to: 1 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axi_register_slice_v2_1_22_axic_register_slice' (106#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/af2c/hdl/axi_register_slice_v2_1_vl_rfs.v:1498]
+INFO: [Synth 8-6155] done synthesizing module 'axi_register_slice_v2_1_22_axic_register_slice' (111#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/af2c/hdl/axi_register_slice_v2_1_vl_rfs.v:1498]
+INFO: [Synth 8-6157] synthesizing module 'axi_register_slice_v2_1_22_axic_register_slice__parameterized0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/af2c/hdl/axi_register_slice_v2_1_vl_rfs.v:1498]
+INFO: [Common 17-14] Message 'Synth 8-6157' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 	Parameter C_FAMILY bound to: virtex6 - type: string 
 	Parameter C_DATA_WIDTH bound to: 49 - type: integer 
 	Parameter C_REG_CONFIG bound to: 0 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axi_register_slice_v2_1_22_axic_register_slice__parameterized0' (106#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/af2c/hdl/axi_register_slice_v2_1_vl_rfs.v:1498]
+INFO: [Synth 8-6155] done synthesizing module 'axi_register_slice_v2_1_22_axic_register_slice__parameterized0' (111#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/af2c/hdl/axi_register_slice_v2_1_vl_rfs.v:1498]
 	Parameter C_FAMILY bound to: virtex6 - type: string 
 	Parameter C_DATA_WIDTH bound to: 14 - type: integer 
 	Parameter C_REG_CONFIG bound to: 1 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axi_register_slice_v2_1_22_axic_register_slice__parameterized1' (106#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/af2c/hdl/axi_register_slice_v2_1_vl_rfs.v:1498]
+INFO: [Synth 8-6155] done synthesizing module 'axi_register_slice_v2_1_22_axic_register_slice__parameterized1' (111#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/af2c/hdl/axi_register_slice_v2_1_vl_rfs.v:1498]
 	Parameter C_FAMILY bound to: virtex6 - type: string 
 	Parameter C_DATA_WIDTH bound to: 47 - type: integer 
 	Parameter C_REG_CONFIG bound to: 1 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axi_register_slice_v2_1_22_axic_register_slice__parameterized2' (106#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/af2c/hdl/axi_register_slice_v2_1_vl_rfs.v:1498]
-INFO: [Synth 8-6155] done synthesizing module 'axi_register_slice_v2_1_22_axi_register_slice' (107#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/af2c/hdl/axi_register_slice_v2_1_vl_rfs.v:3726]
+INFO: [Synth 8-6155] done synthesizing module 'axi_register_slice_v2_1_22_axic_register_slice__parameterized2' (111#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/af2c/hdl/axi_register_slice_v2_1_vl_rfs.v:1498]
+INFO: [Synth 8-6155] done synthesizing module 'axi_register_slice_v2_1_22_axi_register_slice' (112#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/af2c/hdl/axi_register_slice_v2_1_vl_rfs.v:3726]
 WARNING: [Synth 8-7071] port 'aclk2x' of module 'axi_register_slice_v2_1_22_axi_register_slice' is unconnected for instance 'SI_REG' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:4392]
 WARNING: [Synth 8-7023] instance 'SI_REG' of module 'axi_register_slice_v2_1_22_axi_register_slice' has 93 connections declared, but only 92 given [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v:4392]
 	Parameter C_FAMILY bound to: virtex6 - type: string 
@@ -2015,7 +2115,7 @@ WARNING: [Synth 8-7023] instance 'SI_REG' of module 'axi_register_slice_v2_1_22_
 	Parameter G_AXI_RUSER_INDEX bound to: 34 - type: integer 
 	Parameter G_AXI_RUSER_WIDTH bound to: 0 - type: integer 
 	Parameter G_AXI_RPAYLOAD_WIDTH bound to: 34 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axi_infrastructure_v1_1_0_axi2vector__parameterized0' (107#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v:60]
+INFO: [Synth 8-6155] done synthesizing module 'axi_infrastructure_v1_1_0_axi2vector__parameterized0' (112#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v:60]
 	Parameter C_AXI_PROTOCOL bound to: 2 - type: integer 
 	Parameter C_AXI_ID_WIDTH bound to: 1 - type: integer 
 	Parameter C_AXI_ADDR_WIDTH bound to: 32 - type: integer 
@@ -2107,18 +2207,20 @@ INFO: [Synth 8-6155] done synthesizing module 'axi_infrastructure_v1_1_0_axi2vec
 	Parameter G_AXI_RUSER_INDEX bound to: 34 - type: integer 
 	Parameter G_AXI_RUSER_WIDTH bound to: 0 - type: integer 
 	Parameter G_AXI_RPAYLOAD_WIDTH bound to: 34 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axi_infrastructure_v1_1_0_vector2axi__parameterized0' (107#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v:474]
+INFO: [Synth 8-6155] done synthesizing module 'axi_infrastructure_v1_1_0_vector2axi__parameterized0' (112#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v:474]
 	Parameter C_FAMILY bound to: virtex6 - type: string 
 	Parameter C_DATA_WIDTH bound to: 35 - type: integer 
 	Parameter C_REG_CONFIG bound to: 0 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axi_register_slice_v2_1_22_axic_register_slice__parameterized3' (107#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/af2c/hdl/axi_register_slice_v2_1_vl_rfs.v:1498]
-INFO: [Common 17-14] Message 'Synth 8-6155' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-6155] done synthesizing module 'axi_register_slice_v2_1_22_axic_register_slice__parameterized3' (112#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/af2c/hdl/axi_register_slice_v2_1_vl_rfs.v:1498]
 	Parameter C_FAMILY bound to: virtex6 - type: string 
 	Parameter C_DATA_WIDTH bound to: 36 - type: integer 
 	Parameter C_REG_CONFIG bound to: 0 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'axi_register_slice_v2_1_22_axic_register_slice__parameterized4' (112#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/af2c/hdl/axi_register_slice_v2_1_vl_rfs.v:1498]
 	Parameter C_FAMILY bound to: virtex6 - type: string 
 	Parameter C_DATA_WIDTH bound to: 2 - type: integer 
 	Parameter C_REG_CONFIG bound to: 0 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'axi_register_slice_v2_1_22_axic_register_slice__parameterized5' (112#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/af2c/hdl/axi_register_slice_v2_1_vl_rfs.v:1498]
+INFO: [Common 17-14] Message 'Synth 8-6155' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 	Parameter C_FAMILY bound to: virtex6 - type: string 
 	Parameter C_DATA_WIDTH bound to: 34 - type: integer 
 	Parameter C_REG_CONFIG bound to: 0 - type: integer 
@@ -2292,9 +2394,9 @@ WARNING: [Synth 8-7023] instance 'MI_REG' of module 'axi_register_slice_v2_1_22_
 	Parameter C_RATIO bound to: 3 - type: integer 
 	Parameter C_SEL_WIDTH bound to: 2 - type: integer 
 	Parameter C_DATA_WIDTH bound to: 3 - type: integer 
-WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'system_xbar_0' is unconnected for instance 'xbar' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1805]
-WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'system_xbar_0' is unconnected for instance 'xbar' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1805]
-WARNING: [Synth 8-7023] instance 'xbar' of module 'system_xbar_0' has 40 connections declared, but only 38 given [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1805]
+WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'system_xbar_0' is unconnected for instance 'xbar' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1798]
+WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'system_xbar_0' is unconnected for instance 'xbar' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1798]
+WARNING: [Synth 8-7023] instance 'xbar' of module 'system_xbar_0' has 40 connections declared, but only 38 given [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1798]
 	Parameter AXIS_TDATA_WIDTH bound to: 16 - type: integer 
 INFO: [Synth 8-638] synthesizing module 'system_rst_0_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_rst_0_0/synth/system_rst_0_0.vhd:74]
 	Parameter C_FAMILY bound to: zynq - type: string 
@@ -2368,20 +2470,20 @@ INFO: [Synth 8-113] binding component instance 'CROSS_PLEVEL_IN2SCNDRY_s_level_o
 INFO: [Synth 8-113] binding component instance 'CROSS_PLEVEL_IN2SCNDRY_s_level_out_d5' to cell 'FDR' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/ef1e/hdl/lib_cdc_v1_0_rfs.vhd:574]
 	Parameter INIT bound to: 1'b0 
 INFO: [Synth 8-113] binding component instance 'CROSS_PLEVEL_IN2SCNDRY_s_level_out_d6' to cell 'FDR' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/ef1e/hdl/lib_cdc_v1_0_rfs.vhd:584]
-INFO: [Synth 8-256] done synthesizing module 'cdc_sync' (126#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/ef1e/hdl/lib_cdc_v1_0_rfs.vhd:106]
-INFO: [Synth 8-256] done synthesizing module 'lpf' (127#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:816]
+INFO: [Synth 8-256] done synthesizing module 'cdc_sync' (131#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/ef1e/hdl/lib_cdc_v1_0_rfs.vhd:106]
+INFO: [Synth 8-256] done synthesizing module 'lpf' (132#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:816]
 INFO: [Synth 8-638] synthesizing module 'sequence_psr' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:301]
 INFO: [Synth 8-638] synthesizing module 'upcnt_n' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:125]
 	Parameter C_SIZE bound to: 6 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'upcnt_n' (128#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:125]
-INFO: [Synth 8-256] done synthesizing module 'sequence_psr' (129#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:301]
-INFO: [Synth 8-256] done synthesizing module 'proc_sys_reset' (130#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:1323]
-INFO: [Synth 8-256] done synthesizing module 'system_rst_0_0' (131#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_rst_0_0/synth/system_rst_0_0.vhd:74]
-WARNING: [Synth 8-7071] port 'mb_reset' of module 'system_rst_0_0' is unconnected for instance 'rst_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1225]
-WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'system_rst_0_0' is unconnected for instance 'rst_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1225]
-WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'system_rst_0_0' is unconnected for instance 'rst_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1225]
-WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'system_rst_0_0' is unconnected for instance 'rst_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1225]
-WARNING: [Synth 8-7023] instance 'rst_0' of module 'system_rst_0_0' has 10 connections declared, but only 6 given [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1225]
+INFO: [Synth 8-256] done synthesizing module 'upcnt_n' (133#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:125]
+INFO: [Synth 8-256] done synthesizing module 'sequence_psr' (134#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:301]
+INFO: [Synth 8-256] done synthesizing module 'proc_sys_reset' (135#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:1323]
+INFO: [Synth 8-256] done synthesizing module 'system_rst_0_0' (136#1) [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_rst_0_0/synth/system_rst_0_0.vhd:74]
+WARNING: [Synth 8-7071] port 'mb_reset' of module 'system_rst_0_0' is unconnected for instance 'rst_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1215]
+WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'system_rst_0_0' is unconnected for instance 'rst_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1215]
+WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'system_rst_0_0' is unconnected for instance 'rst_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1215]
+WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'system_rst_0_0' is unconnected for instance 'rst_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1215]
+WARNING: [Synth 8-7023] instance 'rst_0' of module 'system_rst_0_0' has 10 connections declared, but only 6 given [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/synth/system.v:1215]
 	Parameter DIN_WIDTH bound to: 160 - type: integer 
 	Parameter DIN_FROM bound to: 0 - type: integer 
 	Parameter DIN_TO bound to: 0 - type: integer 
@@ -2398,14 +2500,17 @@ WARNING: [Synth 8-7023] instance 'rst_0' of module 'system_rst_0_0' has 10 conne
 	Parameter DIN_FROM bound to: 95 - type: integer 
 	Parameter DIN_TO bound to: 64 - type: integer 
 	Parameter DIN_WIDTH bound to: 160 - type: integer 
-	Parameter DIN_FROM bound to: 127 - type: integer 
-	Parameter DIN_TO bound to: 96 - type: integer 
-	Parameter DIN_WIDTH bound to: 160 - type: integer 
 	Parameter DIN_FROM bound to: 143 - type: integer 
 	Parameter DIN_TO bound to: 128 - type: integer 
 	Parameter DIN_WIDTH bound to: 160 - type: integer 
+	Parameter DIN_FROM bound to: 7 - type: integer 
+	Parameter DIN_TO bound to: 6 - type: integer 
+	Parameter DIN_WIDTH bound to: 160 - type: integer 
 	Parameter DIN_FROM bound to: 159 - type: integer 
-	Parameter DIN_TO bound to: 144 - type: integer 
+	Parameter DIN_TO bound to: 64 - type: integer 
+	Parameter DIN_WIDTH bound to: 160 - type: integer 
+	Parameter DIN_FROM bound to: 2 - type: integer 
+	Parameter DIN_TO bound to: 2 - type: integer 
 	Parameter IN0_WIDTH bound to: 32 - type: integer 
 	Parameter IN1_WIDTH bound to: 64 - type: integer 
 	Parameter IN2_WIDTH bound to: 32 - type: integer 
@@ -2585,19 +2690,19 @@ WARNING: [Synth 8-7071] port 'REGCE' of module 'FIFO36E1' is unconnected for ins
 WARNING: [Synth 8-7071] port 'RSTREG' of module 'FIFO36E1' is unconnected for instance 'fifo_0' [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8cfb/src/axis_ram_writer.v:68]
 WARNING: [Synth 8-7023] instance 'fifo_0' of module 'FIFO36E1' has 24 connections declared, but only 9 given [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ipshared/8cfb/src/axis_ram_writer.v:68]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:01:35 ; elapsed = 00:02:04 . Memory (MB): peak = 2658.660 ; gain = 357.918 ; free physical = 643 ; free virtual = 7687
+Finished RTL Elaboration : Time (s): cpu = 00:02:25 ; elapsed = 00:02:58 . Memory (MB): peak = 2981.738 ; gain = 665.488 ; free physical = 7434 ; free virtual = 14276
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:39 ; elapsed = 00:02:08 . Memory (MB): peak = 2667.566 ; gain = 366.824 ; free physical = 666 ; free virtual = 7710
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:31 ; elapsed = 00:03:04 . Memory (MB): peak = 2993.613 ; gain = 677.363 ; free physical = 7477 ; free virtual = 14321
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:39 ; elapsed = 00:02:08 . Memory (MB): peak = 2667.566 ; gain = 366.824 ; free physical = 666 ; free virtual = 7710
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:02:31 ; elapsed = 00:03:04 . Memory (MB): peak = 2993.613 ; gain = 677.363 ; free physical = 7477 ; free virtual = 14321
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2667.566 ; gain = 0.000 ; free physical = 648 ; free virtual = 7693
-INFO: [Netlist 29-17] Analyzing 2388 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2996.582 ; gain = 0.000 ; free physical = 7455 ; free virtual = 14300
+INFO: [Netlist 29-17] Analyzing 2341 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
@@ -2663,31 +2768,33 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/system_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2716.391 ; gain = 0.000 ; free physical = 544 ; free virtual = 7588
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3032.398 ; gain = 0.000 ; free physical = 7328 ; free virtual = 14187
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 1573 instances were transformed.
+  A total of 1541 instances were transformed.
   FDR => FDRE: 12 instances
-  FDRSE => FDRSE (FDRE, LUT4, VCC): 788 instances
-  MUXCY_L => MUXCY: 772 instances
+  FDRSE => FDRSE (FDRE, LUT4, VCC): 772 instances
+  MUXCY_L => MUXCY: 756 instances
   SRL16 => SRL16E: 1 instance 
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.24 ; elapsed = 00:00:00.24 . Memory (MB): peak = 2716.391 ; gain = 0.000 ; free physical = 544 ; free virtual = 7588
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.40 ; elapsed = 00:00:00.40 . Memory (MB): peak = 3032.398 ; gain = 0.000 ; free physical = 7328 ; free virtual = 14187
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:02:05 ; elapsed = 00:02:34 . Memory (MB): peak = 2716.391 ; gain = 415.648 ; free physical = 651 ; free virtual = 7696
+Finished Constraint Validation : Time (s): cpu = 00:03:02 ; elapsed = 00:03:35 . Memory (MB): peak = 3032.398 ; gain = 716.148 ; free physical = 7443 ; free virtual = 14302
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:02:05 ; elapsed = 00:02:34 . Memory (MB): peak = 2716.391 ; gain = 415.648 ; free physical = 651 ; free virtual = 7696
+Finished Loading Part and Timing Information : Time (s): cpu = 00:03:02 ; elapsed = 00:03:35 . Memory (MB): peak = 3032.398 ; gain = 716.148 ; free physical = 7443 ; free virtual = 14302
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/pll_0/inst. (constraint file  /home/acoustics/Documents/RP/RP_feedback/feedback.runs/synth_1/dont_touch.xdc, line 135).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/ps_0/inst. (constraint file  /home/acoustics/Documents/RP/RP_feedback/feedback.runs/synth_1/dont_touch.xdc, line 143).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/rst_0/U0. (constraint file  /home/acoustics/Documents/RP/RP_feedback/feedback.runs/synth_1/dont_touch.xdc, line 146).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/pll_0/inst. (constraint file  /home/acoustics/Documents/RP/RP_feedback/feedback.runs/synth_1/dont_touch.xdc, line 144).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/ps_0/inst. (constraint file  /home/acoustics/Documents/RP/RP_feedback/feedback.runs/synth_1/dont_touch.xdc, line 152).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/rst_0/U0. (constraint file  /home/acoustics/Documents/RP/RP_feedback/feedback.runs/synth_1/dont_touch.xdc, line 155).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/feedback_combined_0/inst/dds. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/feedback_combined_0/inst/bin_counter. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/pll_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/ps_0. (constraint file  auto generated constraint).
@@ -2707,11 +2814,7 @@ Applied set_property KEEP_HIERARCHY = SOFT for system_i/writer_0. (constraint fi
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/slice_4. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/slice_6. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/phase_0. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/dds_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/mult_0. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/slice_5. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/slice_7. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/a_const_16Q16. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/dna_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/status_concat_1. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/sts_0. (constraint file  auto generated constraint).
@@ -2720,20 +2823,24 @@ Applied set_property KEEP_HIERARCHY = SOFT for system_i/ps_0_axi_periph/s00_coup
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/ps_0_axi_periph. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/channel_split. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/ch1_mem_fb_split. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/b_const_16b. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/ch1_output_dac_mem_split. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/cic_1. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/CIC_config_replicator. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/axis_combiner_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/output_combiner. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/dds_stream. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/const_1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/slice_8. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/fb_cfg. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/dds_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/slice_7. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/output_binary_conver_0. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/AXI4_multi_adder_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/slice_9. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/feedback_combined_0. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:02:06 ; elapsed = 00:02:35 . Memory (MB): peak = 2716.391 ; gain = 415.648 ; free physical = 651 ; free virtual = 7696
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:03:03 ; elapsed = 00:03:37 . Memory (MB): peak = 3032.398 ; gain = 716.148 ; free physical = 7443 ; free virtual = 14303
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-4490] FSM extraction disabled for register 'state_reg' through user attribute
+WARNING: [Synth 8-6040] Register i_rtl.i_quarter_table.i_has_sin.i_addr_mod_stage1.mod_sin_addr_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'axi_protocol_converter_v2_1_22_b2s_wr_cmd_fsm'
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'axi_protocol_converter_v2_1_22_b2s_rd_cmd_fsm'
 ---------------------------------------------------------------------------------------------------
@@ -2755,13 +2862,15 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'axi_protocol_converter_v2_1_22_b2s_rd_cmd_fsm'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:02:17 ; elapsed = 00:02:48 . Memory (MB): peak = 2716.391 ; gain = 415.648 ; free physical = 631 ; free virtual = 7679
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:03:23 ; elapsed = 00:03:58 . Memory (MB): peak = 3032.398 ; gain = 716.148 ; free physical = 7403 ; free virtual = 14269
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-223] decloning instance 'system_i/CIC_config_replicator/inst/broadcaster_core/MI_SLOT[0].util_vector2axis' (axis_infrastructure_v1_1_0_util_vector2axis) to 'system_i/CIC_config_replicator/inst/broadcaster_core/MI_SLOT[1].util_vector2axis'
 INFO: [Synth 8-223] decloning instance 'axis_broadcaster_v1_1_21_core__parameterized0:/MI_SLOT[0].util_vector2axis' (axis_infrastructure_v1_1_0_util_vector2axis__parameterized1) to 'axis_broadcaster_v1_1_21_core__parameterized0:/MI_SLOT[1].util_vector2axis'
 INFO: [Synth 8-223] decloning instance 'system_i/channel_split/inst/broadcaster_core/MI_SLOT[0].util_vector2axis' (axis_infrastructure_v1_1_0_util_vector2axis__parameterized2) to 'system_i/channel_split/inst/broadcaster_core/MI_SLOT[1].util_vector2axis'
-INFO: [Synth 8-223] decloning instance 'decimate:/comb/gen_stages[0].gen_folded.int_comb_stage/gen_split_accum[0].gen_comb_mem_src.gen_en_dly' (delay_bit__parameterized1) to 'decimate:/comb/gen_stages[0].gen_folded.int_comb_stage/gen_split_accum[0].gen_mem_we'
-INFO: [Synth 8-223] decloning instance 'decimate:/comb/gen_stages[1].gen_folded.int_comb_stage/gen_split_accum[0].gen_comb_mem_src.gen_en_dly' (delay_bit__parameterized1) to 'decimate:/comb/gen_stages[1].gen_folded.int_comb_stage/gen_split_accum[0].gen_mem_we'
+INFO: [Synth 8-223] decloning instance 'system_i/cic_0/U0/i_synth/decimator.decimation_filter/comb/gen_stages[0].gen_folded.int_comb_stage/gen_split_accum[0].gen_comb_mem_src.gen_en_dly' (delay_bit__parameterized1) to 'system_i/cic_0/U0/i_synth/decimator.decimation_filter/comb/gen_stages[0].gen_folded.int_comb_stage/gen_split_accum[0].gen_mem_we'
+INFO: [Synth 8-223] decloning instance 'system_i/cic_0/U0/i_synth/decimator.decimation_filter/comb/gen_stages[1].gen_folded.int_comb_stage/gen_split_accum[0].gen_comb_mem_src.gen_en_dly' (delay_bit__parameterized1) to 'system_i/cic_0/U0/i_synth/decimator.decimation_filter/comb/gen_stages[1].gen_folded.int_comb_stage/gen_split_accum[0].gen_mem_we'
+INFO: [Synth 8-223] decloning instance 'system_i/cic_1/U0/i_synth/decimator.decimation_filter/comb/gen_stages[0].gen_folded.int_comb_stage/gen_split_accum[0].gen_comb_mem_src.gen_en_dly' (delay_bit__parameterized1) to 'system_i/cic_1/U0/i_synth/decimator.decimation_filter/comb/gen_stages[0].gen_folded.int_comb_stage/gen_split_accum[0].gen_mem_we'
+INFO: [Synth 8-223] decloning instance 'system_i/cic_1/U0/i_synth/decimator.decimation_filter/comb/gen_stages[1].gen_folded.int_comb_stage/gen_split_accum[0].gen_comb_mem_src.gen_en_dly' (delay_bit__parameterized1) to 'system_i/cic_1/U0/i_synth/decimator.decimation_filter/comb/gen_stages[1].gen_folded.int_comb_stage/gen_split_accum[0].gen_mem_we'
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -2781,26 +2890,26 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:03:01 ; elapsed = 00:03:33 . Memory (MB): peak = 2732.406 ; gain = 431.664 ; free physical = 413 ; free virtual = 7630
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:04:22 ; elapsed = 00:04:58 . Memory (MB): peak = 3040.406 ; gain = 724.156 ; free physical = 7357 ; free virtual = 14246
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-3321] set_false_path : Empty to list for constraint at line 49 of /home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_rst_0_0/system_rst_0_0.xdc. [/home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_rst_0_0/system_rst_0_0.xdc:49]
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:25 ; elapsed = 00:04:00 . Memory (MB): peak = 2732.406 ; gain = 431.664 ; free physical = 192 ; free virtual = 7310
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:04:50 ; elapsed = 00:05:26 . Memory (MB): peak = 3040.406 ; gain = 724.156 ; free physical = 7058 ; free virtual = 13955
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:03:33 ; elapsed = 00:04:08 . Memory (MB): peak = 2732.406 ; gain = 431.664 ; free physical = 167 ; free virtual = 7284
+Finished Timing Optimization : Time (s): cpu = 00:05:01 ; elapsed = 00:05:38 . Memory (MB): peak = 3040.406 ; gain = 724.156 ; free physical = 7027 ; free virtual = 13924
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:03:45 ; elapsed = 00:04:24 . Memory (MB): peak = 2748.422 ; gain = 447.680 ; free physical = 163 ; free virtual = 7216
+Finished Technology Mapping : Time (s): cpu = 00:05:15 ; elapsed = 00:05:53 . Memory (MB): peak = 3048.414 ; gain = 732.164 ; free physical = 7017 ; free virtual = 13913
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -2818,37 +2927,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:03:56 ; elapsed = 00:04:39 . Memory (MB): peak = 2748.422 ; gain = 447.680 ; free physical = 175 ; free virtual = 7207
+Finished IO Insertion : Time (s): cpu = 00:05:26 ; elapsed = 00:06:04 . Memory (MB): peak = 3048.414 ; gain = 732.164 ; free physical = 7015 ; free virtual = 13912
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:03:56 ; elapsed = 00:04:39 . Memory (MB): peak = 2748.422 ; gain = 447.680 ; free physical = 173 ; free virtual = 7205
+Finished Renaming Generated Instances : Time (s): cpu = 00:05:26 ; elapsed = 00:06:04 . Memory (MB): peak = 3048.414 ; gain = 732.164 ; free physical = 7015 ; free virtual = 13912
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:57 ; elapsed = 00:04:40 . Memory (MB): peak = 2748.422 ; gain = 447.680 ; free physical = 199 ; free virtual = 7230
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:05:27 ; elapsed = 00:06:06 . Memory (MB): peak = 3048.414 ; gain = 732.164 ; free physical = 7017 ; free virtual = 13913
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:03:57 ; elapsed = 00:04:40 . Memory (MB): peak = 2748.422 ; gain = 447.680 ; free physical = 199 ; free virtual = 7230
+Finished Renaming Generated Ports : Time (s): cpu = 00:05:28 ; elapsed = 00:06:06 . Memory (MB): peak = 3048.414 ; gain = 732.164 ; free physical = 7016 ; free virtual = 13913
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:03:57 ; elapsed = 00:04:41 . Memory (MB): peak = 2748.422 ; gain = 447.680 ; free physical = 199 ; free virtual = 7231
+Finished Handling Custom Attributes : Time (s): cpu = 00:05:28 ; elapsed = 00:06:06 . Memory (MB): peak = 3048.414 ; gain = 732.164 ; free physical = 7016 ; free virtual = 13913
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:03:57 ; elapsed = 00:04:41 . Memory (MB): peak = 2748.422 ; gain = 447.680 ; free physical = 207 ; free virtual = 7239
+Finished Renaming Generated Nets : Time (s): cpu = 00:05:28 ; elapsed = 00:06:06 . Memory (MB): peak = 3048.414 ; gain = 732.164 ; free physical = 7016 ; free virtual = 13913
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -2866,57 +2975,57 @@ Report Cell Usage:
 +------+----------+------+
 |1     |BIBUF     |   130|
 |2     |BUFG      |     5|
-|3     |CARRY4    |    92|
+|3     |CARRY4    |   154|
 |4     |DNA_PORT  |     1|
-|5     |DSP48E1   |     8|
-|9     |FIFO36E1  |     1|
-|10    |LUT1      |   265|
-|11    |LUT2      |   836|
-|12    |LUT3      |   482|
-|13    |LUT4      |   243|
-|14    |LUT5      |   348|
-|15    |LUT6      |  1436|
-|16    |MUXCY_L   |   772|
-|17    |MUXF7     |    14|
-|18    |MUXF8     |     4|
-|19    |ODDR      |    18|
-|20    |PLLE2_ADV |     1|
-|21    |PS7       |     1|
-|22    |RAMB18E1  |     1|
-|23    |RAMB36E1  |     1|
-|24    |SRL16     |     1|
-|25    |SRL16E    |   132|
-|26    |SRLC32E   |    47|
-|27    |XORCY     |   772|
-|28    |FDRE      |  4088|
-|29    |FDSE      |    43|
-|30    |IBUF      |    30|
-|31    |IBUFDS    |     1|
-|32    |OBUF      |    19|
-|33    |OBUFT     |    14|
+|5     |DSP48E1   |     9|
+|10    |FIFO36E1  |     1|
+|11    |LUT1      |   257|
+|12    |LUT2      |  1001|
+|13    |LUT3      |   534|
+|14    |LUT4      |   359|
+|15    |LUT5      |   407|
+|16    |LUT6      |  1494|
+|17    |MUXCY_L   |   756|
+|18    |MUXF7     |    14|
+|19    |MUXF8     |     4|
+|20    |ODDR      |    18|
+|21    |PLLE2_ADV |     1|
+|22    |PS7       |     1|
+|23    |RAMB18E1  |     1|
+|24    |RAMB36E1  |     3|
+|27    |SRL16     |     1|
+|28    |SRL16E    |   126|
+|29    |SRLC32E   |    47|
+|30    |XORCY     |   756|
+|31    |FDRE      |  4490|
+|32    |FDSE      |    43|
+|33    |IBUF      |    30|
+|34    |IBUFDS    |     1|
+|35    |OBUF      |    19|
+|36    |OBUFT     |    14|
 +------+----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:03:58 ; elapsed = 00:04:41 . Memory (MB): peak = 2748.422 ; gain = 447.680 ; free physical = 206 ; free virtual = 7238
+Finished Writing Synthesis Report : Time (s): cpu = 00:05:28 ; elapsed = 00:06:06 . Memory (MB): peak = 3048.414 ; gain = 732.164 ; free physical = 7016 ; free virtual = 13913
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:03:41 ; elapsed = 00:04:25 . Memory (MB): peak = 2748.422 ; gain = 398.855 ; free physical = 280 ; free virtual = 7312
-Synthesis Optimization Complete : Time (s): cpu = 00:03:58 ; elapsed = 00:04:41 . Memory (MB): peak = 2748.430 ; gain = 447.680 ; free physical = 282 ; free virtual = 7313
+Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:05:08 ; elapsed = 00:05:47 . Memory (MB): peak = 3048.414 ; gain = 693.379 ; free physical = 7091 ; free virtual = 13988
+Synthesis Optimization Complete : Time (s): cpu = 00:05:28 ; elapsed = 00:06:06 . Memory (MB): peak = 3048.422 ; gain = 732.164 ; free physical = 7091 ; free virtual = 13989
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.65 ; elapsed = 00:00:00.69 . Memory (MB): peak = 2748.430 ; gain = 0.000 ; free physical = 344 ; free virtual = 7376
-INFO: [Netlist 29-17] Analyzing 1686 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00.69 ; elapsed = 00:00:00.69 . Memory (MB): peak = 3048.422 ; gain = 0.000 ; free physical = 7174 ; free virtual = 14073
+INFO: [Netlist 29-17] Analyzing 1719 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2755.359 ; gain = 0.000 ; free physical = 279 ; free virtual = 7321
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3048.422 ; gain = 0.000 ; free physical = 7124 ; free virtual = 14024
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 203 instances were transformed.
-  (MUXCY,XORCY) => CARRY4: 202 instances
+  A total of 200 instances were transformed.
+  (MUXCY,XORCY) => CARRY4: 199 instances
   SRL16 => SRL16E: 1 instance 
 
 INFO: [Common 17-83] Releasing license: Synthesis
-307 Infos, 122 Warnings, 0 Critical Warnings and 0 Errors encountered.
+315 Infos, 133 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:04:21 ; elapsed = 00:05:03 . Memory (MB): peak = 2755.359 ; gain = 454.684 ; free physical = 603 ; free virtual = 7646
+synth_design: Time (s): cpu = 00:05:53 ; elapsed = 00:06:26 . Memory (MB): peak = 3048.422 ; gain = 732.238 ; free physical = 7447 ; free virtual = 14346
 INFO: [Common 17-1381] The checkpoint '/home/acoustics/Documents/RP/RP_feedback/feedback.runs/synth_1/system_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file system_wrapper_utilization_synth.rpt -pb system_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Oct  8 14:07:22 2021...
+INFO: [Common 17-206] Exiting Vivado at Thu Mar 31 16:56:22 2022...

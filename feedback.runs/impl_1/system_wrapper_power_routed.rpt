@@ -1,8 +1,8 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date             : Fri Oct  8 14:25:37 2021
-| Host             : acoustics-VirtualBox running 64-bit Ubuntu 20.04.2 LTS
+| Date             : Thu Mar 31 17:04:33 2022
+| Host             : acoustics-VirtualBox running 64-bit Ubuntu 20.04.4 LTS
 | Command          : report_power -file system_wrapper_power_routed.rpt -pb system_wrapper_power_summary_routed.pb -rpx system_wrapper_power_routed.rpx
 | Design           : system_wrapper
 | Device           : xc7z010clg400-1
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 1.882        |
+| Total On-Chip Power (W)  | 1.954        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 1.754        |
-| Device Static (W)        | 0.128        |
+| Dynamic (W)              | 1.824        |
+| Device Static (W)        | 0.130        |
 | Effective TJA (C/W)      | 11.5         |
-| Max Ambient (C)          | 63.3         |
-| Junction Temperature (C) | 46.7         |
+| Max Ambient (C)          | 62.5         |
+| Junction Temperature (C) | 47.5         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,22 +52,22 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
-| Clocks                  |     0.022 |        8 |       --- |             --- |
-| Slice Logic             |     0.025 |     8454 |       --- |             --- |
-|   LUT as Logic          |     0.020 |     2614 |     17600 |           14.85 |
-|   Register              |     0.003 |     3869 |     35200 |           10.99 |
-|   CARRY4                |     0.002 |      294 |      4400 |            6.68 |
-|   LUT as Shift Register |    <0.001 |      120 |      6000 |            2.00 |
+| Clocks                  |     0.024 |        8 |       --- |             --- |
+| Slice Logic             |     0.028 |     9278 |       --- |             --- |
+|   LUT as Logic          |     0.022 |     2945 |     17600 |           16.73 |
+|   Register              |     0.003 |     4186 |     35200 |           11.89 |
+|   CARRY4                |     0.002 |      352 |      4400 |            8.00 |
+|   LUT as Shift Register |    <0.001 |      118 |      6000 |            1.97 |
 |   F7/F8 Muxes           |    <0.001 |       18 |     17600 |            0.10 |
-|   Others                |     0.000 |      596 |       --- |             --- |
-| Signals                 |     0.025 |     5884 |       --- |             --- |
-| Block RAM               |     0.007 |      2.5 |        60 |            4.17 |
+|   Others                |     0.000 |      615 |       --- |             --- |
+| Signals                 |     0.028 |     6579 |       --- |             --- |
+| Block RAM               |     0.013 |      4.5 |        60 |            7.50 |
 | PLL                     |     0.105 |        1 |         2 |           50.00 |
-| DSPs                    |     0.009 |        8 |        80 |           10.00 |
-| I/O                     |     0.284 |       49 |       100 |           49.00 |
+| DSPs                    |     0.009 |        9 |        80 |           11.25 |
+| I/O                     |     0.340 |       49 |       100 |           49.00 |
 | PS7                     |     1.277 |        1 |       --- |             --- |
-| Static Power            |     0.128 |          |           |                 |
-| Total                   |     1.882 |          |           |                 |
+| Static Power            |     0.130 |          |           |                 |
+| Total                   |     1.954 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -77,20 +77,20 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.108 |       0.100 |      0.008 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     0.067 |       0.058 |      0.009 |       NA    | Unspecified | NA         |
-| Vcco33    |       3.300 |     0.083 |       0.082 |      0.001 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.121 |       0.113 |      0.008 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.068 |       0.059 |      0.009 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     0.100 |       0.099 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccbram   |       1.000 |     0.001 |       0.001 |      0.001 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.002 |       0.001 |      0.001 |       NA    | Unspecified | NA         |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccpint   |       1.000 |     0.698 |       0.666 |      0.032 |       NA    | Unspecified | NA         |
+| Vccpint   |       1.000 |     0.699 |       0.666 |      0.033 |       NA    | Unspecified | NA         |
 | Vccpaux   |       1.800 |     0.037 |       0.027 |      0.010 |       NA    | Unspecified | NA         |
 | Vccpll    |       1.800 |     0.017 |       0.014 |      0.003 |       NA    | Unspecified | NA         |
 | Vcco_ddr  |       1.500 |     0.356 |       0.354 |      0.002 |       NA    | Unspecified | NA         |
@@ -154,33 +154,33 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+------------------------+-----------+
-| Name                   | Power (W) |
-+------------------------+-----------+
-| system_wrapper         |     1.754 |
-|   system_i             |     1.472 |
-|     AXI4_multi_adder_0 |     0.006 |
-|       inst             |     0.006 |
-|     cfg_0              |     0.002 |
-|       inst             |     0.002 |
-|     cic_0              |     0.026 |
-|       U0               |     0.026 |
-|     cic_1              |     0.024 |
-|       U0               |     0.024 |
-|     dac_0              |     0.005 |
-|       inst             |     0.005 |
-|     dds_0              |     0.015 |
-|       U0               |     0.015 |
-|     mult_0             |     0.002 |
-|       U0               |     0.002 |
-|     pll_0              |     0.106 |
-|       inst             |     0.106 |
-|     ps_0               |     1.278 |
-|       inst             |     1.278 |
-|     ps_0_axi_periph    |     0.006 |
-|       s00_couplers     |     0.005 |
-|     writer_0           |     0.001 |
-|       inst             |     0.001 |
-+------------------------+-----------+
++-------------------------+-----------+
+| Name                    | Power (W) |
++-------------------------+-----------+
+| system_wrapper          |     1.824 |
+|   system_i              |     1.486 |
+|     cfg_0               |     0.002 |
+|       inst              |     0.002 |
+|     cic_0               |     0.026 |
+|       U0                |     0.026 |
+|     cic_1               |     0.027 |
+|       U0                |     0.027 |
+|     dac_0               |     0.005 |
+|       inst              |     0.005 |
+|     dds_0               |     0.016 |
+|       U0                |     0.016 |
+|     feedback_combined_0 |     0.016 |
+|       inst              |     0.016 |
+|     mult_0              |     0.002 |
+|       U0                |     0.002 |
+|     pll_0               |     0.106 |
+|       inst              |     0.106 |
+|     ps_0                |     1.278 |
+|       inst              |     1.278 |
+|     ps_0_axi_periph     |     0.006 |
+|       s00_couplers      |     0.005 |
+|     writer_0            |     0.001 |
+|       inst              |     0.001 |
++-------------------------+-----------+
 
 

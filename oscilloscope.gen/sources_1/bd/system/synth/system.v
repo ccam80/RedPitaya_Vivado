@@ -1,7 +1,7 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-//Date        : Fri Oct  8 15:18:32 2021
+//Date        : Thu Oct 14 11:34:53 2021
 //Host        : acoustics-VirtualBox running 64-bit Ubuntu 20.04.2 LTS
 //Command     : generate_target system.bd
 //Design      : system
@@ -584,7 +584,7 @@ Demux output and DAC
 
 Save to RAM
  */
-(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=33,numReposBlks=29,numNonXlnxBlks=17,numHierBlks=4,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"=13,\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"=10,synth_mode=Global}" *) (* HW_HANDOFF = "system.hwdef" *) 
+(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=37,numReposBlks=33,numNonXlnxBlks=17,numHierBlks=4,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"=13,\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"=10,synth_mode=Global}" *) (* HW_HANDOFF = "system.hwdef" *) 
 module system
    (DDR_addr,
     DDR_ba,
@@ -668,9 +668,24 @@ module system
   wire adc_clk_p_i_1;
   wire [15:0]adc_dat_a_i_1;
   wire [15:0]adc_dat_b_i_1;
+  wire [15:0]axis_broadcaster_0_M00_AXIS_TDATA;
+  wire [0:0]axis_broadcaster_0_M00_AXIS_TVALID;
+  wire [31:16]axis_broadcaster_0_M01_AXIS_TDATA;
+  wire [1:1]axis_broadcaster_0_M01_AXIS_TVALID;
+  wire [15:0]axis_broadcaster_1_M00_AXIS_TDATA;
+  wire axis_broadcaster_1_M00_AXIS_TREADY;
+  wire [0:0]axis_broadcaster_1_M00_AXIS_TVALID;
+  wire [31:16]axis_broadcaster_1_M01_AXIS_TDATA;
+  wire axis_broadcaster_1_M01_AXIS_TREADY;
+  wire [1:1]axis_broadcaster_1_M01_AXIS_TVALID;
+  wire [31:0]axis_combiner_0_M_AXIS_TDATA;
+  wire axis_combiner_0_M_AXIS_TREADY;
+  wire axis_combiner_0_M_AXIS_TVALID;
   wire [159:0]cfg_0_cfg_data;
-  wire [31:0]cic_0_M_AXIS_DATA_TDATA;
+  wire [15:0]cic_0_M_AXIS_DATA_TDATA;
   wire cic_0_M_AXIS_DATA_TVALID;
+  wire [15:0]cic_1_M_AXIS_DATA_TDATA;
+  wire cic_1_M_AXIS_DATA_TVALID;
   wire [127:0]concat_1_dout;
   wire [0:0]const_0_dout;
   wire [63:0]conv_0_M_AXIS_TDATA;
@@ -836,6 +851,30 @@ module system
         .adc_dat_b(adc_dat_b_i_1),
         .m_axis_tdata(adc_0_M_AXIS_TDATA),
         .m_axis_tvalid(adc_0_M_AXIS_TVALID));
+  system_axis_broadcaster_0_0 axis_broadcaster_0
+       (.aclk(pll_0_clk_out1),
+        .aresetn(rst_0_peripheral_aresetn),
+        .m_axis_tdata({axis_broadcaster_0_M01_AXIS_TDATA,axis_broadcaster_0_M00_AXIS_TDATA}),
+        .m_axis_tvalid({axis_broadcaster_0_M01_AXIS_TVALID,axis_broadcaster_0_M00_AXIS_TVALID}),
+        .s_axis_tdata(adc_0_M_AXIS_TDATA),
+        .s_axis_tvalid(adc_0_M_AXIS_TVALID));
+  system_axis_broadcaster_0_1 axis_broadcaster_1
+       (.aclk(pll_0_clk_out1),
+        .aresetn(rst_0_peripheral_aresetn),
+        .m_axis_tdata({axis_broadcaster_1_M01_AXIS_TDATA,axis_broadcaster_1_M00_AXIS_TDATA}),
+        .m_axis_tready({axis_broadcaster_1_M01_AXIS_TREADY,axis_broadcaster_1_M00_AXIS_TREADY}),
+        .m_axis_tvalid({axis_broadcaster_1_M01_AXIS_TVALID,axis_broadcaster_1_M00_AXIS_TVALID}),
+        .s_axis_tdata(rate_0_M_AXIS_TDATA),
+        .s_axis_tready(rate_0_M_AXIS_TREADY),
+        .s_axis_tvalid(rate_0_M_AXIS_TVALID));
+  system_axis_combiner_0_0 axis_combiner_0
+       (.aclk(pll_0_clk_out1),
+        .aresetn(rst_0_peripheral_aresetn),
+        .m_axis_tdata(axis_combiner_0_M_AXIS_TDATA),
+        .m_axis_tready(axis_combiner_0_M_AXIS_TREADY),
+        .m_axis_tvalid(axis_combiner_0_M_AXIS_TVALID),
+        .s_axis_tdata({cic_1_M_AXIS_DATA_TDATA,cic_0_M_AXIS_DATA_TDATA}),
+        .s_axis_tvalid({cic_1_M_AXIS_DATA_TVALID,cic_0_M_AXIS_DATA_TVALID}));
   system_cfg_0_0 cfg_0
        (.aclk(pll_0_clk_out1),
         .aresetn(rst_0_peripheral_aresetn),
@@ -862,11 +901,21 @@ module system
         .aresetn(rst_0_peripheral_aresetn),
         .m_axis_data_tdata(cic_0_M_AXIS_DATA_TDATA),
         .m_axis_data_tvalid(cic_0_M_AXIS_DATA_TVALID),
-        .s_axis_config_tdata(rate_0_M_AXIS_TDATA),
-        .s_axis_config_tready(rate_0_M_AXIS_TREADY),
-        .s_axis_config_tvalid(rate_0_M_AXIS_TVALID),
-        .s_axis_data_tdata(adc_0_M_AXIS_TDATA),
-        .s_axis_data_tvalid(adc_0_M_AXIS_TVALID));
+        .s_axis_config_tdata(axis_broadcaster_1_M00_AXIS_TDATA),
+        .s_axis_config_tready(axis_broadcaster_1_M00_AXIS_TREADY),
+        .s_axis_config_tvalid(axis_broadcaster_1_M00_AXIS_TVALID),
+        .s_axis_data_tdata(axis_broadcaster_0_M00_AXIS_TDATA),
+        .s_axis_data_tvalid(axis_broadcaster_0_M00_AXIS_TVALID));
+  system_cic_0_1 cic_1
+       (.aclk(pll_0_clk_out1),
+        .aresetn(rst_0_peripheral_aresetn),
+        .m_axis_data_tdata(cic_1_M_AXIS_DATA_TDATA),
+        .m_axis_data_tvalid(cic_1_M_AXIS_DATA_TVALID),
+        .s_axis_config_tdata(axis_broadcaster_1_M01_AXIS_TDATA),
+        .s_axis_config_tready(axis_broadcaster_1_M01_AXIS_TREADY),
+        .s_axis_config_tvalid(axis_broadcaster_1_M01_AXIS_TVALID),
+        .s_axis_data_tdata(axis_broadcaster_0_M01_AXIS_TDATA),
+        .s_axis_data_tvalid(axis_broadcaster_0_M01_AXIS_TVALID));
   system_const_0_0 const_0
        (.dout(const_0_dout));
   system_conv_0_0 conv_0
@@ -875,8 +924,9 @@ module system
         .m_axis_tdata(conv_0_M_AXIS_TDATA),
         .m_axis_tready(conv_0_M_AXIS_TREADY),
         .m_axis_tvalid(conv_0_M_AXIS_TVALID),
-        .s_axis_tdata(cic_0_M_AXIS_DATA_TDATA),
-        .s_axis_tvalid(cic_0_M_AXIS_DATA_TVALID));
+        .s_axis_tdata(axis_combiner_0_M_AXIS_TDATA),
+        .s_axis_tready(axis_combiner_0_M_AXIS_TREADY),
+        .s_axis_tvalid(axis_combiner_0_M_AXIS_TVALID));
   system_conv_0_1 conv_1
        (.aclk(pll_0_clk_out1),
         .aresetn(rst_0_peripheral_aresetn),

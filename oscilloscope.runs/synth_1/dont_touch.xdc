@@ -95,6 +95,18 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_phas
 # IP: bd/system/ip/system_conv_0_1/system_conv_0_1.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_conv_0_1 || ORIG_REF_NAME==system_conv_0_1} -quiet] -quiet
 
+# IP: bd/system/ip/system_axis_broadcaster_0_0/system_axis_broadcaster_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axis_broadcaster_0_0 || ORIG_REF_NAME==system_axis_broadcaster_0_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_cic_0_1/system_cic_0_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_cic_0_1 || ORIG_REF_NAME==system_cic_0_1} -quiet] -quiet
+
+# IP: bd/system/ip/system_axis_broadcaster_0_1/system_axis_broadcaster_0_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axis_broadcaster_0_1 || ORIG_REF_NAME==system_axis_broadcaster_0_1} -quiet] -quiet
+
+# IP: bd/system/ip/system_axis_combiner_0_0/system_axis_combiner_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axis_combiner_0_0 || ORIG_REF_NAME==system_axis_combiner_0_0} -quiet] -quiet
+
 # IP: bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_0 || ORIG_REF_NAME==system_auto_pc_0} -quiet] -quiet
 
@@ -116,6 +128,10 @@ set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filte
 #dup# set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==system_rst_0_0 || ORIG_REF_NAME==system_rst_0_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
 
 # XDC: /home/acoustics/Documents/RP/RP_feedback/oscilloscope.gen/sources_1/bd/system/ip/system_xbar_0/system_xbar_0_ooc.xdc
+
+# XDC: /home/acoustics/Documents/RP/RP_feedback/oscilloscope.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_0/system_axis_broadcaster_0_0_ooc.xdc
+
+# XDC: /home/acoustics/Documents/RP/RP_feedback/oscilloscope.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_1/system_axis_broadcaster_0_1_ooc.xdc
 
 # XDC: /home/acoustics/Documents/RP/RP_feedback/oscilloscope.gen/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc
 

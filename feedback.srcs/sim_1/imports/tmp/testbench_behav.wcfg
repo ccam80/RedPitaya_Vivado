@@ -14,164 +14,379 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="7333962fs"></ZoomStartTime>
-      <ZoomEndTime time="8539963fs"></ZoomEndTime>
-      <Cursor1Time time="8214750fs"></Cursor1Time>
+      <ZoomStartTime time="6490000fs"></ZoomStartTime>
+      <ZoomEndTime time="7784001fs"></ZoomEndTime>
+      <Cursor1Time time="7144000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="199"></NameColumnWidth>
-      <ValueColumnWidth column_width="125"></ValueColumnWidth>
+      <ValueColumnWidth column_width="81"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="5" />
-   <wvobject type="vbus" fp_name="vbus138">
-      <obj_property name="label">ADC_DATA</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
+   <WVObjectSize size="23" />
+   <wvobject type="array" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/S_AXIS_ADC_tdata">
+      <obj_property name="ElementShortName">S_AXIS_ADC_tdata[15:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXIS_ADC_tdata[15:0]</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">0</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-      <wvobject type="logic" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_ADC_tdata[13]">
-         <obj_property name="ElementShortName">[13]</obj_property>
-         <obj_property name="ObjectShortName">[13]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_ADC_tdata[12]">
-         <obj_property name="ElementShortName">[12]</obj_property>
-         <obj_property name="ObjectShortName">[12]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_ADC_tdata[11]">
-         <obj_property name="ElementShortName">[11]</obj_property>
-         <obj_property name="ObjectShortName">[11]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_ADC_tdata[10]">
-         <obj_property name="ElementShortName">[10]</obj_property>
-         <obj_property name="ObjectShortName">[10]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_ADC_tdata[9]">
-         <obj_property name="ElementShortName">[9]</obj_property>
-         <obj_property name="ObjectShortName">[9]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_ADC_tdata[8]">
-         <obj_property name="ElementShortName">[8]</obj_property>
-         <obj_property name="ObjectShortName">[8]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_ADC_tdata[7]">
-         <obj_property name="ElementShortName">[7]</obj_property>
-         <obj_property name="ObjectShortName">[7]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_ADC_tdata[6]">
-         <obj_property name="ElementShortName">[6]</obj_property>
-         <obj_property name="ObjectShortName">[6]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_ADC_tdata[5]">
-         <obj_property name="ElementShortName">[5]</obj_property>
-         <obj_property name="ObjectShortName">[5]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_ADC_tdata[4]">
-         <obj_property name="ElementShortName">[4]</obj_property>
-         <obj_property name="ObjectShortName">[4]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_ADC_tdata[3]">
-         <obj_property name="ElementShortName">[3]</obj_property>
-         <obj_property name="ObjectShortName">[3]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_ADC_tdata[2]">
-         <obj_property name="ElementShortName">[2]</obj_property>
-         <obj_property name="ObjectShortName">[2]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_ADC_tdata[1]">
-         <obj_property name="ElementShortName">[1]</obj_property>
-         <obj_property name="ObjectShortName">[1]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_ADC_tdata[0]">
-         <obj_property name="ElementShortName">[0]</obj_property>
-         <obj_property name="ObjectShortName">[0]</obj_property>
-      </wvobject>
+      <obj_property name="Radix">SIGNEDMAGRADIX</obj_property>
    </wvobject>
-   <wvobject type="vbus" fp_name="vbus335">
-      <obj_property name="label">DAC Data</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">16</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
-      <obj_property name="AnalogYRangeMin">8100.000000</obj_property>
-      <obj_property name="AnalogYRRangeMax">8300.000000</obj_property>
-      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
-      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
-      <obj_property name="AnalogHorizLine">0.000000</obj_property>
-      <wvobject type="logic" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/M_AXIS_tdata[13]">
-         <obj_property name="ElementShortName">[13]</obj_property>
-         <obj_property name="ObjectShortName">[13]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/M_AXIS_tdata[12]">
-         <obj_property name="ElementShortName">[12]</obj_property>
-         <obj_property name="ObjectShortName">[12]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/M_AXIS_tdata[11]">
-         <obj_property name="ElementShortName">[11]</obj_property>
-         <obj_property name="ObjectShortName">[11]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/M_AXIS_tdata[10]">
-         <obj_property name="ElementShortName">[10]</obj_property>
-         <obj_property name="ObjectShortName">[10]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/M_AXIS_tdata[9]">
-         <obj_property name="ElementShortName">[9]</obj_property>
-         <obj_property name="ObjectShortName">[9]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/M_AXIS_tdata[8]">
-         <obj_property name="ElementShortName">[8]</obj_property>
-         <obj_property name="ObjectShortName">[8]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/M_AXIS_tdata[7]">
-         <obj_property name="ElementShortName">[7]</obj_property>
-         <obj_property name="ObjectShortName">[7]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/M_AXIS_tdata[6]">
-         <obj_property name="ElementShortName">[6]</obj_property>
-         <obj_property name="ObjectShortName">[6]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/M_AXIS_tdata[5]">
-         <obj_property name="ElementShortName">[5]</obj_property>
-         <obj_property name="ObjectShortName">[5]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/M_AXIS_tdata[4]">
-         <obj_property name="ElementShortName">[4]</obj_property>
-         <obj_property name="ObjectShortName">[4]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/M_AXIS_tdata[3]">
-         <obj_property name="ElementShortName">[3]</obj_property>
-         <obj_property name="ObjectShortName">[3]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/M_AXIS_tdata[2]">
-         <obj_property name="ElementShortName">[2]</obj_property>
-         <obj_property name="ObjectShortName">[2]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/M_AXIS_tdata[1]">
-         <obj_property name="ElementShortName">[1]</obj_property>
-         <obj_property name="ObjectShortName">[1]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/M_AXIS_tdata[0]">
-         <obj_property name="ElementShortName">[0]</obj_property>
-         <obj_property name="ObjectShortName">[0]</obj_property>
-      </wvobject>
-   </wvobject>
-   <wvobject type="array" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/S_AXIS_MULT_tdata">
-      <obj_property name="ElementShortName">S_AXIS_MULT_tdata[31:0]</obj_property>
-      <obj_property name="ObjectShortName">S_AXIS_MULT_tdata[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/inst/result">
-      <obj_property name="ElementShortName">result[63:0]</obj_property>
-      <obj_property name="ObjectShortName">result[63:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/testbench/sw/system_i/AXI4_multi_adder_0/inst/M_AXIS_tdata">
+   <wvobject type="array" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/M_AXIS_tdata">
       <obj_property name="ElementShortName">M_AXIS_tdata[15:0]</obj_property>
       <obj_property name="ObjectShortName">M_AXIS_tdata[15:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/sel">
+      <obj_property name="ElementShortName">sel[1:0]</obj_property>
+      <obj_property name="ObjectShortName">sel[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/S_AXIS_CFG_tdata">
+      <obj_property name="ElementShortName">S_AXIS_CFG_tdata[95:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXIS_CFG_tdata[95:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/phase">
+      <obj_property name="ElementShortName">phase[29:0]</obj_property>
+      <obj_property name="ObjectShortName">phase[29:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/counter_reset">
+      <obj_property name="ElementShortName">counter_reset</obj_property>
+      <obj_property name="ObjectShortName">counter_reset</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds/m_axis_data_tdata">
+      <obj_property name="ElementShortName">m_axis_data_tdata[15:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axis_data_tdata[15:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/sweep_active_next">
+      <obj_property name="ElementShortName">sweep_active_next</obj_property>
+      <obj_property name="ObjectShortName">sweep_active_next</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/sweep_active_current">
+      <obj_property name="ElementShortName">sweep_active_current</obj_property>
+      <obj_property name="ObjectShortName">sweep_active_current</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/state">
+      <obj_property name="ElementShortName">state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">state[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out">
+      <obj_property name="ElementShortName">dds_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">dds_out[15:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="vbus" fp_name="vbus93">
+      <obj_property name="label">dds_out_bad</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out[13]">
+         <obj_property name="ElementShortName">[13]</obj_property>
+         <obj_property name="ObjectShortName">[13]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out[12]">
+         <obj_property name="ElementShortName">[12]</obj_property>
+         <obj_property name="ObjectShortName">[12]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out[11]">
+         <obj_property name="ElementShortName">[11]</obj_property>
+         <obj_property name="ObjectShortName">[11]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out[10]">
+         <obj_property name="ElementShortName">[10]</obj_property>
+         <obj_property name="ObjectShortName">[10]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out[9]">
+         <obj_property name="ElementShortName">[9]</obj_property>
+         <obj_property name="ObjectShortName">[9]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out[8]">
+         <obj_property name="ElementShortName">[8]</obj_property>
+         <obj_property name="ObjectShortName">[8]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out[7]">
+         <obj_property name="ElementShortName">[7]</obj_property>
+         <obj_property name="ObjectShortName">[7]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out[6]">
+         <obj_property name="ElementShortName">[6]</obj_property>
+         <obj_property name="ObjectShortName">[6]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out[5]">
+         <obj_property name="ElementShortName">[5]</obj_property>
+         <obj_property name="ObjectShortName">[5]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out[4]">
+         <obj_property name="ElementShortName">[4]</obj_property>
+         <obj_property name="ObjectShortName">[4]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out[3]">
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">[3]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out[2]">
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">[2]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out[1]">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">[1]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out[0]">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">[0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="vbus" fp_name="vbus78">
+      <obj_property name="label">dds_out_useful</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out[15]">
+         <obj_property name="ElementShortName">[15]</obj_property>
+         <obj_property name="ObjectShortName">[15]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out[14]">
+         <obj_property name="ElementShortName">[14]</obj_property>
+         <obj_property name="ObjectShortName">[14]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out[13]">
+         <obj_property name="ElementShortName">[13]</obj_property>
+         <obj_property name="ObjectShortName">[13]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out[12]">
+         <obj_property name="ElementShortName">[12]</obj_property>
+         <obj_property name="ObjectShortName">[12]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out[11]">
+         <obj_property name="ElementShortName">[11]</obj_property>
+         <obj_property name="ObjectShortName">[11]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out[10]">
+         <obj_property name="ElementShortName">[10]</obj_property>
+         <obj_property name="ObjectShortName">[10]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out[9]">
+         <obj_property name="ElementShortName">[9]</obj_property>
+         <obj_property name="ObjectShortName">[9]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out[8]">
+         <obj_property name="ElementShortName">[8]</obj_property>
+         <obj_property name="ObjectShortName">[8]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out[7]">
+         <obj_property name="ElementShortName">[7]</obj_property>
+         <obj_property name="ObjectShortName">[7]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out[6]">
+         <obj_property name="ElementShortName">[6]</obj_property>
+         <obj_property name="ObjectShortName">[6]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out[5]">
+         <obj_property name="ElementShortName">[5]</obj_property>
+         <obj_property name="ObjectShortName">[5]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out[4]">
+         <obj_property name="ElementShortName">[4]</obj_property>
+         <obj_property name="ObjectShortName">[4]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out[3]">
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">[3]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/dds_out[2]">
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">[2]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/sw/system_i/feedback_combined_0/inst/M_AXIS_tdata">
+      <obj_property name="ElementShortName">M_AXIS_tdata[15:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXIS_tdata[15:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/sw/system_i/dac_0/s_axis_tdata">
+      <obj_property name="ElementShortName">s_axis_tdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axis_tdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/dac_out">
+      <obj_property name="ElementShortName">dac_out[13:0]</obj_property>
+      <obj_property name="ObjectShortName">dac_out[13:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/sw/system_i/feedback_combined_0/M_AXIS_tdata">
+      <obj_property name="ElementShortName">M_AXIS_tdata[15:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXIS_tdata[15:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/sw/dac_dat_o">
+      <obj_property name="ElementShortName">dac_dat_o[13:0]</obj_property>
+      <obj_property name="ObjectShortName">dac_dat_o[13:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/sw/system_i/output_binary_conver_0/inst/M_AXIS_tdata">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">M_AXIS_tdata[15:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXIS_tdata[15:0]</obj_property>
+      <obj_property name="label">Binary Converter Out</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject type="vbus" fp_name="vbus156">
+      <obj_property name="label">Binary converter l14</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_binary_conver_0/inst/M_AXIS_tdata[13]">
+         <obj_property name="ElementShortName">[13]</obj_property>
+         <obj_property name="ObjectShortName">[13]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_binary_conver_0/inst/M_AXIS_tdata[12]">
+         <obj_property name="ElementShortName">[12]</obj_property>
+         <obj_property name="ObjectShortName">[12]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_binary_conver_0/inst/M_AXIS_tdata[11]">
+         <obj_property name="ElementShortName">[11]</obj_property>
+         <obj_property name="ObjectShortName">[11]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_binary_conver_0/inst/M_AXIS_tdata[10]">
+         <obj_property name="ElementShortName">[10]</obj_property>
+         <obj_property name="ObjectShortName">[10]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_binary_conver_0/inst/M_AXIS_tdata[9]">
+         <obj_property name="ElementShortName">[9]</obj_property>
+         <obj_property name="ObjectShortName">[9]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_binary_conver_0/inst/M_AXIS_tdata[8]">
+         <obj_property name="ElementShortName">[8]</obj_property>
+         <obj_property name="ObjectShortName">[8]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_binary_conver_0/inst/M_AXIS_tdata[7]">
+         <obj_property name="ElementShortName">[7]</obj_property>
+         <obj_property name="ObjectShortName">[7]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_binary_conver_0/inst/M_AXIS_tdata[6]">
+         <obj_property name="ElementShortName">[6]</obj_property>
+         <obj_property name="ObjectShortName">[6]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_binary_conver_0/inst/M_AXIS_tdata[5]">
+         <obj_property name="ElementShortName">[5]</obj_property>
+         <obj_property name="ObjectShortName">[5]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_binary_conver_0/inst/M_AXIS_tdata[4]">
+         <obj_property name="ElementShortName">[4]</obj_property>
+         <obj_property name="ObjectShortName">[4]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_binary_conver_0/inst/M_AXIS_tdata[3]">
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">[3]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_binary_conver_0/inst/M_AXIS_tdata[2]">
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">[2]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_binary_conver_0/inst/M_AXIS_tdata[1]">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">[1]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/output_binary_conver_0/inst/M_AXIS_tdata[0]">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">[0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/sw/system_i/cic_1/m_axis_data_tdata">
+      <obj_property name="ElementShortName">m_axis_data_tdata[15:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axis_data_tdata[15:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="vbus" fp_name="vbus188">
+      <obj_property name="label">cic output l14</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/cic_1/m_axis_data_tdata[14]">
+         <obj_property name="ElementShortName">[14]</obj_property>
+         <obj_property name="ObjectShortName">[14]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/cic_1/m_axis_data_tdata[13]">
+         <obj_property name="ElementShortName">[13]</obj_property>
+         <obj_property name="ObjectShortName">[13]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/cic_1/m_axis_data_tdata[12]">
+         <obj_property name="ElementShortName">[12]</obj_property>
+         <obj_property name="ObjectShortName">[12]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/cic_1/m_axis_data_tdata[11]">
+         <obj_property name="ElementShortName">[11]</obj_property>
+         <obj_property name="ObjectShortName">[11]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/cic_1/m_axis_data_tdata[10]">
+         <obj_property name="ElementShortName">[10]</obj_property>
+         <obj_property name="ObjectShortName">[10]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/cic_1/m_axis_data_tdata[9]">
+         <obj_property name="ElementShortName">[9]</obj_property>
+         <obj_property name="ObjectShortName">[9]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/cic_1/m_axis_data_tdata[8]">
+         <obj_property name="ElementShortName">[8]</obj_property>
+         <obj_property name="ObjectShortName">[8]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/cic_1/m_axis_data_tdata[7]">
+         <obj_property name="ElementShortName">[7]</obj_property>
+         <obj_property name="ObjectShortName">[7]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/cic_1/m_axis_data_tdata[6]">
+         <obj_property name="ElementShortName">[6]</obj_property>
+         <obj_property name="ObjectShortName">[6]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/cic_1/m_axis_data_tdata[5]">
+         <obj_property name="ElementShortName">[5]</obj_property>
+         <obj_property name="ObjectShortName">[5]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/cic_1/m_axis_data_tdata[4]">
+         <obj_property name="ElementShortName">[4]</obj_property>
+         <obj_property name="ObjectShortName">[4]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/cic_1/m_axis_data_tdata[3]">
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">[3]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/cic_1/m_axis_data_tdata[2]">
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">[2]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/cic_1/m_axis_data_tdata[1]">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">[1]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/sw/system_i/cic_1/m_axis_data_tdata[0]">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">[0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/sw/system_i/writer_0/inst/s_axis_tdata">
+      <obj_property name="ElementShortName">s_axis_tdata[63:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axis_tdata[63:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
 </wave_config>

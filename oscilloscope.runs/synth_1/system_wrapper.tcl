@@ -70,11 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 1
-set_msg_config -id {Common 17-41} -limit 10000000
-set_msg_config -id {HDL-1065} -limit 10000
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z010clg400-1
 
@@ -103,6 +98,8 @@ set_property used_in_implementation false [get_files -all /home/acoustics/Docume
 set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/RP_feedback/oscilloscope.gen/sources_1/bd/system/ip/system_rst_0_0/system_rst_0_0_board.xdc]
 set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/RP_feedback/oscilloscope.gen/sources_1/bd/system/ip/system_rst_0_0/system_rst_0_0.xdc]
 set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/RP_feedback/oscilloscope.gen/sources_1/bd/system/ip/system_xbar_0/system_xbar_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/RP_feedback/oscilloscope.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_0/system_axis_broadcaster_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/RP_feedback/oscilloscope.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_1/system_axis_broadcaster_0_1_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/RP_feedback/oscilloscope.gen/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/RP_feedback/oscilloscope.gen/sources_1/bd/system/system_ooc.xdc]
 

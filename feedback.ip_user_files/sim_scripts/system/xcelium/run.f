@@ -93,29 +93,11 @@
   "../../../bd/system/ipshared/457f/src/axis_constant.v" \
   "../../../bd/system/ip/system_phase_0_0/sim/system_phase_0_0.v" \
 -endlib
--makelib xcelium_lib/xbip_pipe_v3_0_6 \
-  "../../../../feedback.gen/sources_1/bd/system/ipshared/7468/hdl/xbip_pipe_v3_0_vh_rfs.vhd" \
--endlib
--makelib xcelium_lib/xbip_bram18k_v3_0_6 \
-  "../../../../feedback.gen/sources_1/bd/system/ipshared/d367/hdl/xbip_bram18k_v3_0_vh_rfs.vhd" \
--endlib
--makelib xcelium_lib/mult_gen_v12_0_16 \
-  "../../../../feedback.gen/sources_1/bd/system/ipshared/ce84/hdl/mult_gen_v12_0_vh_rfs.vhd" \
--endlib
 -makelib xcelium_lib/xbip_dsp48_wrapper_v3_0_4 \
   "../../../../feedback.gen/sources_1/bd/system/ipshared/cdbf/hdl/xbip_dsp48_wrapper_v3_0_vh_rfs.vhd" \
 -endlib
--makelib xcelium_lib/xbip_dsp48_addsub_v3_0_6 \
-  "../../../../feedback.gen/sources_1/bd/system/ipshared/910d/hdl/xbip_dsp48_addsub_v3_0_vh_rfs.vhd" \
--endlib
--makelib xcelium_lib/xbip_dsp48_multadd_v3_0_6 \
-  "../../../../feedback.gen/sources_1/bd/system/ipshared/b0ac/hdl/xbip_dsp48_multadd_v3_0_vh_rfs.vhd" \
--endlib
--makelib xcelium_lib/dds_compiler_v6_0_20 \
-  "../../../../feedback.gen/sources_1/bd/system/ipshared/398e/hdl/dds_compiler_v6_0_vh_rfs.vhd" \
--endlib
--makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/system/ip/system_dds_0_0/sim/system_dds_0_0.vhd" \
+-makelib xcelium_lib/xbip_pipe_v3_0_6 \
+  "../../../../feedback.gen/sources_1/bd/system/ipshared/7468/hdl/xbip_pipe_v3_0_vh_rfs.vhd" \
 -endlib
 -makelib xcelium_lib/xbip_dsp48_macro_v3_0_18 \
   "../../../../feedback.gen/sources_1/bd/system/ipshared/f5aa/hdl/xbip_dsp48_macro_v3_0_vh_rfs.vhd" \
@@ -124,9 +106,6 @@
   "../../../bd/system/ip/system_mult_0_0/sim/system_mult_0_0.vhd" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/system/ip/system_slice_5_0/sim/system_slice_5_0.v" \
-  "../../../bd/system/ip/system_slice_7_0/sim/system_slice_7_0.v" \
-  "../../../bd/system/ip/system_phase_1_0/sim/system_phase_1_0.v" \
   "../../../bd/system/ipshared/5f76/src/dna_reader.v" \
   "../../../bd/system/ip/system_dna_0_0/sim/system_dna_0_0.v" \
 -endlib
@@ -161,6 +140,12 @@
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/system/ip/system_xbar_0/sim/system_xbar_0.v" \
+-endlib
+-makelib xcelium_lib/axi_protocol_converter_v2_1_22 \
+  "../../../../feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/system/ip/system_auto_pc_0/sim/system_auto_pc_0.v" \
   "../../../bd/system/ip/system_axis_broadcaster_0_0/hdl/tdata_system_axis_broadcaster_0_0.v" \
   "../../../bd/system/ip/system_axis_broadcaster_0_0/hdl/tuser_system_axis_broadcaster_0_0.v" \
 -endlib
@@ -174,7 +159,6 @@
   "../../../bd/system/ip/system_axis_broadcaster_0_2/hdl/tuser_system_axis_broadcaster_0_2.v" \
   "../../../bd/system/ip/system_axis_broadcaster_0_2/hdl/top_system_axis_broadcaster_0_2.v" \
   "../../../bd/system/ip/system_axis_broadcaster_0_2/sim/system_axis_broadcaster_0_2.v" \
-  "../../../bd/system/ip/system_phase_0_1/sim/system_phase_0_1.v" \
   "../../../bd/system/ip/system_ch1_mem_fb_split_0/hdl/tdata_system_ch1_mem_fb_split_0.v" \
   "../../../bd/system/ip/system_ch1_mem_fb_split_0/hdl/tuser_system_ch1_mem_fb_split_0.v" \
   "../../../bd/system/ip/system_ch1_mem_fb_split_0/hdl/top_system_ch1_mem_fb_split_0.v" \
@@ -197,14 +181,31 @@
   "../../../bd/system/ip/system_axis_combiner_0_1/sim/system_axis_combiner_0_1.v" \
   "../../../bd/system/ip/system_phase_0_2/sim/system_phase_0_2.v" \
   "../../../bd/system/ip/system_output_binary_conver_0_0/sim/system_output_binary_conver_0_0.v" \
-  "../../../bd/system/ip/system_const_0_1/sim/system_const_0_1.v" \
-  "../../../bd/system/ip/system_AXI4_multi_adder_0_1/sim/system_AXI4_multi_adder_0_1.v" \
+  "../../../bd/system/ip/system_slice_7_1/sim/system_slice_7_1.v" \
+  "../../../bd/system/ip/system_b_const_16b_1/sim/system_b_const_16b_1.v" \
+  "../../../bd/system/ip/system_const_1_0/sim/system_const_1_0.v" \
 -endlib
--makelib xcelium_lib/axi_protocol_converter_v2_1_22 \
-  "../../../../feedback.gen/sources_1/bd/system/ipshared/5cee/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
+-makelib xcelium_lib/xbip_bram18k_v3_0_6 \
+  "../../../../feedback.gen/sources_1/bd/system/ipshared/d367/hdl/xbip_bram18k_v3_0_vh_rfs.vhd" \
+-endlib
+-makelib xcelium_lib/mult_gen_v12_0_16 \
+  "../../../../feedback.gen/sources_1/bd/system/ipshared/ce84/hdl/mult_gen_v12_0_vh_rfs.vhd" \
+-endlib
+-makelib xcelium_lib/xbip_dsp48_addsub_v3_0_6 \
+  "../../../../feedback.gen/sources_1/bd/system/ipshared/910d/hdl/xbip_dsp48_addsub_v3_0_vh_rfs.vhd" \
+-endlib
+-makelib xcelium_lib/xbip_dsp48_multadd_v3_0_6 \
+  "../../../../feedback.gen/sources_1/bd/system/ipshared/b0ac/hdl/xbip_dsp48_multadd_v3_0_vh_rfs.vhd" \
+-endlib
+-makelib xcelium_lib/dds_compiler_v6_0_20 \
+  "../../../../feedback.gen/sources_1/bd/system/ipshared/398e/hdl/dds_compiler_v6_0_vh_rfs.vhd" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/system/ip/system_auto_pc_0/sim/system_auto_pc_0.v" \
+  "../../../bd/system/ip/system_dds_0_0/sim/system_dds_0_0.vhd" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/system/ip/system_slice_6_1/sim/system_slice_6_1.v" \
+  "../../../bd/system/ip/system_feedback_combined_0_0/sim/system_feedback_combined_0_0.v" \
   "../../../bd/system/sim/system.v" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \

@@ -82,7 +82,7 @@ module system_wrapper
   output dac_sel_o;
   output dac_wrt_o;
   inout [7:0]exp_n_tri_io;
-  inout [7:0]exp_p_tri_io;
+  output [7:0]exp_p_tri_io;
   output [7:0]led_o;
 
   wire [14:0]DDR_addr;

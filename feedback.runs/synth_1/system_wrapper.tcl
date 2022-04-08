@@ -70,6 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 1
 set_msg_config -id {HDL-1065} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z010clg400-1
@@ -107,7 +108,6 @@ set_property used_in_implementation false [get_files -all /home/acoustics/Docume
 set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_rst_0_0/system_rst_0_0_board.xdc]
 set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_rst_0_0/system_rst_0_0.xdc]
 set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_xbar_0/system_xbar_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_0/system_axis_broadcaster_0_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_axis_broadcaster_0_2/system_axis_broadcaster_0_2_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ch1_mem_fb_split_0/system_ch1_mem_fb_split_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_ch1_output_dac_mem_split_0/system_ch1_output_dac_mem_split_0_ooc.xdc]

@@ -54,7 +54,7 @@ module feedback_combined #
     (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *)
     output reg [AXIS_TDATA_WIDTH-1:0]           M_AXIS_tdata,
     output wire                                 M_AXIS_tvalid,
-    output reg                                 trig_out
+    output reg                                  trig_out
 );
 
     localparam PADDING_WIDTH = ADC_DATA_WIDTH - DAC_DATA_WIDTH;
@@ -73,7 +73,9 @@ module feedback_combined #
     // state machine variables
     reg fb_or_sweep;                   // 0 - Ax+b,            1 - Freq Sweep mode
     reg fix_sweep;                     // 0 - fixed phase,     1 - phase from sweep module
-    reg trig_on;                       // 0 - trig output off, 1 - trig output on   
+    reg trigger;                       // 0 - trig output off, 1 - trig output on   
+    reg delayed_trigger;
+    reg output_en;
     reg [1:0] state;  
        
     parameter fixed = 0, sweep = 1, lin = 2, fancy = 3;
@@ -124,11 +126,11 @@ module feedback_combined #
     // Calculate phase sweep parameters when config changes
     always @ (*)
     begin
-        // to avoid divide in start/stop phase, swap freq <<30 / 125000000 for * (2^38 / 125000000) (rounded to an int), then shift back 6 bits
-        // == freq * 2199 >> 8
-        // TODO: Sort out negative direction sweeps too - get sign of stop - start and multiply phase change increment and end condition accordingly
+        // to avoid divide in start/stop phase, swap [freq << 30 / 125000000] for [freq * (2^38 / 125000000)] (rounded to an int), then shift result back 8 bits
+        // == [freq * 2199 >> 8]
         start_phase <= (START_FREQ_in * 2199) >> 8;        // Convert to phase increment for DDS. 
         stop_phase <= (STOP_FREQ_in * 2199) >> 8;          // Convert to phase increment for DDS
+        
         if (start_phase > stop_phase)
             phase_direction = 1;
         else
@@ -140,13 +142,11 @@ module feedback_combined #
     // Mux input to DDS compiler - fixed phase or output from phase counter 
     always @ *
         case (state)
-        
             fixed: dds_phase_in <= FIXED_PHASE_in;
             sweep: dds_phase_in <= phase;
             default: dds_phase_in <= 0;
         endcase
-        
-        
+          
     // Bring in, break up, and store input data in registers as first pipeline stage.
     // All inputs stored, non-blocking, run in any state/
     always @(posedge aclk)
@@ -159,7 +159,7 @@ module feedback_combined #
         FIXED_PHASE_in <= S_AXIS_CFG_tdata[FIXED_PHASE_OFFSET + FIXED_PHASE_WIDTH - 1:FIXED_PHASE_OFFSET];  // fixed phase (shared bitspace with sweep freqs) [31:0]
         INTERVAL_in <= S_AXIS_CFG_tdata[INTERVAL_OFFSET + INTERVAL_WIDTH - 1:INTERVAL_OFFSET];              // sweep interval [79:64]
         state <= sel;
-        trig_on <= trig_in;
+        trigger <= trig_in;
         
         // Get mult inputs sorted for sign conversion - can incorporate into one step with input if this takes too long
         sign <= ADC_in[MULT_CONST_WIDTH - 1] ^ MULT_in[MULT_CONST_WIDTH - 1];
@@ -174,6 +174,14 @@ module feedback_combined #
         mul <= a * b;
     end
     
+    // Process and store rising edge of trigger from server to initiate stimulation and output. Note: Output will
+    // continue after a frequency sweep until it receives a trigger off from the server.    
+    always @(posedge aclk) 
+    begin
+        delayed_trigger <= trigger;
+        output_en <= trigger;
+    end
+              
     // DDS Phase selection and incrementing
     always @ (posedge aclk)
     begin
@@ -184,7 +192,18 @@ module feedback_combined #
             
             sweep: 
             begin
+                // Initiate sweep on trigger rising edge
+                if (trigger & ~delayed_trigger & ~sweep_active_current)
+                    sweep_active_next <= 1;
+                
+                // Falling edge of sweep_active - reset counter 
+//                if (sweep_active_current & ~sweep_active_next)
+//                        begin
+//                            counter_reset <= 1;
+//                        end
+                
                 sweep_active_current <= sweep_active_next;
+                
                 // Turn off counter reset if it was turned on last clock cycle
                 if (counter_reset)    
                     counter_reset <= 0;
@@ -193,34 +212,28 @@ module feedback_combined #
                 
                     1'b0: 
                     begin
-                        sweep_active_next <= 1;
                         phase <= start_phase;                                  
                     end    
                     
                     1'b1:
                     begin
                         // At end of sweep, reset counter and set phase to starting position 
-                        // Need to reset when mode changes (maybe? maybe not an issue, will just start mid-sweep)  
-                        sweep_finished <= (phase_direction > 0) ? (phase > stop_phase) : (phase < stop_phase);     
+                        sweep_active_next <= ~((phase_direction > 0) ? (phase > stop_phase) : (phase < stop_phase));     
                                 
                         if (counter >= INTERVAL_in) 
                         begin
                             phase <= phase + phase_direction;
                             if (!counter_reset)  
                                 counter_reset <= 1;
-                        end  
-                              
-                        if (sweep_finished)
-                        begin
-                            sweep_active_next <= 0;
-                            counter_reset <= 1;
-                        end
+                        end         
                     end
                 endcase
             end            
                  
             default: phase=0;
         endcase    
+        
+        
     end
                         
        
@@ -230,8 +243,16 @@ module feedback_combined #
     
     always @(*) 
     begin
+        // Pass trigger through for output to external devices
+        trig_out <= trigger;
+        
+        // Mux outpout on/off using trigger signal
+        if (output_en)
+        begin
+        
+        // Mux output depending on feedback state
         case (state)  
-            // Ax + b
+            // Ax + b (duplicated for lin and fancy modes, until fancy is implemented)
             lin : M_AXIS_tdata <= {{(PADDING_WIDTH - 1){result[RESULT_WIDTH - 1]}}, result[MULT_CONST_WIDTH + DAC_DATA_WIDTH - 1:MULT_CONST_WIDTH]} + ADD_in;       
             fancy: M_AXIS_tdata <= {{(PADDING_WIDTH - 1){result[RESULT_WIDTH - 1]}}, result[MULT_CONST_WIDTH + DAC_DATA_WIDTH - 1:MULT_CONST_WIDTH]} + ADD_in;       
             
@@ -239,6 +260,12 @@ module feedback_combined #
             fixed : M_AXIS_tdata <= {{(PADDING_WIDTH){dds_out[DDS_OUT_WIDTH - 1]}}, dds_out[DDS_OUT_WIDTH - 1:PADDING_WIDTH]};       
             sweep : M_AXIS_tdata <= {{(PADDING_WIDTH){dds_out[DDS_OUT_WIDTH - 1]}}, dds_out[DDS_OUT_WIDTH - 1:PADDING_WIDTH]};           
         endcase
+        end
+        
+        else
+            // output 0 if disconnected
+            M_AXIS_tdata <= 16'b0;
+            
     end                    
     
     

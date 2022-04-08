@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date         : Thu Mar 31 17:04:29 2022
+| Date         : Fri Apr  8 10:36:10 2022
 | Host         : acoustics-VirtualBox running 64-bit Ubuntu 20.04.4 LTS
 | Command      : report_methodology -file system_wrapper_methodology_drc_routed.rpt -pb system_wrapper_methodology_drc_routed.pb -rpx system_wrapper_methodology_drc_routed.rpx
 | Design       : system_wrapper
@@ -23,12 +23,12 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 35
+             Violations found: 43
 +-----------+------------------+-------------------------------------------------+------------+
 | Rule      | Severity         | Description                                     | Violations |
 +-----------+------------------+-------------------------------------------------+------------+
 | TIMING-17 | Critical Warning | Non-clocked sequential cell                     | 1          |
-| TIMING-18 | Warning          | Missing input or output delay                   | 30         |
+| TIMING-18 | Warning          | Missing input or output delay                   | 38         |
 | XDCC-5    | Warning          | User Non-Timing constraint/property overwritten | 4          |
 +-----------+------------------+-------------------------------------------------+------------+
 
@@ -187,6 +187,46 @@ Related violations: <none>
 TIMING-18#30 Warning
 Missing input or output delay  
 An output delay is missing on dac_sel_o relative to clock(s) adc_clk_p_i
+Related violations: <none>
+
+TIMING-18#31 Warning
+Missing input or output delay  
+An output delay is missing on led_o[0] relative to clock(s) adc_clk_p_i
+Related violations: <none>
+
+TIMING-18#32 Warning
+Missing input or output delay  
+An output delay is missing on led_o[1] relative to clock(s) adc_clk_p_i
+Related violations: <none>
+
+TIMING-18#33 Warning
+Missing input or output delay  
+An output delay is missing on led_o[2] relative to clock(s) adc_clk_p_i
+Related violations: <none>
+
+TIMING-18#34 Warning
+Missing input or output delay  
+An output delay is missing on led_o[3] relative to clock(s) adc_clk_p_i
+Related violations: <none>
+
+TIMING-18#35 Warning
+Missing input or output delay  
+An output delay is missing on led_o[4] relative to clock(s) adc_clk_p_i
+Related violations: <none>
+
+TIMING-18#36 Warning
+Missing input or output delay  
+An output delay is missing on led_o[5] relative to clock(s) adc_clk_p_i
+Related violations: <none>
+
+TIMING-18#37 Warning
+Missing input or output delay  
+An output delay is missing on led_o[6] relative to clock(s) adc_clk_p_i
+Related violations: <none>
+
+TIMING-18#38 Warning
+Missing input or output delay  
+An output delay is missing on led_o[7] relative to clock(s) adc_clk_p_i
 Related violations: <none>
 
 XDCC-5#1 Warning

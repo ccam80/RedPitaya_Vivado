@@ -119,17 +119,12 @@ if { ${design_name} eq "" } {
   # Add USER_COMMENTS on $design_name
   set_property USER_COMMENTS.comment_0 "Hardware
 " [get_bd_designs $design_name]
-  set_property USER_COMMENTS.comment_1 "I/O
+  set_property USER_COMMENTS.comment_1 "Memory I/O
 " [get_bd_designs $design_name]
   set_property USER_COMMENTS.comment_2 "Reg Breakout
 " [get_bd_designs $design_name]
-  set_property USER_COMMENTS.comment_3 "Processing/sig generation
-" [get_bd_designs $design_name]
-  set_property USER_COMMENTS.comment_4 "Demux output and DAC
-
-" [get_bd_designs $design_name]
-  set_property USER_COMMENTS.comment_5 "Save to RAM
-" [get_bd_designs $design_name]
+  set_property USER_COMMENTS.comment_5 "Output" [get_bd_designs $design_name]
+  set_property USER_COMMENTS.comment_6 "Signal Chain" [get_bd_designs $design_name]
 
 common::send_gid_msg -ssname BD::TCL -id 2005 -severity "INFO" "Currently the variable <design_name> is equal to \"$design_name\"."
 
@@ -219,6 +214,30 @@ proc create_root_design { parentCell } {
    CONFIG.S_TDATA_NUM_BYTES {2} \
  ] $CIC_config_replicator
 
+  # Create instance: Feedback_State, and set properties
+  set Feedback_State [ create_bd_cell -type ip -vlnv pavel-demin:user:port_slicer:1.0 Feedback_State ]
+  set_property -dict [ list \
+   CONFIG.DIN_FROM {7} \
+   CONFIG.DIN_TO {6} \
+   CONFIG.DIN_WIDTH {160} \
+ ] $Feedback_State
+
+  # Create instance: Feedback_config_bus, and set properties
+  set Feedback_config_bus [ create_bd_cell -type ip -vlnv pavel-demin:user:port_slicer:1.0 Feedback_config_bus ]
+  set_property -dict [ list \
+   CONFIG.DIN_FROM {159} \
+   CONFIG.DIN_TO {64} \
+   CONFIG.DIN_WIDTH {160} \
+ ] $Feedback_config_bus
+
+  # Create instance: RAM_addres, and set properties
+  set RAM_addres [ create_bd_cell -type ip -vlnv pavel-demin:user:port_slicer:1.0 RAM_addres ]
+  set_property -dict [ list \
+   CONFIG.DIN_FROM {63} \
+   CONFIG.DIN_TO {32} \
+   CONFIG.DIN_WIDTH {160} \
+ ] $RAM_addres
+
   # Create instance: adc_0, and set properties
   set adc_0 [ create_bd_cell -type ip -vlnv pavel-demin:user:axis_red_pitaya_adc:3.0 adc_0 ]
   set_property -dict [ list \
@@ -257,15 +276,6 @@ proc create_root_design { parentCell } {
    CONFIG.S_TDATA_NUM_BYTES {2} \
  ] $ch1_output_dac_mem_split
 
-  # Create instance: channel_split, and set properties
-  set channel_split [ create_bd_cell -type ip -vlnv xilinx.com:ip:axis_broadcaster:1.1 channel_split ]
-  set_property -dict [ list \
-   CONFIG.M00_TDATA_REMAP {tdata[15:0]} \
-   CONFIG.M01_TDATA_REMAP {tdata[31:16]} \
-   CONFIG.M_TDATA_NUM_BYTES {2} \
-   CONFIG.S_TDATA_NUM_BYTES {4} \
- ] $channel_split
-
   # Create instance: cic_0, and set properties
   set cic_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:cic_compiler:4.0 cic_0 ]
   set_property -dict [ list \
@@ -302,9 +312,6 @@ proc create_root_design { parentCell } {
    CONFIG.Use_Xtreme_DSP_Slice {false} \
  ] $cic_1
 
-  # Create instance: const_0, and set properties
-  set const_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 const_0 ]
-
   # Create instance: conv_0, and set properties
   set conv_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axis_dwidth_converter:1.1 conv_0 ]
   set_property -dict [ list \
@@ -318,37 +325,11 @@ proc create_root_design { parentCell } {
    CONFIG.DAC_DATA_WIDTH {14} \
  ] $dac_0
 
-  # Create instance: dds_0, and set properties
-  set dds_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:dds_compiler:6.0 dds_0 ]
-  set_property -dict [ list \
-   CONFIG.DATA_Has_TLAST {Not_Required} \
-   CONFIG.DDS_Clock_Rate {125} \
-   CONFIG.DSP48_Use {Minimal} \
-   CONFIG.Frequency_Resolution {0.2} \
-   CONFIG.Has_Phase_Out {false} \
-   CONFIG.Latency {10} \
-   CONFIG.M_DATA_Has_TUSER {Not_Required} \
-   CONFIG.Negative_Sine {false} \
-   CONFIG.Noise_Shaping {Auto} \
-   CONFIG.Output_Frequency1 {0} \
-   CONFIG.Output_Selection {Sine} \
-   CONFIG.Output_Width {26} \
-   CONFIG.Parameter_Entry {System_Parameters} \
-   CONFIG.PartsPresent {Phase_Generator_and_SIN_COS_LUT} \
-   CONFIG.Phase_Increment {Streaming} \
-   CONFIG.Phase_Width {30} \
-   CONFIG.S_PHASE_Has_TUSER {Not_Required} \
-   CONFIG.Spurious_Free_Dynamic_Range {150} \
- ] $dds_0
-
-  # Create instance: dds_stream, and set properties
-  set dds_stream [ create_bd_cell -type ip -vlnv pavel-demin:user:axis_constant:1.0 dds_stream ]
-  set_property -dict [ list \
-   CONFIG.AXIS_TDATA_WIDTH {16} \
- ] $dds_stream
-
   # Create instance: dna_0, and set properties
   set dna_0 [ create_bd_cell -type ip -vlnv pavel-demin:user:dna_reader:1.0 dna_0 ]
+
+  # Create instance: external_reset_fake, and set properties
+  set external_reset_fake [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 external_reset_fake ]
 
   # Create instance: fb_cfg, and set properties
   set fb_cfg [ create_bd_cell -type ip -vlnv pavel-demin:user:axis_constant:1.0 fb_cfg ]
@@ -367,31 +348,13 @@ proc create_root_design { parentCell } {
      return 1
    }
   
-  # Create instance: mult_0, and set properties
-  set mult_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xbip_dsp48_macro:3.0 mult_0 ]
+  # Create instance: feedback_trigger, and set properties
+  set feedback_trigger [ create_bd_cell -type ip -vlnv pavel-demin:user:port_slicer:1.0 feedback_trigger ]
   set_property -dict [ list \
-   CONFIG.a_binarywidth {0} \
-   CONFIG.a_width {24} \
-   CONFIG.areg_3 {true} \
-   CONFIG.areg_4 {true} \
-   CONFIG.b_binarywidth {0} \
-   CONFIG.b_width {16} \
-   CONFIG.breg_3 {true} \
-   CONFIG.breg_4 {true} \
-   CONFIG.c_binarywidth {0} \
-   CONFIG.cinreg_3 {false} \
-   CONFIG.cinreg_4 {false} \
-   CONFIG.cinreg_5 {false} \
-   CONFIG.concat_binarywidth {0} \
-   CONFIG.concat_width {48} \
-   CONFIG.d_width {18} \
-   CONFIG.instruction1 {RNDSIMPLE(A*B)} \
-   CONFIG.mreg_5 {true} \
-   CONFIG.output_properties {User_Defined} \
-   CONFIG.p_width {15} \
-   CONFIG.pcin_binarywidth {0} \
-   CONFIG.preg_6 {true} \
- ] $mult_0
+   CONFIG.DIN_FROM {2} \
+   CONFIG.DIN_TO {2} \
+   CONFIG.DIN_WIDTH {160} \
+ ] $feedback_trigger
 
   # Create instance: output_binary_conver_0, and set properties
   set block_name output_binary_converter
@@ -404,18 +367,6 @@ proc create_root_design { parentCell } {
      return 1
    }
   
-  # Create instance: output_combiner, and set properties
-  set output_combiner [ create_bd_cell -type ip -vlnv xilinx.com:ip:axis_combiner:1.1 output_combiner ]
-  set_property -dict [ list \
-   CONFIG.TDATA_NUM_BYTES {2} \
- ] $output_combiner
-
-  # Create instance: phase_0, and set properties
-  set phase_0 [ create_bd_cell -type ip -vlnv pavel-demin:user:axis_constant:1.0 phase_0 ]
-  set_property -dict [ list \
-   CONFIG.AXIS_TDATA_WIDTH {32} \
- ] $phase_0
-
   # Create instance: pll_0, and set properties
   set pll_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 pll_0 ]
   set_property -dict [ list \
@@ -448,6 +399,14 @@ proc create_root_design { parentCell } {
    CONFIG.PRIM_SOURCE {Differential_clock_capable_pin} \
    CONFIG.USE_RESET {false} \
  ] $pll_0
+
+  # Create instance: pre_memory_reset, and set properties
+  set pre_memory_reset [ create_bd_cell -type ip -vlnv pavel-demin:user:port_slicer:1.0 pre_memory_reset ]
+  set_property -dict [ list \
+   CONFIG.DIN_FROM {0} \
+   CONFIG.DIN_TO {0} \
+   CONFIG.DIN_WIDTH {160} \
+ ] $pre_memory_reset
 
   # Create instance: ps_0, and set properties
   set ps_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 ps_0 ]
@@ -1132,6 +1091,14 @@ proc create_root_design { parentCell } {
    CONFIG.NUM_MI {2} \
  ] $ps_0_axi_periph
 
+  # Create instance: ram_writer_reset, and set properties
+  set ram_writer_reset [ create_bd_cell -type ip -vlnv pavel-demin:user:port_slicer:1.0 ram_writer_reset ]
+  set_property -dict [ list \
+   CONFIG.DIN_FROM {1} \
+   CONFIG.DIN_TO {1} \
+   CONFIG.DIN_WIDTH {160} \
+ ] $ram_writer_reset
+
   # Create instance: rate_0, and set properties
   set rate_0 [ create_bd_cell -type ip -vlnv pavel-demin:user:axis_variable:1.0 rate_0 ]
   set_property -dict [ list \
@@ -1141,77 +1108,13 @@ proc create_root_design { parentCell } {
   # Create instance: rst_0, and set properties
   set rst_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_0 ]
 
-  # Create instance: slice_0, and set properties
-  set slice_0 [ create_bd_cell -type ip -vlnv pavel-demin:user:port_slicer:1.0 slice_0 ]
-  set_property -dict [ list \
-   CONFIG.DIN_FROM {0} \
-   CONFIG.DIN_TO {0} \
-   CONFIG.DIN_WIDTH {160} \
- ] $slice_0
-
-  # Create instance: slice_1, and set properties
-  set slice_1 [ create_bd_cell -type ip -vlnv pavel-demin:user:port_slicer:1.0 slice_1 ]
-  set_property -dict [ list \
-   CONFIG.DIN_FROM {1} \
-   CONFIG.DIN_TO {1} \
-   CONFIG.DIN_WIDTH {160} \
- ] $slice_1
-
-  # Create instance: slice_2, and set properties
-  set slice_2 [ create_bd_cell -type ip -vlnv pavel-demin:user:port_slicer:1.0 slice_2 ]
+  # Create instance: sample_rate_divider, and set properties
+  set sample_rate_divider [ create_bd_cell -type ip -vlnv pavel-demin:user:port_slicer:1.0 sample_rate_divider ]
   set_property -dict [ list \
    CONFIG.DIN_FROM {31} \
    CONFIG.DIN_TO {16} \
    CONFIG.DIN_WIDTH {160} \
- ] $slice_2
-
-  # Create instance: slice_3, and set properties
-  set slice_3 [ create_bd_cell -type ip -vlnv pavel-demin:user:port_slicer:1.0 slice_3 ]
-  set_property -dict [ list \
-   CONFIG.DIN_FROM {63} \
-   CONFIG.DIN_TO {32} \
-   CONFIG.DIN_WIDTH {160} \
- ] $slice_3
-
-  # Create instance: slice_4, and set properties
-  set slice_4 [ create_bd_cell -type ip -vlnv pavel-demin:user:port_slicer:1.0 slice_4 ]
-  set_property -dict [ list \
-   CONFIG.DIN_FROM {95} \
-   CONFIG.DIN_TO {64} \
-   CONFIG.DIN_WIDTH {160} \
- ] $slice_4
-
-  # Create instance: slice_6, and set properties
-  set slice_6 [ create_bd_cell -type ip -vlnv pavel-demin:user:port_slicer:1.0 slice_6 ]
-  set_property -dict [ list \
-   CONFIG.DIN_FROM {143} \
-   CONFIG.DIN_TO {128} \
-   CONFIG.DIN_WIDTH {160} \
- ] $slice_6
-
-  # Create instance: slice_7, and set properties
-  set slice_7 [ create_bd_cell -type ip -vlnv pavel-demin:user:port_slicer:1.0 slice_7 ]
-  set_property -dict [ list \
-   CONFIG.DIN_FROM {7} \
-   CONFIG.DIN_TO {6} \
-   CONFIG.DIN_WIDTH {160} \
- ] $slice_7
-
-  # Create instance: slice_8, and set properties
-  set slice_8 [ create_bd_cell -type ip -vlnv pavel-demin:user:port_slicer:1.0 slice_8 ]
-  set_property -dict [ list \
-   CONFIG.DIN_FROM {159} \
-   CONFIG.DIN_TO {64} \
-   CONFIG.DIN_WIDTH {160} \
- ] $slice_8
-
-  # Create instance: slice_9, and set properties
-  set slice_9 [ create_bd_cell -type ip -vlnv pavel-demin:user:port_slicer:1.0 slice_9 ]
-  set_property -dict [ list \
-   CONFIG.DIN_FROM {2} \
-   CONFIG.DIN_TO {2} \
-   CONFIG.DIN_WIDTH {160} \
- ] $slice_9
+ ] $sample_rate_divider
 
   # Create instance: status_concat_1, and set properties
   set status_concat_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconcat:2.1 status_concat_1 ]
@@ -1238,24 +1141,20 @@ proc create_root_design { parentCell } {
  ] $writer_0
 
   # Create interface connections
-  connect_bd_intf_net -intf_net adc_0_M_AXIS [get_bd_intf_pins adc_0/M_AXIS] [get_bd_intf_pins channel_split/S_AXIS]
+  connect_bd_intf_net -intf_net adc_0_M_AXIS [get_bd_intf_pins adc_0/M_AXIS] [get_bd_intf_pins ch1_mem_fb_split/S_AXIS]
   connect_bd_intf_net -intf_net axis_combiner_0_M_AXIS [get_bd_intf_pins axis_combiner_0/M_AXIS] [get_bd_intf_pins conv_0/S_AXIS]
-  connect_bd_intf_net -intf_net axis_combiner_1_M_AXIS [get_bd_intf_pins dac_0/S_AXIS] [get_bd_intf_pins output_combiner/M_AXIS]
   connect_bd_intf_net -intf_net ch1_mem_fb_split_M00_AXIS [get_bd_intf_pins ch1_mem_fb_split/M00_AXIS] [get_bd_intf_pins cic_0/S_AXIS_DATA]
   connect_bd_intf_net -intf_net ch1_mem_fb_split_M01_AXIS [get_bd_intf_pins ch1_mem_fb_split/M01_AXIS] [get_bd_intf_pins feedback_combined_0/S_AXIS_ADC]
   connect_bd_intf_net -intf_net ch1_output_dac_mem_split1_M00_AXIS [get_bd_intf_pins CIC_config_replicator/M00_AXIS] [get_bd_intf_pins cic_0/S_AXIS_CONFIG]
   connect_bd_intf_net -intf_net ch1_output_dac_mem_split1_M01_AXIS [get_bd_intf_pins CIC_config_replicator/M01_AXIS] [get_bd_intf_pins cic_1/S_AXIS_CONFIG]
   connect_bd_intf_net -intf_net ch1_output_dac_mem_split_M00_AXIS [get_bd_intf_pins ch1_output_dac_mem_split/M00_AXIS] [get_bd_intf_pins output_binary_conver_0/S_AXIS]
-  connect_bd_intf_net -intf_net ch1_output_dac_mem_split_M01_AXIS [get_bd_intf_pins ch1_output_dac_mem_split/M01_AXIS] [get_bd_intf_pins output_combiner/S00_AXIS]
-  connect_bd_intf_net -intf_net channel_split_M00_AXIS [get_bd_intf_pins ch1_mem_fb_split/S_AXIS] [get_bd_intf_pins channel_split/M00_AXIS]
+  connect_bd_intf_net -intf_net ch1_output_dac_mem_split_M01_AXIS [get_bd_intf_pins ch1_output_dac_mem_split/M01_AXIS] [get_bd_intf_pins dac_0/S_AXIS]
   connect_bd_intf_net -intf_net cic_0_M_AXIS_DATA [get_bd_intf_pins axis_combiner_0/S00_AXIS] [get_bd_intf_pins cic_0/M_AXIS_DATA]
   connect_bd_intf_net -intf_net cic_1_M_AXIS_DATA [get_bd_intf_pins axis_combiner_0/S01_AXIS] [get_bd_intf_pins cic_1/M_AXIS_DATA]
   connect_bd_intf_net -intf_net conv_0_M_AXIS [get_bd_intf_pins conv_0/M_AXIS] [get_bd_intf_pins writer_0/S_AXIS]
   connect_bd_intf_net -intf_net fb_cfg_M_AXIS [get_bd_intf_pins fb_cfg/M_AXIS] [get_bd_intf_pins feedback_combined_0/S_AXIS_CFG]
   connect_bd_intf_net -intf_net feedback_combined_0_M_AXIS [get_bd_intf_pins ch1_output_dac_mem_split/S_AXIS] [get_bd_intf_pins feedback_combined_0/M_AXIS]
   connect_bd_intf_net -intf_net output_binary_conver_0_M_AXIS [get_bd_intf_pins cic_1/S_AXIS_DATA] [get_bd_intf_pins output_binary_conver_0/M_AXIS]
-  connect_bd_intf_net -intf_net phase_0_M_AXIS [get_bd_intf_pins dds_0/S_AXIS_PHASE] [get_bd_intf_pins phase_0/M_AXIS]
-  connect_bd_intf_net -intf_net phase_1_M_AXIS [get_bd_intf_pins dds_stream/M_AXIS] [get_bd_intf_pins output_combiner/S01_AXIS]
   connect_bd_intf_net -intf_net ps_0_DDR [get_bd_intf_ports DDR] [get_bd_intf_pins ps_0/DDR]
   connect_bd_intf_net -intf_net ps_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins ps_0/FIXED_IO]
   connect_bd_intf_net -intf_net ps_0_M_AXI_GP0 [get_bd_intf_pins ps_0/M_AXI_GP0] [get_bd_intf_pins ps_0_axi_periph/S00_AXI]
@@ -1270,31 +1169,28 @@ proc create_root_design { parentCell } {
   connect_bd_net -net adc_clk_p_i_1 [get_bd_ports adc_clk_p_i] [get_bd_pins pll_0/clk_in1_p]
   connect_bd_net -net adc_dat_a_i_1 [get_bd_ports adc_dat_a_i] [get_bd_pins adc_0/adc_dat_a]
   connect_bd_net -net adc_dat_b_i_1 [get_bd_ports adc_dat_b_i] [get_bd_pins adc_0/adc_dat_b]
-  connect_bd_net -net cfg_0_cfg_data [get_bd_pins cfg_0/cfg_data] [get_bd_pins slice_0/din] [get_bd_pins slice_1/din] [get_bd_pins slice_2/din] [get_bd_pins slice_3/din] [get_bd_pins slice_4/din] [get_bd_pins slice_6/din] [get_bd_pins slice_7/din] [get_bd_pins slice_8/din] [get_bd_pins slice_9/din]
+  connect_bd_net -net cfg_0_cfg_data [get_bd_pins Feedback_State/din] [get_bd_pins Feedback_config_bus/din] [get_bd_pins RAM_addres/din] [get_bd_pins cfg_0/cfg_data] [get_bd_pins feedback_trigger/din] [get_bd_pins pre_memory_reset/din] [get_bd_pins ram_writer_reset/din] [get_bd_pins sample_rate_divider/din]
   connect_bd_net -net concat_1_dout [get_bd_pins status_concat_1/dout] [get_bd_pins sts_0/sts_data]
-  connect_bd_net -net const_0_dout [get_bd_pins const_0/dout] [get_bd_pins rst_0/ext_reset_in] [get_bd_pins status_concat_1/In0]
+  connect_bd_net -net const_0_dout [get_bd_pins external_reset_fake/dout] [get_bd_pins rst_0/ext_reset_in] [get_bd_pins status_concat_1/In0]
   connect_bd_net -net dac_0_dac_clk [get_bd_ports dac_clk_o] [get_bd_pins dac_0/dac_clk]
   connect_bd_net -net dac_0_dac_dat [get_bd_ports dac_dat_o] [get_bd_pins dac_0/dac_dat]
   connect_bd_net -net dac_0_dac_rst [get_bd_ports dac_rst_o] [get_bd_pins dac_0/dac_rst]
   connect_bd_net -net dac_0_dac_sel [get_bd_ports dac_sel_o] [get_bd_pins dac_0/dac_sel]
   connect_bd_net -net dac_0_dac_wrt [get_bd_ports dac_wrt_o] [get_bd_pins dac_0/dac_wrt]
-  connect_bd_net -net dds_0_m_axis_data_tdata [get_bd_pins dds_0/m_axis_data_tdata] [get_bd_pins mult_0/A]
   connect_bd_net -net dna_0_dna_data [get_bd_pins dna_0/dna_data] [get_bd_pins status_concat_1/In1]
-  connect_bd_net -net mult_0_P [get_bd_pins dds_stream/cfg_data] [get_bd_pins mult_0/P]
-  connect_bd_net -net pll_0_clk_out1 [get_bd_pins CIC_config_replicator/aclk] [get_bd_pins adc_0/aclk] [get_bd_pins axis_combiner_0/aclk] [get_bd_pins cfg_0/aclk] [get_bd_pins ch1_mem_fb_split/aclk] [get_bd_pins ch1_output_dac_mem_split/aclk] [get_bd_pins channel_split/aclk] [get_bd_pins cic_0/aclk] [get_bd_pins cic_1/aclk] [get_bd_pins conv_0/aclk] [get_bd_pins dac_0/aclk] [get_bd_pins dds_0/aclk] [get_bd_pins dds_stream/aclk] [get_bd_pins dna_0/aclk] [get_bd_pins fb_cfg/aclk] [get_bd_pins feedback_combined_0/aclk] [get_bd_pins mult_0/CLK] [get_bd_pins output_binary_conver_0/aclk] [get_bd_pins output_combiner/aclk] [get_bd_pins phase_0/aclk] [get_bd_pins pll_0/clk_out1] [get_bd_pins ps_0/M_AXI_GP0_ACLK] [get_bd_pins ps_0/S_AXI_ACP_ACLK] [get_bd_pins ps_0_axi_periph/ACLK] [get_bd_pins ps_0_axi_periph/M00_ACLK] [get_bd_pins ps_0_axi_periph/M01_ACLK] [get_bd_pins ps_0_axi_periph/S00_ACLK] [get_bd_pins rate_0/aclk] [get_bd_pins rst_0/slowest_sync_clk] [get_bd_pins sts_0/aclk] [get_bd_pins writer_0/aclk]
+  connect_bd_net -net feedback_combined_0_trig_out [get_bd_ports led_o] [get_bd_pins feedback_combined_0/trig_out]
+  connect_bd_net -net pll_0_clk_out1 [get_bd_pins CIC_config_replicator/aclk] [get_bd_pins adc_0/aclk] [get_bd_pins axis_combiner_0/aclk] [get_bd_pins cfg_0/aclk] [get_bd_pins ch1_mem_fb_split/aclk] [get_bd_pins ch1_output_dac_mem_split/aclk] [get_bd_pins cic_0/aclk] [get_bd_pins cic_1/aclk] [get_bd_pins conv_0/aclk] [get_bd_pins dac_0/aclk] [get_bd_pins dna_0/aclk] [get_bd_pins fb_cfg/aclk] [get_bd_pins feedback_combined_0/aclk] [get_bd_pins output_binary_conver_0/aclk] [get_bd_pins pll_0/clk_out1] [get_bd_pins ps_0/M_AXI_GP0_ACLK] [get_bd_pins ps_0/S_AXI_ACP_ACLK] [get_bd_pins ps_0_axi_periph/ACLK] [get_bd_pins ps_0_axi_periph/M00_ACLK] [get_bd_pins ps_0_axi_periph/M01_ACLK] [get_bd_pins ps_0_axi_periph/S00_ACLK] [get_bd_pins rate_0/aclk] [get_bd_pins rst_0/slowest_sync_clk] [get_bd_pins sts_0/aclk] [get_bd_pins writer_0/aclk]
   connect_bd_net -net pll_0_clk_out2 [get_bd_pins dac_0/ddr_clk] [get_bd_pins pll_0/clk_out2]
   connect_bd_net -net pll_0_clk_out3 [get_bd_pins dac_0/wrt_clk] [get_bd_pins pll_0/clk_out3]
   connect_bd_net -net pll_0_locked [get_bd_pins dac_0/locked] [get_bd_pins pll_0/locked] [get_bd_pins rst_0/dcm_locked]
-  connect_bd_net -net rst_0_peripheral_aresetn [get_bd_pins CIC_config_replicator/aresetn] [get_bd_pins axis_combiner_0/aresetn] [get_bd_pins cfg_0/aresetn] [get_bd_pins ch1_mem_fb_split/aresetn] [get_bd_pins ch1_output_dac_mem_split/aresetn] [get_bd_pins channel_split/aresetn] [get_bd_pins cic_0/aresetn] [get_bd_pins cic_1/aresetn] [get_bd_pins dna_0/aresetn] [get_bd_pins output_combiner/aresetn] [get_bd_pins ps_0_axi_periph/ARESETN] [get_bd_pins ps_0_axi_periph/M00_ARESETN] [get_bd_pins ps_0_axi_periph/M01_ARESETN] [get_bd_pins ps_0_axi_periph/S00_ARESETN] [get_bd_pins rate_0/aresetn] [get_bd_pins rst_0/peripheral_aresetn] [get_bd_pins sts_0/aresetn]
-  connect_bd_net -net slice_0_dout [get_bd_pins conv_0/aresetn] [get_bd_pins slice_0/dout]
-  connect_bd_net -net slice_1_dout [get_bd_pins slice_1/dout] [get_bd_pins writer_0/aresetn]
-  connect_bd_net -net slice_2_dout [get_bd_pins rate_0/cfg_data] [get_bd_pins slice_2/dout]
-  connect_bd_net -net slice_3_dout [get_bd_pins slice_3/dout] [get_bd_pins writer_0/cfg_data]
-  connect_bd_net -net slice_4_dout [get_bd_pins phase_0/cfg_data] [get_bd_pins slice_4/dout]
-  connect_bd_net -net slice_6_dout [get_bd_pins mult_0/B] [get_bd_pins slice_6/dout]
-  connect_bd_net -net slice_7_dout [get_bd_pins feedback_combined_0/sel] [get_bd_pins slice_7/dout]
-  connect_bd_net -net slice_8_dout [get_bd_pins fb_cfg/cfg_data] [get_bd_pins slice_8/dout]
-  connect_bd_net -net slice_9_dout [get_bd_pins feedback_combined_0/trig_in] [get_bd_pins slice_9/dout]
+  connect_bd_net -net rst_0_peripheral_aresetn [get_bd_pins CIC_config_replicator/aresetn] [get_bd_pins axis_combiner_0/aresetn] [get_bd_pins cfg_0/aresetn] [get_bd_pins ch1_mem_fb_split/aresetn] [get_bd_pins ch1_output_dac_mem_split/aresetn] [get_bd_pins cic_0/aresetn] [get_bd_pins cic_1/aresetn] [get_bd_pins dna_0/aresetn] [get_bd_pins ps_0_axi_periph/ARESETN] [get_bd_pins ps_0_axi_periph/M00_ARESETN] [get_bd_pins ps_0_axi_periph/M01_ARESETN] [get_bd_pins ps_0_axi_periph/S00_ARESETN] [get_bd_pins rate_0/aresetn] [get_bd_pins rst_0/peripheral_aresetn] [get_bd_pins sts_0/aresetn]
+  connect_bd_net -net slice_0_dout [get_bd_pins conv_0/aresetn] [get_bd_pins pre_memory_reset/dout]
+  connect_bd_net -net slice_1_dout [get_bd_pins ram_writer_reset/dout] [get_bd_pins writer_0/aresetn]
+  connect_bd_net -net slice_2_dout [get_bd_pins rate_0/cfg_data] [get_bd_pins sample_rate_divider/dout]
+  connect_bd_net -net slice_3_dout [get_bd_pins RAM_addres/dout] [get_bd_pins writer_0/cfg_data]
+  connect_bd_net -net slice_7_dout [get_bd_pins Feedback_State/dout] [get_bd_pins feedback_combined_0/sel]
+  connect_bd_net -net slice_8_dout [get_bd_pins Feedback_config_bus/dout] [get_bd_pins fb_cfg/cfg_data]
+  connect_bd_net -net slice_9_dout [get_bd_pins feedback_combined_0/trig_in] [get_bd_pins feedback_trigger/dout]
   connect_bd_net -net writer_0_sts_data [get_bd_pins status_concat_1/In2] [get_bd_pins writer_0/sts_data]
 
   # Create address segments

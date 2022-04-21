@@ -268,7 +268,7 @@
 						"TVALID": { "actual": "S_AXIS_CFG_tvalid"}
 					}
 				},
-				"/output_binary_conver_0/M_AXIS": {
+				"/memory_binary_conver_0/M_AXIS": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
@@ -276,7 +276,7 @@
 						"TVALID": { "actual": "M_AXIS_tvalid"}
 					}
 				},
-				"/output_binary_conver_0/S_AXIS": {
+				"/memory_binary_conver_0/S_AXIS": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},

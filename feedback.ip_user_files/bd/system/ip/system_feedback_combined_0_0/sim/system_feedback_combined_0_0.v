@@ -91,6 +91,7 @@ output wire trig_out;
 
   feedback_combined #(
     .ADC_DATA_WIDTH(16),
+    .DDS_OUT_WIDTH(16),
     .MULT_CONST_OFFSET(32),
     .MULT_CONST_WIDTH(32),
     .FIXED_PHASE_OFFSET(0),

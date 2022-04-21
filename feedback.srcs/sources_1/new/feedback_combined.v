@@ -103,7 +103,7 @@ module feedback_combined #
     reg counter_en = 1;
     reg counter_reset = 0;
     wire [31:0] counter;
-    reg phase_direction = 1;
+    reg phase_direction = 0;
     reg sweep_finished = 1;
     reg sweep_active_next = 0;
     reg sweep_active_current = 0;
@@ -124,23 +124,19 @@ module feedback_combined #
     );
 
     // Calculate phase sweep parameters when config changes
-    always @ (*)
+    always @*
     begin
         // to avoid divide in start/stop phase, swap [freq << 30 / 125000000] for [freq * (2^38 / 125000000)] (rounded to an int), then shift result back 8 bits
         // == [freq * 2199 >> 8]
         start_phase <= (START_FREQ_in * 2199) >> 8;        // Convert to phase increment for DDS. 
         stop_phase <= (STOP_FREQ_in * 2199) >> 8;          // Convert to phase increment for DDS
         
-        if (start_phase > stop_phase)
-            phase_direction = 1;
-        else
-            phase_direction = -1;
-            
+                
     end
 
         
     // Mux input to DDS compiler - fixed phase or output from phase counter 
-    always @ *
+    always @*
         case (state)
             fixed: dds_phase_in <= FIXED_PHASE_in;
             sweep: dds_phase_in <= phase;
@@ -161,6 +157,9 @@ module feedback_combined #
         state <= sel;
         trigger <= trig_in;
         
+        // Assign phase direction inside a clocked loop rather than in always * block to try to reduce slack
+        phase_direction <= (start_phase < stop_phase);   
+         
         // Get mult inputs sorted for sign conversion - can incorporate into one step with input if this takes too long
         sign <= ADC_in[MULT_CONST_WIDTH - 1] ^ MULT_in[MULT_CONST_WIDTH - 1];
         a <= ADC_in[MULT_CONST_WIDTH - 1]==0 ? ADC_in:~ADC_in + 1'b1;
@@ -222,7 +221,7 @@ module feedback_combined #
                                 
                         if (counter >= INTERVAL_in) 
                         begin
-                            phase <= phase + phase_direction;
+                            phase <= phase_direction ? (phase + 1) : (phase - 1);
                             if (!counter_reset)  
                                 counter_reset <= 1;
                         end         
@@ -230,7 +229,7 @@ module feedback_combined #
                 endcase
             end            
                  
-            default: phase=0;
+            default: phase<=0;
         endcase    
         
         

@@ -28,10 +28,6 @@ verilog xil_defaultlib  --include "../../../../feedback.gen/sources_1/bd/system/
 "../../../../feedback.ip_user_files/bd/system/ipshared/ad5c/src/axi_sts_register.v" \
 "../../../../feedback.ip_user_files/bd/system/ip/system_sts_0_0/sim/system_sts_0_0.v" \
 "../../../../feedback.ip_user_files/bd/system/ip/system_xbar_0/sim/system_xbar_0.v" \
-"../../../../feedback.ip_user_files/bd/system/ip/system_axis_broadcaster_0_0/hdl/tdata_system_axis_broadcaster_0_0.v" \
-"../../../../feedback.ip_user_files/bd/system/ip/system_axis_broadcaster_0_0/hdl/tuser_system_axis_broadcaster_0_0.v" \
-"../../../../feedback.ip_user_files/bd/system/ip/system_axis_broadcaster_0_0/hdl/top_system_axis_broadcaster_0_0.v" \
-"../../../../feedback.ip_user_files/bd/system/ip/system_axis_broadcaster_0_0/sim/system_axis_broadcaster_0_0.v" \
 "../../../../feedback.ip_user_files/bd/system/ip/system_axis_broadcaster_0_2/hdl/tdata_system_axis_broadcaster_0_2.v" \
 "../../../../feedback.ip_user_files/bd/system/ip/system_axis_broadcaster_0_2/hdl/tuser_system_axis_broadcaster_0_2.v" \
 "../../../../feedback.ip_user_files/bd/system/ip/system_axis_broadcaster_0_2/hdl/top_system_axis_broadcaster_0_2.v" \

@@ -54,14 +54,6 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "/home/acoustics/Documents/RP/RP_fee
 INFO: [VRFC 10-311] analyzing module system_sts_0_0
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/acoustics/Documents/RP/RP_feedback/feedback.ip_user_files/bd/system/ip/system_xbar_0/sim/system_xbar_0.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module system_xbar_0
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/acoustics/Documents/RP/RP_feedback/feedback.ip_user_files/bd/system/ip/system_axis_broadcaster_0_0/hdl/tdata_system_axis_broadcaster_0_0.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module tdata_system_axis_broadcaster_0_0
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/acoustics/Documents/RP/RP_feedback/feedback.ip_user_files/bd/system/ip/system_axis_broadcaster_0_0/hdl/tuser_system_axis_broadcaster_0_0.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module tuser_system_axis_broadcaster_0_0
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/acoustics/Documents/RP/RP_feedback/feedback.ip_user_files/bd/system/ip/system_axis_broadcaster_0_0/hdl/top_system_axis_broadcaster_0_0.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module top_system_axis_broadcaster_0_0
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/acoustics/Documents/RP/RP_feedback/feedback.ip_user_files/bd/system/ip/system_axis_broadcaster_0_0/sim/system_axis_broadcaster_0_0.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module system_axis_broadcaster_0_0
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/acoustics/Documents/RP/RP_feedback/feedback.ip_user_files/bd/system/ip/system_axis_broadcaster_0_2/hdl/tdata_system_axis_broadcaster_0_2.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module tdata_system_axis_broadcaster_0_2
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/acoustics/Documents/RP/RP_feedback/feedback.ip_user_files/bd/system/ip/system_axis_broadcaster_0_2/hdl/tuser_system_axis_broadcaster_0_2.v" into library xil_defaultlib

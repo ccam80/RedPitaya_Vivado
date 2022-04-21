@@ -356,13 +356,13 @@ proc create_root_design { parentCell } {
    CONFIG.DIN_WIDTH {160} \
  ] $feedback_trigger
 
-  # Create instance: output_binary_conver_0, and set properties
+  # Create instance: memory_binary_conver_0, and set properties
   set block_name output_binary_converter
-  set block_cell_name output_binary_conver_0
-  if { [catch {set output_binary_conver_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+  set block_cell_name memory_binary_conver_0
+  if { [catch {set memory_binary_conver_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
      catch {common::send_gid_msg -ssname BD::TCL -id 2095 -severity "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
-   } elseif { $output_binary_conver_0 eq "" } {
+   } elseif { $memory_binary_conver_0 eq "" } {
      catch {common::send_gid_msg -ssname BD::TCL -id 2096 -severity "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
    }
@@ -1147,14 +1147,14 @@ proc create_root_design { parentCell } {
   connect_bd_intf_net -intf_net ch1_mem_fb_split_M01_AXIS [get_bd_intf_pins ch1_mem_fb_split/M01_AXIS] [get_bd_intf_pins feedback_combined_0/S_AXIS_ADC]
   connect_bd_intf_net -intf_net ch1_output_dac_mem_split1_M00_AXIS [get_bd_intf_pins CIC_config_replicator/M00_AXIS] [get_bd_intf_pins cic_0/S_AXIS_CONFIG]
   connect_bd_intf_net -intf_net ch1_output_dac_mem_split1_M01_AXIS [get_bd_intf_pins CIC_config_replicator/M01_AXIS] [get_bd_intf_pins cic_1/S_AXIS_CONFIG]
-  connect_bd_intf_net -intf_net ch1_output_dac_mem_split_M00_AXIS [get_bd_intf_pins ch1_output_dac_mem_split/M00_AXIS] [get_bd_intf_pins output_binary_conver_0/S_AXIS]
+  connect_bd_intf_net -intf_net ch1_output_dac_mem_split_M00_AXIS [get_bd_intf_pins ch1_output_dac_mem_split/M00_AXIS] [get_bd_intf_pins memory_binary_conver_0/S_AXIS]
   connect_bd_intf_net -intf_net ch1_output_dac_mem_split_M01_AXIS [get_bd_intf_pins ch1_output_dac_mem_split/M01_AXIS] [get_bd_intf_pins dac_0/S_AXIS]
   connect_bd_intf_net -intf_net cic_0_M_AXIS_DATA [get_bd_intf_pins axis_combiner_0/S00_AXIS] [get_bd_intf_pins cic_0/M_AXIS_DATA]
   connect_bd_intf_net -intf_net cic_1_M_AXIS_DATA [get_bd_intf_pins axis_combiner_0/S01_AXIS] [get_bd_intf_pins cic_1/M_AXIS_DATA]
   connect_bd_intf_net -intf_net conv_0_M_AXIS [get_bd_intf_pins conv_0/M_AXIS] [get_bd_intf_pins writer_0/S_AXIS]
   connect_bd_intf_net -intf_net fb_cfg_M_AXIS [get_bd_intf_pins fb_cfg/M_AXIS] [get_bd_intf_pins feedback_combined_0/S_AXIS_CFG]
   connect_bd_intf_net -intf_net feedback_combined_0_M_AXIS [get_bd_intf_pins ch1_output_dac_mem_split/S_AXIS] [get_bd_intf_pins feedback_combined_0/M_AXIS]
-  connect_bd_intf_net -intf_net output_binary_conver_0_M_AXIS [get_bd_intf_pins cic_1/S_AXIS_DATA] [get_bd_intf_pins output_binary_conver_0/M_AXIS]
+  connect_bd_intf_net -intf_net output_binary_conver_0_M_AXIS [get_bd_intf_pins cic_1/S_AXIS_DATA] [get_bd_intf_pins memory_binary_conver_0/M_AXIS]
   connect_bd_intf_net -intf_net ps_0_DDR [get_bd_intf_ports DDR] [get_bd_intf_pins ps_0/DDR]
   connect_bd_intf_net -intf_net ps_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins ps_0/FIXED_IO]
   connect_bd_intf_net -intf_net ps_0_M_AXI_GP0 [get_bd_intf_pins ps_0/M_AXI_GP0] [get_bd_intf_pins ps_0_axi_periph/S00_AXI]
@@ -1179,7 +1179,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net dac_0_dac_wrt [get_bd_ports dac_wrt_o] [get_bd_pins dac_0/dac_wrt]
   connect_bd_net -net dna_0_dna_data [get_bd_pins dna_0/dna_data] [get_bd_pins status_concat_1/In1]
   connect_bd_net -net feedback_combined_0_trig_out [get_bd_ports led_o] [get_bd_pins feedback_combined_0/trig_out]
-  connect_bd_net -net pll_0_clk_out1 [get_bd_pins CIC_config_replicator/aclk] [get_bd_pins adc_0/aclk] [get_bd_pins axis_combiner_0/aclk] [get_bd_pins cfg_0/aclk] [get_bd_pins ch1_mem_fb_split/aclk] [get_bd_pins ch1_output_dac_mem_split/aclk] [get_bd_pins cic_0/aclk] [get_bd_pins cic_1/aclk] [get_bd_pins conv_0/aclk] [get_bd_pins dac_0/aclk] [get_bd_pins dna_0/aclk] [get_bd_pins fb_cfg/aclk] [get_bd_pins feedback_combined_0/aclk] [get_bd_pins output_binary_conver_0/aclk] [get_bd_pins pll_0/clk_out1] [get_bd_pins ps_0/M_AXI_GP0_ACLK] [get_bd_pins ps_0/S_AXI_ACP_ACLK] [get_bd_pins ps_0_axi_periph/ACLK] [get_bd_pins ps_0_axi_periph/M00_ACLK] [get_bd_pins ps_0_axi_periph/M01_ACLK] [get_bd_pins ps_0_axi_periph/S00_ACLK] [get_bd_pins rate_0/aclk] [get_bd_pins rst_0/slowest_sync_clk] [get_bd_pins sts_0/aclk] [get_bd_pins writer_0/aclk]
+  connect_bd_net -net pll_0_clk_out1 [get_bd_pins CIC_config_replicator/aclk] [get_bd_pins adc_0/aclk] [get_bd_pins axis_combiner_0/aclk] [get_bd_pins cfg_0/aclk] [get_bd_pins ch1_mem_fb_split/aclk] [get_bd_pins ch1_output_dac_mem_split/aclk] [get_bd_pins cic_0/aclk] [get_bd_pins cic_1/aclk] [get_bd_pins conv_0/aclk] [get_bd_pins dac_0/aclk] [get_bd_pins dna_0/aclk] [get_bd_pins fb_cfg/aclk] [get_bd_pins feedback_combined_0/aclk] [get_bd_pins memory_binary_conver_0/aclk] [get_bd_pins pll_0/clk_out1] [get_bd_pins ps_0/M_AXI_GP0_ACLK] [get_bd_pins ps_0/S_AXI_ACP_ACLK] [get_bd_pins ps_0_axi_periph/ACLK] [get_bd_pins ps_0_axi_periph/M00_ACLK] [get_bd_pins ps_0_axi_periph/M01_ACLK] [get_bd_pins ps_0_axi_periph/S00_ACLK] [get_bd_pins rate_0/aclk] [get_bd_pins rst_0/slowest_sync_clk] [get_bd_pins sts_0/aclk] [get_bd_pins writer_0/aclk]
   connect_bd_net -net pll_0_clk_out2 [get_bd_pins dac_0/ddr_clk] [get_bd_pins pll_0/clk_out2]
   connect_bd_net -net pll_0_clk_out3 [get_bd_pins dac_0/wrt_clk] [get_bd_pins pll_0/clk_out3]
   connect_bd_net -net pll_0_locked [get_bd_pins dac_0/locked] [get_bd_pins pll_0/locked] [get_bd_pins rst_0/dcm_locked]

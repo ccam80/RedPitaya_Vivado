@@ -1,8 +1,8 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-//Date        : Fri Mar  4 12:30:43 2022
-//Host        : acoustics-VirtualBox running 64-bit Ubuntu 20.04.2 LTS
+//Date        : Thu Apr 21 10:33:38 2022
+//Host        : acoustics-VirtualBox running 64-bit Ubuntu 20.04.4 LTS
 //Command     : generate_target system.bd
 //Design      : system
 //Purpose     : IP block netlist
@@ -573,18 +573,13 @@ endmodule
 
 /* Hardware
 
-I/O
+Memory I/O
 
 Reg Breakout
 
-Processing/sig generation
-
-Demux output and DAC
-
-
-Save to RAM
- */
-(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=43,numReposBlks=39,numNonXlnxBlks=18,numHierBlks=4,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=2,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=13,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=10,synth_mode=Global}" *) (* HW_HANDOFF = "system.hwdef" *) 
+Output
+Signal Chain */
+(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=35,numReposBlks=31,numNonXlnxBlks=15,numHierBlks=4,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=2,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=13,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=10,synth_mode=Global}" *) (* HW_HANDOFF = "system.hwdef" *) 
 module system
    (DDR_addr,
     DDR_ba,
@@ -671,9 +666,6 @@ module system
   wire [31:0]axis_combiner_0_M_AXIS_TDATA;
   wire axis_combiner_0_M_AXIS_TREADY;
   wire axis_combiner_0_M_AXIS_TVALID;
-  wire [31:0]axis_combiner_1_M_AXIS_TDATA;
-  wire axis_combiner_1_M_AXIS_TREADY;
-  wire axis_combiner_1_M_AXIS_TVALID;
   wire [159:0]cfg_0_cfg_data;
   wire [15:0]ch1_mem_fb_split_M00_AXIS_TDATA;
   wire [0:0]ch1_mem_fb_split_M00_AXIS_TVALID;
@@ -689,15 +681,12 @@ module system
   wire [0:0]ch1_output_dac_mem_split_M00_AXIS_TVALID;
   wire [31:16]ch1_output_dac_mem_split_M01_AXIS_TDATA;
   wire [1:1]ch1_output_dac_mem_split_M01_AXIS_TVALID;
-  wire [15:0]channel_split_M00_AXIS_TDATA;
-  wire [0:0]channel_split_M00_AXIS_TVALID;
   wire [15:0]cic_0_M_AXIS_DATA_TDATA;
   wire cic_0_M_AXIS_DATA_TVALID;
   wire [15:0]cic_1_M_AXIS_DATA_TDATA;
   wire cic_1_M_AXIS_DATA_TVALID;
   wire [127:0]concat_1_dout;
   wire [0:0]const_0_dout;
-  wire [0:0]const_2_dout;
   wire [63:0]conv_0_M_AXIS_TDATA;
   wire conv_0_M_AXIS_TREADY;
   wire conv_0_M_AXIS_TVALID;
@@ -706,19 +695,14 @@ module system
   wire dac_0_dac_rst;
   wire dac_0_dac_sel;
   wire dac_0_dac_wrt;
-  wire [31:0]dds_0_m_axis_data_tdata;
   wire [56:0]dna_0_dna_data;
   wire [95:0]fb_cfg_M_AXIS_TDATA;
   wire fb_cfg_M_AXIS_TVALID;
   wire [15:0]feedback_combined_0_M_AXIS_TDATA;
   wire feedback_combined_0_M_AXIS_TVALID;
-  wire [14:0]mult_0_P;
+  wire feedback_combined_0_trig_out;
   wire [15:0]output_binary_conver_0_M_AXIS_TDATA;
   wire output_binary_conver_0_M_AXIS_TVALID;
-  wire [31:0]phase_0_M_AXIS_TDATA;
-  wire phase_0_M_AXIS_TVALID;
-  wire [15:0]phase_1_M_AXIS_TDATA;
-  wire phase_1_M_AXIS_TVALID;
   wire pll_0_clk_out1;
   wire pll_0_clk_out2;
   wire pll_0_clk_out3;
@@ -823,10 +807,9 @@ module system
   wire [0:0]slice_1_dout;
   wire [15:0]slice_2_dout;
   wire [31:0]slice_3_dout;
-  wire [31:0]slice_4_dout;
-  wire [15:0]slice_6_dout;
   wire [1:0]slice_7_dout;
   wire [95:0]slice_8_dout;
+  wire [0:0]slice_9_dout;
   wire [31:0]writer_0_M_AXI_AWADDR;
   wire [1:0]writer_0_M_AXI_AWBURST;
   wire [3:0]writer_0_M_AXI_AWCACHE;
@@ -855,6 +838,7 @@ module system
   assign dac_rst_o = dac_0_dac_rst;
   assign dac_sel_o = dac_0_dac_sel;
   assign dac_wrt_o = dac_0_dac_wrt;
+  assign led_o[0] = feedback_combined_0_trig_out;
   system_ch1_output_dac_mem_split_0 CIC_config_replicator
        (.aclk(pll_0_clk_out1),
         .aresetn(rst_0_peripheral_aresetn),
@@ -864,6 +848,15 @@ module system
         .s_axis_tdata(rate_0_M_AXIS_TDATA),
         .s_axis_tready(rate_0_M_AXIS_TREADY),
         .s_axis_tvalid(rate_0_M_AXIS_TVALID));
+  system_slice_6_1 Feedback_State
+       (.din(cfg_0_cfg_data),
+        .dout(slice_7_dout));
+  system_slice_7_1 Feedback_config_bus
+       (.din(cfg_0_cfg_data),
+        .dout(slice_8_dout));
+  system_slice_3_0 RAM_addres
+       (.din(cfg_0_cfg_data),
+        .dout(slice_3_dout));
   system_adc_0_0 adc_0
        (.aclk(pll_0_clk_out1),
         .adc_csn(adc_0_adc_csn),
@@ -905,8 +898,8 @@ module system
         .aresetn(rst_0_peripheral_aresetn),
         .m_axis_tdata({ch1_mem_fb_split_M01_AXIS_TDATA,ch1_mem_fb_split_M00_AXIS_TDATA}),
         .m_axis_tvalid({ch1_mem_fb_split_M01_AXIS_TVALID,ch1_mem_fb_split_M00_AXIS_TVALID}),
-        .s_axis_tdata(channel_split_M00_AXIS_TDATA),
-        .s_axis_tvalid(channel_split_M00_AXIS_TVALID));
+        .s_axis_tdata(adc_0_M_AXIS_TDATA[15:0]),
+        .s_axis_tvalid(adc_0_M_AXIS_TVALID));
   system_ch1_mem_fb_split_0 ch1_output_dac_mem_split
        (.aclk(pll_0_clk_out1),
         .aresetn(rst_0_peripheral_aresetn),
@@ -914,13 +907,6 @@ module system
         .m_axis_tvalid({ch1_output_dac_mem_split_M01_AXIS_TVALID,ch1_output_dac_mem_split_M00_AXIS_TVALID}),
         .s_axis_tdata(feedback_combined_0_M_AXIS_TDATA),
         .s_axis_tvalid(feedback_combined_0_M_AXIS_TVALID));
-  system_axis_broadcaster_0_0 channel_split
-       (.aclk(pll_0_clk_out1),
-        .aresetn(rst_0_peripheral_aresetn),
-        .m_axis_tdata(channel_split_M00_AXIS_TDATA),
-        .m_axis_tvalid(channel_split_M00_AXIS_TVALID),
-        .s_axis_tdata(adc_0_M_AXIS_TDATA),
-        .s_axis_tvalid(adc_0_M_AXIS_TVALID));
   system_cic_0_0 cic_0
        (.aclk(pll_0_clk_out1),
         .aresetn(rst_0_peripheral_aresetn),
@@ -941,10 +927,6 @@ module system
         .s_axis_config_tvalid(ch1_output_dac_mem_split1_M01_AXIS_TVALID),
         .s_axis_data_tdata(output_binary_conver_0_M_AXIS_TDATA),
         .s_axis_data_tvalid(output_binary_conver_0_M_AXIS_TVALID));
-  system_const_0_0 const_0
-       (.dout(const_0_dout));
-  system_const_1_0 const_2
-       (.dout(const_2_dout));
   system_conv_0_0 conv_0
        (.aclk(pll_0_clk_out1),
         .aresetn(slice_0_dout),
@@ -963,24 +945,15 @@ module system
         .dac_wrt(dac_0_dac_wrt),
         .ddr_clk(pll_0_clk_out2),
         .locked(pll_0_locked),
-        .s_axis_tdata(axis_combiner_1_M_AXIS_TDATA),
-        .s_axis_tready(axis_combiner_1_M_AXIS_TREADY),
-        .s_axis_tvalid(axis_combiner_1_M_AXIS_TVALID),
+        .s_axis_tdata({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,ch1_output_dac_mem_split_M01_AXIS_TDATA}),
+        .s_axis_tvalid(ch1_output_dac_mem_split_M01_AXIS_TVALID),
         .wrt_clk(pll_0_clk_out3));
-  system_dds_0_0 dds_0
-       (.aclk(pll_0_clk_out1),
-        .m_axis_data_tdata(dds_0_m_axis_data_tdata),
-        .s_axis_phase_tdata(phase_0_M_AXIS_TDATA),
-        .s_axis_phase_tvalid(phase_0_M_AXIS_TVALID));
-  system_phase_0_2 dds_stream
-       (.aclk(pll_0_clk_out1),
-        .cfg_data({1'b0,mult_0_P}),
-        .m_axis_tdata(phase_1_M_AXIS_TDATA),
-        .m_axis_tvalid(phase_1_M_AXIS_TVALID));
   system_dna_0_0 dna_0
        (.aclk(pll_0_clk_out1),
         .aresetn(rst_0_peripheral_aresetn),
         .dna_data(dna_0_dna_data));
+  system_const_0_0 external_reset_fake
+       (.dout(const_0_dout));
   system_b_const_16b_1 fb_cfg
        (.aclk(pll_0_clk_out1),
         .cfg_data(slice_8_dout),
@@ -995,31 +968,17 @@ module system
         .S_AXIS_CFG_tvalid(fb_cfg_M_AXIS_TVALID),
         .aclk(pll_0_clk_out1),
         .sel(slice_7_dout),
-        .trig_in(const_2_dout));
-  system_mult_0_0 mult_0
-       (.A(dds_0_m_axis_data_tdata[23:0]),
-        .B(slice_6_dout),
-        .CLK(pll_0_clk_out1),
-        .P(mult_0_P));
-  system_output_binary_conver_0_0 output_binary_conver_0
+        .trig_in(slice_9_dout),
+        .trig_out(feedback_combined_0_trig_out));
+  system_slice_6_2 feedback_trigger
+       (.din(cfg_0_cfg_data),
+        .dout(slice_9_dout));
+  system_output_binary_conver_0_0 memory_binary_conver_0
        (.M_AXIS_tdata(output_binary_conver_0_M_AXIS_TDATA),
         .M_AXIS_tvalid(output_binary_conver_0_M_AXIS_TVALID),
         .S_AXIS_tdata(ch1_output_dac_mem_split_M00_AXIS_TDATA),
         .S_AXIS_tvalid(ch1_output_dac_mem_split_M00_AXIS_TVALID),
         .aclk(pll_0_clk_out1));
-  system_axis_combiner_0_1 output_combiner
-       (.aclk(pll_0_clk_out1),
-        .aresetn(rst_0_peripheral_aresetn),
-        .m_axis_tdata(axis_combiner_1_M_AXIS_TDATA),
-        .m_axis_tready(axis_combiner_1_M_AXIS_TREADY),
-        .m_axis_tvalid(axis_combiner_1_M_AXIS_TVALID),
-        .s_axis_tdata({phase_1_M_AXIS_TDATA,ch1_output_dac_mem_split_M01_AXIS_TDATA}),
-        .s_axis_tvalid({phase_1_M_AXIS_TVALID,ch1_output_dac_mem_split_M01_AXIS_TVALID}));
-  system_phase_0_0 phase_0
-       (.aclk(pll_0_clk_out1),
-        .cfg_data(slice_4_dout),
-        .m_axis_tdata(phase_0_M_AXIS_TDATA),
-        .m_axis_tvalid(phase_0_M_AXIS_TVALID));
   system_pll_0_0 pll_0
        (.clk_in1_n(adc_clk_n_i_1),
         .clk_in1_p(adc_clk_p_i_1),
@@ -1027,6 +986,9 @@ module system
         .clk_out2(pll_0_clk_out2),
         .clk_out3(pll_0_clk_out3),
         .locked(pll_0_locked));
+  system_slice_0_0 pre_memory_reset
+       (.din(cfg_0_cfg_data),
+        .dout(slice_0_dout));
   system_ps_0_0 ps_0
        (.DDR_Addr(DDR_addr[14:0]),
         .DDR_BankAddr(DDR_ba[2:0]),
@@ -1207,6 +1169,9 @@ module system
         .S00_AXI_wready(ps_0_M_AXI_GP0_WREADY),
         .S00_AXI_wstrb(ps_0_M_AXI_GP0_WSTRB),
         .S00_AXI_wvalid(ps_0_M_AXI_GP0_WVALID));
+  system_slice_1_0 ram_writer_reset
+       (.din(cfg_0_cfg_data),
+        .dout(slice_1_dout));
   system_rate_0_0 rate_0
        (.aclk(pll_0_clk_out1),
         .aresetn(rst_0_peripheral_aresetn),
@@ -1221,30 +1186,9 @@ module system
         .mb_debug_sys_rst(1'b0),
         .peripheral_aresetn(rst_0_peripheral_aresetn),
         .slowest_sync_clk(pll_0_clk_out1));
-  system_slice_0_0 slice_0
-       (.din(cfg_0_cfg_data),
-        .dout(slice_0_dout));
-  system_slice_1_0 slice_1
-       (.din(cfg_0_cfg_data),
-        .dout(slice_1_dout));
-  system_slice_2_0 slice_2
+  system_slice_2_0 sample_rate_divider
        (.din(cfg_0_cfg_data),
         .dout(slice_2_dout));
-  system_slice_3_0 slice_3
-       (.din(cfg_0_cfg_data),
-        .dout(slice_3_dout));
-  system_slice_4_0 slice_4
-       (.din(cfg_0_cfg_data),
-        .dout(slice_4_dout));
-  system_slice_6_0 slice_6
-       (.din(cfg_0_cfg_data),
-        .dout(slice_6_dout));
-  system_slice_6_1 slice_7
-       (.din(cfg_0_cfg_data),
-        .dout(slice_7_dout));
-  system_slice_7_1 slice_8
-       (.din(cfg_0_cfg_data),
-        .dout(slice_8_dout));
   system_concat_1_0 status_concat_1
        (.In0({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,const_0_dout}),
         .In1({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,dna_0_dna_data}),

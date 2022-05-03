@@ -94,6 +94,7 @@ module feedback_combined #
     reg [PHASE_WIDTH - 1:0] stop_phase;
 //    reg sweep_active;
     
+    reg led_test = 0;
     
     //Signals for I/O from DDS
     reg [PHASE_WIDTH - 1:0] dds_phase_in; 
@@ -104,7 +105,6 @@ module feedback_combined #
     reg counter_reset = 0;
     wire [31:0] counter;
     reg phase_direction = 0;
-    reg sweep_finished = 1;
     reg sweep_active_next = 0;
     reg sweep_active_current = 0;
     
@@ -193,8 +193,10 @@ module feedback_combined #
             begin
                 // Initiate sweep on trigger rising edge
                 if (trigger & ~delayed_trigger & ~sweep_active_current)
+                begin
                     sweep_active_next <= 1;
-                
+                    led_test <= 1;
+                end
                 // Falling edge of sweep_active - reset counter 
 //                if (sweep_active_current & ~sweep_active_next)
 //                        begin

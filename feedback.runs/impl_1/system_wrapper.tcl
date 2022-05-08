@@ -115,9 +115,8 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL-1065} -limit 10000
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 
 OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
@@ -126,7 +125,6 @@ set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param chipscope.maxJobs 1
-  set_param synth.incrementalSynthesisCache ./.Xil/Vivado-3083-acoustics-VirtualBox/incrSyn
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7z010clg400-1
   set_property design_mode GateLvl [current_fileset]
@@ -146,8 +144,8 @@ OPTRACE "add files" START { }
   set_msg_config -source 4 -id {BD 41-1661} -limit 0
   set_param project.isImplRun true
   read_ip -quiet /home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/ip/dds_compiler_1/dds_compiler_1.xci
-  read_ip -quiet /home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/ip/c_counter_binary_0/c_counter_binary_0.xci
   add_files /home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/bd/system/system.bd
+  read_ip -quiet /home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/ip/c_counter_binary_0/c_counter_binary_0.xci
   set_param project.isImplRun false
 OPTRACE "read constraints: implementation" START { }
   read_xdc /home/acoustics/Documents/RP/RP_feedback/feedback.srcs/constrs_1/imports/cfg/clocks.xdc

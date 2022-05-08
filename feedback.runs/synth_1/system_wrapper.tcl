@@ -71,10 +71,8 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 1
-set_param synth.incrementalSynthesisCache ./.Xil/Vivado-3083-acoustics-VirtualBox/incrSyn
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL-1065} -limit 10000
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z010clg400-1
 
@@ -96,12 +94,11 @@ OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
   /home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/new/output_binary_converter.v
+  /home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/new/rollover_counter.v
   /home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/new/feedback_combined.v
   /home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/imports/system_wrapper.v
 }
 read_ip -quiet /home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/ip/dds_compiler_1/dds_compiler_1.xci
-
-read_ip -quiet /home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/ip/c_counter_binary_0/c_counter_binary_0.xci
 
 add_files /home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/bd/system/system.bd
 set_property used_in_implementation false [get_files -all /home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_pll_0_0/system_pll_0_0_board.xdc]

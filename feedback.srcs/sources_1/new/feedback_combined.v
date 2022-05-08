@@ -102,18 +102,23 @@ module feedback_combined #
     wire dds_M_AXIS_tvalid;
     
     reg counter_en = 1;
-    reg counter_reset = 0;
-    wire [31:0] counter;
+    reg counter_nreset = 1;
+    wire counter_thresh;
+    
     reg phase_direction = 0;
     reg sweep_active_next = 0;
     reg sweep_active_current = 0;
     
-    c_counter_binary_0 bin_counter (
-    .CLK(aclk),    // input wire CLK
-    .CE(counter_en),      // input wire CE
-    .SCLR(counter_reset),  // input wire SCLR
-    .Q(counter)        // output wire [31 : 0] Q
+    // Instantiate counter - note, counter starts at 2 to allow one clock cycle for reset latency 
+    // and one for the (>=) condition on the counter reset
+    rollover_counter sweep_counter (
+    .aclk(aclk),
+    .en(counter_en),      
+    .nRST(counter_nreset),  
+    .MOD(INTERVAL_in),
+    .THRESH(counter_thresh)        
     ); 
+    
     // Instantiate DDS compiler  
     dds_compiler_1 dds(
       .aclk(aclk),                                // input wire aclk
@@ -195,8 +200,10 @@ module feedback_combined #
                 if (trigger & ~delayed_trigger & ~sweep_active_current)
                 begin
                     sweep_active_next <= 1;
+                    counter_nreset <= 0;
                     led_test <= 1;
                 end
+                else counter_nreset <= 1;
                 // Falling edge of sweep_active - reset counter 
 //                if (sweep_active_current & ~sweep_active_next)
 //                        begin
@@ -206,8 +213,6 @@ module feedback_combined #
                 sweep_active_current <= sweep_active_next;
                 
                 // Turn off counter reset if it was turned on last clock cycle
-                if (counter_reset)    
-                    counter_reset <= 0;
                 
                 case(sweep_active_current)
                 
@@ -221,12 +226,8 @@ module feedback_combined #
                         // At end of sweep, reset counter and set phase to starting position 
                         sweep_active_next <= ~((phase_direction > 0) ? (phase > stop_phase) : (phase < stop_phase));     
                                 
-                        if (counter >= INTERVAL_in) 
-                        begin
-                            phase <= phase_direction ? (phase + 1) : (phase - 1);
-                            if (!counter_reset)  
-                                counter_reset <= 1;
-                        end         
+                        if (counter_thresh)
+                            phase <= phase_direction ? (phase + 1) : (phase - 1);   
                     end
                 endcase
             end            

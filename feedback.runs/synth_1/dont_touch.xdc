@@ -8,9 +8,6 @@
 # IP: ip/dds_compiler_1/dds_compiler_1.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==dds_compiler_1 || ORIG_REF_NAME==dds_compiler_1} -quiet] -quiet
 
-# IP: ip/c_counter_binary_0/c_counter_binary_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==c_counter_binary_0 || ORIG_REF_NAME==c_counter_binary_0} -quiet] -quiet
-
 # Block Designs: bd/system/system.bd
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system || ORIG_REF_NAME==system} -quiet] -quiet
 
@@ -110,11 +107,11 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_feed
 # IP: ip/dds_compiler_1/dds_compiler_1.xci
 #dup# set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==dds_compiler_1 || ORIG_REF_NAME==dds_compiler_1} -quiet] -quiet
 
-# IP: ip/c_counter_binary_0/c_counter_binary_0.xci
-#dup# set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==c_counter_binary_0 || ORIG_REF_NAME==c_counter_binary_0} -quiet] -quiet
-
 # IP: bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_0 || ORIG_REF_NAME==system_auto_pc_0} -quiet] -quiet
+
+# IP: ip/c_counter_binary_0/c_counter_binary_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==c_counter_binary_0 || ORIG_REF_NAME==c_counter_binary_0} -quiet] -quiet
 
 # XDC: /home/acoustics/Documents/RP/RP_feedback/feedback.gen/sources_1/bd/system/ip/system_pll_0_0/system_pll_0_0_board.xdc
 set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==system_pll_0_0 || ORIG_REF_NAME==system_pll_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet

@@ -6,8 +6,8 @@
    "Color Coded_ScaleFactor":"0.143021",
    "Color Coded_TopLeft":"-2643,-706",
    "Default View_Layers":"/dac_0_dac_rst:true|/mult_0_P:true|/dac_0_dac_clk:true|/pll_0_clk_out1:true|/pll_0_clk_out2:true|/rst_0_peripheral_aresetn:true|/pll_0_clk_out3:true|",
-   "Default View_ScaleFactor":"0.754005",
-   "Default View_TopLeft":"593,485",
+   "Default View_ScaleFactor":"0.571429",
+   "Default View_TopLeft":"3075,-75",
    "Display-PortTypeClock":"true",
    "Display-PortTypeData":"true",
    "Display-PortTypeOthers":"true",
@@ -122,9 +122,11 @@ preplace netloc const_0_dout 1 1 5 310 20 N 20 N 20 1370J 330 1650J
 preplace netloc slice_8_dout 1 4 1 1360 820n
 preplace netloc slice_7_dout 1 4 3 NJ 720 1610J 780 2010
 preplace netloc slice_9_dout 1 4 3 1330J 880 1610J 820 2000
-preplace netloc feedback_combined_0_trig_out 1 7 7 2350 120 NJ 120 NJ 120 NJ 120 NJ 120 NJ 120 NJ
-preplace netloc output_binary_conver_0_M_AXIS 1 9 1 N 690
+preplace netloc feedback_combined_0_trig_out 1 7 7 2350 120 NJ 120 NJ 120 NJ 120 NJ 120 NJ 120 4310J
+preplace netloc ch1_output_dac_mem_split1_M01_AXIS 1 6 4 N 500 N 500 N 500 2950
 preplace netloc ch1_output_dac_mem_split1_M00_AXIS 1 6 1 2030 480n
+preplace netloc ch1_output_dac_mem_split_M00_AXIS 1 8 1 N 680
+preplace netloc output_binary_conver_0_M_AXIS 1 9 1 N 690
 preplace netloc writer_0_M_AXI 1 1 13 300 930 N 930 1040 980 N 980 1640 830 1970 930 N 930 N 930 N 930 N 930 N 930 N 930 4300
 preplace netloc rate_0_M_AXIS 1 5 1 N 470
 preplace netloc ch1_mem_fb_split_M00_AXIS 1 6 1 1990 620n
@@ -138,8 +140,6 @@ preplace netloc fb_cfg_M_AXIS 1 5 2 NJ 810 N
 preplace netloc ps_0_axi_periph_M00_AXI 1 2 1 750 570n
 preplace netloc cic_0_M_AXIS_DATA 1 7 4 2340 610 NJ 610 N 610 3260
 preplace netloc cic_1_M_AXIS_DATA 1 10 1 3260 710n
-preplace netloc ch1_output_dac_mem_split1_M01_AXIS 1 6 4 N 500 N 500 N 500 2950
-preplace netloc ch1_output_dac_mem_split_M00_AXIS 1 8 1 N 680
 preplace netloc conv_0_M_AXIS 1 12 1 N 770
 preplace netloc ps_0_axi_periph_M01_AXI 1 2 1 N 730
 preplace netloc adc_0_M_AXIS 1 2 4 770 990 NJ 990 1350J 970 1650
@@ -160,8 +160,8 @@ pagesize -pg 1 -db -bbox -sgen -180 0 4530 1320
    "textcolor_comment_5":""
 }
 {
-   """""""""""""""""""""""""""""""""""""""""""""""""da_clkrst_cnt""""""""""""""""""""""""""""""""""""""""""""""""":"13",
-   """"""""""""""""""""""""""""""""""""""""""""""""da_clkrst_cnt"""""""""""""""""""""""""""""""""""""""""""""""":"10"
+   """""""""""""""""""""""""""""""""""""""""""""""""""da_clkrst_cnt""""""""""""""""""""""""""""""""""""""""""""""""""":"13",
+   """"""""""""""""""""""""""""""""""""""""""""""""""da_clkrst_cnt"""""""""""""""""""""""""""""""""""""""""""""""""":"10"
 }
 {
    "/comment_0":"comment_0",

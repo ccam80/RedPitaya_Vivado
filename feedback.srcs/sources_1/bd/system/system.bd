@@ -2482,28 +2482,16 @@
           }
         },
         "interface_nets": {
-          "xbar_to_m01_couplers": {
-            "interface_ports": [
-              "xbar/M01_AXI",
-              "m01_couplers/S_AXI"
-            ]
-          },
-          "m01_couplers_to_ps_0_axi_periph": {
-            "interface_ports": [
-              "M01_AXI",
-              "m01_couplers/M_AXI"
-            ]
-          },
-          "xbar_to_m00_couplers": {
-            "interface_ports": [
-              "xbar/M00_AXI",
-              "m00_couplers/S_AXI"
-            ]
-          },
           "ps_0_axi_periph_to_s00_couplers": {
             "interface_ports": [
               "S00_AXI",
               "s00_couplers/S_AXI"
+            ]
+          },
+          "xbar_to_m01_couplers": {
+            "interface_ports": [
+              "xbar/M01_AXI",
+              "m01_couplers/S_AXI"
             ]
           },
           "s00_couplers_to_xbar": {
@@ -2512,10 +2500,22 @@
               "xbar/S00_AXI"
             ]
           },
+          "m01_couplers_to_ps_0_axi_periph": {
+            "interface_ports": [
+              "M01_AXI",
+              "m01_couplers/M_AXI"
+            ]
+          },
           "m00_couplers_to_ps_0_axi_periph": {
             "interface_ports": [
               "M00_AXI",
               "m00_couplers/M_AXI"
+            ]
+          },
+          "xbar_to_m00_couplers": {
+            "interface_ports": [
+              "xbar/M00_AXI",
+              "m00_couplers/S_AXI"
             ]
           }
         },
@@ -3123,16 +3123,28 @@
       }
     },
     "interface_nets": {
-      "ch1_output_dac_mem_split_M00_AXIS": {
+      "cic_1_M_AXIS_DATA": {
         "interface_ports": [
-          "memory_binary_conver_0/S_AXIS",
-          "ch1_output_dac_mem_split/M00_AXIS"
+          "cic_1/M_AXIS_DATA",
+          "axis_combiner_0/S01_AXIS"
         ]
       },
       "ch1_output_dac_mem_split1_M00_AXIS": {
         "interface_ports": [
           "CIC_config_replicator/M00_AXIS",
           "cic_0/S_AXIS_CONFIG"
+        ]
+      },
+      "ch1_output_dac_mem_split1_M01_AXIS": {
+        "interface_ports": [
+          "CIC_config_replicator/M01_AXIS",
+          "cic_1/S_AXIS_CONFIG"
+        ]
+      },
+      "ch1_output_dac_mem_split_M00_AXIS": {
+        "interface_ports": [
+          "memory_binary_conver_0/S_AXIS",
+          "ch1_output_dac_mem_split/M00_AXIS"
         ]
       },
       "output_binary_conver_0_M_AXIS": {
@@ -3211,18 +3223,6 @@
         "interface_ports": [
           "cic_0/M_AXIS_DATA",
           "axis_combiner_0/S00_AXIS"
-        ]
-      },
-      "cic_1_M_AXIS_DATA": {
-        "interface_ports": [
-          "cic_1/M_AXIS_DATA",
-          "axis_combiner_0/S01_AXIS"
-        ]
-      },
-      "ch1_output_dac_mem_split1_M01_AXIS": {
-        "interface_ports": [
-          "CIC_config_replicator/M01_AXIS",
-          "cic_1/S_AXIS_CONFIG"
         ]
       },
       "conv_0_M_AXIS": {
@@ -3460,7 +3460,8 @@
       "feedback_combined_0_trig_out": {
         "ports": [
           "feedback_combined_0/trig_out",
-          "led_o"
+          "led_o",
+          "exp_p_tri_io"
         ]
       }
     },

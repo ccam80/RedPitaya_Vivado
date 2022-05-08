@@ -1,6 +1,7 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  --include "../../../../feedback.gen/sources_1/bd/system/ipshared/d0f7" --include "../../../../feedback.gen/sources_1/bd/system/ipshared/ec67/hdl" --include "../../../../feedback.gen/sources_1/bd/system/ipshared/34f8/hdl" --include "../../../../feedback.gen/sources_1/bd/system/ipshared/8713/hdl" --include "/tools/Xilinx/Vivado/2020.2/data/xilinx_vip/include" \
 "../../../../feedback.srcs/sources_1/new/output_binary_converter.v" \
+"../../../../feedback.srcs/sources_1/new/rollover_counter.v" \
 "../../../../feedback.srcs/sources_1/new/feedback_combined.v" \
 "../../../../feedback.ip_user_files/bd/system/ip/system_pll_0_0/system_pll_0_0_clk_wiz.v" \
 "../../../../feedback.ip_user_files/bd/system/ip/system_pll_0_0/system_pll_0_0.v" \

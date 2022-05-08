@@ -1,5 +1,7 @@
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/new/output_binary_converter.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module output_binary_converter
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/new/rollover_counter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module rollover_counter
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/acoustics/Documents/RP/RP_feedback/feedback.srcs/sources_1/new/feedback_combined.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module feedback_combined
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/acoustics/Documents/RP/RP_feedback/feedback.ip_user_files/bd/system/ip/system_pll_0_0/system_pll_0_0_clk_wiz.v" into library xil_defaultlib

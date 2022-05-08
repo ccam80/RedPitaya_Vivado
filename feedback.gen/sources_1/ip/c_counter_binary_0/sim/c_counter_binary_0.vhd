@@ -1,4 +1,4 @@
--- (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+-- (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
 -- 
 -- This file contains confidential and proprietary information
 -- of Xilinx, Inc. and is protected under U.S. and
@@ -134,7 +134,7 @@ BEGIN
       C_HAS_THRESH0 => 0,
       C_HAS_LOAD => 0,
       C_LOAD_LOW => 0,
-      C_LATENCY => 2,
+      C_LATENCY => 1,
       C_FB_LATENCY => 0,
       C_AINIT_VAL => "0",
       C_SINIT_VAL => "0",

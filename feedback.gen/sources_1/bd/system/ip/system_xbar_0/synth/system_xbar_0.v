@@ -48,11 +48,11 @@
 
 
 // IP VLNV: xilinx.com:ip:axi_crossbar:2.1
-// IP Revision: 23
+// IP Revision: 26
 
-(* X_CORE_INFO = "axi_crossbar_v2_1_23_axi_crossbar,Vivado 2020.2" *)
-(* CHECK_LICENSE_TYPE = "system_xbar_0,axi_crossbar_v2_1_23_axi_crossbar,{}" *)
-(* CORE_GENERATION_INFO = "system_xbar_0,axi_crossbar_v2_1_23_axi_crossbar,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axi_crossbar,x_ipVersion=2.1,x_ipCoreRevision=23,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_FAMILY=zynq,C_NUM_SLAVE_SLOTS=1,C_NUM_MASTER_SLOTS=2,C_AXI_ID_WIDTH=1,C_AXI_ADDR_WIDTH=32,C_AXI_DATA_WIDTH=32,C_AXI_PROTOCOL=2,C_NUM_ADDR_RANGES=1,C_M_AXI_BASE_ADDR=0x00000000400010000000000040000000,C_M_AXI_ADDR_WIDTH=0x0000000c0000000c,C_S_AXI_BASE_ID=0x00000000,C_S_AXI_THREAD_ID_WI\
+(* X_CORE_INFO = "axi_crossbar_v2_1_26_axi_crossbar,Vivado 2021.2" *)
+(* CHECK_LICENSE_TYPE = "system_xbar_0,axi_crossbar_v2_1_26_axi_crossbar,{}" *)
+(* CORE_GENERATION_INFO = "system_xbar_0,axi_crossbar_v2_1_26_axi_crossbar,{x_ipProduct=Vivado 2021.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axi_crossbar,x_ipVersion=2.1,x_ipCoreRevision=26,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_FAMILY=zynq,C_NUM_SLAVE_SLOTS=1,C_NUM_MASTER_SLOTS=2,C_AXI_ID_WIDTH=1,C_AXI_ADDR_WIDTH=32,C_AXI_DATA_WIDTH=32,C_AXI_PROTOCOL=2,C_NUM_ADDR_RANGES=1,C_M_AXI_BASE_ADDR=0x00000000400010000000000040000000,C_M_AXI_ADDR_WIDTH=0x0000000c0000000c,C_S_AXI_BASE_ID=0x00000000,C_S_AXI_THREAD_ID_WI\
 DTH=0x00000000,C_AXI_SUPPORTS_USER_SIGNALS=0,C_AXI_AWUSER_WIDTH=1,C_AXI_ARUSER_WIDTH=1,C_AXI_WUSER_WIDTH=1,C_AXI_RUSER_WIDTH=1,C_AXI_BUSER_WIDTH=1,C_M_AXI_WRITE_CONNECTIVITY=0xFFFFFFFFFFFFFFFF,C_M_AXI_READ_CONNECTIVITY=0xFFFFFFFFFFFFFFFF,C_R_REGISTER=1,C_S_AXI_SINGLE_THREAD=0x00000001,C_S_AXI_WRITE_ACCEPTANCE=0x00000001,C_S_AXI_READ_ACCEPTANCE=0x00000001,C_M_AXI_WRITE_ISSUING=0x0000000100000001,C_M_AXI_READ_ISSUING=0x0000000100000001,C_S_AXI_ARB_PRIORITY=0x00000000,C_M_AXI_SECURE=0x00000000,C_CO\
 NNECTIVITY_MODE=0}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
@@ -187,7 +187,7 @@ LK_DOMAIN system_pll_0_0_clk_out1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSE
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI RREADY [0:0] [0:0], xilinx.com:interface:aximm:1.0 M01_AXI RREADY [0:0] [1:1]" *)
 output wire [1 : 0] m_axi_rready;
 
-  axi_crossbar_v2_1_23_axi_crossbar #(
+  axi_crossbar_v2_1_26_axi_crossbar #(
     .C_FAMILY("zynq"),
     .C_NUM_SLAVE_SLOTS(1),
     .C_NUM_MASTER_SLOTS(2),

@@ -77,6 +77,7 @@ system_auto_pc_0_sc::system_auto_pc_0_sc(const sc_core::sc_module_name& nm) : sc
     model_param_props.addLong("C_AXI_BUSER_WIDTH", "1");
     model_param_props.addLong("C_TRANSLATION_MODE", "2");
     model_param_props.addString("C_FAMILY", "zynq");
+    model_param_props.addString("COMPONENT_NAME", "system_auto_pc_0");
 
   mp_impl = new axi_protocol_converter("inst", model_param_props);
 

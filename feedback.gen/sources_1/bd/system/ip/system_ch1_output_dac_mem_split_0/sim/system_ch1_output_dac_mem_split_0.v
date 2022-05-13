@@ -48,7 +48,7 @@
 
 
 // IP VLNV: xilinx.com:ip:axis_broadcaster:1.1
-// IP Revision: 21
+// IP Revision: 24
 
 `timescale 1ns/1ps
 

@@ -50,7 +50,7 @@
 // IP VLNV: pavel-demin:user:axi_cfg_register:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "axi_cfg_register,Vivado 2020.2" *)
+(* X_CORE_INFO = "axi_cfg_register,Vivado 2021.2" *)
 (* CHECK_LICENSE_TYPE = "system_cfg_0_0,axi_cfg_register,{}" *)
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)

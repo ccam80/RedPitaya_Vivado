@@ -50,7 +50,7 @@
 // IP VLNV: pavel-demin:user:axis_constant:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "axis_constant,Vivado 2020.2" *)
+(* X_CORE_INFO = "axis_constant,Vivado 2021.2" *)
 (* CHECK_LICENSE_TYPE = "system_b_const_16b_1,axis_constant,{}" *)
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)

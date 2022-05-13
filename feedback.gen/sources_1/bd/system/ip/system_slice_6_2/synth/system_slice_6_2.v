@@ -50,7 +50,7 @@
 // IP VLNV: pavel-demin:user:port_slicer:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "port_slicer,Vivado 2020.2" *)
+(* X_CORE_INFO = "port_slicer,Vivado 2021.2" *)
 (* CHECK_LICENSE_TYPE = "system_slice_6_2,port_slicer,{}" *)
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)

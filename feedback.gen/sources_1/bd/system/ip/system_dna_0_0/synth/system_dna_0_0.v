@@ -50,7 +50,7 @@
 // IP VLNV: pavel-demin:user:dna_reader:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "dna_reader,Vivado 2020.2" *)
+(* X_CORE_INFO = "dna_reader,Vivado 2021.2" *)
 (* CHECK_LICENSE_TYPE = "system_dna_0_0,dna_reader,{}" *)
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)

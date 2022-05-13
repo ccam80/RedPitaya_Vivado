@@ -47,7 +47,7 @@
 // DO NOT MODIFY THIS FILE.
 
 
-// IP VLNV: pavel-demin:user:axis_red_pitaya_adc:3.0
+// IP VLNV: pavel-demin:user:axis_red_pitaya_adc:3.1
 // IP Revision: 1
 
 `timescale 1ns/1ps
@@ -56,7 +56,6 @@
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_adc_0_0 (
   aclk,
-  adc_csn,
   adc_dat_a,
   adc_dat_b,
   m_axis_tvalid,
@@ -66,9 +65,8 @@ module system_adc_0_0 (
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF M_AXIS, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *)
 input wire aclk;
-output wire adc_csn;
-input wire [15 : 0] adc_dat_a;
-input wire [15 : 0] adc_dat_b;
+input wire [13 : 0] adc_dat_a;
+input wire [13 : 0] adc_dat_b;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS TVALID" *)
 output wire m_axis_tvalid;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *)
@@ -76,10 +74,10 @@ output wire m_axis_tvalid;
 output wire [31 : 0] m_axis_tdata;
 
   axis_red_pitaya_adc #(
-    .ADC_DATA_WIDTH(14)
+    .ADC_DATA_WIDTH(14),
+    .AXIS_TDATA_WIDTH(32)
   ) inst (
     .aclk(aclk),
-    .adc_csn(adc_csn),
     .adc_dat_a(adc_dat_a),
     .adc_dat_b(adc_dat_b),
     .m_axis_tvalid(m_axis_tvalid),

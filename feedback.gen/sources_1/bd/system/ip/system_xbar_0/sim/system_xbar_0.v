@@ -48,7 +48,7 @@
 
 
 // IP VLNV: xilinx.com:ip:axi_crossbar:2.1
-// IP Revision: 23
+// IP Revision: 26
 
 `timescale 1ns/1ps
 
@@ -184,7 +184,7 @@ LK_DOMAIN system_pll_0_0_clk_out1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSE
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI RREADY [0:0] [0:0], xilinx.com:interface:aximm:1.0 M01_AXI RREADY [0:0] [1:1]" *)
 output wire [1 : 0] m_axi_rready;
 
-  axi_crossbar_v2_1_23_axi_crossbar #(
+  axi_crossbar_v2_1_26_axi_crossbar #(
     .C_FAMILY("zynq"),
     .C_NUM_SLAVE_SLOTS(1),
     .C_NUM_MASTER_SLOTS(2),

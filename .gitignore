@@ -2,3 +2,6 @@
 *.runs
 *.tmp
 *.ip_user_files
+*.log
+*.jou
+*.str

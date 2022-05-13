@@ -50,7 +50,7 @@
 // IP VLNV: pavel-demin:user:axis_red_pitaya_dac:2.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "axis_red_pitaya_dac,Vivado 2020.2" *)
+(* X_CORE_INFO = "axis_red_pitaya_dac,Vivado 2021.2" *)
 (* CHECK_LICENSE_TYPE = "system_dac_0_0,axis_red_pitaya_dac,{}" *)
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
@@ -79,7 +79,7 @@ input wire ddr_clk;
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 wrt_clk CLK" *)
 input wire wrt_clk;
 input wire locked;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME dac_clk, ASSOCIATED_RESET dac_rst, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.000, CLK_DOMAIN system_dac_0_0_dac_clk, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME dac_clk, ASSOCIATED_RESET dac_rst, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_dac_0_0_dac_clk, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 dac_clk CLK" *)
 output wire dac_clk;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME dac_rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)

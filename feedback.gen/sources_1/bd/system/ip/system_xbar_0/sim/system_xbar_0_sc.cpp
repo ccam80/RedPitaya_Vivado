@@ -90,6 +90,7 @@ system_xbar_0_sc::system_xbar_0_sc(const sc_core::sc_module_name& nm) : sc_core:
     model_param_props.addBitString("C_M_AXI_READ_ISSUING", "0000000000000000000000000000000100000000000000000000000000000001", 64);
     model_param_props.addBitString("C_S_AXI_ARB_PRIORITY", "00000000000000000000000000000000", 32);
     model_param_props.addBitString("C_M_AXI_SECURE", "00000000000000000000000000000000", 32);
+    model_param_props.addString("COMPONENT_NAME", "system_xbar_0");
 
   mp_impl = new axi_crossbar("inst", model_param_props);
 

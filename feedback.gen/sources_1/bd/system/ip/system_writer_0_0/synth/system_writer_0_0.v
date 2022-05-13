@@ -50,7 +50,7 @@
 // IP VLNV: pavel-demin:user:axis_ram_writer:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "axis_ram_writer,Vivado 2020.2" *)
+(* X_CORE_INFO = "axis_ram_writer,Vivado 2021.2" *)
 (* CHECK_LICENSE_TYPE = "system_writer_0_0,axis_ram_writer,{}" *)
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)

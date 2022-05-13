@@ -48,7 +48,7 @@
 
 
 // IP VLNV: xilinx.com:ip:axis_dwidth_converter:1.1
-// IP Revision: 21
+// IP Revision: 24
 
 `timescale 1ns/1ps
 
@@ -85,7 +85,7 @@ input wire m_axis_tready;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS TDATA" *)
 output wire [63 : 0] m_axis_tdata;
 
-  axis_dwidth_converter_v1_1_21_axis_dwidth_converter #(
+  axis_dwidth_converter_v1_1_24_axis_dwidth_converter #(
     .C_FAMILY("zynq"),
     .C_S_AXIS_TDATA_WIDTH(32),
     .C_M_AXIS_TDATA_WIDTH(64),

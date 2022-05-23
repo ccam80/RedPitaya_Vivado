@@ -47,8 +47,8 @@
       "feedback_trigger": "",
       "Feedback_config_bus": "",
       "sts_0": "",
-      "writer_0": "",
-      "axis_combiner_1": ""
+      "axis_combiner_1": "",
+      "writer_0": ""
     },
     "interface_ports": {
       "Vp_Vn": {
@@ -3171,8 +3171,19 @@
           }
         }
       },
+      "axis_combiner_1": {
+        "vlnv": "xilinx.com:ip:axis_combiner:1.1",
+        "xci_name": "system_axis_combiner_0_1",
+        "xci_path": "ip\\system_axis_combiner_0_1\\system_axis_combiner_0_1.xci",
+        "inst_hier_path": "axis_combiner_1",
+        "parameters": {
+          "TDATA_NUM_BYTES": {
+            "value": "2"
+          }
+        }
+      },
       "writer_0": {
-        "vlnv": "pavel-demin:user:axis_ram_writer:1.0",
+        "vlnv": "pavel-demin:user:axis_ram_writer:2.0",
         "xci_name": "system_writer_0_0",
         "xci_path": "ip\\system_writer_0_0\\system_writer_0_0.xci",
         "inst_hier_path": "writer_0",
@@ -3204,17 +3215,6 @@
             }
           }
         }
-      },
-      "axis_combiner_1": {
-        "vlnv": "xilinx.com:ip:axis_combiner:1.1",
-        "xci_name": "system_axis_combiner_0_1",
-        "xci_path": "ip\\system_axis_combiner_0_1\\system_axis_combiner_0_1.xci",
-        "inst_hier_path": "axis_combiner_1",
-        "parameters": {
-          "TDATA_NUM_BYTES": {
-            "value": "2"
-          }
-        }
       }
     },
     "interface_nets": {
@@ -3244,8 +3244,8 @@
       },
       "ch1_mem_fb_split_M01_AXIS": {
         "interface_ports": [
-          "ch1_mem_fb_split/M01_AXIS",
-          "feedback_combined_0/S_AXIS_ADC"
+          "feedback_combined_0/S_AXIS_ADC",
+          "ch1_mem_fb_split/M01_AXIS"
         ]
       },
       "ch1_output_dac_mem_split1_M00_AXIS": {
@@ -3280,8 +3280,8 @@
       },
       "cic_0_M_AXIS_DATA": {
         "interface_ports": [
-          "cic_0/M_AXIS_DATA",
-          "axis_combiner_0/S00_AXIS"
+          "axis_combiner_0/S00_AXIS",
+          "cic_0/M_AXIS_DATA"
         ]
       },
       "cic_1_M_AXIS_DATA": {
@@ -3481,8 +3481,8 @@
           "dna_0/aclk",
           "rate_0/aclk",
           "sts_0/aclk",
-          "writer_0/aclk",
-          "axis_combiner_1/aclk"
+          "axis_combiner_1/aclk",
+          "writer_0/aclk"
         ]
       },
       "pll_0_clk_out2": {
@@ -3539,7 +3539,8 @@
       "slice_2_dout": {
         "ports": [
           "sample_rate_divider/dout",
-          "rate_0/cfg_data"
+          "rate_0/cfg_data",
+          "writer_0/clk_div"
         ]
       },
       "slice_3_dout": {

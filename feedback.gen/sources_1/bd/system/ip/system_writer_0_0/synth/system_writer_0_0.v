@@ -47,7 +47,7 @@
 // DO NOT MODIFY THIS FILE.
 
 
-// IP VLNV: pavel-demin:user:axis_ram_writer:1.0
+// IP VLNV: pavel-demin:user:axis_ram_writer:2.0
 // IP Revision: 1
 
 (* X_CORE_INFO = "axis_ram_writer,Vivado 2021.2" *)
@@ -58,6 +58,7 @@ module system_writer_0_0 (
   aclk,
   aresetn,
   cfg_data,
+  clk_div,
   sts_data,
   m_axi_awid,
   m_axi_awaddr,
@@ -87,6 +88,7 @@ input wire aclk;
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 aresetn RST" *)
 input wire aresetn;
 input wire [31 : 0] cfg_data;
+input wire [15 : 0] clk_div;
 output wire [15 : 0] sts_data;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI AWID" *)
 output wire [2 : 0] m_axi_awid;
@@ -140,6 +142,7 @@ input wire s_axis_tvalid;
     .aclk(aclk),
     .aresetn(aresetn),
     .cfg_data(cfg_data),
+    .clk_div(clk_div),
     .sts_data(sts_data),
     .m_axi_awid(m_axi_awid),
     .m_axi_awaddr(m_axi_awaddr),

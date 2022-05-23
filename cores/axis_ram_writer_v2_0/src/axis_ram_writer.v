@@ -15,6 +15,7 @@ module axis_ram_writer #
   input  wire                        aresetn,
 
   input  wire [AXI_ADDR_WIDTH-1:0]   cfg_data,
+  input  wire [15:0]   				 clk_div,
   output wire [ADDR_WIDTH-1:0]       sts_data,
 
   // Master side
@@ -47,6 +48,7 @@ module axis_ram_writer #
 
   localparam integer ADDR_SIZE = clogb2((AXI_DATA_WIDTH/8)-1);
 
+  reg [15:0] clk_count_reg, clk_count_next; 
   reg int_awvalid_reg, int_awvalid_next;
   reg int_wvalid_reg, int_wvalid_next;
   reg [ADDR_WIDTH-1:0] int_addr_reg, int_addr_next;
@@ -81,6 +83,7 @@ module axis_ram_writer #
   begin
     if(~aresetn)
     begin
+	  clk_count_reg <= 16'b0;
       int_awvalid_reg <= 1'b0;
       int_wvalid_reg <= 1'b0;
       int_addr_reg <= {(ADDR_WIDTH){1'b0}};
@@ -88,7 +91,8 @@ module axis_ram_writer #
     end
     else
     begin
-      int_awvalid_reg <= int_awvalid_next;
+	  clk_count_reg <= clk_count_next;
+	  int_awvalid_reg <= int_awvalid_next;
       int_wvalid_reg <= int_wvalid_next;
       int_addr_reg <= int_addr_next;
       int_wid_reg <= int_wid_next;
@@ -97,6 +101,7 @@ module axis_ram_writer #
 
   always @*
   begin
+    clk_count_next = clk_count_reg;
     int_awvalid_next = int_awvalid_reg;
     int_wvalid_next = int_wvalid_reg;
     int_addr_next = int_addr_reg;
@@ -112,11 +117,18 @@ module axis_ram_writer #
     begin
       int_awvalid_next = 1'b0;
     end
-
-    if(int_rden_wire)
-    begin
-      int_addr_next = int_addr_reg + 1'b1;
-    end
+	if(clk_count_reg >= clk_div)
+	begin
+	  clk_count_next = 16'b0;
+	  if(int_rden_wire)
+	  begin
+	    int_addr_next = int_addr_reg + 1'b1;
+	  end
+	end
+	else
+	begin
+	  clk_count_next = clk_count_reg + 1'b1;
+	end	
 
     if(m_axi_wready & int_wlast_wire)
     begin

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <spirit:vendor>pavel-demin</spirit:vendor>
+  <spirit:vendor>xilinx.com</spirit:vendor>
   <spirit:library>user</spirit:library>
   <spirit:name>axis_red_pitaya_dac</spirit:name>
   <spirit:version>1.0</spirit:version>
@@ -389,21 +389,16 @@
       </xilinx:taxonomies>
       <xilinx:displayName>AXI4-Stream Red Pitaya DAC</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:vendorDisplayName>Pavel Demin</xilinx:vendorDisplayName>
-      <xilinx:vendorURL>https://github.com/pavel-demin/red-pitaya-notes</xilinx:vendorURL>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-05-10T06:49:47Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-06-08T06:33:50Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5f93b2b5_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_red_pitaya_dac_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@79bda1f0_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_red_pitaya_dac_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@19cc18e1_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_red_pitaya_dac_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6c394fec_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_red_pitaya_dac_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@69bff7e8_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_red_pitaya_dac_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2019cf6_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_red_pitaya_dac_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@61a3a5d3_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_red_pitaya_dac_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@13fdaf3e_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_red_pitaya_dac_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@170db01f_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_red_pitaya_dac_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7f018351_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_red_pitaya_dac_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@57df1e8c_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_red_pitaya_dac_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@75005d13_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_red_pitaya_dac_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@716e955a_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_red_pitaya_dac_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@577795c_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_red_pitaya_dac_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@11c15b80_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_red_pitaya_dac_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6f568d0b_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_red_pitaya_dac_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@62c40783_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_red_pitaya_dac_v1_0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

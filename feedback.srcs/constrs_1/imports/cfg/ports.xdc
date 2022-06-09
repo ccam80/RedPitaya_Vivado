@@ -124,8 +124,8 @@ set_property PACKAGE_PIN U13 [get_ports {dac_pwm_o[3]}]
 
 ### XADC
 
-set_property IOSTANDARD LVCMOS33 [get_ports Vp_Vn_v_p] 
-set_property IOSTANDARD LVCMOS33 [get_ports Vp_Vn_v_n] 
+set_property IOSTANDARD LVCMOS33 [get_ports Vp_Vn_v_p]
+set_property IOSTANDARD LVCMOS33 [get_ports Vp_Vn_v_n]
 set_property IOSTANDARD LVCMOS33 [get_ports Vaux0_v_p]
 set_property IOSTANDARD LVCMOS33 [get_ports Vaux0_v_n]
 set_property IOSTANDARD LVCMOS33 [get_ports Vaux1_v_p]

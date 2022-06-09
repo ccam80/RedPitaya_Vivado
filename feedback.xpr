@@ -56,7 +56,7 @@
     <Option Name="IPUserFilesDir" Val="$PIPUSERFILESDIR"/>
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
-    <Option Name="WTXSimLaunchSim" Val="160"/>
+    <Option Name="WTXSimLaunchSim" Val="159"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -105,7 +105,7 @@
       <File Path="$PSRCDIR/sources_1/ip/dds_compiler_1/dds_compiler_1.xci">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PSRCDIR/sources_1/ip/dds_compiler_1/dds_compiler_1.xci"/>
-          <Attr Name="ImportTime" Val="1652357383"/>
+          <Attr Name="ImportTime" Val="1654601350"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -293,11 +293,11 @@
         <StratHandle Name="Flow_PerfOptimized_high" Flow="Vivado Synthesis 2020"/>
         <Step Id="synth_design">
           <Option Id="ShregMinSize">5</Option>
-          <Option Id="NoCombineLuts">1</Option>
-          <Option Id="Directive">7</Option>
-          <Option Id="ResourceSharing">2</Option>
-          <Option Id="KeepEquivalentRegisters">1</Option>
           <Option Id="FsmExtraction">1</Option>
+          <Option Id="ResourceSharing">2</Option>
+          <Option Id="Directive">7</Option>
+          <Option Id="NoCombineLuts">1</Option>
+          <Option Id="KeepEquivalentRegisters">1</Option>
         </Step>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>

@@ -3,10 +3,10 @@
 <!--                                                         -->
 <!-- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="56" Path="c:/GitHub/RedPitaya/tmp/cores/axis_gate_controller.xpr">
+<Project Version="7" Minor="56" Path="C:/GitHub/RedPitaya/tmp/cores/axis_gate_controller.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="9d32d167ac844ec98f08cac8e709c0e8"/>
+    <Option Name="Id" Val="5ef9159ea09c473bbfd1240de708440c"/>
     <Option Name="Part" Val="xc7z010clg400-1"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>

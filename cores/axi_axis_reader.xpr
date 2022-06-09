@@ -3,10 +3,10 @@
 <!--                                                         -->
 <!-- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="56" Path="c:/GitHub/RedPitaya/tmp/cores/axi_axis_reader.xpr">
+<Project Version="7" Minor="56" Path="C:/GitHub/RedPitaya/tmp/cores/axi_axis_reader.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="5df37c6b3703418a92009f48553bf622"/>
+    <Option Name="Id" Val="415d1333a3634b05894620d314a50612"/>
     <Option Name="Part" Val="xc7z010clg400-1"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>

@@ -3,10 +3,10 @@
 <!--                                                         -->
 <!-- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="56" Path="c:/GitHub/RedPitaya/tmp/cores/axi_sts_register.xpr">
+<Project Version="7" Minor="56" Path="C:/GitHub/RedPitaya/tmp/cores/axi_sts_register.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="9057066bd5874883acdfd745fce0ab6e"/>
+    <Option Name="Id" Val="e30a8a2877ec4d72a698f258330e3b09"/>
     <Option Name="Part" Val="xc7z010clg400-1"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>

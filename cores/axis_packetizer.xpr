@@ -3,10 +3,10 @@
 <!--                                                         -->
 <!-- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="56" Path="c:/GitHub/RedPitaya/tmp/cores/axis_packetizer.xpr">
+<Project Version="7" Minor="56" Path="C:/GitHub/RedPitaya/tmp/cores/axis_packetizer.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="12cd33d2f2ff4f35a8e7c1187754fb3b"/>
+    <Option Name="Id" Val="08201f9f76374c42aa25a21ab5c5c347"/>
     <Option Name="Part" Val="xc7z010clg400-1"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>

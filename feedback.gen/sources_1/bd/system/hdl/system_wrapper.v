@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Mon May 23 13:24:16 2022
+//Date        : Thu Jun  9 08:00:02 2022
 //Host        : DESKTOP-PEVG67J running 64-bit major release  (build 9200)
 //Command     : generate_target system_wrapper.bd
 //Design      : system_wrapper
@@ -71,8 +71,8 @@ module system_wrapper
   input adc_clk_n_i;
   input adc_clk_p_i;
   output adc_csn_o;
-  input [13:0]adc_dat_a_i;
-  input [13:0]adc_dat_b_i;
+  input [15:0]adc_dat_a_i;
+  input [15:0]adc_dat_b_i;
   output adc_enc_n_o;
   output adc_enc_p_o;
   output dac_clk_o;
@@ -109,8 +109,8 @@ module system_wrapper
   wire adc_clk_n_i;
   wire adc_clk_p_i;
   wire adc_csn_o;
-  wire [13:0]adc_dat_a_i;
-  wire [13:0]adc_dat_b_i;
+  wire [15:0]adc_dat_a_i;
+  wire [15:0]adc_dat_b_i;
   wire adc_enc_n_o;
   wire adc_enc_p_o;
   wire dac_clk_o;

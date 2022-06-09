@@ -3,10 +3,10 @@
 <!--                                                         -->
 <!-- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="56" Path="c:/GitHub/RedPitaya/tmp/cores/dna_reader.xpr">
+<Project Version="7" Minor="56" Path="C:/GitHub/RedPitaya/tmp/cores/dna_reader.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="826dfc7bdaac4f0fbcfb92427981409f"/>
+    <Option Name="Id" Val="a17399432caf4ae480fe28da85597eba"/>
     <Option Name="Part" Val="xc7z010clg400-1"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>

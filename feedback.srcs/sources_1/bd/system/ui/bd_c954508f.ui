@@ -6,8 +6,8 @@
    "Color Coded_ScaleFactor":"0.143021",
    "Color Coded_TopLeft":"-2643,-706",
    "Default View_Layers":"/dac_0_dac_rst:true|/mult_0_P:true|/dac_0_dac_clk:true|/pll_0_clk_out1:true|/pll_0_clk_out2:true|/rst_0_peripheral_aresetn:true|/pll_0_clk_out3:true|",
-   "Default View_ScaleFactor":"1.06632",
-   "Default View_TopLeft":"3398,499",
+   "Default View_ScaleFactor":"0.224761",
+   "Default View_TopLeft":"325,-841",
    "Display-PortTypeClock":"true",
    "Display-PortTypeData":"true",
    "Display-PortTypeOthers":"true",
@@ -42,118 +42,120 @@
    "font_comment_5":"23",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port Vp_Vn -pg 1 -lvl 0 -x -140 -y 150 -defaultsOSRD
-preplace port Vaux0 -pg 1 -lvl 0 -x -140 -y 20 -defaultsOSRD
-preplace port Vaux1 -pg 1 -lvl 0 -x -140 -y 40 -defaultsOSRD
-preplace port Vaux9 -pg 1 -lvl 0 -x -140 -y 130 -defaultsOSRD
-preplace port Vaux8 -pg 1 -lvl 0 -x -140 -y 60 -defaultsOSRD
-preplace port DDR -pg 1 -lvl 14 -x 4620 -y 210 -defaultsOSRD
-preplace port FIXED_IO -pg 1 -lvl 14 -x 4620 -y 240 -defaultsOSRD
-preplace port port-id_adc_clk_p_i -pg 1 -lvl 0 -x -140 -y 110 -defaultsOSRD
-preplace port port-id_adc_clk_n_i -pg 1 -lvl 0 -x -140 -y 90 -defaultsOSRD
-preplace port port-id_adc_enc_p_o -pg 1 -lvl 14 -x 4620 -y 40 -defaultsOSRD
-preplace port port-id_adc_enc_n_o -pg 1 -lvl 14 -x 4620 -y 20 -defaultsOSRD
-preplace port port-id_adc_csn_o -pg 1 -lvl 14 -x 4620 -y 190 -defaultsOSRD
-preplace port port-id_dac_clk_o -pg 1 -lvl 14 -x 4620 -y 480 -defaultsOSRD
-preplace port port-id_dac_rst_o -pg 1 -lvl 14 -x 4620 -y 500 -defaultsOSRD
-preplace port port-id_dac_sel_o -pg 1 -lvl 14 -x 4620 -y 520 -defaultsOSRD
-preplace port port-id_dac_wrt_o -pg 1 -lvl 14 -x 4620 -y 540 -defaultsOSRD
-preplace portBus adc_dat_a_i -pg 1 -lvl 0 -x -140 -y 1010 -defaultsOSRD
-preplace portBus adc_dat_b_i -pg 1 -lvl 0 -x -140 -y 1030 -defaultsOSRD
-preplace portBus dac_dat_o -pg 1 -lvl 14 -x 4620 -y 560 -defaultsOSRD
-preplace portBus dac_pwm_o -pg 1 -lvl 14 -x 4620 -y 60 -defaultsOSRD
-preplace portBus exp_p_tri_io -pg 1 -lvl 14 -x 4620 -y 100 -defaultsOSRD
-preplace portBus exp_n_tri_io -pg 1 -lvl 14 -x 4620 -y 80 -defaultsOSRD
-preplace portBus led_o -pg 1 -lvl 14 -x 4620 -y 120 -defaultsOSRD
-preplace inst ps_0 -pg 1 -lvl 2 -x 360 -y 270 -defaultsOSRD
-preplace inst external_reset_fake -pg 1 -lvl 4 -x 950 -y 110 -defaultsOSRD
-preplace inst rst_0 -pg 1 -lvl 2 -x 360 -y 500 -defaultsOSRD
-preplace inst cic_0 -pg 1 -lvl 7 -x 2050 -y 680 -defaultsOSRD
-preplace inst status_concat_1 -pg 1 -lvl 6 -x 1580 -y 670 -defaultsOSRD
-preplace inst cic_1 -pg 1 -lvl 10 -x 3290 -y 620 -defaultsOSRD
-preplace inst memory_binary_conver_0 -pg 1 -lvl 9 -x 2890 -y 710 -defaultsOSRD
-preplace inst ch1_mem_fb_split -pg 1 -lvl 6 -x 1580 -y 940 -defaultsOSRD
-preplace inst axis_combiner_0 -pg 1 -lvl 11 -x 3710 -y 750 -defaultsOSRD
-preplace inst ch1_output_dac_mem_split -pg 1 -lvl 8 -x 2490 -y 700 -defaultsOSRD
-preplace inst CIC_config_replicator -pg 1 -lvl 6 -x 1580 -y 490 -defaultsOSRD
-preplace inst conv_0 -pg 1 -lvl 12 -x 4070 -y 800 -defaultsOSRD
-preplace inst pll_0 -pg 1 -lvl 1 -x -10 -y 90 -defaultsOSRD
-preplace inst ps_0_axi_periph -pg 1 -lvl 2 -x 360 -y 720 -defaultsOSRD
-preplace inst feedback_combined_0 -pg 1 -lvl 7 -x 2050 -y 890 -defaultsOSRD
-preplace inst adc_0 -pg 1 -lvl 2 -x 360 -y 1010 -defaultsOSRD
-preplace inst fb_cfg -pg 1 -lvl 5 -x 1240 -y 810 -defaultsOSRD
-preplace inst cfg_0 -pg 1 -lvl 3 -x 720 -y 750 -defaultsOSRD
-preplace inst dac_0 -pg 1 -lvl 13 -x 4410 -y 600 -defaultsOSRD
-preplace inst dna_0 -pg 1 -lvl 5 -x 1240 -y 600 -defaultsOSRD
-preplace inst rate_0 -pg 1 -lvl 5 -x 1240 -y 470 -defaultsOSRD
-preplace inst pre_memory_reset -pg 1 -lvl 4 -x 950 -y 320 -defaultsOSRD
-preplace inst ram_writer_reset -pg 1 -lvl 4 -x 950 -y 420 -defaultsOSRD
-preplace inst sample_rate_divider -pg 1 -lvl 4 -x 950 -y 520 -defaultsOSRD
-preplace inst RAM_addres -pg 1 -lvl 4 -x 950 -y 620 -defaultsOSRD
-preplace inst Feedback_State -pg 1 -lvl 4 -x 950 -y 720 -defaultsOSRD
-preplace inst feedback_trigger -pg 1 -lvl 4 -x 950 -y 820 -defaultsOSRD
-preplace inst Feedback_config_bus -pg 1 -lvl 4 -x 950 -y 920 -defaultsOSRD
-preplace inst sts_0 -pg 1 -lvl 3 -x 720 -y 600 -defaultsOSRD
-preplace inst axis_combiner_1 -pg 1 -lvl 11 -x 3710 -y 460 -defaultsOSRD
-preplace inst writer_0 -pg 1 -lvl 13 -x 4410 -y 860 -defaultsOSRD
-preplace netloc adc_0_adc_csn 1 13 1 N 190
+preplace port Vp_Vn -pg 1 -lvl 0 -x 0 -y 150 -defaultsOSRD
+preplace port Vaux0 -pg 1 -lvl 0 -x 0 -y 20 -defaultsOSRD
+preplace port Vaux1 -pg 1 -lvl 0 -x 0 -y 40 -defaultsOSRD
+preplace port Vaux9 -pg 1 -lvl 0 -x 0 -y 130 -defaultsOSRD
+preplace port Vaux8 -pg 1 -lvl 0 -x 0 -y 60 -defaultsOSRD
+preplace port DDR -pg 1 -lvl 16 -x 5430 -y 210 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 16 -x 5430 -y 240 -defaultsOSRD
+preplace port port-id_adc_clk_p_i -pg 1 -lvl 0 -x 0 -y 110 -defaultsOSRD
+preplace port port-id_adc_clk_n_i -pg 1 -lvl 0 -x 0 -y 90 -defaultsOSRD
+preplace port port-id_adc_enc_p_o -pg 1 -lvl 16 -x 5430 -y 40 -defaultsOSRD
+preplace port port-id_adc_enc_n_o -pg 1 -lvl 16 -x 5430 -y 20 -defaultsOSRD
+preplace port port-id_adc_csn_o -pg 1 -lvl 16 -x 5430 -y 190 -defaultsOSRD
+preplace port port-id_dac_clk_o -pg 1 -lvl 16 -x 5430 -y 480 -defaultsOSRD
+preplace port port-id_dac_rst_o -pg 1 -lvl 16 -x 5430 -y 500 -defaultsOSRD
+preplace port port-id_dac_sel_o -pg 1 -lvl 16 -x 5430 -y 520 -defaultsOSRD
+preplace port port-id_dac_wrt_o -pg 1 -lvl 16 -x 5430 -y 540 -defaultsOSRD
+preplace portBus adc_dat_a_i -pg 1 -lvl 0 -x 0 -y 1010 -defaultsOSRD
+preplace portBus adc_dat_b_i -pg 1 -lvl 0 -x 0 -y 1050 -defaultsOSRD
+preplace portBus dac_dat_o -pg 1 -lvl 16 -x 5430 -y 560 -defaultsOSRD
+preplace portBus dac_pwm_o -pg 1 -lvl 16 -x 5430 -y 60 -defaultsOSRD
+preplace portBus exp_p_tri_io -pg 1 -lvl 16 -x 5430 -y 100 -defaultsOSRD
+preplace portBus exp_n_tri_io -pg 1 -lvl 16 -x 5430 -y 80 -defaultsOSRD
+preplace portBus led_o -pg 1 -lvl 16 -x 5430 -y 120 -defaultsOSRD
+preplace inst ps_0 -pg 1 -lvl 2 -x 520 -y 240 -defaultsOSRD
+preplace inst external_reset_fake -pg 1 -lvl 4 -x 1210 -y 10 -defaultsOSRD
+preplace inst rst_0 -pg 1 -lvl 2 -x 520 -y 470 -defaultsOSRD
+preplace inst cic_0 -pg 1 -lvl 7 -x 2630 -y 650 -defaultsOSRD
+preplace inst status_concat_1 -pg 1 -lvl 6 -x 2200 -y 670 -defaultsOSRD
+preplace inst cic_1 -pg 1 -lvl 10 -x 3680 -y 750 -defaultsOSRD
+preplace inst memory_binary_conver_0 -pg 1 -lvl 9 -x 3330 -y 730 -defaultsOSRD
+preplace inst ch1_mem_fb_split -pg 1 -lvl 5 -x 1750 -y 1080 -defaultsOSRD
+preplace inst axis_combiner_0 -pg 1 -lvl 12 -x 4390 -y 720 -defaultsOSRD
+preplace inst ch1_output_dac_mem_split -pg 1 -lvl 8 -x 2980 -y 720 -defaultsOSRD
+preplace inst CIC_config_replicator -pg 1 -lvl 6 -x 2200 -y 490 -defaultsOSRD
+preplace inst conv_0 -pg 1 -lvl 13 -x 4680 -y 780 -defaultsOSRD
+preplace inst pll_0 -pg 1 -lvl 1 -x 140 -y 90 -defaultsOSRD
+preplace inst ps_0_axi_periph -pg 1 -lvl 2 -x 520 -y 690 -defaultsOSRD
+preplace inst axi_sts_register_0 -pg 1 -lvl 3 -x 920 -y 560 -defaultsOSRD
+preplace inst RAM_addres -pg 1 -lvl 4 -x 1210 -y 600 -defaultsOSRD
+preplace inst sample_rate_divider -pg 1 -lvl 4 -x 1210 -y 500 -defaultsOSRD
+preplace inst ram_writer_reset -pg 1 -lvl 4 -x 1210 -y 370 -defaultsOSRD
+preplace inst pre_memory_reset -pg 1 -lvl 4 -x 1210 -y 250 -defaultsOSRD
+preplace inst Feedback_State -pg 1 -lvl 4 -x 1210 -y 730 -defaultsOSRD
+preplace inst feedback_trigger -pg 1 -lvl 4 -x 1210 -y 830 -defaultsOSRD
+preplace inst feedback_bus -pg 1 -lvl 4 -x 1210 -y 940 -defaultsOSRD
+preplace inst axis_red_pitaya_dac_0 -pg 1 -lvl 15 -x 5250 -y 580 -defaultsOSRD
+preplace inst axi_cfg_register_0 -pg 1 -lvl 3 -x 920 -y 760 -defaultsOSRD
+preplace inst axis_red_pitaya_adc_0 -pg 1 -lvl 3 -x 920 -y 1040 -defaultsOSRD
+preplace inst dna_reader_0 -pg 1 -lvl 5 -x 1750 -y 580 -defaultsOSRD
+preplace inst axis_variable_0 -pg 1 -lvl 5 -x 1750 -y 450 -defaultsOSRD
+preplace inst axis_constant_0 -pg 1 -lvl 5 -x 1750 -y 920 -defaultsOSRD
+preplace inst feedback_combined_0 -pg 1 -lvl 7 -x 2630 -y 830 -defaultsOSRD
+preplace inst axis_combiner_1 -pg 1 -lvl 11 -x 4030 -y 450 -defaultsOSRD
+preplace inst ch1_output_dac_mem_split1 -pg 1 -lvl 10 -x 3680 -y 450 -defaultsOSRD
+preplace inst axis_ram_writer_0 -pg 1 -lvl 14 -x 4950 -y 860 -defaultsOSRD
+preplace netloc Feedback_State1_Dout 1 4 3 1320 850 NJ 850 NJ
+preplace netloc RAM_addres1_Dout 1 4 1 1320 470n
+preplace netloc RAM_addres1_Dout1 1 4 3 NJ 730 1920J 750 2360
 preplace netloc adc_clk_n_i_1 1 0 1 NJ 90
 preplace netloc adc_clk_p_i_1 1 0 1 NJ 110
-preplace netloc adc_dat_a_i_1 1 0 2 NJ 1010 N
-preplace netloc adc_dat_b_i_1 1 0 2 NJ 1030 N
-preplace netloc cfg_0_cfg_data 1 3 1 840 320n
-preplace netloc concat_1_dout 1 2 5 600 210 N 210 N 210 N 210 1730
-preplace netloc const_0_dout 1 1 5 150 20 N 20 N 20 1100J 350 1410J
-preplace netloc dac_0_dac_clk 1 13 1 4560 480n
-preplace netloc dac_0_dac_dat 1 13 1 4600 560n
-preplace netloc dac_0_dac_rst 1 13 1 4570 500n
-preplace netloc dac_0_dac_sel 1 13 1 4580 520n
-preplace netloc dac_0_dac_wrt 1 13 1 4590 540n
-preplace netloc dna_0_dna_data 1 5 1 1400 600n
-preplace netloc feedback_combined_0_trig_out 1 7 7 2220 120 NJ 120 NJ 120 NJ 120 NJ 120 NJ 120 4560J
-preplace netloc pll_0_clk_out1 1 1 12 100 400 590 260 N 260 1080 390 1380 760 1780 780 2230 800 2670 630 3050 530 3450 840 3890 720 4240
-preplace netloc pll_0_clk_out2 1 1 12 120 50 N 50 N 50 N 50 N 50 N 50 N 50 N 50 N 50 N 50 N 50 4250
-preplace netloc pll_0_clk_out3 1 1 12 110 30 N 30 N 30 N 30 N 30 N 30 N 30 N 30 N 30 N 30 N 30 4260
-preplace netloc pll_0_locked 1 1 12 130 40 N 40 N 40 N 40 N 40 N 40 N 40 N 40 N 40 N 40 N 40 4230
-preplace netloc rst_0_peripheral_aresetn 1 1 10 160 860 570 250 N 250 1090 380 1390 770 1770 770 2210 620 N 620 3040 520 3480
-preplace netloc slice_0_dout 1 4 8 N 320 N 320 N 320 N 320 N 320 N 320 N 320 3880
-preplace netloc slice_1_dout 1 4 9 1060J 370 NJ 370 NJ 370 N 370 NJ 370 N 370 NJ 370 NJ 370 4190
-preplace netloc slice_2_dout 1 4 9 1050 340 N 340 N 340 N 340 N 340 N 340 N 340 N 340 4210
-preplace netloc slice_3_dout 1 4 9 1070 360 N 360 N 360 N 360 N 360 N 360 N 360 N 360 4200
-preplace netloc slice_7_dout 1 4 3 NJ 720 1370J 780 1750
-preplace netloc slice_8_dout 1 4 1 1100 820n
-preplace netloc slice_9_dout 1 4 3 1060J 880 1400J 860 1730
-preplace netloc writer_0_sts_data 1 5 9 1410 1020 N 1020 N 1020 N 1020 N 1020 N 1020 N 1020 4220 1080 4580
-preplace netloc adc_0_M_AXIS 1 2 4 N 1010 N 1010 1110 920 N
-preplace netloc axis_combiner_0_M_AXIS 1 11 1 3870 750n
-preplace netloc axis_combiner_1_M_AXIS 1 11 2 N 460 4220
-preplace netloc ch1_mem_fb_split_M00_AXIS 1 6 1 1740 650n
-preplace netloc ch1_mem_fb_split_M01_AXIS 1 6 1 1770 850n
-preplace netloc ch1_output_dac_mem_split1_M00_AXIS 1 6 1 1780 480n
-preplace netloc ch1_output_dac_mem_split1_M01_AXIS 1 6 4 N 500 N 500 N 500 3030
-preplace netloc ch1_output_dac_mem_split_M00_AXIS 1 8 1 2650 680n
-preplace netloc ch1_output_dac_mem_split_M01_AXIS 1 8 3 2640 430 N 430 N
-preplace netloc ch1_output_dac_mem_split_M02_AXIS 1 8 3 2660 450 N 450 N
-preplace netloc cic_0_M_AXIS_DATA 1 7 4 2240 780 N 780 3030 720 N
-preplace netloc cic_1_M_AXIS_DATA 1 10 1 3460 620n
-preplace netloc conv_0_M_AXIS 1 12 1 4230 790n
-preplace netloc fb_cfg_M_AXIS 1 5 2 NJ 810 1760
-preplace netloc feedback_combined_0_M_AXIS 1 7 1 2250 680n
-preplace netloc output_binary_conver_0_M_AXIS 1 9 1 3020 590n
-preplace netloc ps_0_DDR 1 2 12 N 220 N 220 N 220 N 220 1740 210 N 210 N 210 N 210 N 210 N 210 N 210 N
-preplace netloc ps_0_FIXED_IO 1 2 12 N 240 N 240 N 240 N 240 N 240 N 240 N 240 N 240 N 240 N 240 N 240 N
-preplace netloc ps_0_M_AXI_GP0 1 1 2 160 140 560
-preplace netloc ps_0_axi_periph_M00_AXI 1 2 1 580 570n
-preplace netloc ps_0_axi_periph_M01_AXI 1 2 1 N 730
-preplace netloc rate_0_M_AXIS 1 5 1 N 470
-preplace netloc writer_0_M_AXI 1 1 13 140 930 N 930 840 980 1090 740 1360 750 1760 790 N 790 N 790 N 790 3470 660 N 660 4180 700 4580
+preplace netloc adc_dat_a_i_1 1 0 3 NJ 1010 N 1010 720
+preplace netloc adc_dat_b_i_1 1 0 3 NJ 1050 N 1050 730
+preplace netloc axi_cfg_register_0_cfg_data 1 3 1 1050 250n
+preplace netloc axis_red_pitaya_adc_0_adc_csn 1 3 13 1040J 170 NJ 170 NJ 170 NJ 170 NJ 170 NJ 170 NJ 170 NJ 170 N 170 NJ 170 NJ 170 N 170 5400
+preplace netloc axis_red_pitaya_dac_0_dac_clk 1 15 1 5370 480n
+preplace netloc axis_red_pitaya_dac_0_dac_dat 1 15 1 5410 560n
+preplace netloc axis_red_pitaya_dac_0_dac_rst 1 15 1 5380 500n
+preplace netloc axis_red_pitaya_dac_0_dac_sel 1 15 1 5390 520n
+preplace netloc axis_red_pitaya_dac_0_dac_wrt 1 15 1 5400 540n
+preplace netloc concat_1_dout 1 2 5 750 660 N 660 N 660 1920 590 2350
+preplace netloc const_0_dout 1 1 5 280 80 N 80 N 80 1320J 80 1930J
+preplace netloc dna_reader_0_dna_data 1 5 1 1910 580n
+preplace netloc feedback_combined_0_trig_out 1 7 9 2810 120 NJ 120 NJ 120 NJ 120 N 120 NJ 120 NJ 120 N 120 5400J
+preplace netloc feedback_trigger1_Dout 1 4 1 1340 930n
+preplace netloc pll_0_clk_out1 1 1 14 250 840 740 670 N 670 1350 370 1910 400 2390 560 2790 800 3140 800 3480 370 3870 360 4190 810 4570 860 4810 560 N
+preplace netloc pll_0_clk_out2 1 1 14 260 90 N 90 N 90 N 90 N 90 N 90 N 90 N 90 N 90 N 90 N 90 N 90 N 90 5130
+preplace netloc pll_0_clk_out3 1 1 14 N 100 N 100 N 100 N 100 N 100 N 100 N 100 N 100 N 100 N 100 N 100 N 100 N 100 5120
+preplace netloc pll_0_locked 1 1 14 260 110 N 110 N 110 N 110 N 110 N 110 N 110 N 110 N 110 N 110 N 110 N 110 N 110 5100
+preplace netloc rst_0_peripheral_aresetn 1 1 11 290 830 720 440 N 440 1330 360 1920 410 2380 530 2820 560 N 560 3470 360 3850 350 4210
+preplace netloc ram_writer_reset1_Dout 1 4 9 NJ 250 NJ 250 NJ 250 NJ 250 NJ 250 NJ 250 NJ 250 NJ 250 4560
+preplace netloc axis_ram_writer_0_sts_data 1 5 10 1940 580 2360J 550 NJ 550 NJ 550 NJ 550 NJ 550 NJ 550 NJ 550 NJ 550 5080
+preplace netloc ram_writer_reset_Dout 1 4 10 1320J 340 NJ 340 NJ 340 NJ 340 NJ 340 NJ 340 NJ 340 NJ 340 NJ 340 4820
+preplace netloc RAM_addres_Dout 1 4 10 1340J 650 1900J 570 2350J 540 NJ 540 NJ 540 NJ 540 NJ 540 NJ 540 NJ 540 4790
+preplace netloc axis_combiner_0_M_AXIS 1 12 1 4550 720n
+preplace netloc axis_combiner_1_M_AXIS 1 11 4 N 450 N 450 N 450 5110
+preplace netloc axis_constant_0_M_AXIS 1 5 2 1930 810 N
+preplace netloc axis_red_pitaya_adc_0_M_AXIS 1 3 2 N 1030 1320
+preplace netloc axis_variable_0_M_AXIS 1 5 1 1900 450n
+preplace netloc ch1_mem_fb_split_M00_AXIS 1 5 2 1910 770 2400
+preplace netloc ch1_mem_fb_split_M01_AXIS 1 5 2 1940 790 N
+preplace netloc ch1_output_dac_mem_split1_M00_AXIS 1 6 1 2370 480n
+preplace netloc ch1_output_dac_mem_split1_M00_AXIS1 1 10 1 3840 420n
+preplace netloc ch1_output_dac_mem_split1_M01_AXIS 1 6 4 N 500 N 500 N 500 3460
+preplace netloc ch1_output_dac_mem_split1_M01_AXIS1 1 10 1 3860 440n
+preplace netloc ch1_output_dac_mem_split_M00_AXIS 1 8 1 3140 710n
+preplace netloc ch1_output_dac_mem_split_M01_AXIS 1 8 2 3130 430 N
+preplace netloc cic_0_M_AXIS_DATA 1 7 5 2800 640 NJ 640 N 640 N 640 4200
+preplace netloc cic_1_M_AXIS_DATA 1 10 2 3860 710 N
+preplace netloc feedback_combined_0_M_AXIS 1 7 1 2830 700n
+preplace netloc output_binary_conver_0_M_AXIS 1 9 1 3490 720n
+preplace netloc ps_0_DDR 1 2 14 N 190 N 190 N 190 N 190 N 190 N 190 N 190 N 190 N 190 N 190 N 190 N 190 N 190 5370
+preplace netloc ps_0_FIXED_IO 1 2 14 720 180 N 180 N 180 N 180 N 180 N 180 N 180 N 180 N 180 N 180 N 180 N 180 N 180 5380
+preplace netloc ps_0_M_AXI_GP0 1 1 2 290 370 720
+preplace netloc ps_0_axi_periph_M00_AXI 1 2 1 730 530n
+preplace netloc ps_0_axi_periph_M01_AXI 1 2 1 730 700n
+preplace netloc axis_ram_writer_0_M_AXI 1 1 14 270 70 N 70 N 70 N 70 N 70 N 70 N 70 N 70 N 70 N 70 N 70 N 70 N 70 5090
+preplace netloc conv_0_M_AXIS 1 13 1 4800 780n
 preplace cgraphic comment_3 place top 2478 -40 textcolor 4 linecolor 3 linewidth 2
 preplace cgraphic comment_2 place top 1055 -120 textcolor 4 linecolor 3 linewidth 2
 preplace cgraphic comment_1 place top 779 -111 textcolor 4 linecolor 3 linewidth 2
 preplace cgraphic comment_0 place left 648 -102 textcolor 4 linecolor 3 linewidth 2
 preplace cgraphic comment_5 place top 4033 -25 textcolor 4 linecolor 3 linewidth 2
-levelinfo -pg 1 -140 -10 360 720 950 1240 1580 2050 2490 2890 3290 3710 4070 4410 4620
-pagesize -pg 1 -db -bbox -sgen -310 0 4780 1320
+levelinfo -pg 1 0 140 520 920 1210 1750 2200 2630 2980 3330 3680 4030 4390 4680 4950 5250 5430
+pagesize -pg 1 -db -bbox -sgen -170 -290 5590 1320
 ",
    "linecolor_comment_1":"",
    "linecolor_comment_3":"",
@@ -164,8 +166,7 @@ pagesize -pg 1 -db -bbox -sgen -310 0 4780 1320
 }
 {
    """"""""""""""""""""""""""""""""""""""""""""""""""""""""da_clkrst_cnt"""""""""""""""""""""""""""""""""""""""""""""""""""""""":"13",
-   """""""""""""""""""""""""""""""""""""""""""""""""""""""da_clkrst_cnt""""""""""""""""""""""""""""""""""""""""""""""""""""""":"10",
-   """da_clkrst_cnt""":"1"
+   """""""""""""""""""""""""""""""""""""""""""""""""""""""da_clkrst_cnt""""""""""""""""""""""""""""""""""""""""""""""""""""""":"10"
 }
 {
    "/comment_0":"comment_0",

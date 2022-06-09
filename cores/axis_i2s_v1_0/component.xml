@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <spirit:vendor>pavel-demin</spirit:vendor>
+  <spirit:vendor>xilinx.com</spirit:vendor>
   <spirit:library>user</spirit:library>
   <spirit:name>axis_i2s</spirit:name>
   <spirit:version>1.0</spirit:version>
@@ -400,22 +400,16 @@
       </xilinx:taxonomies>
       <xilinx:displayName>AXI4-Stream I2S</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:vendorDisplayName>Pavel Demin</xilinx:vendorDisplayName>
-      <xilinx:vendorURL>https://github.com/pavel-demin/red-pitaya-notes</xilinx:vendorURL>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-05-10T06:48:03Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-06-08T06:31:43Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7e15a67a_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_i2s_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1358be75_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_i2s_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5ec7024b_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_i2s_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@50466406_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_i2s_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7432577e_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_i2s_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@105bd01e_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_i2s_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@42c27352_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_i2s_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1a7cefd9_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_i2s_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@67cdc397_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_i2s_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2c2c0667_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_i2s_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@542f9941_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_i2s_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2a5646b6_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_i2s_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@186c6034_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_i2s_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6d9d29cd_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_i2s_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6dfa9500_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_i2s_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@594501e7_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_i2s_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@110f09a0_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_i2s_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4653ae79_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_i2s_v1_0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

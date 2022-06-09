@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <spirit:vendor>pavel-demin</spirit:vendor>
+  <spirit:vendor>xilinx.com</spirit:vendor>
   <spirit:library>user</spirit:library>
   <spirit:name>axis_ram_writer</spirit:name>
   <spirit:version>2.0</spirit:version>
@@ -245,7 +245,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>7f256fae</spirit:value>
+            <spirit:value>a8454388</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -261,7 +261,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>7f256fae</spirit:value>
+            <spirit:value>a8454388</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -313,23 +313,6 @@
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
             <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.AXI_ADDR_WIDTH&apos;)) - 1)">31</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>clk_div</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">15</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -699,7 +682,7 @@
       <spirit:file>
         <spirit:name>src/axis_ram_writer.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_7f256fae</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_a8454388</spirit:userFileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -768,30 +751,25 @@
       </xilinx:taxonomies>
       <xilinx:displayName>AXI4-Stream RAM Writer</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:vendorDisplayName>Pavel Demin</xilinx:vendorDisplayName>
-      <xilinx:vendorURL>https://github.com/pavel-demin/red-pitaya-notes</xilinx:vendorURL>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-05-23T11:14:35Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-06-08T07:26:10Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6a442f36_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_ram_writer_v2_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4a3184bb_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_ram_writer_v2_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@21a8bede_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_ram_writer_v2_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1dfdbd96_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_ram_writer_v2_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6a56d3c0_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_ram_writer_v2_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@57e7b251_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_ram_writer_v2_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4de551d4_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_ram_writer_v2_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6ab6a58e_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_ram_writer_v2_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2a7d95e_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_ram_writer_v2_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@43fd5606_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_ram_writer_v2_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6dd8a821_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_ram_writer_v2_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5711a007_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_ram_writer_v2_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@45613543_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_ram_writer_v2_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@61fd9a18_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_ram_writer_v2_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@606747a7_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_ram_writer_v2_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@880b3a5_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_ram_writer_v2_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7b7f5b23_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_ram_writer_v2_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@193b1a_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_ram_writer_v2_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6edaaa24_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_ram_writer_v2_0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="7014e6d6"/>
       <xilinx:checksum xilinx:scope="addressSpaces" xilinx:value="5d1eb4ac"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="d8ccd4ac"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="68cf48d6"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="6ce94c0d"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="7b5298a4"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="c40fd53c"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="ae4ee852"/>
     </xilinx:packagingInfo>

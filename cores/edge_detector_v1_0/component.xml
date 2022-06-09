@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <spirit:vendor>pavel-demin</spirit:vendor>
+  <spirit:vendor>xilinx.com</spirit:vendor>
   <spirit:library>user</spirit:library>
   <spirit:name>edge_detector</spirit:name>
   <spirit:version>1.0</spirit:version>
@@ -158,20 +158,15 @@
       </xilinx:taxonomies>
       <xilinx:displayName>Edge Detector</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:vendorDisplayName>Pavel Demin</xilinx:vendorDisplayName>
-      <xilinx:vendorURL>https://github.com/pavel-demin/red-pitaya-notes</xilinx:vendorURL>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-05-10T06:51:31Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-06-08T06:35:53Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@280d4b05_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/edge_detector_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@118f650a_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/edge_detector_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5fe379d2_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/edge_detector_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@30195a36_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/edge_detector_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@26723d65_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/edge_detector_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@114d639c_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/edge_detector_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6341143b_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/edge_detector_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@516ca7cb_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/edge_detector_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@175ee232_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/edge_detector_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5dcc572c_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/edge_detector_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4119f32f_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/edge_detector_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@22ae98b8_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/edge_detector_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3884b2f0_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/edge_detector_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3f1e70aa_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/edge_detector_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7693193f_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/edge_detector_v1_0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

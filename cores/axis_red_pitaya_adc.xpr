@@ -3,10 +3,10 @@
 <!--                                                         -->
 <!-- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="56" Path="c:/GitHub/RedPitaya/tmp/cores/axis_red_pitaya_adc.xpr">
+<Project Version="7" Minor="56" Path="C:/GitHub/RedPitaya/tmp/cores/axis_red_pitaya_adc.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="0159cc927c634a21944f38d507dab190"/>
+    <Option Name="Id" Val="1defae52c25a425aa7cda884dd7ac6e3"/>
     <Option Name="Part" Val="xc7z010clg400-1"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -85,14 +85,14 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
       <Filter Type="Srcs"/>
-      <File Path="$PPRDIR/../../cores/axis_red_pitaya_adc_v3_1/axis_red_pitaya_adc.v">
+      <File Path="$PPRDIR/../../cores/axis_red_pitaya_adc_v3_0/axis_red_pitaya_adc.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/axis_red_pitaya_adc_v3_1/component.xml">
+      <File Path="$PPRDIR/axis_red_pitaya_adc_v3_0/component.xml">
         <FileInfo SFType="IPXACT"/>
       </File>
       <Config>

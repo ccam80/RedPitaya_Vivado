@@ -308,18 +308,19 @@
       <xilinx:displayName>AXI4-Stream Timer</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-06-08T06:34:17Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-06-10T09:28:40Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@13a07a36_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_timer_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3abe8640_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_timer_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@557a41d4_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_timer_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6ff6408c_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_timer_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@75da7a1c_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_timer_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@60dd1f4f_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_timer_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@110c79be_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_timer_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7139c9f6_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_timer_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7fccc2c4_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_timer_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@35ee9fe4_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_timer_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5743b505_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_timer_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@f3ac68b_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_timer_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@48d5bd67_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_timer_v1_0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="08ffd494"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="28189d06"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="7714c456"/>

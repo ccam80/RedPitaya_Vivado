@@ -469,19 +469,20 @@
       <xilinx:displayName>AXI4-Stream FIFO</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-06-08T06:31:14Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-06-10T09:26:48Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3de885d4_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_fifo_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4cd5ae0d_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_fifo_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@71dbf684_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_fifo_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@74485a68_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_fifo_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@20cbe85c_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_fifo_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@29d6476_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_fifo_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@16b4bdf1_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_fifo_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5adfc86f_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_fifo_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5a3817c7_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_fifo_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@26d6ae35_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_fifo_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@50f5a53c_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_fifo_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7179d970_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_fifo_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@52ae6c4_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_fifo_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@759f58cf_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_fifo_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@60931f00_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_fifo_v1_0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="91713ae9"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="b95b19c4"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="0cc22d52"/>

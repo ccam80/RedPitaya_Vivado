@@ -50,9 +50,9 @@
 // IP VLNV: xilinx.com:module_ref:feedback_combined:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "feedback_combined,Vivado 2021.2" *)
+(* X_CORE_INFO = "feedback_combined,Vivado 2020.2" *)
 (* CHECK_LICENSE_TYPE = "system_feedback_combined_0_0,feedback_combined,{}" *)
-(* CORE_GENERATION_INFO = "system_feedback_combined_0_0,feedback_combined,{x_ipProduct=Vivado 2021.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=feedback_combined,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,ADC_DATA_WIDTH=16,DDS_OUT_WIDTH=16,MULT_CONST_OFFSET=32,MULT_CONST_WIDTH=32,FIXED_PHASE_OFFSET=0,FIXED_PHASE_WIDTH=32,ADD_CONST_WIDTH=16,ADD_CONST_OFFSET=80,FREQ_WIDTH=32,START_FREQ_OFFSET=0,STOP_FREQ_OFFSET=32,INTERVAL_OFFSET=64,INTERVAL_WIDTH=32,DAC_DATA_WIDTH=14,CFG_WIDTH=\
+(* CORE_GENERATION_INFO = "system_feedback_combined_0_0,feedback_combined,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=feedback_combined,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,ADC_DATA_WIDTH=16,DDS_OUT_WIDTH=16,MULT_CONST_OFFSET=32,MULT_CONST_WIDTH=32,FIXED_PHASE_OFFSET=0,FIXED_PHASE_WIDTH=32,ADD_CONST_WIDTH=16,ADD_CONST_OFFSET=80,FREQ_WIDTH=32,START_FREQ_OFFSET=0,STOP_FREQ_OFFSET=32,INTERVAL_OFFSET=64,INTERVAL_WIDTH=32,DAC_DATA_WIDTH=14,CFG_WIDTH=\
 96,AXIS_TDATA_WIDTH=16,SELECT_WIDTH=2}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)

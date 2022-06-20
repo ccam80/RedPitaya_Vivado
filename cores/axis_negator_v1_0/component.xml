@@ -321,18 +321,19 @@
       <xilinx:displayName>AXI4-Stream Negator</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-06-08T06:32:25Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-06-10T09:27:30Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3044e519_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_negator_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6762b3bb_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_negator_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@75439e73_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_negator_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@12ee5ae7_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_negator_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@19e078_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_negator_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@472ce111_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_negator_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@680c1cd4_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_negator_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@23ad8b0a_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_negator_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@73824c66_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_negator_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6db709e1_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_negator_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@511c372a_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_negator_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3a36ae3a_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_negator_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@257d2d86_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_negator_v1_0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="9af77b2e"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="043f75ad"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="b0b76643"/>

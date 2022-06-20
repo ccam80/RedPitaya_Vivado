@@ -317,19 +317,19 @@
       <xilinx:displayName>AXI4-Stream PDM</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-06-08T06:32:46Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-06-10T09:27:43Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@472f1732_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pdm_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@40ffcf26_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pdm_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2b05fb0d_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pdm_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6c18774c_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pdm_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4155c8ee_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pdm_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4445f2f6_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pdm_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@13d49f24_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pdm_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@249da008_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pdm_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7d76b9e2_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pdm_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@408ae9fc_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pdm_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6170ba71_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pdm_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@312f959f_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pdm_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@37a67b7c_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pdm_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5d43131_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pdm_v1_0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="97242335"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="c4bd4aa3"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="0ac5b23a"/>

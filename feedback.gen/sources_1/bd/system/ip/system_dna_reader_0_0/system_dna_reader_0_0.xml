@@ -102,15 +102,6 @@
           </spirit:vendorExtensions>
         </spirit:parameter>
         <spirit:parameter>
-          <spirit:name>ASSOCIATED_PORT</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.ACLK.ASSOCIATED_PORT"/>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
           <spirit:name>INSERT_VIP</spirit:name>
           <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.ACLK.INSERT_VIP">0</spirit:value>
           <spirit:vendorExtensions>
@@ -135,7 +126,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Jun 07 12:22:40 UTC 2022</spirit:value>
+            <spirit:value>Mon Jun 20 08:02:02 UTC 2022</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
@@ -166,7 +157,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Jun 07 12:22:40 UTC 2022</spirit:value>
+            <spirit:value>Mon Jun 20 08:02:02 UTC 2022</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
@@ -185,7 +176,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Jun 07 12:22:40 UTC 2022</spirit:value>
+            <spirit:value>Mon Jun 20 08:02:02 UTC 2022</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
@@ -205,7 +196,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Jun 07 12:22:40 UTC 2022</spirit:value>
+            <spirit:value>Mon Jun 20 08:02:02 UTC 2022</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
@@ -312,16 +303,16 @@
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
       <xilinx:coreRevision>1</xilinx:coreRevision>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@72496e60_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/dna_reader_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5bc7ef55_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/dna_reader_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@21425560_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/dna_reader_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5f6e1713_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/dna_reader_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4ed250d7_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/dna_reader_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2f5dc6bb_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/dna_reader_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@b307727_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/dna_reader_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@10105320_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/dna_reader_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4fe4bc29_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/dna_reader_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5f8b8ea0_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/dna_reader_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@75f9a1f6_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/dna_reader_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@50beb0b4_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/dna_reader_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@108123ea_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/dna_reader_v1_0</xilinx:tag>
       </xilinx:tags>
       <xilinx:configElementInfos>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.ACLK.ASSOCIATED_BUSIF" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.ACLK.ASSOCIATED_PORT" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.ACLK.ASSOCIATED_RESET" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.ACLK.CLK_DOMAIN" xilinx:valueSource="default_prop" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.ACLK.FREQ_HZ" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd_and_user"/>
@@ -331,7 +322,7 @@
       </xilinx:configElementInfos>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="3f35a6fb"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="c5d99ddc"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="925e1249"/>

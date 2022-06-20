@@ -50,9 +50,9 @@
 // IP VLNV: xilinx.com:user:axi_cfg_register:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "axi_cfg_register,Vivado 2021.2" *)
+(* X_CORE_INFO = "axi_cfg_register,Vivado 2020.2" *)
 (* CHECK_LICENSE_TYPE = "system_axi_cfg_register_0_0,axi_cfg_register,{}" *)
-(* CORE_GENERATION_INFO = "system_axi_cfg_register_0_0,axi_cfg_register,{x_ipProduct=Vivado 2021.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=axi_cfg_register,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,CFG_DATA_WIDTH=160,AXI_DATA_WIDTH=32,AXI_ADDR_WIDTH=32}" *)
+(* CORE_GENERATION_INFO = "system_axi_cfg_register_0_0,axi_cfg_register,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=axi_cfg_register,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,CFG_DATA_WIDTH=160,AXI_DATA_WIDTH=32,AXI_ADDR_WIDTH=32}" *)
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_axi_cfg_register_0_0 (

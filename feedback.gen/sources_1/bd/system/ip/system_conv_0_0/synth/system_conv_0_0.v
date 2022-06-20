@@ -48,11 +48,11 @@
 
 
 // IP VLNV: xilinx.com:ip:axis_dwidth_converter:1.1
-// IP Revision: 24
+// IP Revision: 21
 
-(* X_CORE_INFO = "axis_dwidth_converter_v1_1_24_axis_dwidth_converter,Vivado 2021.2" *)
-(* CHECK_LICENSE_TYPE = "system_conv_0_0,axis_dwidth_converter_v1_1_24_axis_dwidth_converter,{}" *)
-(* CORE_GENERATION_INFO = "system_conv_0_0,axis_dwidth_converter_v1_1_24_axis_dwidth_converter,{x_ipProduct=Vivado 2021.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axis_dwidth_converter,x_ipVersion=1.1,x_ipCoreRevision=24,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_FAMILY=zynq,C_S_AXIS_TDATA_WIDTH=32,C_M_AXIS_TDATA_WIDTH=64,C_AXIS_TID_WIDTH=1,C_AXIS_TDEST_WIDTH=1,C_S_AXIS_TUSER_WIDTH=1,C_M_AXIS_TUSER_WIDTH=1,C_AXIS_SIGNAL_SET=0b00000000000000000000000000000011}" *)
+(* X_CORE_INFO = "axis_dwidth_converter_v1_1_21_axis_dwidth_converter,Vivado 2020.2" *)
+(* CHECK_LICENSE_TYPE = "system_conv_0_0,axis_dwidth_converter_v1_1_21_axis_dwidth_converter,{}" *)
+(* CORE_GENERATION_INFO = "system_conv_0_0,axis_dwidth_converter_v1_1_21_axis_dwidth_converter,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axis_dwidth_converter,x_ipVersion=1.1,x_ipCoreRevision=21,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_FAMILY=zynq,C_S_AXIS_TDATA_WIDTH=32,C_M_AXIS_TDATA_WIDTH=64,C_AXIS_TID_WIDTH=1,C_AXIS_TDEST_WIDTH=1,C_S_AXIS_TUSER_WIDTH=1,C_M_AXIS_TUSER_WIDTH=1,C_AXIS_SIGNAL_SET=0b00000000000000000000000000000011}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_conv_0_0 (
   aclk,
@@ -86,7 +86,7 @@ input wire m_axis_tready;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS TDATA" *)
 output wire [63 : 0] m_axis_tdata;
 
-  axis_dwidth_converter_v1_1_24_axis_dwidth_converter #(
+  axis_dwidth_converter_v1_1_21_axis_dwidth_converter #(
     .C_FAMILY("zynq"),
     .C_S_AXIS_TDATA_WIDTH(32),
     .C_M_AXIS_TDATA_WIDTH(64),

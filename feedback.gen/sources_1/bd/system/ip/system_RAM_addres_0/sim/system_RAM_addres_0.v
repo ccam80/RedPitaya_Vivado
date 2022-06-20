@@ -59,12 +59,12 @@ module system_RAM_addres_0 (
 );
 
 input wire [159 : 0] Din;
-output wire [15 : 0] Dout;
+output wire [0 : 0] Dout;
 
   xlslice_v1_0_2_xlslice #(
     .DIN_WIDTH(160),
-    .DIN_FROM(31),
-    .DIN_TO(16)
+    .DIN_FROM(2),
+    .DIN_TO(2)
   ) inst (
     .Din(Din),
     .Dout(Dout)

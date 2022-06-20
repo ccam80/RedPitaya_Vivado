@@ -671,19 +671,19 @@
       <xilinx:displayName>AXI Configuration Register</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-06-08T06:35:32Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-06-10T09:29:23Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4949d983_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_cfg_register_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6c3d8d03_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_cfg_register_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5182e9f7_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_cfg_register_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@59b2b004_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_cfg_register_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5a4a01b4_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_cfg_register_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3a9bdd31_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_cfg_register_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4fdcbea4_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_cfg_register_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@517883af_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_cfg_register_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@33ba4d8_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_cfg_register_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@278138c8_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_cfg_register_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6320d0f3_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_cfg_register_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@ebbbb85_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_cfg_register_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@56c2a9f8_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_cfg_register_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5955f28e_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_cfg_register_v1_0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="79df51a5"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="29341b74"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="a56da4e0"/>

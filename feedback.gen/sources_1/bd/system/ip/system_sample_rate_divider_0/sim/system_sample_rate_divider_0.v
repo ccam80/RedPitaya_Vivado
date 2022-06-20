@@ -59,12 +59,12 @@ module system_sample_rate_divider_0 (
 );
 
 input wire [159 : 0] Din;
-output wire [0 : 0] Dout;
+output wire [1 : 0] Dout;
 
   xlslice_v1_0_2_xlslice #(
     .DIN_WIDTH(160),
-    .DIN_FROM(1),
-    .DIN_TO(1)
+    .DIN_FROM(7),
+    .DIN_TO(6)
   ) inst (
     .Din(Din),
     .Dout(Dout)

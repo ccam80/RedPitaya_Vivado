@@ -301,18 +301,19 @@
       <xilinx:displayName>AXI4-Stream Trigger</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-06-08T06:34:24Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-06-10T09:28:44Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7036a40b_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_trigger_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@33cad213_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_trigger_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3787d1a2_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_trigger_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@578fba81_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_trigger_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@77bc07d_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_trigger_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@43b1b392_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_trigger_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@682f6d87_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_trigger_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@ee3bf4f_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_trigger_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1b9f01e3_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_trigger_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@168df65a_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_trigger_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@698dac5e_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_trigger_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5d86f573_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_trigger_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@61ed78b0_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_trigger_v1_0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="553b4f7f"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="82867a5f"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="9176dd8d"/>

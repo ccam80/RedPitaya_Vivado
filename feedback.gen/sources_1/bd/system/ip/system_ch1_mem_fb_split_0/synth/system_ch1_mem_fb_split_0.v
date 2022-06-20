@@ -48,11 +48,11 @@
 
 
 // IP VLNV: xilinx.com:ip:axis_broadcaster:1.1
-// IP Revision: 24
+// IP Revision: 21
 
-(* X_CORE_INFO = "top_system_ch1_mem_fb_split_0,Vivado 2021.2" *)
+(* X_CORE_INFO = "top_system_ch1_mem_fb_split_0,Vivado 2020.2" *)
 (* CHECK_LICENSE_TYPE = "system_ch1_mem_fb_split_0,top_system_ch1_mem_fb_split_0,{}" *)
-(* CORE_GENERATION_INFO = "system_ch1_mem_fb_split_0,top_system_ch1_mem_fb_split_0,{x_ipProduct=Vivado 2021.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axis_broadcaster,x_ipVersion=1.1,x_ipCoreRevision=24,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_FAMILY=zynq,C_NUM_MI_SLOTS=2,C_S_AXIS_TDATA_WIDTH=16,C_M_AXIS_TDATA_WIDTH=16,C_AXIS_TID_WIDTH=1,C_AXIS_TDEST_WIDTH=1,C_S_AXIS_TUSER_WIDTH=1,C_M_AXIS_TUSER_WIDTH=1,C_AXIS_SIGNAL_SET=0b00000000000000000000000000000010}" *)
+(* CORE_GENERATION_INFO = "system_ch1_mem_fb_split_0,top_system_ch1_mem_fb_split_0,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axis_broadcaster,x_ipVersion=1.1,x_ipCoreRevision=21,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_FAMILY=zynq,C_NUM_MI_SLOTS=2,C_S_AXIS_TDATA_WIDTH=16,C_M_AXIS_TDATA_WIDTH=16,C_AXIS_TID_WIDTH=1,C_AXIS_TDEST_WIDTH=1,C_S_AXIS_TUSER_WIDTH=1,C_M_AXIS_TUSER_WIDTH=1,C_AXIS_SIGNAL_SET=0b00000000000000000000000000000010}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_ch1_mem_fb_split_0 (
   aclk,

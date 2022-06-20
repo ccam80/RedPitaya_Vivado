@@ -50,9 +50,9 @@
 // IP VLNV: xilinx.com:user:dna_reader:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "dna_reader,Vivado 2021.2" *)
+(* X_CORE_INFO = "dna_reader,Vivado 2020.2" *)
 (* CHECK_LICENSE_TYPE = "system_dna_reader_0_0,dna_reader,{}" *)
-(* CORE_GENERATION_INFO = "system_dna_reader_0_0,dna_reader,{x_ipProduct=Vivado 2021.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=dna_reader,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED}" *)
+(* CORE_GENERATION_INFO = "system_dna_reader_0_0,dna_reader,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=dna_reader,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED}" *)
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_dna_reader_0_0 (

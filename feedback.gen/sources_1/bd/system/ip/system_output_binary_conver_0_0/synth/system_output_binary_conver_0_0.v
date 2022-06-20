@@ -50,9 +50,9 @@
 // IP VLNV: xilinx.com:module_ref:output_binary_converter:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "output_binary_converter,Vivado 2021.2" *)
+(* X_CORE_INFO = "output_binary_converter,Vivado 2020.2" *)
 (* CHECK_LICENSE_TYPE = "system_output_binary_conver_0_0,output_binary_converter,{}" *)
-(* CORE_GENERATION_INFO = "system_output_binary_conver_0_0,output_binary_converter,{x_ipProduct=Vivado 2021.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=output_binary_converter,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,TDATA_WIDTH=16,DAC_DATA_WIDTH=14}" *)
+(* CORE_GENERATION_INFO = "system_output_binary_conver_0_0,output_binary_converter,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=output_binary_converter,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,TDATA_WIDTH=16,DAC_DATA_WIDTH=14}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_output_binary_conver_0_0 (

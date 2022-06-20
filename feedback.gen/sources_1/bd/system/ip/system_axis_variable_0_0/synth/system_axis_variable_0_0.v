@@ -50,9 +50,9 @@
 // IP VLNV: xilinx.com:user:axis_variable:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "axis_variable,Vivado 2021.2" *)
+(* X_CORE_INFO = "axis_variable,Vivado 2020.2" *)
 (* CHECK_LICENSE_TYPE = "system_axis_variable_0_0,axis_variable,{}" *)
-(* CORE_GENERATION_INFO = "system_axis_variable_0_0,axis_variable,{x_ipProduct=Vivado 2021.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=axis_variable,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,AXIS_TDATA_WIDTH=16}" *)
+(* CORE_GENERATION_INFO = "system_axis_variable_0_0,axis_variable,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=axis_variable,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,AXIS_TDATA_WIDTH=16}" *)
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_axis_variable_0_0 (

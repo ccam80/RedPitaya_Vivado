@@ -486,19 +486,20 @@
       <xilinx:displayName>AXI4-Stream Histogram</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-06-08T06:31:36Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-06-10T09:27:01Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@78251572_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_histogram_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3de0d28_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_histogram_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@140f1002_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_histogram_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3de84d5_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_histogram_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3a816cef_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_histogram_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@72824aa8_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_histogram_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@150575d4_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_histogram_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1446f40e_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_histogram_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2baf9096_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_histogram_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@26826e15_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_histogram_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3237b0a_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_histogram_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@78117115_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_histogram_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@659ac815_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_histogram_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6851c140_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_histogram_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@22462558_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_histogram_v1_0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="5bf59f6d"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="d8ba973f"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="3ccf0762"/>

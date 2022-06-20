@@ -669,19 +669,19 @@
       <xilinx:displayName>AXI AXI4-Stream Writer</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-06-08T06:35:06Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-06-10T09:29:08Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@689542_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_axis_writer_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3d5eb9db_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_axis_writer_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4008be6_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_axis_writer_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@e9cbbd4_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_axis_writer_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@178e2ed7_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_axis_writer_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6b28c9d3_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_axis_writer_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@72276b7e_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_axis_writer_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@24441882_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_axis_writer_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5c9894a1_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_axis_writer_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6a69f108_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_axis_writer_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1612101_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_axis_writer_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@467eb580_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_axis_writer_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6094ca31_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_axis_writer_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4552c1_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_axis_writer_v1_0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="76b2584f"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="29341b74"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="a55aa1eb"/>

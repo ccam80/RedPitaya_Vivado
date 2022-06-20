@@ -59,12 +59,12 @@ module system_Feedback_State_0 (
 );
 
 input wire [159 : 0] Din;
-output wire [0 : 0] Dout;
+output wire [31 : 0] Dout;
 
   xlslice_v1_0_2_xlslice #(
     .DIN_WIDTH(160),
-    .DIN_FROM(2),
-    .DIN_TO(2)
+    .DIN_FROM(63),
+    .DIN_TO(32)
   ) inst (
     .Din(Din),
     .Dout(Dout)

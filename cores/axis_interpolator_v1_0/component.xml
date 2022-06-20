@@ -382,19 +382,19 @@
       <xilinx:displayName>AXI4-Stream Interpolator</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-06-08T06:31:56Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-06-10T09:27:13Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1820f0fa_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_interpolator_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@37f25605_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_interpolator_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6153f350_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_interpolator_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@79330dc9_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_interpolator_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@55797cf0_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_interpolator_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3706a9bd_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_interpolator_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@29742e68_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_interpolator_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@80bea05_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_interpolator_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1b304ef3_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_interpolator_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5ab51a5f_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_interpolator_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@35a3a358_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_interpolator_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4a8a4159_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_interpolator_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7f1d567f_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_interpolator_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7af45734_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_interpolator_v1_0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="eb102191"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="e0150656"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="21435b1b"/>

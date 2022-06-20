@@ -341,18 +341,19 @@
       <xilinx:displayName>AXI4-Stream Pulse Generator</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-06-08T06:33:06Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-06-10T09:27:55Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1794b50e_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pulse_generator_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7d60c884_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pulse_generator_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@27d88d5c_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pulse_generator_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@45d1c1ee_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pulse_generator_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5285dca4_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pulse_generator_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3231b8ca_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pulse_generator_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1f2e5e1e_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pulse_generator_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7a17b9cf_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pulse_generator_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6a9c5958_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pulse_generator_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@73d8a563_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pulse_generator_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3154334d_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pulse_generator_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5755ff8f_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pulse_generator_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@61112318_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pulse_generator_v1_0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="eb102191"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="c37a600d"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="229f3ce0"/>

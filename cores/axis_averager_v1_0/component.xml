@@ -573,19 +573,20 @@
       <xilinx:displayName>AXI4-Stream Averager</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-06-08T06:30:28Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-06-10T09:26:19Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5435f4e6_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_averager_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@15662eeb_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_averager_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2b3fdf01_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_averager_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@649b95a7_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_averager_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7cc0ead_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_averager_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@66366c84_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_averager_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3245bc62_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_averager_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1198d4a3_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_averager_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5d942573_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_averager_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@52da5ed6_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_averager_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7882f3f7_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_averager_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7a49a1d1_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_averager_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@30df542a_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_averager_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2a5bb993_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_averager_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7efb2982_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_averager_v1_0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="180e3315"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="c48e12d9"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="14f817c2"/>

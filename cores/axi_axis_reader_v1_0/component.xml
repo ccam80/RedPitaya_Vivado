@@ -693,19 +693,19 @@
       <xilinx:displayName>AXI AXI4-Stream Reader</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-06-08T06:34:59Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-06-10T09:29:04Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7dbd016c_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_axis_reader_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1a63ffe6_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_axis_reader_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@b45de1c_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_axis_reader_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@429d4ea3_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_axis_reader_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@795d0835_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_axis_reader_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@57465ede_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_axis_reader_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@593b0813_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_axis_reader_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@285eadea_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_axis_reader_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4b85656c_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_axis_reader_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3b4332b7_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_axis_reader_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3b0ef132_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_axis_reader_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@60b2d7ea_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_axis_reader_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@52053e76_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_axis_reader_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@54ac0c0d_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axi_axis_reader_v1_0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="bc876a32"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="29341b74"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="335684b3"/>

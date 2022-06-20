@@ -50,9 +50,9 @@
 // IP VLNV: xilinx.com:user:axis_red_pitaya_adc:3.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "axis_red_pitaya_adc,Vivado 2021.2" *)
+(* X_CORE_INFO = "axis_red_pitaya_adc,Vivado 2020.2" *)
 (* CHECK_LICENSE_TYPE = "system_axis_red_pitaya_adc_0_0,axis_red_pitaya_adc,{}" *)
-(* CORE_GENERATION_INFO = "system_axis_red_pitaya_adc_0_0,axis_red_pitaya_adc,{x_ipProduct=Vivado 2021.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=axis_red_pitaya_adc,x_ipVersion=3.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,ADC_DATA_WIDTH=14}" *)
+(* CORE_GENERATION_INFO = "system_axis_red_pitaya_adc_0_0,axis_red_pitaya_adc,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=axis_red_pitaya_adc,x_ipVersion=3.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,ADC_DATA_WIDTH=14}" *)
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_axis_red_pitaya_adc_0_0 (

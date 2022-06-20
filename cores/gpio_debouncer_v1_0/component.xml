@@ -208,18 +208,19 @@
       <xilinx:displayName>GPIO Debouncer</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-06-08T06:36:01Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-06-10T09:29:38Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@27a3d199_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/gpio_debouncer_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4f7b9b9a_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/gpio_debouncer_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@ec9b089_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/gpio_debouncer_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@413bd9d1_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/gpio_debouncer_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6ba5a0c7_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/gpio_debouncer_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4100f04b_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/gpio_debouncer_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@310f6223_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/gpio_debouncer_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2e890043_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/gpio_debouncer_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@509126f5_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/gpio_debouncer_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4d642eec_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/gpio_debouncer_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6220da4c_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/gpio_debouncer_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@70999c4f_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/gpio_debouncer_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1cf5c985_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/gpio_debouncer_v1_0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="5b9cfeb9"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="72fa227b"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="cecb1ad9"/>

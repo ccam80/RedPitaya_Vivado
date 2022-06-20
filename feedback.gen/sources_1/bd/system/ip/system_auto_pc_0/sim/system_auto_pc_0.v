@@ -48,7 +48,7 @@
 
 
 // IP VLNV: xilinx.com:ip:axi_protocol_converter:2.1
-// IP Revision: 25
+// IP Revision: 22
 
 `timescale 1ns/1ps
 
@@ -240,7 +240,7 @@ DS 4, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI RREADY" *)
 output wire m_axi_rready;
 
-  axi_protocol_converter_v2_1_25_axi_protocol_converter #(
+  axi_protocol_converter_v2_1_22_axi_protocol_converter #(
     .C_FAMILY("zynq"),
     .C_M_AXI_PROTOCOL(2),
     .C_S_AXI_PROTOCOL(1),

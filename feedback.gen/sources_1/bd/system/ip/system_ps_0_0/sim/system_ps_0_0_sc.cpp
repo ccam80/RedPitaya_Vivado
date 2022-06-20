@@ -117,7 +117,6 @@ system_ps_0_0_sc::system_ps_0_0_sc(const sc_core::sc_module_name& nm) : sc_core:
     model_param_props.addString("C_FCLK_CLK2_BUF", "FALSE");
     model_param_props.addString("C_FCLK_CLK3_BUF", "FALSE");
     model_param_props.addString("C_PACKAGE_NAME", "clg400");
-    model_param_props.addString("COMPONENT_NAME", "system_ps_0_0");
 
   mp_impl = new processing_system7_v5_5_tlm("inst", model_param_props);
 

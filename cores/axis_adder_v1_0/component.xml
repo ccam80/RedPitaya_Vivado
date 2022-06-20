@@ -397,19 +397,20 @@
       <xilinx:displayName>AXI4-Stream Adder</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-06-08T06:30:13Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-06-10T09:26:09Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7842741c_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_adder_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@34ee1592_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_adder_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3a256bb4_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_adder_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4a66b7c0_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_adder_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6be5466f_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_adder_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3f6952ae_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_adder_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6abc1c1c_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_adder_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5fa6821c_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_adder_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@45802f3f_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_adder_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7bfe2d48_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_adder_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6b2b73ad_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_adder_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@54bd8e4c_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_adder_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3bccff45_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_adder_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7071f9c1_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_adder_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@58f450cb_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_adder_v1_0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="be92b551"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="19871b25"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="60364146"/>

@@ -457,19 +457,19 @@
       <xilinx:displayName>AXI4-Stream Pulse Height Analyzer</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-06-08T06:33:13Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-06-10T09:27:59Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1dbf56f_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pulse_height_analyzer_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@c188a3b_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pulse_height_analyzer_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3d304ae1_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pulse_height_analyzer_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@130f97b5_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pulse_height_analyzer_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@260e33a0_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pulse_height_analyzer_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@36674321_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pulse_height_analyzer_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1a734ff2_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pulse_height_analyzer_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@56fa4821_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pulse_height_analyzer_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@69dae921_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pulse_height_analyzer_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2e02577d_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pulse_height_analyzer_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@362f91fe_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pulse_height_analyzer_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1100917e_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pulse_height_analyzer_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3d48dca5_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pulse_height_analyzer_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1bb2f483_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_pulse_height_analyzer_v1_0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="eb102191"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="c4a0ddd7"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="fd9f1fb9"/>

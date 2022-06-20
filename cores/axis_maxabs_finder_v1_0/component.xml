@@ -382,19 +382,19 @@
       <xilinx:displayName>AXI4-Stream Finder of Maximum Absolute Value</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-06-08T06:32:18Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-06-10T09:27:26Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@38ac53a9_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_maxabs_finder_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@26c54a6f_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_maxabs_finder_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@78cfed57_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_maxabs_finder_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@834c18_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_maxabs_finder_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@186e7317_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_maxabs_finder_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@376c73f1_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_maxabs_finder_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@298b3a44_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_maxabs_finder_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1e5760bb_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_maxabs_finder_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@27669ebe_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_maxabs_finder_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1a43bd2a_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_maxabs_finder_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@303a0146_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_maxabs_finder_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7f24153a_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_maxabs_finder_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@559dd087_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_maxabs_finder_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@54dce428_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_maxabs_finder_v1_0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="eb102191"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="735104f6"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="e13b3a77"/>

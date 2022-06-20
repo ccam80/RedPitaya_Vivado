@@ -418,19 +418,19 @@
       <xilinx:displayName>AXI4-Stream Oscilloscope</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-06-08T06:32:32Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-06-10T09:27:34Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@d2452aa_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_oscilloscope_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@21cd435_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_oscilloscope_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@55b291c7_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_oscilloscope_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@21a11902_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_oscilloscope_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@50808d0e_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_oscilloscope_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@52fe38bc_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_oscilloscope_v1_0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@440b2e0a_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_oscilloscope_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@48e23ce7_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_oscilloscope_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@515dc47e_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_oscilloscope_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3f1babd1_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_oscilloscope_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@62122ce3_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_oscilloscope_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@221ae4d3_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_oscilloscope_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@59b238a8_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_oscilloscope_v1_0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5157dc9e_ARCHIVE_LOCATION">c:/GitHub/RedPitaya/tmp/cores/axis_oscilloscope_v1_0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="b2c1a8ee"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="cae4d8c7"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="cd01e194"/>

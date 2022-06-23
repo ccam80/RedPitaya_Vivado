@@ -30,7 +30,7 @@ module rollover_counter #
         input  wire                                 nRST,
         input  wire                                 en,
         input  wire [COUNTER_WIDTH-1:0]             MOD,
-    //    output wire [COUNTER_WIDTH-1:0]           COUNT,
+        output wire [COUNTER_WIDTH-1:0]             COUNT,
         output wire                                 THRESH
     );
     

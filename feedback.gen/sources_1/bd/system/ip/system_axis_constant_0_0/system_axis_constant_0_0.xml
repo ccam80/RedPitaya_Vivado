@@ -31,7 +31,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>TDATA_NUM_BYTES</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M_AXIS.TDATA_NUM_BYTES">12</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M_AXIS.TDATA_NUM_BYTES">32</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -242,7 +242,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:69c6200f</spirit:value>
+            <spirit:value>9:d5d23edd</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -253,7 +253,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:69c6200f</spirit:value>
+            <spirit:value>9:d5d23edd</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -269,11 +269,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Jun 20 08:02:02 UTC 2022</spirit:value>
+            <spirit:value>Wed Jun 22 06:39:34 UTC 2022</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:69c6200f</spirit:value>
+            <spirit:value>9:d5d23edd</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -292,7 +292,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:2c1dba1f</spirit:value>
+            <spirit:value>9:bd8fd337</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -308,11 +308,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Jun 20 08:02:02 UTC 2022</spirit:value>
+            <spirit:value>Wed Jun 22 06:39:34 UTC 2022</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:2c1dba1f</spirit:value>
+            <spirit:value>9:bd8fd337</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -336,7 +336,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.AXIS_TDATA_WIDTH&apos;)) - 1)">95</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.AXIS_TDATA_WIDTH&apos;)) - 1)">255</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -353,7 +353,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.AXIS_TDATA_WIDTH&apos;)) - 1)">95</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.AXIS_TDATA_WIDTH&apos;)) - 1)">255</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -383,7 +383,7 @@
       <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="integer">
         <spirit:name>AXIS_TDATA_WIDTH</spirit:name>
         <spirit:displayName>Axis Tdata Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.AXIS_TDATA_WIDTH">96</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.AXIS_TDATA_WIDTH">256</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -425,7 +425,7 @@
       <spirit:name>AXIS_TDATA_WIDTH</spirit:name>
       <spirit:displayName>AXIS TDATA WIDTH</spirit:displayName>
       <spirit:description>Width of the M_AXIS data bus.</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.AXIS_TDATA_WIDTH">96</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.AXIS_TDATA_WIDTH">256</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>

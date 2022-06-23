@@ -48,8 +48,11 @@ module feedback_combined #
     input [CFG_WIDTH-1:0]                       S_AXIS_CFG_tdata,
     input                                       S_AXIS_CFG_tvalid,
     (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *)
-    input [ADC_DATA_WIDTH-1:0]                  S_AXIS_ADC_tdata,
-    input                                       S_AXIS_ADC_tvalid,
+    input [ADC_DATA_WIDTH-1:0]                  S_AXIS_ADC1_tdata,
+    input                                       S_AXIS_ADC1_tvalid,
+    (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *)
+    input [ADC_DATA_WIDTH-1:0]                  S_AXIS_ADC2_tdata,
+    input                                       S_AXIS_ADC2_tvalid,
     (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *)
     output reg [AXIS_TDATA_WIDTH-1:0]           M_AXIS_tdata,
     output wire                                 M_AXIS_tvalid,
@@ -63,6 +66,7 @@ module feedback_combined #
     //localparam PADDING_WIDTH = ADC_DATA_WIDTH - DAC_DATA_WIDTH;
     localparam RESULT_WIDTH = 64;
     localparam PHASE_WIDTH = 30;
+    localparam PADDING_WIDTH = 32-ADC_DATA_WIDTH;
 
 ////////////////////    
 ////Declarations////
@@ -70,7 +74,8 @@ module feedback_combined #
 
     // input registers
     reg signed [PARAM_WIDTH-1:0] Param_A_in, Param_B_in, Param_C_in, Param_D_in, Param_E_in, Param_F_in, Param_G_in, Param_H_in;
-        
+    reg signed [ADC_DATA_WIDTH-1:0] ADC1, ADC2;
+       
     // state machine variables
     reg trigger;                       // 0 - trig output off, 1 - trig output on   
     reg [1:0] state;  
@@ -89,7 +94,7 @@ module feedback_combined #
     wire dds_M_AXIS_tvalid;
     
     // Math variables
-    reg signed [RESULT_WIDTH - 1:0] result_A;
+    reg signed [RESULT_WIDTH - 1:0] result_A, result_A_last, result_B;
     reg signed [31:0] phase_next, phase = 32'b0;
     
     
@@ -122,6 +127,8 @@ module feedback_combined #
     // All inputs stored, non-blocking, run in any state/
     always @(posedge aclk)
     begin
+        ADC1 <= S_AXIS_ADC1_tdata;
+        ADC2 <= S_AXIS_ADC2_tdata;
         state <= sel;
         trigger <= trig_in;
         //Configuration Parameters
@@ -150,7 +157,18 @@ module feedback_combined #
         case (state)  
             fixed : result_A <= dds_out * Param_B_in;
             sweep : result_A <= dds_out * Param_C_in;
+            lin : begin
+                result_A <= ADC1 + Param_A_in;
+                result_B <= result_A_last * Param_B_in;
+            end
             default: result_A <= Param_B_in;
+        endcase
+    end 
+    
+    always @(negedge aclk) 
+    begin
+        case (state)  
+            lin : result_A_last <= result_A;
         endcase
     end 
     
@@ -198,7 +216,7 @@ module feedback_combined #
             case (state)  
                 fixed : M_AXIS_tdata <= result_A[46:15]; //Take result devided by 8192 and shiftet further 2 bit for 14bit output
                 sweep : M_AXIS_tdata <= result_A[46:15]; //Take result devided by 8192 and shiftet further 2 bit for 14bit output    
-                lin :   M_AXIS_tdata <= result_A[31:0];   
+                lin :   M_AXIS_tdata <= result_B[43:12]; //Take result devided by 1024 and shiftet further 2 bit for 14bit output
                 fancy:  M_AXIS_tdata <= result_A[31:0]; 
                 default: M_AXIS_tdata <= 16'b0;
             endcase
@@ -206,6 +224,6 @@ module feedback_combined #
     end                    
     
     //Valid output if input is valid
-    assign M_AXIS_tvalid = S_AXIS_ADC_tvalid & S_AXIS_CFG_tvalid;// & dds_M_AXIS_tvalid;
+    assign M_AXIS_tvalid = S_AXIS_ADC1_tvalid & S_AXIS_ADC1_tvalid & S_AXIS_CFG_tvalid;// & dds_M_AXIS_tvalid;
     
 endmodule

@@ -80,7 +80,7 @@ module feedback_combined #
     reg trigger;                       // 0 - trig output off, 1 - trig output on   
     reg [1:0] state;  
        
-    parameter fixed = 0, sweep = 1, lin = 2, fancy = 3;    
+    parameter fixed = 0, sweep = 1, lin = 2, parametric = 3;    
     
     //Signals for counter
     reg counter_en = 1'b1;
@@ -94,7 +94,9 @@ module feedback_combined #
     wire dds_M_AXIS_tvalid;
     
     // Math variables
-    reg signed [RESULT_WIDTH - 1:0] result_A, result_A_last, result_B;
+    reg signed [RESULT_WIDTH - 1:0] result_A, result_A_last, result_B, result_B_last, result_C, result_C_last,
+    result_D, result_D_last, result_D_total, result_D_total_last,
+    result_E, result_E_last, result_E_total, result_E_total_last;
     reg signed [31:0] phase_next, phase = 32'b0;
     
     
@@ -155,20 +157,51 @@ module feedback_combined #
     always @(posedge aclk) 
     begin
         case (state)  
-            fixed : result_A <= dds_out * Param_B_in;
+            fixed : begin
+                    result_A <= Param_C_in + result_B_last;
+                    result_B <= (dds_out * Param_B_in);
+                    end
             sweep : result_A <= dds_out * Param_C_in;
             lin : begin
-                result_A <= ADC1 + Param_A_in;
-                result_B <= result_A_last * Param_B_in;
-            end
+                //summand C to E generates an amplitude of approx. 1 V at maximum sensor voltage (2^13) and parameter value 1000
+                result_A <= result_B_last + result_C_last[63:8] + result_D_last[63:8] + result_E_last[63:21]; 
+                result_B <= Param_A_in * 64'h7FFF; // 1V @ Param_A_in 8192
+                result_C <= Param_C_in * ADC1 * ADC2; 
+                result_D <= Param_D_in * ADC1 * ADC1;
+                result_E <= Param_E_in * ADC1 * ADC1 * ADC1;         
+                //A = S*P + F +- x*S^n (n = 2,3)
+                 end
+            parametric: begin
+                //summand C to E generates an amplitude of approx. 1 V at maximum sensor voltage (2^13) and parameter value 1000
+                result_A <= result_B_last + result_C_last[63:10] + result_D_last[63:8] + result_E_last[63:21]; 
+                result_B <= Param_A_in * 64'h7FFF; // 1V @ Param_A_in 8192
+                result_C <= Param_C_in * ADC1 * dds_out; 
+                result_D <= Param_D_in * ADC1 * ADC1;
+                result_E <= Param_E_in * ADC1 * ADC1 * ADC1;         
+                //A = S*P + F +- x*S^n (n = 2,3)
+                 end
             default: result_A <= Param_B_in;
         endcase
     end 
     
     always @(negedge aclk) 
     begin
-        case (state)  
-            lin : result_A_last <= result_A;
+        case (state)
+            fixed:   result_B_last <= result_B;
+            lin : 
+            begin
+                result_B_last <= result_B;
+                result_C_last <= result_C;
+                result_D_last <= result_D;
+                result_E_last <= result_E;
+            end
+            parametric:   
+            begin
+                result_B_last <= result_B;
+                result_C_last <= result_C;
+                result_D_last <= result_D;
+                result_E_last <= result_E;
+            end
         endcase
     end 
     
@@ -180,6 +213,7 @@ module feedback_combined #
     always @(posedge aclk)
         case (state)
             fixed: dds_phase_in <= Param_A_in[29:0];
+            lin: dds_phase_in <= 0;
             sweep:
             begin
                 if (~trigger) begin
@@ -196,6 +230,7 @@ module feedback_combined #
                     counter_en <= 1;
                 end
             end
+            parametric: dds_phase_in <= Param_F_in[29:0];//30'd43;
             default: dds_phase_in <= 0;
         endcase
         
@@ -213,13 +248,15 @@ module feedback_combined #
         if (trigger || CONTINUOUS_OUTPUT)
         begin
             // Mux output depending on feedback state (output should be betwen 16'd8191 = 1V and -16'd8191 = -1V)
-            case (state)  
-                fixed : M_AXIS_tdata <= result_A[46:15]; //Take result devided by 8192 and shiftet further 2 bit for 14bit output
-                sweep : M_AXIS_tdata <= result_A[46:15]; //Take result devided by 8192 and shiftet further 2 bit for 14bit output    
-                lin :   M_AXIS_tdata <= result_B[43:12]; //Take result devided by 1024 and shiftet further 2 bit for 14bit output
-                fancy:  M_AXIS_tdata <= result_A[31:0]; 
-                default: M_AXIS_tdata <= 16'b0;
-            endcase
+//            case (state)  
+//                fixed : M_AXIS_tdata <= result_A[AXIS_TDATA_WIDTH-1+15:15]; 
+//                sweep : M_AXIS_tdata <= result_A[AXIS_TDATA_WIDTH-1+15:15]; //Take result devided by 32768 (2^15) for 14bit output  
+//                lin :   M_AXIS_tdata <= result_A[AXIS_TDATA_WIDTH-1+15:15]; //Take result devided by 32768 (2^15) for 14bit output
+//                parametric:  M_AXIS_tdata <= result_A[AXIS_TDATA_WIDTH-1+15:15]; 
+//                default: M_AXIS_tdata <= 16'b0;
+//            endcase
+            //M_AXIS_tdata <= result_A[32] ? (result_A[13+15] ? result_A[AXIS_TDATA_WIDTH-1+15:15] : -16'd8191) : (result_A[13+15] ? 16'd8191 : result_A[AXIS_TDATA_WIDTH-1+15:15]); //Take result devided by 32768 (2^15) for 14bit output
+            M_AXIS_tdata <= result_A[32] ? (result_A[31:28]==4'b1111 ? result_A[AXIS_TDATA_WIDTH-1+15:15] : -16'd8191) : (result_A[31:28]==4'b0000 ? result_A[AXIS_TDATA_WIDTH-1+15:15] : 16'd8191); //Take result devided by 32768 (2^15) for 14bit output
          end    
     end                    
     

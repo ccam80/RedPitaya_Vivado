@@ -82,25 +82,25 @@ preplace netloc axis_red_pitaya_dac_0_dac_sel 1 5 1 N 820
 preplace netloc axis_red_pitaya_dac_0_dac_wrt 1 5 1 N 840
 preplace netloc axis_red_pitaya_dac_0_dac_dat 1 5 1 N 860
 preplace netloc Memory_IO_cfg_data 1 2 1 600 518n
-preplace netloc ps_0_DDR 1 1 5 160 708 N 708 1330 480 N 480 NJ
-preplace netloc conv_0_M_AXIS 1 1 4 200 648 N 648 N 648 1830
-preplace netloc feedback_combined_0_M_AXIS 1 3 1 1380J 798n
-preplace netloc writer_0_M_AXI 1 0 3 -200 590 170 378 600
-preplace netloc fb_cfg_M_AXIS 1 2 2 660 618 1270
-preplace netloc ch1_mem_fb_split_M00_AXIS 1 2 2 620 758 N
+preplace netloc ps_0_axi_periph_M01_AXI 1 1 1 180 438n
+preplace netloc axis_red_pitaya_adc_0_M_AXIS 1 1 1 N 900
+preplace netloc ps_0_axi_periph_M00_AXI 1 1 1 230 420n
+preplace netloc ch1_mem_fb_split_M02_AXIS 1 2 1 640 880n
+preplace netloc ch1_mem_fb_split_M01_AXIS 1 2 1 610 860n
+preplace netloc rate_0_M_AXIS 1 3 1 1360 408n
 preplace netloc Data_Conversion_M01_AXIS 1 4 1 1860 780n
 preplace netloc ps_0_FIXED_IO 1 1 5 190 678 N 678 1340 500 N 500 NJ
-preplace netloc ch1_mem_fb_split_M02_AXIS 1 2 1 640 880n
-preplace netloc rate_0_M_AXIS 1 3 1 1360 408n
-preplace netloc axis_red_pitaya_adc_0_M_AXIS 1 1 1 N 900
-preplace netloc ch1_mem_fb_split_M01_AXIS 1 2 1 610 860n
-preplace netloc ps_0_axi_periph_M01_AXI 1 1 1 180 438n
-preplace netloc ps_0_axi_periph_M00_AXI 1 1 1 230 420n
+preplace netloc writer_0_M_AXI 1 0 3 -200 590 170 378 600
+preplace netloc feedback_combined_0_M_AXIS 1 3 1 1380J 798n
+preplace netloc fb_cfg_M_AXIS 1 2 2 660 618 1270
+preplace netloc ch1_mem_fb_split_M00_AXIS 1 2 2 620 758 N
+preplace netloc conv_0_M_AXIS 1 1 4 200 648 N 648 N 648 1830
+preplace netloc ps_0_DDR 1 1 5 160 708 N 708 1330 480 N 480 NJ
 levelinfo -pg 1 -240 -40 450 1094 1690 3220 3360
 pagesize -pg 1 -db -bbox -sgen -410 -80 3520 1760
 "
 }
 {
-   """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""da_clkrst_cnt"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""":"13",
-   """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""da_clkrst_cnt""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""":"10"
+   """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""da_clkrst_cnt""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""":"13",
+   """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""da_clkrst_cnt"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""":"10"
 }

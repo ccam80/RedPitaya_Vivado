@@ -158,8 +158,9 @@ module feedback_combined #
     begin
         case (state)  
             fixed : begin
-                    result_A <= Param_C_in + result_B_last;
+                    result_A <= Param_C_in + result_B_last + result_D_last;
                     result_B <= (dds_out * Param_B_in);
+                    result_D <= Param_D_in * ADC2; 
                     end
             sweep : result_A <= dds_out * Param_C_in;
             lin : begin
@@ -187,7 +188,11 @@ module feedback_combined #
     always @(negedge aclk) 
     begin
         case (state)
-            fixed:   result_B_last <= result_B;
+            fixed:   
+            begin
+                result_B_last <= result_B;
+                result_D_last <= result_D;
+            end
             lin : 
             begin
                 result_B_last <= result_B;

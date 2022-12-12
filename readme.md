@@ -16,7 +16,7 @@ the IP Core location have to be changed. Therefore got to Tools --> Settings -->
 !!! In1 and In2 are in V if jumper is in LV Position (+-1V must not be exceeded)<br>
 If jumper is in HV Position In1 and In2 are in V/20 (+-20V must not be exceeded)
 ## fixed
-Out1[V] = (param_b * sin(2pi*(param_a-0.5)/2^30*125MHz*t) * 2^15 + param_c) / (2^15 * 2^13)
+Out1[V] = (param_b * sin(2pi*(param_a-0.5)/2^30*125MHz*t) * 2^15 + param_c + param_d * In2 * 2^13) / (2^15 * 2^13)
 ## sweep
 frequenzy sweep from<br>
 Out1[V] = (param_c * sin(2pi*(param_a-0.5)/2^30*125MHz*t) * 2^15) / (2^15 * 2^13)<br>

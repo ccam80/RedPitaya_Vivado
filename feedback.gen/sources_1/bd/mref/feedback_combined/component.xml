@@ -36,7 +36,7 @@
       </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>S_AXIS_ADC</spirit:name>
+      <spirit:name>S_AXIS_ADC1</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis_rtl" spirit:version="1.0"/>
       <spirit:slave/>
@@ -46,7 +46,7 @@
             <spirit:name>TDATA</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>S_AXIS_ADC_tdata</spirit:name>
+            <spirit:name>S_AXIS_ADC1_tdata</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -54,14 +54,44 @@
             <spirit:name>TVALID</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>S_AXIS_ADC_tvalid</spirit:name>
+            <spirit:name>S_AXIS_ADC1_tvalid</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:format="long" spirit:id="BUSIFPARAM_VALUE.S_AXIS_ADC.FREQ_HZ">125000000</spirit:value>
+          <spirit:value spirit:format="long" spirit:id="BUSIFPARAM_VALUE.S_AXIS_ADC1.FREQ_HZ">125000000</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>S_AXIS_ADC2</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TDATA</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>S_AXIS_ADC2_tdata</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TVALID</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>S_AXIS_ADC2_tvalid</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>FREQ_HZ</spirit:name>
+          <spirit:value spirit:format="long" spirit:id="BUSIFPARAM_VALUE.S_AXIS_ADC2.FREQ_HZ">125000000</spirit:value>
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
@@ -113,7 +143,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>ASSOCIATED_BUSIF</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.ACLK.ASSOCIATED_BUSIF">M_AXIS:S_AXIS_ADC:S_AXIS_CFG</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.ACLK.ASSOCIATED_BUSIF">M_AXIS:S_AXIS_ADC1:S_AXIS_ADC2:S_AXIS_CFG</spirit:value>
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
@@ -129,7 +159,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>ebe77105</spirit:value>
+            <spirit:value>5c5afc66</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -142,7 +172,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>ebe77105</spirit:value>
+            <spirit:value>5c5afc66</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -204,7 +234,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.CFG_WIDTH&apos;)) - 1)">95</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.CFG_WIDTH&apos;)) - 1)">255</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -233,7 +263,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>S_AXIS_ADC_tdata</spirit:name>
+        <spirit:name>S_AXIS_ADC1_tdata</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -253,7 +283,40 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>S_AXIS_ADC_tvalid</spirit:name>
+        <spirit:name>S_AXIS_ADC1_tvalid</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>S_AXIS_ADC2_tdata</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.ADC_DATA_WIDTH&apos;)) - 1)">15</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>S_AXIS_ADC2_tvalid</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -321,59 +384,49 @@
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DDS_OUT_WIDTH">16</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>MULT_CONST_OFFSET</spirit:name>
-        <spirit:displayName>Mult Const Offset</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.MULT_CONST_OFFSET">32</spirit:value>
+        <spirit:name>PARAM_WIDTH</spirit:name>
+        <spirit:displayName>Param Width</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PARAM_WIDTH">32</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>MULT_CONST_WIDTH</spirit:name>
-        <spirit:displayName>Mult Const Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.MULT_CONST_WIDTH">32</spirit:value>
+        <spirit:name>PARAM_A_OFFSET</spirit:name>
+        <spirit:displayName>Param A Offset</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PARAM_A_OFFSET">0</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>FIXED_PHASE_OFFSET</spirit:name>
-        <spirit:displayName>Fixed Phase Offset</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.FIXED_PHASE_OFFSET">0</spirit:value>
+        <spirit:name>PARAM_B_OFFSET</spirit:name>
+        <spirit:displayName>Param B Offset</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PARAM_B_OFFSET">32</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>FIXED_PHASE_WIDTH</spirit:name>
-        <spirit:displayName>Fixed Phase Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.FIXED_PHASE_WIDTH">32</spirit:value>
+        <spirit:name>PARAM_C_OFFSET</spirit:name>
+        <spirit:displayName>Param C Offset</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PARAM_C_OFFSET">64</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>ADD_CONST_WIDTH</spirit:name>
-        <spirit:displayName>Add Const Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.ADD_CONST_WIDTH">16</spirit:value>
+        <spirit:name>PARAM_D_OFFSET</spirit:name>
+        <spirit:displayName>Param D Offset</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PARAM_D_OFFSET">96</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>ADD_CONST_OFFSET</spirit:name>
-        <spirit:displayName>Add Const Offset</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.ADD_CONST_OFFSET">80</spirit:value>
+        <spirit:name>PARAM_E_OFFSET</spirit:name>
+        <spirit:displayName>Param E Offset</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PARAM_E_OFFSET">128</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>FREQ_WIDTH</spirit:name>
-        <spirit:displayName>Freq Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.FREQ_WIDTH">32</spirit:value>
+        <spirit:name>PARAM_F_OFFSET</spirit:name>
+        <spirit:displayName>Param F Offset</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PARAM_F_OFFSET">160</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>START_FREQ_OFFSET</spirit:name>
-        <spirit:displayName>Start Freq Offset</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.START_FREQ_OFFSET">0</spirit:value>
+        <spirit:name>PARAM_G_OFFSET</spirit:name>
+        <spirit:displayName>Param G Offset</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PARAM_G_OFFSET">192</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>STOP_FREQ_OFFSET</spirit:name>
-        <spirit:displayName>Stop Freq Offset</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.STOP_FREQ_OFFSET">32</spirit:value>
-      </spirit:modelParameter>
-      <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>INTERVAL_OFFSET</spirit:name>
-        <spirit:displayName>Interval Offset</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.INTERVAL_OFFSET">64</spirit:value>
-      </spirit:modelParameter>
-      <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>INTERVAL_WIDTH</spirit:name>
-        <spirit:displayName>Interval Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.INTERVAL_WIDTH">32</spirit:value>
+        <spirit:name>PARAM_H_OFFSET</spirit:name>
+        <spirit:displayName>Param H Offset</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PARAM_H_OFFSET">224</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>DAC_DATA_WIDTH</spirit:name>
@@ -383,7 +436,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>CFG_WIDTH</spirit:name>
         <spirit:displayName>Cfg Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CFG_WIDTH">96</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CFG_WIDTH">256</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>AXIS_TDATA_WIDTH</spirit:name>
@@ -395,6 +448,11 @@
         <spirit:displayName>Select Width</spirit:displayName>
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.SELECT_WIDTH">2</spirit:value>
       </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>CONTINUOUS_OUTPUT</spirit:name>
+        <spirit:displayName>Continuous Output</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CONTINUOUS_OUTPUT">1</spirit:value>
+      </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
   <spirit:fileSets>
@@ -403,7 +461,7 @@
       <spirit:file>
         <spirit:name>xgui/feedback_combined_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_ab5e042f</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_73af48f8</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -421,59 +479,49 @@
       <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DDS_OUT_WIDTH">16</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>MULT_CONST_OFFSET</spirit:name>
-      <spirit:displayName>Mult Const Offset</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.MULT_CONST_OFFSET">32</spirit:value>
+      <spirit:name>PARAM_WIDTH</spirit:name>
+      <spirit:displayName>Param Width</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PARAM_WIDTH">32</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>MULT_CONST_WIDTH</spirit:name>
-      <spirit:displayName>Mult Const Width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.MULT_CONST_WIDTH">32</spirit:value>
+      <spirit:name>PARAM_A_OFFSET</spirit:name>
+      <spirit:displayName>Param A Offset</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PARAM_A_OFFSET">0</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>FIXED_PHASE_OFFSET</spirit:name>
-      <spirit:displayName>Fixed Phase Offset</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.FIXED_PHASE_OFFSET">0</spirit:value>
+      <spirit:name>PARAM_B_OFFSET</spirit:name>
+      <spirit:displayName>Param B Offset</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PARAM_B_OFFSET">32</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>FIXED_PHASE_WIDTH</spirit:name>
-      <spirit:displayName>Fixed Phase Width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.FIXED_PHASE_WIDTH">32</spirit:value>
+      <spirit:name>PARAM_C_OFFSET</spirit:name>
+      <spirit:displayName>Param C Offset</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PARAM_C_OFFSET">64</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>ADD_CONST_WIDTH</spirit:name>
-      <spirit:displayName>Add Const Width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.ADD_CONST_WIDTH">16</spirit:value>
+      <spirit:name>PARAM_D_OFFSET</spirit:name>
+      <spirit:displayName>Param D Offset</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PARAM_D_OFFSET">96</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>ADD_CONST_OFFSET</spirit:name>
-      <spirit:displayName>Add Const Offset</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.ADD_CONST_OFFSET">80</spirit:value>
+      <spirit:name>PARAM_E_OFFSET</spirit:name>
+      <spirit:displayName>Param E Offset</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PARAM_E_OFFSET">128</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>FREQ_WIDTH</spirit:name>
-      <spirit:displayName>Freq Width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.FREQ_WIDTH">32</spirit:value>
+      <spirit:name>PARAM_F_OFFSET</spirit:name>
+      <spirit:displayName>Param F Offset</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PARAM_F_OFFSET">160</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>START_FREQ_OFFSET</spirit:name>
-      <spirit:displayName>Start Freq Offset</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.START_FREQ_OFFSET">0</spirit:value>
+      <spirit:name>PARAM_G_OFFSET</spirit:name>
+      <spirit:displayName>Param G Offset</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PARAM_G_OFFSET">192</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>STOP_FREQ_OFFSET</spirit:name>
-      <spirit:displayName>Stop Freq Offset</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.STOP_FREQ_OFFSET">32</spirit:value>
-    </spirit:parameter>
-    <spirit:parameter>
-      <spirit:name>INTERVAL_OFFSET</spirit:name>
-      <spirit:displayName>Interval Offset</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.INTERVAL_OFFSET">64</spirit:value>
-    </spirit:parameter>
-    <spirit:parameter>
-      <spirit:name>INTERVAL_WIDTH</spirit:name>
-      <spirit:displayName>Interval Width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.INTERVAL_WIDTH">32</spirit:value>
+      <spirit:name>PARAM_H_OFFSET</spirit:name>
+      <spirit:displayName>Param H Offset</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PARAM_H_OFFSET">224</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>DAC_DATA_WIDTH</spirit:name>
@@ -483,7 +531,7 @@
     <spirit:parameter>
       <spirit:name>CFG_WIDTH</spirit:name>
       <spirit:displayName>Cfg Width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CFG_WIDTH">96</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CFG_WIDTH">256</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>AXIS_TDATA_WIDTH</spirit:name>
@@ -494,6 +542,11 @@
       <spirit:name>SELECT_WIDTH</spirit:name>
       <spirit:displayName>Select Width</spirit:displayName>
       <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.SELECT_WIDTH">2</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>CONTINUOUS_OUTPUT</spirit:name>
+      <spirit:displayName>Continuous Output</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CONTINUOUS_OUTPUT">1</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
@@ -516,7 +569,7 @@
         <xilinx:designToolContext>IPI</xilinx:designToolContext>
       </xilinx:designToolContexts>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-05-08T22:12:01Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-12-07T05:23:24Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>

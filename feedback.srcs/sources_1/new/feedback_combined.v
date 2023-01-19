@@ -25,21 +25,20 @@ module feedback_combined #
 (
     parameter ADC_DATA_WIDTH = 16,
     parameter DDS_OUT_WIDTH = 16,
-    parameter MULT_CONST_OFFSET = 32,
-    parameter MULT_CONST_WIDTH  = 32,
-    parameter FIXED_PHASE_OFFSET = 0,
-    parameter FIXED_PHASE_WIDTH = 32,
-    parameter ADD_CONST_WIDTH = 16,
-    parameter ADD_CONST_OFFSET = 80,
-    parameter FREQ_WIDTH = 32,
-    parameter START_FREQ_OFFSET = 0,
-    parameter STOP_FREQ_OFFSET = 32,
-    parameter INTERVAL_OFFSET = 64,
-    parameter INTERVAL_WIDTH = 32,
+    parameter PARAM_WIDTH = 32,
+    parameter PARAM_A_OFFSET = 0,
+    parameter PARAM_B_OFFSET = 32,
+    parameter PARAM_C_OFFSET = 64,
+    parameter PARAM_D_OFFSET = 96,
+    parameter PARAM_E_OFFSET = 128,
+    parameter PARAM_F_OFFSET = 160,
+    parameter PARAM_G_OFFSET = 192,
+    parameter PARAM_H_OFFSET = 224,
     parameter integer DAC_DATA_WIDTH = 14,
-    parameter CFG_WIDTH = 96,
+    parameter CFG_WIDTH = 256,
     parameter AXIS_TDATA_WIDTH = 16,
-    parameter SELECT_WIDTH = 2
+    parameter SELECT_WIDTH = 2,
+    parameter CONTINUOUS_OUTPUT = 1
 )
 (
     input  wire                                 aclk,
@@ -49,73 +48,67 @@ module feedback_combined #
     input [CFG_WIDTH-1:0]                       S_AXIS_CFG_tdata,
     input                                       S_AXIS_CFG_tvalid,
     (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *)
-    input [ADC_DATA_WIDTH-1:0]                  S_AXIS_ADC_tdata,
-    input                                       S_AXIS_ADC_tvalid,
+    input [ADC_DATA_WIDTH-1:0]                  S_AXIS_ADC1_tdata,
+    input                                       S_AXIS_ADC1_tvalid,
+    (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *)
+    input [ADC_DATA_WIDTH-1:0]                  S_AXIS_ADC2_tdata,
+    input                                       S_AXIS_ADC2_tvalid,
     (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *)
     output reg [AXIS_TDATA_WIDTH-1:0]           M_AXIS_tdata,
     output wire                                 M_AXIS_tvalid,
     output reg                                  trig_out
 );
 
-    localparam PADDING_WIDTH = ADC_DATA_WIDTH - DAC_DATA_WIDTH;
-    localparam RESULT_WIDTH = 2 * MULT_CONST_WIDTH;
-    localparam PHASE_WIDTH = 30;
-    localparam FCLK = 125000000;
-    
-    // input registers    
-    reg [MULT_CONST_WIDTH - 1:0] ADC_in, MULT_in;
-    reg [ADD_CONST_WIDTH - 1:0] ADD_in;
-    reg [FREQ_WIDTH - 1:0] START_FREQ_in, STOP_FREQ_in;
-    reg [FIXED_PHASE_WIDTH - 1:0] FIXED_PHASE_in;
-    reg [INTERVAL_WIDTH - 1:0]  INTERVAL_in;
+////////////////////////
+////Local Parameter////
+///////////////////////
 
-    
+    //localparam PADDING_WIDTH = ADC_DATA_WIDTH - DAC_DATA_WIDTH;
+    localparam RESULT_WIDTH = 64;
+    localparam PHASE_WIDTH = 30;
+    localparam PADDING_WIDTH = 32-ADC_DATA_WIDTH;
+
+////////////////////    
+////Declarations////
+////////////////////
+
+    // input registers
+    reg signed [PARAM_WIDTH-1:0] Param_A_in, Param_B_in, Param_C_in, Param_D_in, Param_E_in, Param_F_in, Param_G_in, Param_H_in;
+    reg signed [ADC_DATA_WIDTH-1:0] ADC1, ADC2;
+       
     // state machine variables
-    reg fb_or_sweep;                   // 0 - Ax+b,            1 - Freq Sweep mode
-    reg fix_sweep;                     // 0 - fixed phase,     1 - phase from sweep module
     reg trigger;                       // 0 - trig output off, 1 - trig output on   
-    reg delayed_trigger;
-    reg output_en;
     reg [1:0] state;  
        
-    parameter fixed = 0, sweep = 1, lin = 2, fancy = 3;
+    parameter fixed = 0, sweep = 1, lin = 2, parametric = 3;    
     
-    // Intermediate holders for Ax+b math
-    reg [MULT_CONST_WIDTH * 2 - 2:0] mul = 0;
-    wire [MULT_CONST_WIDTH * 2 - 2:0] cmpmul;
-    wire [MULT_CONST_WIDTH * 2 - 1:0] result;
-    reg [MULT_CONST_WIDTH-1:0] a, b;
-    reg sign;
-        
-        
-    // config parameters for frequency sweep    
-    reg [PHASE_WIDTH - 1:0] phase = 1;
-    reg [PHASE_WIDTH - 1:0] start_phase;
-    reg [PHASE_WIDTH - 1:0] stop_phase;
-//    reg sweep_active;
-    
-    reg led_test = 0;
+    //Signals for counter
+    reg counter_en = 1'b1;
+    reg counter_nreset = 1'b1;
+    reg [31:0] counter_interval = 32'b0;
+    wire counter_thresh;
     
     //Signals for I/O from DDS
     reg [PHASE_WIDTH - 1:0] dds_phase_in; 
-    wire [AXIS_TDATA_WIDTH - 1:0] dds_out;
+    wire signed [AXIS_TDATA_WIDTH - 1:0] dds_out;
     wire dds_M_AXIS_tvalid;
     
-    reg counter_en = 1;
-    reg counter_nreset = 1;
-    wire counter_thresh;
+    // Math variables
+    reg signed [RESULT_WIDTH - 1:0] result_A, result_A_last, result_B, result_B_last, result_C, result_C_last,
+    result_D, result_D_last, result_D_total, result_D_total_last,
+    result_E, result_E_last, result_E_total, result_E_total_last;
+    reg signed [31:0] phase_next, phase = 32'b0;
     
-    reg phase_direction = 0;
-    reg sweep_active_next = 0;
-    reg sweep_active_current = 0;
     
-    // Instantiate counter - note, counter starts at 2 to allow one clock cycle for reset latency 
-    // and one for the (>=) condition on the counter reset
+////////////////////////////////////
+////Instantiate further IP Cores////
+////////////////////////////////////
+    
     rollover_counter sweep_counter (
     .aclk(aclk),
     .en(counter_en),      
     .nRST(counter_nreset),  
-    .MOD(INTERVAL_in),
+    .MOD(counter_interval),
     .THRESH(counter_thresh)        
     ); 
     
@@ -127,121 +120,129 @@ module feedback_combined #
       .m_axis_data_tvalid(dds_M_AXIS_tvalid),    // output wire m_axis_data_tvalid
       .m_axis_data_tdata(dds_out)      // output wire [15 : 0] m_axis_data_tdata
     );
+    
+//////////////////
+////Data input////
+//////////////////  
 
-    // Calculate phase sweep parameters when config changes
-    always @*
-    begin
-        // to avoid divide in start/stop phase, swap [freq << 30 / 125000000] for [freq * (2^38 / 125000000)] (rounded to an int), then shift result back 8 bits
-        // == [freq * 2199 >> 8]
-        start_phase <= (START_FREQ_in * 2199) >> 8;        // Convert to phase increment for DDS. 
-        stop_phase <= (STOP_FREQ_in * 2199) >> 8;          // Convert to phase increment for DDS
-        
-                
-    end
-
-        
-    // Mux input to DDS compiler - fixed phase or output from phase counter 
-    always @*
-        case (state)
-            fixed: dds_phase_in <= FIXED_PHASE_in;
-            sweep: dds_phase_in <= phase;
-            default: dds_phase_in <= 0;
-        endcase
-          
     // Bring in, break up, and store input data in registers as first pipeline stage.
     // All inputs stored, non-blocking, run in any state/
     always @(posedge aclk)
     begin
-        ADC_in <= {S_AXIS_ADC_tdata, 16'b0};                                                                //Import ADC val, pad with zeroes for fixed point math
-        MULT_in <=  S_AXIS_CFG_tdata[MULT_CONST_OFFSET + MULT_CONST_WIDTH - 1: MULT_CONST_OFFSET];          // a constant, [63:42]
-        ADD_in <= S_AXIS_CFG_tdata[ADD_CONST_OFFSET + ADD_CONST_WIDTH - 1: ADD_CONST_OFFSET];               // b constant, [95:80]
-        START_FREQ_in <= S_AXIS_CFG_tdata[START_FREQ_OFFSET + FREQ_WIDTH - 1:START_FREQ_OFFSET];            // start freq (bitspace shared with constant phase) [15:0]
-        STOP_FREQ_in <= S_AXIS_CFG_tdata[STOP_FREQ_OFFSET + FREQ_WIDTH - 1:STOP_FREQ_OFFSET];               // stop freq (bitspace shared with constant phase) [31:16]
-        FIXED_PHASE_in <= S_AXIS_CFG_tdata[FIXED_PHASE_OFFSET + FIXED_PHASE_WIDTH - 1:FIXED_PHASE_OFFSET];  // fixed phase (shared bitspace with sweep freqs) [31:0]
-        INTERVAL_in <= S_AXIS_CFG_tdata[INTERVAL_OFFSET + INTERVAL_WIDTH - 1:INTERVAL_OFFSET];              // sweep interval [79:64]
+        ADC1 <= S_AXIS_ADC1_tdata;
+        ADC2 <= S_AXIS_ADC2_tdata;
         state <= sel;
         trigger <= trig_in;
-        
-        // Assign phase direction inside a clocked loop rather than in always * block to try to reduce slack
-        phase_direction <= (start_phase < stop_phase);   
-         
-        // Get mult inputs sorted for sign conversion - can incorporate into one step with input if this takes too long
-        sign <= ADC_in[MULT_CONST_WIDTH - 1] ^ MULT_in[MULT_CONST_WIDTH - 1];
-        a <= ADC_in[MULT_CONST_WIDTH - 1]==0 ? ADC_in:~ADC_in + 1'b1;
-        b <= MULT_in[MULT_CONST_WIDTH - 1]==0 ? MULT_in:~MULT_in + 1'b1;       
+        //Configuration Parameters
+        Param_A_in <= S_AXIS_CFG_tdata[PARAM_A_OFFSET + PARAM_WIDTH - 1: PARAM_A_OFFSET]; 
+        Param_B_in <= S_AXIS_CFG_tdata[PARAM_B_OFFSET + PARAM_WIDTH - 1: PARAM_B_OFFSET]; 
+        Param_C_in <= S_AXIS_CFG_tdata[PARAM_C_OFFSET + PARAM_WIDTH - 1: PARAM_C_OFFSET]; 
+        Param_D_in <= S_AXIS_CFG_tdata[PARAM_D_OFFSET + PARAM_WIDTH - 1: PARAM_D_OFFSET]; 
+        Param_E_in <= S_AXIS_CFG_tdata[PARAM_E_OFFSET + PARAM_WIDTH - 1: PARAM_E_OFFSET]; 
+        Param_F_in <= S_AXIS_CFG_tdata[PARAM_F_OFFSET + PARAM_WIDTH - 1: PARAM_F_OFFSET]; 
+        Param_G_in <= S_AXIS_CFG_tdata[PARAM_G_OFFSET + PARAM_WIDTH - 1: PARAM_G_OFFSET]; 
+        Param_H_in <= S_AXIS_CFG_tdata[PARAM_H_OFFSET + PARAM_WIDTH - 1: PARAM_H_OFFSET];
+        if (sel == 1)
+            counter_interval <=  Param_B_in[31:31] ? (~Param_B_in+1'b1) : Param_B_in; //use absolut value of Param_B_in
+        else
+            counter_interval <= 32'b10000000;
     end
+
+//////////// 
+////Math////
+////////////
     
-    
-    // Multiplier
-    always @ (posedge aclk)
-    begin
-        mul <= a * b;
-    end
-    
-    // Process and store rising edge of trigger from server to initiate stimulation and output. Note: Output will
-    // continue after a frequency sweep until it receives a trigger off from the server.    
+     
+    //Calculate output eqation parts
     always @(posedge aclk) 
     begin
-        delayed_trigger <= trigger;
-        output_en <= trigger;
-    end
-              
-    // DDS Phase selection and incrementing
-    always @ (posedge aclk)
-    begin
-    
-        case(state)
-        
-            fixed : phase <= FIXED_PHASE_in;
-            
-            sweep: 
-            begin
-                // Initiate sweep on trigger rising edge
-                if (trigger & ~delayed_trigger & ~sweep_active_current)
-                begin
-                    sweep_active_next <= 1;
-                    counter_nreset <= 0;
-                    led_test <= 1;
-                end
-                else counter_nreset <= 1;
-                // Falling edge of sweep_active - reset counter 
-//                if (sweep_active_current & ~sweep_active_next)
-//                        begin
-//                            counter_reset <= 1;
-//                        end
-                
-                sweep_active_current <= sweep_active_next;
-                
-                // Turn off counter reset if it was turned on last clock cycle
-                
-                case(sweep_active_current)
-                
-                    1'b0: 
-                    begin
-                        phase <= start_phase;                                  
-                    end    
-                    
-                    1'b1:
-                    begin
-                        // At end of sweep, reset counter and set phase to starting position 
-                        sweep_active_next <= ~((phase_direction > 0) ? (phase > stop_phase) : (phase < stop_phase));     
-                                
-                        if (counter_thresh)
-                            phase <= phase_direction ? (phase + 1) : (phase - 1);   
+        case (state)  
+            fixed : begin
+                    result_A <= Param_C_in + result_B_last + result_D_last;
+                    result_B <= (dds_out * Param_B_in);
+                    result_D <= Param_D_in * ADC2; 
                     end
-                endcase
-            end            
-                 
-            default: phase<=0;
-        endcase    
+            sweep : result_A <= dds_out * Param_C_in;
+            lin : begin
+                //summand C to E generates an amplitude of approx. 1 V at maximum sensor voltage (2^13) and parameter value 1000
+                result_A <= result_B_last + result_C_last[63:8] + result_D_last[63:8] + result_E_last[63:21]; 
+                result_B <= Param_A_in * 64'h7FFF; // 1V @ Param_A_in 8192
+                result_C <= Param_C_in * ADC1 * ADC2; 
+                result_D <= Param_D_in * ADC1 * ADC1;
+                result_E <= Param_E_in * ADC1 * ADC1 * ADC1;         
+                //A = S*P + F +- x*S^n (n = 2,3)
+                 end
+            parametric: begin
+                //summand C to E generates an amplitude of approx. 1 V at maximum sensor voltage (2^13) and parameter value 1000
+                result_A <= result_B_last + result_C_last[63:10] + result_D_last[63:8] + result_E_last[63:21]; 
+                result_B <= Param_A_in * 64'h7FFF; // 1V @ Param_A_in 8192
+                result_C <= Param_C_in * ADC1 * dds_out; 
+                result_D <= Param_D_in * ADC1 * ADC1;
+                result_E <= Param_E_in * ADC1 * ADC1 * ADC1;         
+                //A = S*P + F +- x*S^n (n = 2,3)
+                 end
+            default: result_A <= Param_B_in;
+        endcase
+    end 
+    
+    always @(negedge aclk) 
+    begin
+        case (state)
+            fixed:   
+            begin
+                result_B_last <= result_B;
+                result_D_last <= result_D;
+            end
+            lin : 
+            begin
+                result_B_last <= result_B;
+                result_C_last <= result_C;
+                result_D_last <= result_D;
+                result_E_last <= result_E;
+            end
+            parametric:   
+            begin
+                result_B_last <= result_B;
+                result_C_last <= result_C;
+                result_D_last <= result_D;
+                result_E_last <= result_E;
+            end
+        endcase
+    end 
+    
+//////////////////////////
+////Mux DDS, counter and output////
+//////////////////////////
+   
+    // Mux input to DDS compiler - fixed phase or output from phase counter 
+    always @(posedge aclk)
+        case (state)
+            fixed: dds_phase_in <= Param_A_in[29:0];
+            lin: dds_phase_in <= 0;
+            sweep:
+            begin
+                if (~trigger) begin
+                    phase_next <= Param_A_in;
+                    dds_phase_in <= Param_A_in[29:0];
+                    counter_nreset <= 0;
+                    counter_en <= 0;
+                end
+                else begin 
+                    if (counter_thresh)
+                        phase_next <= (Param_B_in[31:31]) ? (phase - 1) :  (phase + 1); //add 1 if Param_B is positiv and -1 if negativ
+                    dds_phase_in <= phase[29:0];
+                    counter_nreset <= 1;
+                    counter_en <= 1;
+                end
+            end
+            parametric: dds_phase_in <= Param_F_in[29:0];//30'd43;
+            default: dds_phase_in <= 0;
+        endcase
         
-        
+    always @(negedge aclk)
+    begin
+        phase <= phase_next;
     end
-                        
-       
-    //concurrent assignments to take care of sign in Ax+b mode
-    assign cmpmul = ~mul + 1'b1;   
-    assign result = (sign==0) ? {1'b0,mul}:{1'b1, cmpmul};
     
     always @(*) 
     begin
@@ -249,30 +250,22 @@ module feedback_combined #
         trig_out <= trigger;
         
         // Mux outpout on/off using trigger signal
-        if (output_en)
+        if (trigger || CONTINUOUS_OUTPUT)
         begin
-        
-        // Mux output depending on feedback state
-        case (state)  
-            // Ax + b (duplicated for lin and fancy modes, until fancy is implemented)
-            lin : M_AXIS_tdata <= {{(PADDING_WIDTH - 1){result[RESULT_WIDTH - 1]}}, result[MULT_CONST_WIDTH + DAC_DATA_WIDTH - 1:MULT_CONST_WIDTH]} + ADD_in;       
-            fancy: M_AXIS_tdata <= {{(PADDING_WIDTH - 1){result[RESULT_WIDTH - 1]}}, result[MULT_CONST_WIDTH + DAC_DATA_WIDTH - 1:MULT_CONST_WIDTH]} + ADD_in;       
-            
-            // Connect to DDS compiler0
-            fixed : M_AXIS_tdata <= {{(PADDING_WIDTH){dds_out[DDS_OUT_WIDTH - 1]}}, dds_out[DDS_OUT_WIDTH - 1:PADDING_WIDTH]};       
-            sweep : M_AXIS_tdata <= {{(PADDING_WIDTH){dds_out[DDS_OUT_WIDTH - 1]}}, dds_out[DDS_OUT_WIDTH - 1:PADDING_WIDTH]};           
-        endcase
-        end
-        
-        else
-            // output 0 if disconnected
-            M_AXIS_tdata <= 16'b0;
-            
+            // Mux output depending on feedback state (output should be betwen 16'd8191 = 1V and -16'd8191 = -1V)
+//            case (state)  
+//                fixed : M_AXIS_tdata <= result_A[AXIS_TDATA_WIDTH-1+15:15]; 
+//                sweep : M_AXIS_tdata <= result_A[AXIS_TDATA_WIDTH-1+15:15]; //Take result devided by 32768 (2^15) for 14bit output  
+//                lin :   M_AXIS_tdata <= result_A[AXIS_TDATA_WIDTH-1+15:15]; //Take result devided by 32768 (2^15) for 14bit output
+//                parametric:  M_AXIS_tdata <= result_A[AXIS_TDATA_WIDTH-1+15:15]; 
+//                default: M_AXIS_tdata <= 16'b0;
+//            endcase
+            //M_AXIS_tdata <= result_A[32] ? (result_A[13+15] ? result_A[AXIS_TDATA_WIDTH-1+15:15] : -16'd8191) : (result_A[13+15] ? 16'd8191 : result_A[AXIS_TDATA_WIDTH-1+15:15]); //Take result devided by 32768 (2^15) for 14bit output
+            M_AXIS_tdata <= result_A[32] ? (result_A[31:28]==4'b1111 ? result_A[AXIS_TDATA_WIDTH-1+15:15] : -16'd8191) : (result_A[31:28]==4'b0000 ? result_A[AXIS_TDATA_WIDTH-1+15:15] : 16'd8191); //Take result devided by 32768 (2^15) for 14bit output
+         end    
     end                    
     
-    
-    // Add mux here for trigger on/off maybe?
-    assign M_AXIS_tvalid = S_AXIS_ADC_tvalid & S_AXIS_CFG_tvalid;
-  
+    //Valid output if input is valid
+    assign M_AXIS_tvalid = S_AXIS_ADC1_tvalid & S_AXIS_ADC1_tvalid & S_AXIS_CFG_tvalid;// & dds_M_AXIS_tvalid;
     
 endmodule

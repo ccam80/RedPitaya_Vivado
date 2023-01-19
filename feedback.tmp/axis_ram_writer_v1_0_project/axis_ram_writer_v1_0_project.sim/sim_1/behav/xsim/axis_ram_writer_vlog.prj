@@ -1,9 +1,0 @@
-# compile verilog/system verilog design source files
-verilog   \
-"../../../../../../../Pavel_Demin/tmp/cores/axis_ram_writer_v1_0/src/axis_ram_writer.v" \
-
-# compile glbl module
-verilog xil_defaultlib "glbl.v"
-
-# Do not sort compile order
-nosort

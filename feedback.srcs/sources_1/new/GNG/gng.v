@@ -45,39 +45,43 @@ module gng #(
     // System signals
     input clk,                    // system clock
     input rstn,                   // system synchronous reset, active low
-
-    // Data interface
-    input ce,                     // clock enable
-    output valid_out,             // output data valid
-    output [15:0] data_out        // output data, s<16,11>
+    
+    (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *)
+    output reg [15:0]                           M_AXIS_tdata,
+    output wire                                 M_AXIS_tvalid
 );
 
-// Local variables
-wire valid_out_ctg;
-wire [63:0] data_out_ctg;
-
-
-// Instances
-gng_ctg #(
-    .INIT_Z1(INIT_Z1),
-    .INIT_Z2(INIT_Z2),
-    .INIT_Z3(INIT_Z3)
-) u_gng_ctg (
-    .clk(clk),
-    .rstn(rstn),
-    .ce(ce),
-    .valid_out(valid_out_ctg),
-    .data_out(data_out_ctg)
-);
-
-gng_interp u_gng_interp (
-    .clk(clk),
-    .rstn(rstn),
-    .valid_in(valid_out_ctg),
-    .data_in(data_out_ctg),
-    .valid_out(valid_out),
-    .data_out(data_out)
-);
-
-
+    // Local variables
+    wire valid_out_ctg;
+    wire ce;
+    wire [63:0] data_out_ctg;
+    wire [15:0] data_out;
+    assign ce = 1;
+    
+    always@(posedge clk)
+    M_AXIS_tdata <= data_out;
+    
+    // Instances
+    gng_ctg #(
+        .INIT_Z1(INIT_Z1),
+        .INIT_Z2(INIT_Z2),
+        .INIT_Z3(INIT_Z3)
+    ) u_gng_ctg (
+        .clk(clk),
+        .rstn(rstn),
+        .ce(ce),
+        .valid_out(valid_out_ctg),
+        .data_out(data_out_ctg)
+    );
+    
+    gng_interp u_gng_interp (
+        .clk(clk),
+        .rstn(rstn),
+        .valid_in(valid_out_ctg),
+        .data_in(data_out_ctg),
+        .valid_out(M_AXIS_tvalid),
+        .data_out(data_out)
+    );
+    
+    
 endmodule

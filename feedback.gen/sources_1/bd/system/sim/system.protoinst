@@ -956,107 +956,6 @@
 						"TVALID": { "actual": "s_axis_tvalid"}
 					}
 				},
-				"/Premultiplier/M01_AXIS": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "aclk"},
-						"ARESETN": { "actual": "aresetn"},
-						"TDATA": { "actual": "M01_AXIS_tdata[511:256]"},
-						"TVALID": { "actual": "M01_AXIS_tvalid"}
-					}
-				},
-				"/Premultiplier/S_AXIS": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "aclk"},
-						"ARESETN": { "actual": "aresetn"},
-						"TDATA": { "actual": "S_AXIS_tdata"},
-						"TVALID": { "actual": "S_AXIS_tvalid"}
-					}
-				},
-				"/Premultiplier/S_AXIS_ADC1": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "aclk"},
-						"TDATA": { "actual": "S_AXIS_ADC1_tdata"},
-						"TVALID": { "actual": "S_AXIS_ADC1_tvalid"}
-					}
-				},
-				"/Premultiplier/S_AXIS_ADC2": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "aclk"},
-						"TDATA": { "actual": "S_AXIS_ADC2_tdata"},
-						"TVALID": { "actual": "S_AXIS_ADC2_tvalid"}
-					}
-				},
-				"/Premultiplier/S_AXIS_DDS": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "aclk"},
-						"TDATA": { "actual": "S_AXIS_DDS_tdata"},
-						"TVALID": { "actual": "S_AXIS_DDS_tvalid"}
-					}
-				},
-				"/Premultiplier/axis_broadcaster_0/M00_AXIS": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "aclk"},
-						"ARESETN": { "actual": "aresetn"},
-						"TDATA": { "actual": "m_axis_tdata[255:0]"},
-						"TVALID": { "actual": "m_axis_tvalid[0:0]"}
-					}
-				},
-				"/Premultiplier/axis_broadcaster_0/M01_AXIS": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "aclk"},
-						"ARESETN": { "actual": "aresetn"},
-						"TDATA": { "actual": "m_axis_tdata[511:256]"},
-						"TVALID": { "actual": "m_axis_tvalid[1:1]"}
-					}
-				},
-				"/Premultiplier/axis_broadcaster_0/S_AXIS": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "aclk"},
-						"ARESETN": { "actual": "aresetn"},
-						"TDATA": { "actual": "s_axis_tdata"},
-						"TVALID": { "actual": "s_axis_tvalid"}
-					}
-				},
-				"/Premultiplier/multiplier_breakout_0/S_AXIS_ADC1": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "aclk"},
-						"TDATA": { "actual": "S_AXIS_ADC1_tdata"},
-						"TVALID": { "actual": "S_AXIS_ADC1_tvalid"}
-					}
-				},
-				"/Premultiplier/multiplier_breakout_0/S_AXIS_ADC2": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "aclk"},
-						"TDATA": { "actual": "S_AXIS_ADC2_tdata"},
-						"TVALID": { "actual": "S_AXIS_ADC2_tvalid"}
-					}
-				},
-				"/Premultiplier/multiplier_breakout_0/S_AXIS_CFG": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "aclk"},
-						"TDATA": { "actual": "S_AXIS_CFG_tdata"},
-						"TVALID": { "actual": "S_AXIS_CFG_tvalid"}
-					}
-				},
-				"/Premultiplier/multiplier_breakout_0/S_AXIS_DDS": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "aclk"},
-						"TDATA": { "actual": "S_AXIS_DDS_tdata"},
-						"TVALID": { "actual": "S_AXIS_DDS_tvalid"}
-					}
-				},
 				"/Reg_Brakeout/M_AXIS": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
@@ -1202,6 +1101,132 @@
 						"ACLK": { "actual": "aclk"},
 						"TDATA": { "actual": "S_AXIS_CFG_tdata"},
 						"TVALID": { "actual": "S_AXIS_CFG_tvalid"}
+					}
+				},
+				"/gng_0/M_AXIS": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "clk"},
+						"ARESETN": { "actual": "rstn"},
+						"TDATA": { "actual": "M_AXIS_tdata"},
+						"TVALID": { "actual": "M_AXIS_tvalid"}
+					}
+				},
+				"/premultiplier/M01_AXIS": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "CLK"},
+						"ARESETN": { "actual": "aresetn"},
+						"TDATA": { "actual": "M01_AXIS_tdata[511:256]"},
+						"TVALID": { "actual": "M01_AXIS_tvalid"}
+					}
+				},
+				"/premultiplier/S_AXIS": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "CLK"},
+						"ARESETN": { "actual": "aresetn"},
+						"TDATA": { "actual": "S_AXIS_tdata"},
+						"TVALID": { "actual": "S_AXIS_tvalid"}
+					}
+				},
+				"/premultiplier/S_AXIS_ADC1": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "CLK"},
+						"TDATA": { "actual": "S_AXIS_ADC1_tdata"},
+						"TVALID": { "actual": "S_AXIS_ADC1_tvalid"}
+					}
+				},
+				"/premultiplier/S_AXIS_ADC2": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "CLK"},
+						"TDATA": { "actual": "S_AXIS_ADC2_tdata"},
+						"TVALID": { "actual": "S_AXIS_ADC2_tvalid"}
+					}
+				},
+				"/premultiplier/S_AXIS_DDS": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "CLK"},
+						"TDATA": { "actual": "S_AXIS_DDS_tdata"},
+						"TVALID": { "actual": "S_AXIS_DDS_tvalid"}
+					}
+				},
+				"/premultiplier/S_AXIS_RNG": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "CLK"},
+						"TDATA": { "actual": "S_AXIS_RNG_tdata"},
+						"TVALID": { "actual": "S_AXIS_RNG_tvalid"}
+					}
+				},
+				"/premultiplier/axis_broadcaster_0/M00_AXIS": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"ARESETN": { "actual": "aresetn"},
+						"TDATA": { "actual": "m_axis_tdata[255:0]"},
+						"TVALID": { "actual": "m_axis_tvalid[0:0]"}
+					}
+				},
+				"/premultiplier/axis_broadcaster_0/M01_AXIS": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"ARESETN": { "actual": "aresetn"},
+						"TDATA": { "actual": "m_axis_tdata[511:256]"},
+						"TVALID": { "actual": "m_axis_tvalid[1:1]"}
+					}
+				},
+				"/premultiplier/axis_broadcaster_0/S_AXIS": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"ARESETN": { "actual": "aresetn"},
+						"TDATA": { "actual": "s_axis_tdata"},
+						"TVALID": { "actual": "s_axis_tvalid"}
+					}
+				},
+				"/premultiplier/multiplier_breakout_0/S_AXIS_ADC1": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"TDATA": { "actual": "S_AXIS_ADC1_tdata"},
+						"TVALID": { "actual": "S_AXIS_ADC1_tvalid"}
+					}
+				},
+				"/premultiplier/multiplier_breakout_0/S_AXIS_ADC2": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"TDATA": { "actual": "S_AXIS_ADC2_tdata"},
+						"TVALID": { "actual": "S_AXIS_ADC2_tvalid"}
+					}
+				},
+				"/premultiplier/multiplier_breakout_0/S_AXIS_CFG": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"TDATA": { "actual": "S_AXIS_CFG_tdata"},
+						"TVALID": { "actual": "S_AXIS_CFG_tvalid"}
+					}
+				},
+				"/premultiplier/multiplier_breakout_0/S_AXIS_DDS": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"TDATA": { "actual": "S_AXIS_DDS_tdata"},
+						"TVALID": { "actual": "S_AXIS_DDS_tvalid"}
+					}
+				},
+				"/premultiplier/multiplier_breakout_0/S_AXIS_RNG": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"TDATA": { "actual": "S_AXIS_RNG_tdata"},
+						"TVALID": { "actual": "S_AXIS_RNG_tvalid"}
 					}
 				}
 			}

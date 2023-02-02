@@ -35,13 +35,13 @@ parameter PARAM_H_OFFSET = 224,
 
 parameter ADC_WIDTH = 16,
 parameter DDS_WIDTH = 16,
+parameter RNG_WIDTH = 16,
 parameter OPERAND_WIDTH = 32,    
-parameter NARROWMULT_WIDTH = 32,
 parameter SEL_WIDTH=3
     )
 (
     input wire aclk,
-    input [SEL_WIDTH-1:0] select,
+    input [SEL_WIDTH-1:0] sel,
     //Narrow inputs
     (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *)
     input [ADC_WIDTH-1:0]                       S_AXIS_ADC1_tdata,
@@ -55,14 +55,17 @@ parameter SEL_WIDTH=3
     input [DDS_WIDTH-1:0]                       S_AXIS_DDS_tdata,
     input                                       S_AXIS_DDS_tvalid,
     
-   
+    (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *)
+    input [RNG_WIDTH-1:0]                       S_AXIS_RNG_tdata,
+    input                                       S_AXIS_RNG_tvalid,
+    
     //Parameter bus input
     (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *)
     input [CFG_WIDTH-1:0]                       S_AXIS_CFG_tdata,
     input                                       S_AXIS_CFG_tvalid,
     
 
-    //Wide multiplication ouputs
+    //Outputs for multipliers
     output reg [OPERAND_WIDTH-1:0]              OP1,    
     output reg [OPERAND_WIDTH-1:0]              OP2,    
     output reg [OPERAND_WIDTH-1:0]              OP3,  
@@ -79,50 +82,39 @@ parameter SEL_WIDTH=3
     reg signed [ADC_WIDTH * 3 - 1:0] Operand_6_out;   
     reg [SEL_WIDTH-1:0] state;  
 
-    localparam fixed = 0, sweep = 1, lin = 2, parametric = 3; 
+    localparam fixed = 0, sweep = 1, lin = 2, parametric = 3, random = 4, parameter_sweep = 5, A_x_plus_B = 6; 
     
     reg signed [ADC_WIDTH-1:0] ADC1, ADC2;
     reg signed [DDS_WIDTH-1:0] DDS;
-    reg signed [OPERAND_WIDTH-1:0] ADC1_squared, ADC1_ADC2, ADC1_DDS,
-                                  ADC1_squared_result, ADC1_ADC2_result, ADC1_DDS_result;    
+    reg signed [RNG_WIDTH-1:0] RNG;
+    reg signed [OPERAND_WIDTH-1:0] ADC1_squared_result, ADC1_ADC2_result, ADC1_DDS_result;    
     
     
     //**************************NARROW (Inferred) Multiplier ***************************** //                               
-    // Pipeline stage one
+    // Store variable inputs in first stage of pipeline
     always @(posedge aclk)
     begin
         ADC1 <= S_AXIS_ADC1_tdata;
         ADC2 <= S_AXIS_ADC2_tdata;
         DDS <= S_AXIS_DDS_tdata;
+        RNG <= S_AXIS_RNG_tdata;
     end
     
+    // Carry out narrow 16x16 multiplications using inferred multipliers
     always @(posedge aclk)
     begin
-//        ADC1_squared <= ADC1 * ADC1;
-//        ADC1_ADC2 <= ADC1 * ADC2;
-//        ADC1_DDS <= ADC1 * DDS;
-        //Use these to cut out final pipeline stage
         ADC1_squared_result <= ADC1 * ADC1;
         ADC1_ADC2_result <= ADC1 * ADC2;
         ADC1_DDS_result <= ADC1 * DDS;
-    end
-    
-    //Output pipeline stage (remove if timing is fine!)
-//    always @(posedge aclk)
-//    begin
-//        ADC1_squared_result <= ADC1_squared;
-//        ADC1_ADC2_result <= ADC1_ADC2;
-//        ADC1_DDS_result <= ADC1_DDS;
-//    end
+    end  
     
     
+    // ####################  Multiplier outputs  ################ //
     
-    // ####################  MUx for multiplier outputs  ################ //
-    
-    //input pipeline stage
+    //input pipeline stage for config parameters
     always @(posedge aclk)
     begin
-        state <= select;
+        state <= sel;
         
         //Configuration Parameters
         Param_A_in <= S_AXIS_CFG_tdata[PARAM_A_OFFSET + PARAM_WIDTH - 1: PARAM_A_OFFSET]; 
@@ -136,6 +128,9 @@ parameter SEL_WIDTH=3
     
     end
     
+    //Assign multipliers to operand outputs 
+    //Applied equation: V_out = (OP1 * OP2)[63:8] + (OP3 * OP4)[63:8] + (OP5 * OP6)[63:21] + (OP7*LONG_F)[63:0] + OFFSET
+    //Operand table given in readme.md
     always@(posedge aclk)
     begin
         case(state)
@@ -164,14 +159,15 @@ parameter SEL_WIDTH=3
                 Offset_out <= Param_D_in;
                 LONG_7F <= 64'b0;
             end
+            
             lin: 
             begin
                 Operand_1_out <= ADC1_DDS_result;
                 Operand_2_out <= Param_C_in;
                 Operand_3_out <= Param_D_in;
-                Operand_4_out <= ADC1_squared;
+                Operand_4_out <= ADC1_squared_result;
                 Operand_5_out <= Param_E_in;
-                Operand_6_out <= ADC1_squared * ADC1;
+                Operand_6_out <= ADC1_squared_result * ADC1;
                 Operand_7_out <= Param_A_in;
                 Offset_out <= 32'b0;
                 LONG_7F <= 64'h7FFF;
@@ -182,15 +178,28 @@ parameter SEL_WIDTH=3
                 Operand_1_out <= ADC1_DDS_result;
                 Operand_2_out <= Param_C_in;
                 Operand_3_out <= Param_D_in;
-                Operand_4_out <= ADC1_squared;
+                Operand_4_out <= ADC1_squared_result;
                 Operand_5_out <= Param_E_in;
-                Operand_6_out <= ADC1_squared * ADC1;
+                Operand_6_out <= ADC1_squared_result * ADC1;
                 Operand_7_out <= Param_A_in;
                 Offset_out <= 32'b0;
                 LONG_7F <= 64'h7FFF;
             end
             
-            default: 
+            random: 
+            begin
+                Operand_1_out <= { {8{RNG[15]}}, RNG, 8'b0}; // shift left 8'b to compensate for output slicing 
+                Operand_2_out <= Param_C_in;
+                Operand_3_out <= 32'b0;
+                Operand_4_out <= 32'b0;
+                Operand_5_out <= 32'b0;
+                Operand_6_out <= 48'b0;
+                Operand_7_out <= 32'b0;
+                Offset_out <= Param_D_in;
+                LONG_7F <= 64'b0;
+            end
+            
+            default: //Zero out for any un-implemented states
             begin
                 Operand_1_out <= 32'b0;
                 Operand_2_out <= 32'b0;
@@ -204,6 +213,7 @@ parameter SEL_WIDTH=3
         endcase
     end
     
+    //Output pipeline stage
     always@(*)
         begin
         OP1 <= Operand_1_out;    

@@ -52,18 +52,20 @@
 
 (* X_CORE_INFO = "multiplier_breakout,Vivado 2020.2" *)
 (* CHECK_LICENSE_TYPE = "system_multiplier_breakout_0_0,multiplier_breakout,{}" *)
-(* CORE_GENERATION_INFO = "system_multiplier_breakout_0_0,multiplier_breakout,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=multiplier_breakout,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,CFG_WIDTH=256,PARAM_WIDTH=32,PARAM_A_OFFSET=0,PARAM_B_OFFSET=32,PARAM_C_OFFSET=64,PARAM_D_OFFSET=96,PARAM_E_OFFSET=128,PARAM_F_OFFSET=160,PARAM_G_OFFSET=192,PARAM_H_OFFSET=224,ADC_WIDTH=16,DDS_WIDTH=16,OPERAND_WIDTH=32,NARROWMULT_WIDTH=32,SEL_WIDTH=3}" *)
+(* CORE_GENERATION_INFO = "system_multiplier_breakout_0_0,multiplier_breakout,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=multiplier_breakout,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,CFG_WIDTH=256,PARAM_WIDTH=32,PARAM_A_OFFSET=0,PARAM_B_OFFSET=32,PARAM_C_OFFSET=64,PARAM_D_OFFSET=96,PARAM_E_OFFSET=128,PARAM_F_OFFSET=160,PARAM_G_OFFSET=192,PARAM_H_OFFSET=224,ADC_WIDTH=16,DDS_WIDTH=16,RNG_WIDTH=16,OPERAND_WIDTH=32,SEL_WIDTH=3}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_multiplier_breakout_0_0 (
   aclk,
-  select,
+  sel,
   S_AXIS_ADC1_tdata,
   S_AXIS_ADC1_tvalid,
   S_AXIS_ADC2_tdata,
   S_AXIS_ADC2_tvalid,
   S_AXIS_DDS_tdata,
   S_AXIS_DDS_tvalid,
+  S_AXIS_RNG_tdata,
+  S_AXIS_RNG_tvalid,
   S_AXIS_CFG_tdata,
   S_AXIS_CFG_tvalid,
   OP1,
@@ -77,10 +79,10 @@ module system_multiplier_breakout_0_0 (
   OFFSET
 );
 
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF S_AXIS_ADC1:S_AXIS_ADC2:S_AXIS_CFG:S_AXIS_DDS, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF S_AXIS_ADC1:S_AXIS_ADC2:S_AXIS_CFG:S_AXIS_DDS:S_AXIS_RNG, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *)
 input wire aclk;
-input wire [2 : 0] select;
+input wire [2 : 0] sel;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_ADC1 TDATA" *)
 input wire [15 : 0] S_AXIS_ADC1_tdata;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXIS_ADC1, FREQ_HZ 125000000, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *)
@@ -96,6 +98,11 @@ input wire [15 : 0] S_AXIS_DDS_tdata;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXIS_DDS, FREQ_HZ 125000000, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_DDS TVALID" *)
 input wire S_AXIS_DDS_tvalid;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_RNG TDATA" *)
+input wire [15 : 0] S_AXIS_RNG_tdata;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXIS_RNG, FREQ_HZ 125000000, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_RNG TVALID" *)
+input wire S_AXIS_RNG_tvalid;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_CFG TDATA" *)
 input wire [255 : 0] S_AXIS_CFG_tdata;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXIS_CFG, FREQ_HZ 125000000, TDATA_NUM_BYTES 32, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *)
@@ -124,18 +131,20 @@ output wire [31 : 0] OFFSET;
     .PARAM_H_OFFSET(224),
     .ADC_WIDTH(16),
     .DDS_WIDTH(16),
+    .RNG_WIDTH(16),
     .OPERAND_WIDTH(32),
-    .NARROWMULT_WIDTH(32),
     .SEL_WIDTH(3)
   ) inst (
     .aclk(aclk),
-    .select(select),
+    .sel(sel),
     .S_AXIS_ADC1_tdata(S_AXIS_ADC1_tdata),
     .S_AXIS_ADC1_tvalid(S_AXIS_ADC1_tvalid),
     .S_AXIS_ADC2_tdata(S_AXIS_ADC2_tdata),
     .S_AXIS_ADC2_tvalid(S_AXIS_ADC2_tvalid),
     .S_AXIS_DDS_tdata(S_AXIS_DDS_tdata),
     .S_AXIS_DDS_tvalid(S_AXIS_DDS_tvalid),
+    .S_AXIS_RNG_tdata(S_AXIS_RNG_tdata),
+    .S_AXIS_RNG_tvalid(S_AXIS_RNG_tvalid),
     .S_AXIS_CFG_tdata(S_AXIS_CFG_tdata),
     .S_AXIS_CFG_tvalid(S_AXIS_CFG_tvalid),
     .OP1(OP1),

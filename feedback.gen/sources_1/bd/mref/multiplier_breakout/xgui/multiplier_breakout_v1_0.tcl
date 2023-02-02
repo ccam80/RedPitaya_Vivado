@@ -6,7 +6,6 @@ proc init_gui { IPINST } {
   ipgui::add_param $IPINST -name "ADC_WIDTH" -parent ${Page_0}
   ipgui::add_param $IPINST -name "CFG_WIDTH" -parent ${Page_0}
   ipgui::add_param $IPINST -name "DDS_WIDTH" -parent ${Page_0}
-  ipgui::add_param $IPINST -name "NARROWMULT_WIDTH" -parent ${Page_0}
   ipgui::add_param $IPINST -name "OPERAND_WIDTH" -parent ${Page_0}
   ipgui::add_param $IPINST -name "PARAM_A_OFFSET" -parent ${Page_0}
   ipgui::add_param $IPINST -name "PARAM_B_OFFSET" -parent ${Page_0}
@@ -17,6 +16,7 @@ proc init_gui { IPINST } {
   ipgui::add_param $IPINST -name "PARAM_G_OFFSET" -parent ${Page_0}
   ipgui::add_param $IPINST -name "PARAM_H_OFFSET" -parent ${Page_0}
   ipgui::add_param $IPINST -name "PARAM_WIDTH" -parent ${Page_0}
+  ipgui::add_param $IPINST -name "RNG_WIDTH" -parent ${Page_0}
   ipgui::add_param $IPINST -name "SEL_WIDTH" -parent ${Page_0}
 
 
@@ -46,15 +46,6 @@ proc update_PARAM_VALUE.DDS_WIDTH { PARAM_VALUE.DDS_WIDTH } {
 
 proc validate_PARAM_VALUE.DDS_WIDTH { PARAM_VALUE.DDS_WIDTH } {
 	# Procedure called to validate DDS_WIDTH
-	return true
-}
-
-proc update_PARAM_VALUE.NARROWMULT_WIDTH { PARAM_VALUE.NARROWMULT_WIDTH } {
-	# Procedure called to update NARROWMULT_WIDTH when any of the dependent parameters in the arguments change
-}
-
-proc validate_PARAM_VALUE.NARROWMULT_WIDTH { PARAM_VALUE.NARROWMULT_WIDTH } {
-	# Procedure called to validate NARROWMULT_WIDTH
 	return true
 }
 
@@ -148,6 +139,15 @@ proc validate_PARAM_VALUE.PARAM_WIDTH { PARAM_VALUE.PARAM_WIDTH } {
 	return true
 }
 
+proc update_PARAM_VALUE.RNG_WIDTH { PARAM_VALUE.RNG_WIDTH } {
+	# Procedure called to update RNG_WIDTH when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.RNG_WIDTH { PARAM_VALUE.RNG_WIDTH } {
+	# Procedure called to validate RNG_WIDTH
+	return true
+}
+
 proc update_PARAM_VALUE.SEL_WIDTH { PARAM_VALUE.SEL_WIDTH } {
 	# Procedure called to update SEL_WIDTH when any of the dependent parameters in the arguments change
 }
@@ -218,14 +218,14 @@ proc update_MODELPARAM_VALUE.DDS_WIDTH { MODELPARAM_VALUE.DDS_WIDTH PARAM_VALUE.
 	set_property value [get_property value ${PARAM_VALUE.DDS_WIDTH}] ${MODELPARAM_VALUE.DDS_WIDTH}
 }
 
+proc update_MODELPARAM_VALUE.RNG_WIDTH { MODELPARAM_VALUE.RNG_WIDTH PARAM_VALUE.RNG_WIDTH } {
+	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
+	set_property value [get_property value ${PARAM_VALUE.RNG_WIDTH}] ${MODELPARAM_VALUE.RNG_WIDTH}
+}
+
 proc update_MODELPARAM_VALUE.OPERAND_WIDTH { MODELPARAM_VALUE.OPERAND_WIDTH PARAM_VALUE.OPERAND_WIDTH } {
 	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
 	set_property value [get_property value ${PARAM_VALUE.OPERAND_WIDTH}] ${MODELPARAM_VALUE.OPERAND_WIDTH}
-}
-
-proc update_MODELPARAM_VALUE.NARROWMULT_WIDTH { MODELPARAM_VALUE.NARROWMULT_WIDTH PARAM_VALUE.NARROWMULT_WIDTH } {
-	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
-	set_property value [get_property value ${PARAM_VALUE.NARROWMULT_WIDTH}] ${MODELPARAM_VALUE.NARROWMULT_WIDTH}
 }
 
 proc update_MODELPARAM_VALUE.SEL_WIDTH { MODELPARAM_VALUE.SEL_WIDTH PARAM_VALUE.SEL_WIDTH } {

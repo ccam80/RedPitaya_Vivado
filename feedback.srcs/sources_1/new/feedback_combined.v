@@ -26,6 +26,8 @@ module feedback_combined #
     parameter ADC_DATA_WIDTH = 16,
     parameter DDS_OUT_WIDTH = 16,
     parameter PARAM_WIDTH = 32,
+    
+    //CFG parameters included for future(sweep) implementations, although some are currently unused
     parameter PARAM_A_OFFSET = 0,
     parameter PARAM_B_OFFSET = 32,
     parameter PARAM_C_OFFSET = 64,
@@ -34,6 +36,7 @@ module feedback_combined #
     parameter PARAM_F_OFFSET = 160,
     parameter PARAM_G_OFFSET = 192,
     parameter PARAM_H_OFFSET = 224,
+    
     parameter PRODUCT_1_WIDTH = 56,
     parameter PRODUCT_2_WIDTH = 43,
     parameter PRODUCT_3_WIDTH = 56,
@@ -42,7 +45,7 @@ module feedback_combined #
     parameter integer DAC_DATA_WIDTH = 14,
     parameter CFG_WIDTH = 256,
     parameter AXIS_TDATA_WIDTH = 16,
-    parameter SELECT_WIDTH = 2,
+    parameter SELECT_WIDTH = 3,
     parameter CONTINUOUS_OUTPUT = 1
 )
 (
@@ -87,14 +90,20 @@ module feedback_combined #
 ////////////////////
 
     // input registers
+    
     reg signed [PARAM_WIDTH-1:0] Param_A_in, Param_B_in, Param_C_in, Param_D_in, Param_E_in, Param_F_in, Param_G_in, Param_H_in;
     reg signed [ADC_DATA_WIDTH-1:0] ADC1, ADC2;
+    reg [PRODUCT_1_WIDTH-1:0] PRODUCT_1_in;
+    reg [PRODUCT_2_WIDTH-1:0] PRODUCT_2_in;
+    reg [PRODUCT_3_WIDTH-1:0] PRODUCT_3_in;
+    reg [PRODUCT_4_WIDTH-1:0] PRODUCT_4_in;
+    reg [PARAM_WIDTH-1:0] OFFSET_in;
        
     // state machine variables
     reg trigger;                       // 0 - trig output off, 1 - trig output on   
     reg [1:0] state;  
        
-    parameter fixed = 0, sweep = 1, lin = 2, parametric = 3;    
+    localparam fixed = 0, sweep = 1, lin = 2, parametric = 3, random = 4, parameter_sweep = 5, A_x_plus_B = 6; 
     
     //Signals for counter
     reg counter_en = 1'b1;
@@ -114,11 +123,7 @@ module feedback_combined #
     result_E, result_E_last, result_E_total, result_E_total_last;
     reg signed [31:0] phase_next, phase = 32'b0;
     
-    reg [PRODUCT_1_WIDTH-1:0] PRODUCT_1_in;
-    reg [PRODUCT_2_WIDTH-1:0] PRODUCT_2_in;
-    reg [PRODUCT_3_WIDTH-1:0] PRODUCT_3_in;
-    reg [PRODUCT_4_WIDTH-1:0] PRODUCT_4_in;
-    reg [PARAM_WIDTH-1:0] OFFSET_in;
+    
     
     
 ////////////////////////////////////
@@ -154,6 +159,7 @@ module feedback_combined #
         ADC2 <= S_AXIS_ADC2_tdata;
         state <= sel;
         trigger <= trig_in;
+        
         //Configuration Parameters
         Param_A_in <= S_AXIS_CFG_tdata[PARAM_A_OFFSET + PARAM_WIDTH - 1: PARAM_A_OFFSET]; 
         Param_B_in <= S_AXIS_CFG_tdata[PARAM_B_OFFSET + PARAM_WIDTH - 1: PARAM_B_OFFSET]; 
@@ -164,12 +170,14 @@ module feedback_combined #
         Param_G_in <= S_AXIS_CFG_tdata[PARAM_G_OFFSET + PARAM_WIDTH - 1: PARAM_G_OFFSET]; 
         Param_H_in <= S_AXIS_CFG_tdata[PARAM_H_OFFSET + PARAM_WIDTH - 1: PARAM_H_OFFSET];
         
+        //Premultiplied inputs
         PRODUCT_1_in <= product_1;
         PRODUCT_2_in <= product_2;
         PRODUCT_3_in <= product_3;
         PRODUCT_4_in <= product_4;
         OFFSET_in <= offset;
-
+    
+        //sweep incrementer
         if (sel == 1)
             counter_interval <=  Param_B_in[31:31] ? (~Param_B_in+1'b1) : Param_B_in; //use absolut value of Param_B_in
         else
@@ -181,57 +189,33 @@ module feedback_combined #
 ////////////
     
      
-    //Calculate output eqation parts
+
+    //Sum multiplier outputs
     always @(posedge aclk) 
-    begin
-        case (state)  
-//            fixed : begin
-//                    result_A <= Param_C_in + result_B_last;
-//                    result_B <= (dds_out * Param_B_in);
-//                    end
-//            sweep : result_A <= dds_out * Param_C_in;
-//            lin : begin
-//                //summand C to E generates an amplitude of approx. 1 V at maximum sensor voltage (2^13) and parameter value 1000
-//                result_A <= result_B_last + result_C_last[63:8] + result_D_last[63:8] + result_E_last[63:21]; 
-//                result_B <= Param_A_in * 64'h7FFF; // 1V @ Param_A_in 8192
-//                result_C <= Param_C_in * ADC1 * ADC2; 
-//                result_D <= Param_D_in * ADC1 * ADC1;
-//                result_E <= Param_E_in * ADC1 * ADC1 * ADC1;         
-//                //A = S*P + F +- x*S^n (n = 2,3)
-//                 end
-//            parametric: begin
-//                //summand C to E generates an amplitude of approx. 1 V at maximum sensor voltage (2^13) and parameter value 1000
-//                result_A <= result_B_last + result_C_last[63:10] + result_D_last[63:8] + result_E_last[63:21]; 
-//                result_B <= Param_A_in * 64'h7FFF; // 1V @ Param_A_in 8192
-//                result_C <= Param_C_in * ADC1 * dds_out; 
-//                result_D <= Param_D_in * ADC1 * ADC1;
-//                result_E <= Param_E_in * ADC1 * ADC1 * ADC1;         
-//                //A = S*P + F +- x*S^n (n = 2,3)
-//                 end
-            default: result_A <= PRODUCT_1_in + PRODUCT_2_in + PRODUCT_3_in + PRODUCT_4_in + OFFSET_in;
-        endcase
-    end 
-    
-    always @(negedge aclk) 
-    begin
-        case (state)
-            fixed:   result_B_last <= result_B;
-            lin : 
-            begin
-                result_B_last <= result_B;
-                result_C_last <= result_C;
-                result_D_last <= result_D;
-                result_E_last <= result_E;
-            end
-            parametric:   
-            begin
-                result_B_last <= result_B;
-                result_C_last <= result_C;
-                result_D_last <= result_D;
-                result_E_last <= result_E;
-            end
-        endcase
-    end 
+        result_A <= PRODUCT_1_in + PRODUCT_2_in + PRODUCT_3_in + PRODUCT_4_in + OFFSET_in;
+
+// Results pipeline commented out due to math happening in premultiplier
+
+//    always @(negedge aclk) 
+//    begin
+//        case (state)
+//            fixed:   result_B_last <= result_B;
+//            lin : 
+//            begin
+//                result_B_last <= result_B;
+//                result_C_last <= result_C;
+//                result_D_last <= result_D;
+//                result_E_last <= result_E;
+//            end
+//            parametric:   
+//            begin
+//                result_B_last <= result_B;
+//                result_C_last <= result_C;
+//                result_D_last <= result_D;
+//                result_E_last <= result_E;
+//            end
+//        endcase
+//    end 
     
 //////////////////////////
 ////Mux DDS, counter and output////
@@ -278,15 +262,6 @@ module feedback_combined #
         // Mux outpout on/off using trigger signal
         if (trigger || CONTINUOUS_OUTPUT)
         begin
-            // Mux output depending on feedback state (output should be betwen 16'd8191 = 1V and -16'd8191 = -1V)
-//            case (state)  
-//                fixed : M_AXIS_tdata <= result_A[AXIS_TDATA_WIDTH-1+15:15]; 
-//                sweep : M_AXIS_tdata <= result_A[AXIS_TDATA_WIDTH-1+15:15]; //Take result devided by 32768 (2^15) for 14bit output  
-//                lin :   M_AXIS_tdata <= result_A[AXIS_TDATA_WIDTH-1+15:15]; //Take result devided by 32768 (2^15) for 14bit output
-//                parametric:  M_AXIS_tdata <= result_A[AXIS_TDATA_WIDTH-1+15:15]; 
-//                default: M_AXIS_tdata <= 16'b0;
-//            endcase
-            //M_AXIS_tdata <= result_A[32] ? (result_A[13+15] ? result_A[AXIS_TDATA_WIDTH-1+15:15] : -16'd8191) : (result_A[13+15] ? 16'd8191 : result_A[AXIS_TDATA_WIDTH-1+15:15]); //Take result devided by 32768 (2^15) for 14bit output
             M_AXIS_tdata <= result_A[32] ? (result_A[31:28]==4'b1111 ? result_A[AXIS_TDATA_WIDTH-1+15:15] : -16'd8191) : (result_A[31:28]==4'b0000 ? result_A[AXIS_TDATA_WIDTH-1+15:15] : 16'd8191); //Take result devided by 32768 (2^15) for 14bit output
             M_AXIS_DDS_tdata <= dds_out_last;
          end    

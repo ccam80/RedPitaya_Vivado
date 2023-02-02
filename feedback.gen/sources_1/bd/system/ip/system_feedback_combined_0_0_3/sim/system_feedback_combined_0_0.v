@@ -80,7 +80,7 @@ module system_feedback_combined_0_0 (
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *)
 input wire aclk;
 input wire trig_in;
-input wire [1 : 0] sel;
+input wire [2 : 0] sel;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_CFG TDATA" *)
 input wire [287 : 0] S_AXIS_CFG_tdata;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXIS_CFG, FREQ_HZ 125000000, TDATA_NUM_BYTES 36, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *)
@@ -132,7 +132,7 @@ input wire [31 : 0] offset;
     .DAC_DATA_WIDTH(14),
     .CFG_WIDTH(288),
     .AXIS_TDATA_WIDTH(16),
-    .SELECT_WIDTH(2),
+    .SELECT_WIDTH(3),
     .CONTINUOUS_OUTPUT(1)
   ) inst (
     .aclk(aclk),

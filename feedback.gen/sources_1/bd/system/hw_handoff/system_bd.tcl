@@ -185,6 +185,7 @@ proc create_hier_cell_premultiplier { parentCell nameHier } {
   create_bd_pin -dir O -from 63 -to 0 -type data P3
   create_bd_pin -dir I -type rst aresetn
   create_bd_pin -dir I -from 1 -to 0 sel
+  create_bd_pin -dir I trigger_in
 
   # Create instance: axis_broadcaster_0, and set properties
   set axis_broadcaster_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axis_broadcaster:1.1 axis_broadcaster_0 ]
@@ -288,6 +289,7 @@ proc create_hier_cell_premultiplier { parentCell nameHier } {
   connect_bd_net -net pll_0_clk_out1 [get_bd_pins CLK] [get_bd_pins axis_broadcaster_0/aclk] [get_bd_pins mult_gen_0/CLK] [get_bd_pins mult_gen_1/CLK] [get_bd_pins mult_gen_2/CLK] [get_bd_pins mult_gen_3/CLK] [get_bd_pins multiplier_breakout_0/aclk]
   connect_bd_net -net rst_0_peripheral_aresetn [get_bd_pins aresetn] [get_bd_pins axis_broadcaster_0/aresetn]
   connect_bd_net -net slice_7_dout [get_bd_pins sel] [get_bd_pins multiplier_breakout_0/sel]
+  connect_bd_net -net trigger_in_1 [get_bd_pins trigger_in] [get_bd_pins multiplier_breakout_0/trigger_in]
 
   # Restore current instance
   current_bd_instance $oldCurInst
@@ -1680,7 +1682,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net slice_1_dout [get_bd_pins Memory_IO/aresetn1] [get_bd_pins Reg_Brakeout/dout5]
   connect_bd_net -net slice_3_dout [get_bd_pins Memory_IO/cfg_data1] [get_bd_pins Reg_Brakeout/dout1]
   connect_bd_net -net slice_7_dout [get_bd_pins Reg_Brakeout/dout] [get_bd_pins feedback_combined_0/sel] [get_bd_pins premultiplier/sel]
-  connect_bd_net -net slice_9_dout [get_bd_pins Reg_Brakeout/dout4] [get_bd_pins feedback_combined_0/trig_in]
+  connect_bd_net -net slice_9_dout [get_bd_pins Reg_Brakeout/dout4] [get_bd_pins feedback_combined_0/trig_in] [get_bd_pins premultiplier/trigger_in]
   connect_bd_net -net writer_0_sts_data [get_bd_pins Memory_IO/sts_data1] [get_bd_pins Reg_Brakeout/In2]
 
   # Create address segments

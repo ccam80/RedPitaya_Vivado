@@ -133,7 +133,7 @@ input wire [31 : 0] offset;
     .CFG_WIDTH(288),
     .AXIS_TDATA_WIDTH(16),
     .SELECT_WIDTH(3),
-    .CONTINUOUS_OUTPUT(1)
+    .CONTINUOUS_OUTPUT(0)
   ) inst (
     .aclk(aclk),
     .trig_in(trig_in),

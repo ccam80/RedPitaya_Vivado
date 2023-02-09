@@ -38,12 +38,17 @@ Arguments to feeback equations are collected by the multiplier_breakout module, 
 |--------------|:-----------:|:---:|:------:|:------:|:-------:|:-----:|:------:|:------:|:------:|
 | fixed        |  {DDS << 8} |  B  |    0   |    0   |    0    |   0   |    0   |    0   |    C   |
 | sweep        |  {DDS << 8} |  C  |    0   |    0   |    0    |   0   |    0   |    0   |    D   |
-| lin          | {ADC1\*ADC2} |  C  |    D   | ADC1^2 |    E    | ADC*3 |    A   |  7FFF  |    0   |
-| parametric   |  {ADC1\*DDS} |  C  |    D   | ADC1^2 |    E    | ADC*3 |    A   |  7FFF  |    0   |
+| lin          | {ADC1\*ADC2}|  C  |    D   | ADC1^2 |    E    | ADC\^3|    A   |  7FFF  |    0   |
+| parametric   |  {ADC1\*DDS}|  C  |    D   | ADC1^2 |    E    | ADC\^3|    A   |  7FFF  |    0   |
+| Ax + b       | {ADC1 << 16}|  B+ |    0   |    0   |    0    |   0   |    0   |    0   |    C+  |
 | random       |  {RNG << 8} |  C  |    0   |    0   |    0    |   0   |    0   |    0   |    D   |
+| polynomial   |  ADC1		 |  A  |    B   | ADC1^2 |    C    | ADC\^3|    D   | ADC\^4 |    E   |
+| CBC	       |  0          |  0  |    0   |    0   |    0    |   0   |    0   |    0   |    0   |
 | Result Slice |    [63:8]   |     | [63:8] |        | [63:21] |       | [63:0] |        | [31:0] |
 |              |             |     |        |        |         |       |        |        |        |
 |     Width    |      32     |  32 |   32   |   32   |    32   |   48  |   32   |   64   |   32   |
+
+\+ is included where parameter is sweeping.
 
 V_out is then calculated by: <br>
 

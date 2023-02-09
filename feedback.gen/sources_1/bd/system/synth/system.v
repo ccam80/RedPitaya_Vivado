@@ -1,7 +1,7 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-//Date        : Fri Feb  3 09:51:53 2023
+//Date        : Thu Feb  9 15:26:47 2023
 //Host        : acoustics-VirtualBox running 64-bit Ubuntu 20.04.5 LTS
 //Command     : generate_target system.bd
 //Design      : system
@@ -1377,7 +1377,8 @@ module premultiplier_imp_T0AD9L
     S_AXIS_tdata,
     S_AXIS_tvalid,
     aresetn,
-    sel);
+    sel,
+    trigger_in);
   input CLK;
   output [255:0]M01_AXIS_tdata;
   output M01_AXIS_tvalid;
@@ -1398,6 +1399,7 @@ module premultiplier_imp_T0AD9L
   input S_AXIS_tvalid;
   input aresetn;
   input [1:0]sel;
+  input trigger_in;
 
   wire [255:0]Reg_Brakeout_M_AXIS1_TDATA;
   wire Reg_Brakeout_M_AXIS1_TVALID;
@@ -1429,6 +1431,7 @@ module premultiplier_imp_T0AD9L
   wire pll_0_clk_out1;
   wire rst_0_peripheral_aresetn;
   wire [1:0]slice_7_dout;
+  wire trigger_in_1;
 
   assign M01_AXIS_tdata[255:0] = axis_broadcaster_0_M01_AXIS_TDATA;
   assign M01_AXIS_tvalid = axis_broadcaster_0_M01_AXIS_TVALID;
@@ -1450,6 +1453,7 @@ module premultiplier_imp_T0AD9L
   assign pll_0_clk_out1 = CLK;
   assign rst_0_peripheral_aresetn = aresetn;
   assign slice_7_dout = sel[1:0];
+  assign trigger_in_1 = trigger_in;
   system_axis_broadcaster_0_0 axis_broadcaster_0
        (.aclk(pll_0_clk_out1),
         .aresetn(rst_0_peripheral_aresetn),
@@ -1498,7 +1502,8 @@ module premultiplier_imp_T0AD9L
         .S_AXIS_RNG_tdata(gng_0_M_AXIS_TDATA),
         .S_AXIS_RNG_tvalid(gng_0_M_AXIS_TVALID),
         .aclk(pll_0_clk_out1),
-        .sel({1'b0,slice_7_dout}));
+        .sel({1'b0,slice_7_dout}),
+        .trigger_in(trigger_in_1));
 endmodule
 
 module s00_couplers_imp_15TT0JU
@@ -1806,7 +1811,7 @@ module s00_couplers_imp_15TT0JU
         .s_axi_wvalid(s00_couplers_to_auto_pc_WVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=47,numReposBlks=38,numNonXlnxBlks=0,numHierBlks=9,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=4,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=13,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=10,synth_mode=Global}" *) (* HW_HANDOFF = "system.hwdef" *) 
+(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=47,numReposBlks=38,numNonXlnxBlks=0,numHierBlks=9,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=4,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=13,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=10,synth_mode=Global}" *) (* HW_HANDOFF = "system.hwdef" *) 
 module system
    (DDR_addr,
     DDR_ba,
@@ -2268,7 +2273,8 @@ module system
         .S_AXIS_tdata(Reg_Brakeout_M_AXIS1_TDATA),
         .S_AXIS_tvalid(Reg_Brakeout_M_AXIS1_TVALID),
         .aresetn(rst_0_peripheral_aresetn),
-        .sel(slice_7_dout));
+        .sel(slice_7_dout),
+        .trigger_in(slice_9_dout));
 endmodule
 
 module system_ps_0_axi_periph_0

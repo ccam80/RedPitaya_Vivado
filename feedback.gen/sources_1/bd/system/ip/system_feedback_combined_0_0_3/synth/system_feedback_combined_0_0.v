@@ -53,7 +53,7 @@
 (* X_CORE_INFO = "feedback_combined,Vivado 2020.2" *)
 (* CHECK_LICENSE_TYPE = "system_feedback_combined_0_0,feedback_combined,{}" *)
 (* CORE_GENERATION_INFO = "system_feedback_combined_0_0,feedback_combined,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=feedback_combined,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,ADC_DATA_WIDTH=16,DDS_OUT_WIDTH=16,PARAM_WIDTH=32,PARAM_A_OFFSET=0,PARAM_B_OFFSET=32,PARAM_C_OFFSET=64,PARAM_D_OFFSET=96,PARAM_E_OFFSET=128,PARAM_F_OFFSET=160,PARAM_G_OFFSET=192,PARAM_H_OFFSET=224,PRODUCT_1_WIDTH=56,PRODUCT_2_WIDTH=43,PRODUCT_3_WIDTH=56,PRODUCT_4_WIDTH=64,DAC\
-_DATA_WIDTH=14,CFG_WIDTH=288,AXIS_TDATA_WIDTH=16,SELECT_WIDTH=3,CONTINUOUS_OUTPUT=1}" *)
+_DATA_WIDTH=14,CFG_WIDTH=288,AXIS_TDATA_WIDTH=16,SELECT_WIDTH=3,CONTINUOUS_OUTPUT=0}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_feedback_combined_0_0 (
@@ -135,7 +135,7 @@ input wire [31 : 0] offset;
     .CFG_WIDTH(288),
     .AXIS_TDATA_WIDTH(16),
     .SELECT_WIDTH(3),
-    .CONTINUOUS_OUTPUT(1)
+    .CONTINUOUS_OUTPUT(0)
   ) inst (
     .aclk(aclk),
     .trig_in(trig_in),

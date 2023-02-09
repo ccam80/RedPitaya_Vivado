@@ -41,6 +41,8 @@ parameter SEL_WIDTH=3
     )
 (
     input wire aclk,
+    input wire trigger_in,
+    
     input [SEL_WIDTH-1:0] sel,
     //Narrow inputs
     (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *)
@@ -82,12 +84,48 @@ parameter SEL_WIDTH=3
     reg signed [ADC_WIDTH * 3 - 1:0] Operand_6_out;   
     reg [SEL_WIDTH-1:0] state;  
 
-    localparam fixed = 0, sweep = 1, lin = 2, parametric = 3, random = 4, parameter_sweep = 5, A_x_plus_B = 6; 
     
     reg signed [ADC_WIDTH-1:0] ADC1, ADC2;
     reg signed [DDS_WIDTH-1:0] DDS;
     reg signed [RNG_WIDTH-1:0] RNG;
     reg signed [OPERAND_WIDTH-1:0] ADC1_squared_result, ADC1_ADC2_result, ADC1_DDS_result;    
+    
+    localparam fixed = 0, sweep = 1, lin = 2, parametric = 3,  A_x_plus_B = 4, random = 5, polynomial = 6, CBC=7; 
+   
+    reg signed [OPERAND_WIDTH-1:0] feedback_mult_next, feedback_mult = 32'b0;
+    reg signed [OPERAND_WIDTH-1:0] feedback_add_next, feedback_add = 32'b0;
+    
+    //Signals for mult_counter
+    reg mult_counter_en = 1'b1;
+    reg mult_counter_nreset = 1'b1;
+    reg [OPERAND_WIDTH-1:0] mult_counter_interval = 32'b0;
+    wire mult_counter_thresh;
+    reg trigger;
+    
+    //Signals for add_counter
+    reg add_counter_en = 1'b1;
+    reg add_counter_nreset = 1'b1;
+    reg [OPERAND_WIDTH-1:0] add_counter_interval = 32'b0;
+    wire add_counter_thresh;
+        
+    //Counter for feedback parameter "a" sweep
+    rollover_counter mult_sweep_counter (
+    .aclk(aclk),
+    .en(mult_counter_en),      
+    .nRST(mult_counter_nreset),  
+    .MOD(mult_counter_interval),
+    .THRESH(mult_counter_thresh)        
+    );
+    
+    //Counter for feedback parameter "b" sweep
+    rollover_counter offset_sweep_counter (
+    .aclk(aclk),
+    .en(add_counter_en),      
+    .nRST(add_counter_nreset),  
+    .MOD(add_counter_interval),
+    .THRESH(add_counter_thresh)        
+    );
+    
     
     
     //**************************NARROW (Inferred) Multiplier ***************************** //                               
@@ -98,6 +136,7 @@ parameter SEL_WIDTH=3
         ADC2 <= S_AXIS_ADC2_tdata;
         DDS <= S_AXIS_DDS_tdata;
         RNG <= S_AXIS_RNG_tdata;
+        trigger <= trigger_in;
     end
     
     // Carry out narrow 16x16 multiplications using inferred multipliers
@@ -106,7 +145,7 @@ parameter SEL_WIDTH=3
         ADC1_squared_result <= ADC1 * ADC1;
         ADC1_ADC2_result <= ADC1 * ADC2;
         ADC1_DDS_result <= ADC1 * DDS;
-    end  
+    end      
     
     
     // ####################  Multiplier outputs  ################ //
@@ -189,13 +228,26 @@ parameter SEL_WIDTH=3
             random: 
             begin
                 Operand_1_out <= { {8{RNG[15]}}, RNG, 8'b0}; // shift left 8'b to compensate for output slicing 
-                Operand_2_out <= Param_C_in;
+                Operand_2_out <= 32'd1;
                 Operand_3_out <= 32'b0;
                 Operand_4_out <= 32'b0;
                 Operand_5_out <= 32'b0;
                 Operand_6_out <= 48'b0;
                 Operand_7_out <= 32'b0;
                 Offset_out <= Param_D_in;
+                LONG_7F <= 64'b0;
+            end
+            
+            A_x_plus_B:
+            begin
+                Operand_1_out <= {ADC1, 16'b0}; // shift left 8'b to compensate for output slicing 
+                Operand_2_out <= feedback_mult;
+                Operand_3_out <= 32'b0;
+                Operand_4_out <= 32'b0;
+                Operand_5_out <= 32'b0;
+                Operand_6_out <= 48'b0;
+                Operand_7_out <= 32'b0;
+                Offset_out <= feedback_add;
                 LONG_7F <= 64'b0;
             end
             
@@ -226,5 +278,60 @@ parameter SEL_WIDTH=3
         OFFSET <= Offset_out;
         end  
         
+// ####################  Parameter Sweep logic  ################ //    
        
+       // Program feedback counter intervals
+    always @(negedge(aclk))
+    begin
+        if (state == A_x_plus_B)
+        begin
+            if (Param_D_in != 32'b0)
+                mult_counter_interval <=  Param_D_in[31:31] ? (~Param_D_in+1'b1) : Param_D_in; //use absolut value of Param_B_in
+            else
+                mult_counter_interval <= 32'h7FFFFFFF;
+            if (Param_E_in == 32'b0)
+                add_counter_interval <=  Param_E_in[31:31] ? (~Param_E_in+1'b1) : Param_E_in; //use absolut value of Param_B_in
+            else
+                add_counter_interval <= 32'h7FFFFFFF;
+        end
+        else begin
+            add_counter_interval <= 32'h7FFFFFFF;
+            mult_counter_interval <= 32'h7FFFFFFF;
+        end  
+    end   
+    
+   // Counter incrementing logic
+    always@(posedge aclk)
+    // Multiplier Constant
+    begin
+        if (~trigger) begin
+            feedback_mult_next <= Param_B_in;
+            mult_counter_nreset <= 0;
+            mult_counter_en <= 0;
+
+            feedback_add_next <= Param_C_in;
+            add_counter_nreset <= 0;
+            add_counter_en <= 0;
+        end
+        else begin 
+                if (mult_counter_thresh)
+                    feedback_mult_next <= (Param_D_in[31:31]) ? (feedback_mult - 1) :  (feedback_mult + 1); //add 1 if Param_B is positiv and -1 if negativ
+                mult_counter_nreset <= 1;
+                mult_counter_en <= 1;
+                
+                if (add_counter_thresh)
+                    feedback_add_next <= (Param_E_in[31:31]) ? (feedback_add - 1) :  (feedback_add + 1); //add 1 if Param_B is positiv and -1 if negativ
+                add_counter_nreset <= 1;
+                add_counter_en <= 1;
+        end
+    end    
+    
+    always @(negedge aclk)
+    begin
+        //Increment DDS phase
+        feedback_mult <= feedback_mult_next;
+        feedback_add <= feedback_add_next;
+    end
+    
+     
 endmodule

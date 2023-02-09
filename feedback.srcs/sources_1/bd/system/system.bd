@@ -2327,10 +2327,10 @@
               }
             },
             "interface_nets": {
-              "m00_couplers_to_ps_0_axi_periph": {
+              "m01_couplers_to_ps_0_axi_periph": {
                 "interface_ports": [
-                  "M00_AXI",
-                  "m00_couplers/M_AXI"
+                  "M01_AXI",
+                  "m01_couplers/M_AXI"
                 ]
               },
               "xbar_to_m00_couplers": {
@@ -2339,10 +2339,16 @@
                   "m00_couplers/S_AXI"
                 ]
               },
-              "m01_couplers_to_ps_0_axi_periph": {
+              "m00_couplers_to_ps_0_axi_periph": {
                 "interface_ports": [
-                  "M01_AXI",
-                  "m01_couplers/M_AXI"
+                  "M00_AXI",
+                  "m00_couplers/M_AXI"
+                ]
+              },
+              "xbar_to_m01_couplers": {
+                "interface_ports": [
+                  "xbar/M01_AXI",
+                  "m01_couplers/S_AXI"
                 ]
               },
               "s00_couplers_to_xbar": {
@@ -2355,12 +2361,6 @@
                 "interface_ports": [
                   "S00_AXI",
                   "s00_couplers/S_AXI"
-                ]
-              },
-              "xbar_to_m01_couplers": {
-                "interface_ports": [
-                  "xbar/M01_AXI",
-                  "m01_couplers/S_AXI"
                 ]
               }
             },
@@ -3601,6 +3601,9 @@
           "aresetn": {
             "type": "rst",
             "direction": "I"
+          },
+          "trigger_in": {
+            "direction": "I"
           }
         },
         "components": {
@@ -4109,6 +4112,9 @@
                   }
                 }
               },
+              "trigger_in": {
+                "direction": "I"
+              },
               "sel": {
                 "direction": "I",
                 "left": "2",
@@ -4306,6 +4312,12 @@
             "ports": [
               "aresetn",
               "axis_broadcaster_0/aresetn"
+            ]
+          },
+          "trigger_in_1": {
+            "ports": [
+              "trigger_in",
+              "multiplier_breakout_0/trigger_in"
             ]
           }
         }
@@ -4843,6 +4855,12 @@
       }
     },
     "interface_nets": {
+      "ps_0_DDR": {
+        "interface_ports": [
+          "DDR",
+          "Core/DDR"
+        ]
+      },
       "conv_0_M_AXIS": {
         "interface_ports": [
           "Memory_IO/S_AXIS",
@@ -4939,22 +4957,16 @@
           "Data_Conversion/S_AXIS1"
         ]
       },
-      "ch1_mem_fb_split_M00_AXIS": {
-        "interface_ports": [
-          "Data_Conversion/S_AXIS_DATA",
-          "ch1_mem_fb_split/M00_AXIS"
-        ]
-      },
-      "ps_0_DDR": {
-        "interface_ports": [
-          "DDR",
-          "Core/DDR"
-        ]
-      },
       "gng_0_M_AXIS": {
         "interface_ports": [
           "gng_0/M_AXIS",
           "premultiplier/S_AXIS_RNG"
+        ]
+      },
+      "ch1_mem_fb_split_M00_AXIS": {
+        "interface_ports": [
+          "Data_Conversion/S_AXIS_DATA",
+          "ch1_mem_fb_split/M00_AXIS"
         ]
       }
     },
@@ -5060,6 +5072,7 @@
       "slice_9_dout": {
         "ports": [
           "Reg_Brakeout/dout4",
+          "premultiplier/trigger_in",
           "feedback_combined_0/trig_in"
         ]
       },

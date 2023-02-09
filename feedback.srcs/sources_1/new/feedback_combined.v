@@ -46,7 +46,7 @@ module feedback_combined #
     parameter CFG_WIDTH = 256,
     parameter AXIS_TDATA_WIDTH = 16,
     parameter SELECT_WIDTH = 3,
-    parameter CONTINUOUS_OUTPUT = 1
+    parameter CONTINUOUS_OUTPUT = 0
 )
 (
     input  wire                                 aclk,
@@ -101,15 +101,17 @@ module feedback_combined #
        
     // state machine variables
     reg trigger;                       // 0 - trig output off, 1 - trig output on   
-    reg [1:0] state;  
+    reg [SELECT_WIDTH-1:0] state;  
        
-    localparam fixed = 0, sweep = 1, lin = 2, parametric = 3, random = 4, parameter_sweep = 5, A_x_plus_B = 6; 
+    localparam fixed = 0, sweep = 1, lin = 2, parametric = 3,  A_x_plus_B = 4, random = 5, polynomial = 6, CBC=7; 
     
-    //Signals for counter
-    reg counter_en = 1'b1;
-    reg counter_nreset = 1'b1;
-    reg [31:0] counter_interval = 32'b0;
-    wire counter_thresh;
+    //Signals for freq_counter
+    reg freq_counter_en = 1'b1;
+    reg freq_counter_nreset = 1'b1;
+    reg [31:0] freq_counter_interval = 32'b0;
+    wire freq_counter_thresh;
+
+    
     
     //Signals for I/O from DDS
     reg [PHASE_WIDTH - 1:0] dds_phase_in; 
@@ -132,10 +134,10 @@ module feedback_combined #
     
     rollover_counter sweep_counter (
     .aclk(aclk),
-    .en(counter_en),      
-    .nRST(counter_nreset),  
-    .MOD(counter_interval),
-    .THRESH(counter_thresh)        
+    .en(freq_counter_en),      
+    .nRST(freq_counter_nreset),  
+    .MOD(freq_counter_interval),
+    .THRESH(freq_counter_thresh)        
     ); 
     
     // Instantiate DDS compiler  
@@ -178,10 +180,15 @@ module feedback_combined #
         OFFSET_in <= offset;
     
         //sweep incrementer
-        if (sel == 1)
-            counter_interval <=  Param_B_in[31:31] ? (~Param_B_in+1'b1) : Param_B_in; //use absolut value of Param_B_in
+        if (state == sweep)
+            freq_counter_interval <=  Param_B_in[31:31] ? (~Param_B_in+1'b1) : Param_B_in; //use absolut value of Param_B_in
         else
-            counter_interval <= 32'b10000000;
+            freq_counter_interval <= 32'b10000000;
+            
+        
+            
+                  
+        //mult incrementer        
     end
 
 //////////// 
@@ -192,8 +199,12 @@ module feedback_combined #
 
     //Sum multiplier outputs
     always @(posedge aclk) 
-        result_A <= PRODUCT_1_in + PRODUCT_2_in + PRODUCT_3_in + PRODUCT_4_in + OFFSET_in;
-
+    begin
+        case(state)
+            A_x_plus_B: result_A <= {{34{PRODUCT_1_in[PRODUCT_1_WIDTH - 1]}}, PRODUCT_1_in[47:20]};
+            default: result_A <= PRODUCT_1_in + PRODUCT_2_in + PRODUCT_3_in + PRODUCT_4_in + OFFSET_in;
+        endcase
+    end
 // Results pipeline commented out due to math happening in premultiplier
 
 //    always @(negedge aclk) 
@@ -231,15 +242,15 @@ module feedback_combined #
                 if (~trigger) begin
                     phase_next <= Param_A_in;
                     dds_phase_in <= Param_A_in[29:0];
-                    counter_nreset <= 0;
-                    counter_en <= 0;
+                    freq_counter_nreset <= 0;
+                    freq_counter_en <= 0;
                 end
                 else begin 
-                    if (counter_thresh)
+                    if (freq_counter_thresh)
                         phase_next <= (Param_B_in[31:31]) ? (phase - 1) :  (phase + 1); //add 1 if Param_B is positiv and -1 if negativ
                     dds_phase_in <= phase[29:0];
-                    counter_nreset <= 1;
-                    counter_en <= 1;
+                    freq_counter_nreset <= 1;
+                    freq_counter_en <= 1;
                 end
             end
             parametric: dds_phase_in <= Param_F_in[29:0];//30'd43;

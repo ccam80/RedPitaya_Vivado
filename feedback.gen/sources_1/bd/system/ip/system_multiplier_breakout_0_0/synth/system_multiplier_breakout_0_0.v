@@ -57,6 +57,7 @@
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_multiplier_breakout_0_0 (
   aclk,
+  trigger_in,
   sel,
   S_AXIS_ADC1_tdata,
   S_AXIS_ADC1_tvalid,
@@ -82,6 +83,7 @@ module system_multiplier_breakout_0_0 (
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF S_AXIS_ADC1:S_AXIS_ADC2:S_AXIS_CFG:S_AXIS_DDS:S_AXIS_RNG, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *)
 input wire aclk;
+input wire trigger_in;
 input wire [2 : 0] sel;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_ADC1 TDATA" *)
 input wire [15 : 0] S_AXIS_ADC1_tdata;
@@ -136,6 +138,7 @@ output wire [31 : 0] OFFSET;
     .SEL_WIDTH(3)
   ) inst (
     .aclk(aclk),
+    .trigger_in(trigger_in),
     .sel(sel),
     .S_AXIS_ADC1_tdata(S_AXIS_ADC1_tdata),
     .S_AXIS_ADC1_tvalid(S_AXIS_ADC1_tvalid),

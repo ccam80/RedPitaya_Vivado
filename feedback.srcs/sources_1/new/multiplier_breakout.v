@@ -79,6 +79,9 @@ parameter SEL_WIDTH=3
     output reg [OPERAND_WIDTH-1:0]              OFFSET
     );
     
+    reg trigger;
+
+    
     reg signed [PARAM_WIDTH-1:0] Param_A_in, Param_B_in, Param_C_in, Param_D_in, Param_E_in, Param_F_in, Param_G_in, Param_H_in;
     reg signed [OPERAND_WIDTH-1:0] Operand_1_out, Operand_2_out, Operand_3_out, Operand_4_out, Operand_5_out, Operand_7_out, Offset_out;   
     reg signed [ADC_WIDTH * 3 - 1:0] Operand_6_out;   
@@ -100,14 +103,15 @@ parameter SEL_WIDTH=3
     reg mult_counter_nreset = 1'b1;
     reg [OPERAND_WIDTH-1:0] mult_counter_interval = 32'b0;
     wire mult_counter_thresh;
-    reg trigger;
+    reg mult_sweep_active;
     
     //Signals for add_counter
     reg add_counter_en = 1'b1;
     reg add_counter_nreset = 1'b1;
     reg [OPERAND_WIDTH-1:0] add_counter_interval = 32'b0;
     wire add_counter_thresh;
-        
+    reg add_sweep_active;        
+    
     //Counter for feedback parameter "a" sweep
     rollover_counter mult_sweep_counter (
     .aclk(aclk),
@@ -228,7 +232,7 @@ parameter SEL_WIDTH=3
             random: 
             begin
                 Operand_1_out <= { {8{RNG[15]}}, RNG, 8'b0}; // shift left 8'b to compensate for output slicing 
-                Operand_2_out <= 32'd1;
+                Operand_2_out <= Param_C_in;
                 Operand_3_out <= 32'b0;
                 Operand_4_out <= 32'b0;
                 Operand_5_out <= 32'b0;
@@ -240,7 +244,7 @@ parameter SEL_WIDTH=3
             
             A_x_plus_B:
             begin
-                Operand_1_out <= {ADC1, 16'b0}; // shift left 8'b to compensate for output slicing 
+                Operand_1_out <= {ADC1, 16'b0}; // shift left 16'b to fixed-point-ise 
                 Operand_2_out <= feedback_mult;
                 Operand_3_out <= 32'b0;
                 Operand_4_out <= 32'b0;
@@ -281,20 +285,34 @@ parameter SEL_WIDTH=3
 // ####################  Parameter Sweep logic  ################ //    
        
        // Program feedback counter intervals
-    always @(negedge(aclk))
+    always @(posedge(aclk))
     begin
         if (state == A_x_plus_B)
         begin
-            if (Param_D_in != 32'b0)
+            if (Param_D_in != 32'b0) begin
+                mult_sweep_active <= 1;
                 mult_counter_interval <=  Param_D_in[31:31] ? (~Param_D_in+1'b1) : Param_D_in; //use absolut value of Param_B_in
-            else
+            end
+            
+            else begin
+                mult_sweep_active <= 0;
                 mult_counter_interval <= 32'h7FFFFFFF;
-            if (Param_E_in == 32'b0)
+            end
+            
+            if (Param_E_in != 32'b0) begin
+                add_sweep_active <= 1;
                 add_counter_interval <=  Param_E_in[31:31] ? (~Param_E_in+1'b1) : Param_E_in; //use absolut value of Param_B_in
-            else
+            end
+            
+            else begin
+                add_sweep_active <= 0;
                 add_counter_interval <= 32'h7FFFFFFF;
+            end
         end
+        
         else begin
+            mult_sweep_active <= 0;
+            add_sweep_active <= 0;
             add_counter_interval <= 32'h7FFFFFFF;
             mult_counter_interval <= 32'h7FFFFFFF;
         end  
@@ -314,23 +332,23 @@ parameter SEL_WIDTH=3
             add_counter_en <= 0;
         end
         else begin 
-                if (mult_counter_thresh)
+                if (mult_counter_thresh & mult_sweep_active)
                     feedback_mult_next <= (Param_D_in[31:31]) ? (feedback_mult - 1) :  (feedback_mult + 1); //add 1 if Param_B is positiv and -1 if negativ
                 mult_counter_nreset <= 1;
                 mult_counter_en <= 1;
                 
-                if (add_counter_thresh)
+                if (add_counter_thresh & add_sweep_active)
                     feedback_add_next <= (Param_E_in[31:31]) ? (feedback_add - 1) :  (feedback_add + 1); //add 1 if Param_B is positiv and -1 if negativ
                 add_counter_nreset <= 1;
                 add_counter_en <= 1;
         end
     end    
     
-    always @(negedge aclk)
+    always @(posedge aclk)
     begin
-        //Increment DDS phase
-        feedback_mult <= feedback_mult_next;
+        //Increment feedback constant
         feedback_add <= feedback_add_next;
+        feedback_mult <= feedback_mult_next;
     end
     
      

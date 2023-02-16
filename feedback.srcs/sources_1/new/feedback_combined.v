@@ -201,7 +201,7 @@ module feedback_combined #
     always @(posedge aclk) 
     begin
         case(state)
-            A_x_plus_B: result_A <= {{34{PRODUCT_1_in[PRODUCT_1_WIDTH - 1]}}, PRODUCT_1_in[47:20]};
+            A_x_plus_B: result_A <= {{18{PRODUCT_1_in[PRODUCT_1_WIDTH - 1]}}, PRODUCT_1_in[PRODUCT_1_WIDTH - 2:9]} + OFFSET_in;
             default: result_A <= PRODUCT_1_in + PRODUCT_2_in + PRODUCT_3_in + PRODUCT_4_in + OFFSET_in;
         endcase
     end

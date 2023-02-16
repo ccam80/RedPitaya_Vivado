@@ -1,0 +1,13 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../feedback.gen/sources_1/ip/dds_compiler_1/sim/dds_compiler_1.vhd" \
+"../../../../feedback.ip_user_files/bd/system/ip/system_rst_0_0_3/sim/system_rst_0_0.vhd" \
+"../../../../feedback.ip_user_files/bd/system/ip/system_cic_0_0_3/sim/system_cic_0_0.vhd" \
+"../../../../feedback.ip_user_files/bd/system/ip/system_cic_1_0_1/sim/system_cic_1_0.vhd" \
+"../../../../feedback.ip_user_files/bd/system/ip/system_mult_gen_0_0/sim/system_mult_gen_0_0.vhd" \
+"../../../../feedback.ip_user_files/bd/system/ip/system_mult_gen_0_4/sim/system_mult_gen_0_4.vhd" \
+"../../../../feedback.ip_user_files/bd/system/ip/system_mult_gen_0_5/sim/system_mult_gen_0_5.vhd" \
+"../../../../feedback.ip_user_files/bd/system/ip/system_mult_gen_0_6/sim/system_mult_gen_0_6.vhd" \
+
+# Do not sort compile order
+nosort

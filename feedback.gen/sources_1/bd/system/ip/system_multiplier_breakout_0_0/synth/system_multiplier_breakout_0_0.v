@@ -58,13 +58,13 @@
 module system_multiplier_breakout_0_0 (
   aclk,
   trigger_in,
+  trigger_out,
   sel,
+  input_select,
   S_AXIS_ADC1_tdata,
   S_AXIS_ADC1_tvalid,
   S_AXIS_ADC2_tdata,
   S_AXIS_ADC2_tvalid,
-  S_AXIS_DDS_tdata,
-  S_AXIS_DDS_tvalid,
   S_AXIS_RNG_tdata,
   S_AXIS_RNG_tvalid,
   S_AXIS_CFG_tdata,
@@ -80,11 +80,13 @@ module system_multiplier_breakout_0_0 (
   OFFSET
 );
 
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF S_AXIS_ADC1:S_AXIS_ADC2:S_AXIS_CFG:S_AXIS_DDS:S_AXIS_RNG, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF S_AXIS_ADC1:S_AXIS_ADC2:S_AXIS_CFG:S_AXIS_RNG, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *)
 input wire aclk;
 input wire trigger_in;
+output wire trigger_out;
 input wire [2 : 0] sel;
+input wire input_select;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_ADC1 TDATA" *)
 input wire [15 : 0] S_AXIS_ADC1_tdata;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXIS_ADC1, FREQ_HZ 125000000, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *)
@@ -95,11 +97,6 @@ input wire [15 : 0] S_AXIS_ADC2_tdata;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXIS_ADC2, FREQ_HZ 125000000, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_ADC2 TVALID" *)
 input wire S_AXIS_ADC2_tvalid;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_DDS TDATA" *)
-input wire [15 : 0] S_AXIS_DDS_tdata;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXIS_DDS, FREQ_HZ 125000000, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_DDS TVALID" *)
-input wire S_AXIS_DDS_tvalid;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_RNG TDATA" *)
 input wire [15 : 0] S_AXIS_RNG_tdata;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXIS_RNG, FREQ_HZ 125000000, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *)
@@ -139,13 +136,13 @@ output wire [31 : 0] OFFSET;
   ) inst (
     .aclk(aclk),
     .trigger_in(trigger_in),
+    .trigger_out(trigger_out),
     .sel(sel),
+    .input_select(input_select),
     .S_AXIS_ADC1_tdata(S_AXIS_ADC1_tdata),
     .S_AXIS_ADC1_tvalid(S_AXIS_ADC1_tvalid),
     .S_AXIS_ADC2_tdata(S_AXIS_ADC2_tdata),
     .S_AXIS_ADC2_tvalid(S_AXIS_ADC2_tvalid),
-    .S_AXIS_DDS_tdata(S_AXIS_DDS_tdata),
-    .S_AXIS_DDS_tvalid(S_AXIS_DDS_tvalid),
     .S_AXIS_RNG_tdata(S_AXIS_RNG_tdata),
     .S_AXIS_RNG_tvalid(S_AXIS_RNG_tvalid),
     .S_AXIS_CFG_tdata(S_AXIS_CFG_tdata),

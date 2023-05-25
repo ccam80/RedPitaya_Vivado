@@ -76,7 +76,8 @@ output wire M_AXIS_tvalid;
   gng #(
     .INIT_Z1(64'H45D000FFFFF005FF),
     .INIT_Z2(64'HFFFCBFFFD8000680),
-    .INIT_Z3(64'HFFDA350000FE95FF)
+    .INIT_Z3(64'HFFDA350000FE95FF),
+    .clock_divider(512)
   ) inst (
     .clk(clk),
     .rstn(rstn),

@@ -95,7 +95,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>b7e99f74</spirit:value>
+            <spirit:value>1f8e855d</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -108,7 +108,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>b7e99f74</spirit:value>
+            <spirit:value>1f8e855d</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -195,6 +195,11 @@
         <spirit:displayName>Init Z3</spirit:displayName>
         <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.INIT_Z3" spirit:bitStringLength="64">0xFFDA350000FE95FF</spirit:value>
       </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>clock_divider</spirit:name>
+        <spirit:displayName>Clock Divider</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.clock_divider">512</spirit:value>
+      </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
   <spirit:choices>
@@ -210,7 +215,7 @@
       <spirit:file>
         <spirit:name>xgui/gng_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_9f550219</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_c704dd86</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -233,6 +238,11 @@
       <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.INIT_Z3" spirit:bitStringLength="64">0xFFDA350000FE95FF</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
+      <spirit:name>clock_divider</spirit:name>
+      <spirit:displayName>Clock Divider</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.clock_divider">512</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">gng_v1_0</spirit:value>
     </spirit:parameter>
@@ -252,7 +262,7 @@
         <xilinx:designToolContext>IPI</xilinx:designToolContext>
       </xilinx:designToolContexts>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2023-02-02T20:37:09Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2023-05-04T03:10:12Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>

@@ -52,7 +52,7 @@
 
 (* X_CORE_INFO = "gng,Vivado 2020.2" *)
 (* CHECK_LICENSE_TYPE = "system_gng_0_0,gng,{}" *)
-(* CORE_GENERATION_INFO = "system_gng_0_0,gng,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=gng,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,INIT_Z1=0x45D000FFFFF005FF,INIT_Z2=0xFFFCBFFFD8000680,INIT_Z3=0xFFDA350000FE95FF}" *)
+(* CORE_GENERATION_INFO = "system_gng_0_0,gng,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=gng,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,INIT_Z1=0x45D000FFFFF005FF,INIT_Z2=0xFFFCBFFFD8000680,INIT_Z3=0xFFDA350000FE95FF,clock_divider=512}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_gng_0_0 (
@@ -77,7 +77,8 @@ output wire M_AXIS_tvalid;
   gng #(
     .INIT_Z1(64'H45D000FFFFF005FF),
     .INIT_Z2(64'HFFFCBFFFD8000680),
-    .INIT_Z3(64'HFFDA350000FE95FF)
+    .INIT_Z3(64'HFFDA350000FE95FF),
+    .clock_divider(512)
   ) inst (
     .clk(clk),
     .rstn(rstn),

@@ -39,7 +39,8 @@
 module gng #(
     parameter INIT_Z1 = 64'd5030521883283424767,
     parameter INIT_Z2 = 64'd18445829279364155008,
-    parameter INIT_Z3 = 64'd18436106298727503359
+    parameter INIT_Z3 = 64'd18436106298727503359,
+    parameter clock_divider = 512
 )
 (
     // System signals
@@ -56,27 +57,47 @@ module gng #(
     wire ce;
     wire [63:0] data_out_ctg;
     wire [15:0] data_out;
+    reg divided_clock = 0;
+    reg [12:0] clock_counter = 0;
+    reg rstn_out = 0;
+    reg boot_finished = 0;
+    
     assign ce = 1;
     
     always@(posedge clk)
-    M_AXIS_tdata <= data_out;
-    
+    begin
+        M_AXIS_tdata <= data_out;
+        clock_counter <= clock_counter + 1;
+        
+        if (clock_counter > (clock_divider / 2))
+        begin
+            divided_clock <= ~divided_clock;    
+            clock_counter <= 0;
+            
+            if (boot_finished)
+                rstn_out <= rstn;
+                
+            if (~boot_finished)
+                boot_finished <= 1;            
+        end
+    end        
+
     // Instances
     gng_ctg #(
         .INIT_Z1(INIT_Z1),
         .INIT_Z2(INIT_Z2),
         .INIT_Z3(INIT_Z3)
     ) u_gng_ctg (
-        .clk(clk),
-        .rstn(rstn),
+        .clk(divided_clock),
+        .rstn(rstn_out),
         .ce(ce),
         .valid_out(valid_out_ctg),
         .data_out(data_out_ctg)
     );
     
     gng_interp u_gng_interp (
-        .clk(clk),
-        .rstn(rstn),
+        .clk(divided_clock),
+        .rstn(rstn_out),
         .valid_in(valid_out_ctg),
         .data_in(data_out_ctg),
         .valid_out(M_AXIS_tvalid),

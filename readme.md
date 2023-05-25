@@ -42,7 +42,7 @@ Arguments to feeback equations are collected by the multiplier_breakout module, 
 | parametric   |  {ADC1\*DDS}|  C  |    D   | ADC1^2 |    E    | ADC\^3|    A   |  7FFF  |    0   |
 | Ax + b       | {ADC1 << 16}|  B+ |    0   |    0   |    0    |   0   |    0   |    0   |    C+  |
 | random       |  {RNG << 8} |  C  |    0   |    0   |    0    |   0   |    0   |    0   |    D   |
-| polynomial   |  ADC1		 |  A  |    B   | ADC1^2 |    C    | ADC\^3|    D   | ADC\^4 |    E   |
+| polynomial   |  ADC1		 |  A  |    B   | ADC1^2 |    C    | ADC\^3|    0   |    0   |    E   |
 | CBC	       |  0          |  0  |    0   |    0   |    0    |   0   |    0   |    0   |    0   |
 | Result Slice |    [63:8]   |     | [63:8] |        | [63:21] |       | [63:0] |        | [31:0] |
 |              |             |     |        |        |         |       |        |        |        |

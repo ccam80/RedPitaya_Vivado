@@ -13,8 +13,6 @@ proc init_gui { IPINST } {
   ipgui::add_param $IPINST -name "PARAM_D_OFFSET" -parent ${Page_0}
   ipgui::add_param $IPINST -name "PARAM_E_OFFSET" -parent ${Page_0}
   ipgui::add_param $IPINST -name "PARAM_F_OFFSET" -parent ${Page_0}
-  ipgui::add_param $IPINST -name "PARAM_G_OFFSET" -parent ${Page_0}
-  ipgui::add_param $IPINST -name "PARAM_H_OFFSET" -parent ${Page_0}
   ipgui::add_param $IPINST -name "PARAM_WIDTH" -parent ${Page_0}
   ipgui::add_param $IPINST -name "RNG_WIDTH" -parent ${Page_0}
   ipgui::add_param $IPINST -name "SEL_WIDTH" -parent ${Page_0}
@@ -112,24 +110,6 @@ proc validate_PARAM_VALUE.PARAM_F_OFFSET { PARAM_VALUE.PARAM_F_OFFSET } {
 	return true
 }
 
-proc update_PARAM_VALUE.PARAM_G_OFFSET { PARAM_VALUE.PARAM_G_OFFSET } {
-	# Procedure called to update PARAM_G_OFFSET when any of the dependent parameters in the arguments change
-}
-
-proc validate_PARAM_VALUE.PARAM_G_OFFSET { PARAM_VALUE.PARAM_G_OFFSET } {
-	# Procedure called to validate PARAM_G_OFFSET
-	return true
-}
-
-proc update_PARAM_VALUE.PARAM_H_OFFSET { PARAM_VALUE.PARAM_H_OFFSET } {
-	# Procedure called to update PARAM_H_OFFSET when any of the dependent parameters in the arguments change
-}
-
-proc validate_PARAM_VALUE.PARAM_H_OFFSET { PARAM_VALUE.PARAM_H_OFFSET } {
-	# Procedure called to validate PARAM_H_OFFSET
-	return true
-}
-
 proc update_PARAM_VALUE.PARAM_WIDTH { PARAM_VALUE.PARAM_WIDTH } {
 	# Procedure called to update PARAM_WIDTH when any of the dependent parameters in the arguments change
 }
@@ -196,16 +176,6 @@ proc update_MODELPARAM_VALUE.PARAM_E_OFFSET { MODELPARAM_VALUE.PARAM_E_OFFSET PA
 proc update_MODELPARAM_VALUE.PARAM_F_OFFSET { MODELPARAM_VALUE.PARAM_F_OFFSET PARAM_VALUE.PARAM_F_OFFSET } {
 	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
 	set_property value [get_property value ${PARAM_VALUE.PARAM_F_OFFSET}] ${MODELPARAM_VALUE.PARAM_F_OFFSET}
-}
-
-proc update_MODELPARAM_VALUE.PARAM_G_OFFSET { MODELPARAM_VALUE.PARAM_G_OFFSET PARAM_VALUE.PARAM_G_OFFSET } {
-	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
-	set_property value [get_property value ${PARAM_VALUE.PARAM_G_OFFSET}] ${MODELPARAM_VALUE.PARAM_G_OFFSET}
-}
-
-proc update_MODELPARAM_VALUE.PARAM_H_OFFSET { MODELPARAM_VALUE.PARAM_H_OFFSET PARAM_VALUE.PARAM_H_OFFSET } {
-	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
-	set_property value [get_property value ${PARAM_VALUE.PARAM_H_OFFSET}] ${MODELPARAM_VALUE.PARAM_H_OFFSET}
 }
 
 proc update_MODELPARAM_VALUE.ADC_WIDTH { MODELPARAM_VALUE.ADC_WIDTH PARAM_VALUE.ADC_WIDTH } {

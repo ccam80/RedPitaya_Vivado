@@ -30,9 +30,20 @@ Out1[V] = ((param_a * 2^15) + (param_c * In1 * In2 * 2^18) + (param_d * In1^2 * 
 Out1[V] = ((param_a * 2^15) + (param_c * In1 * 2^13 * sin(2pi*(param_f-0.5)/2^30*125MHz*t) * 2^15)/2^10 + (param_d * In1 * 2^13 * In1 * 2^13)/2^8 + (param_e * In1 * 2^13 * In1 * 2^13 * In1 * 2^13)/2^21) / (2^15 * 2^13)<br>
 simplified:<br>
 Out1[V] = ((param_a * 2^15) + (param_c * In1 * sin(2pi*(param_f-0.5)/2^30*125MHz*t) * 2^18) + (param_d * In1^2 * 2^18) + (param_e * In1^3 * 2^18)) / (2^28)
+## AX + B
+frequenzy sweep from<br>
+Out1[V] = (param_c * sin(2pi*(param_a-0.5)/2^30*125MHz*t) * 2^15) / (2^15 * 2^13)<br>
+to<br>
+Out1[V] = (param_c * sin(2pi*(param_b-0.5)/2^30*125MHz*t) * 2^15) / (2^15 * 2^13)
+## Random
+frequenzy sweep from<br>
+Out1[V] = (param_c * sin(2pi*(param_a-0.5)/2^30*125MHz*t) * 2^15) / (2^15 * 2^13)<br>
+to<br>
+Out1[V] = (param_c * sin(2pi*(param_b-0.5)/2^30*125MHz*t) * 2^15) / (2^15 * 2^13)
+
 
 # Math Implementation:
-Arguments to feeback equations are collected by the multiplier_breakout module, which performs narrow 16x16 multiplications, then feeds operands to multiplier cores. The feedback\_combined module then sums the products of these multiplications. The inputs and outputs for each stimulation mode are given by:
+Arguments to feeback equations are collected by the multiplier_breakout module, which performs narrow 16x16 multiplications, then feeds operands to multiplier cores. There is one multiplier_breakout per channel. CBC has its own multiplier breakout, with multiple multiplexable signal pathways as described below. The feedback\_combined module then sums the products of these multiplications. The inputs and outputs for each stimulation mode are given by:
 
 | **Mode**     |     OP1     | OP2 |   OP3  |   OP4  |   OP5   |  OP6  |   OP7  | LONG_F | OFFSET |
 |--------------|:-----------:|:---:|:------:|:------:|:-------:|:-----:|:------:|:------:|:------:|
@@ -49,6 +60,20 @@ Arguments to feeback equations are collected by the multiplier_breakout module, 
 |     Width    |      32     |  32 |   32   |   32   |    32   |   48  |   32   |   64   |   32   |
 
 \+ is included where parameter is sweeping.
+
+# Control Based Continuation
+CBC Applies two equations simultaneously:
+
+Out1[V] (internal) =  A*target^3 + B*target^2 + C*target + D
+Out2[V] (external) =  K_p * (displacement - ref) * K_d * (velocity - reference_velocity) 
+
+Where ref is rhat * 8192*sin(2*pi*freq_t) and reference_velocity is rhat * 8192*cos(2*pi*freq_t)
+and t is time since recording trigger or mode start.
+
+| **Mode**     |     OP1     | OP2 |   OP3  |   OP4  |   OP5   |  OP6  |   OP7  | LONG_F | OFFSET |
+|--------------|:-----------:|:---:|:------:|:------:|:-------:|:-----:|:------:|:------:|:------:|
+| fixed        |  {DDS << 8} |  B  |    0   |    0   |    0    |   0   |    0   |    0   |    C   |
+
 
 V_out is then calculated by: <br>
 

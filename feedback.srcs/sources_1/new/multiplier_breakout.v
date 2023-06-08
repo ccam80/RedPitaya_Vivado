@@ -21,7 +21,7 @@
 
 module multiplier_breakout #
 (
-parameter CFG_WIDTH = 256,
+parameter CFG_WIDTH = 192,
 parameter PARAM_WIDTH = 32,
 parameter PARAM_A_OFFSET = 0,
 parameter PARAM_B_OFFSET = 32,
@@ -29,22 +29,21 @@ parameter PARAM_C_OFFSET = 64,
 parameter PARAM_D_OFFSET = 96,
 parameter PARAM_E_OFFSET = 128,
 parameter PARAM_F_OFFSET = 160,
-parameter PARAM_G_OFFSET = 192,
-parameter PARAM_H_OFFSET = 224,
 
 parameter ADC_WIDTH = 16,
 parameter DDS_WIDTH = 16,
 parameter RNG_WIDTH = 16,
 parameter OPERAND_WIDTH = 32,    
-parameter SEL_WIDTH=3
+parameter SEL_WIDTH=4
     )
 (
-    input wire aclk,
-    input wire trigger_in,
-    output reg trigger_out,
+    input wire                                  aclk,
+    input wire                                  trigger_in,
+    output reg                                  trigger_out,
+    
+    input wire                                  input_select,          //1: Main input ADC1
 
-    input [SEL_WIDTH-1:0] sel,
-    input wire           input_select,
+    input [SEL_WIDTH-1:0]                       sel,
     //Narrow inputs
     (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *)
     input [ADC_WIDTH-1:0]                       S_AXIS_ADC1_tdata,
@@ -82,15 +81,16 @@ parameter SEL_WIDTH=3
     reg trigger_3;
     reg trigger_4;    
     
-    reg signed [PARAM_WIDTH-1:0] Param_A_in, Param_B_in, Param_C_in, Param_D_in, Param_E_in, Param_F_in, Param_G_in, Param_H_in;
+    
+    reg signed [PARAM_WIDTH-1:0] Param_A_in, Param_B_in, Param_C_in, Param_D_in, Param_E_in, Param_F_in;
     reg signed [OPERAND_WIDTH-1:0] Operand_1_out, Operand_2_out, Operand_3_out, Operand_4_out, Operand_5_out, Operand_7_out, Offset_out;   
     reg signed [ADC_WIDTH * 3 - 1:0] Operand_6_out;   
     reg [SEL_WIDTH-1:0] state;  
 
     
-    reg signed [ADC_WIDTH-1:0] ADC1, ADC2;
+    reg signed [ADC_WIDTH-1:0] IN1, IN2;
     reg signed [RNG_WIDTH-1:0] RNG;
-    reg signed [OPERAND_WIDTH-1:0] ADC1_squared_result, ADC1_ADC2_result, ADC1_DDS_result;    
+    reg signed [OPERAND_WIDTH-1:0] IN1_squared_result, IN1_IN2_result, IN1_DDS_result;    
     
     localparam fixed = 0, sweep = 1, lin = 2, parametric = 3,  A_x_plus_B = 4, random = 5, polynomial = 6, CBC=7; 
    
@@ -170,8 +170,17 @@ parameter SEL_WIDTH=3
     // Store variable inputs in first stage of pipeline
     always @(posedge aclk)
     begin
-        ADC1 <= S_AXIS_ADC1_tdata;
-        ADC2 <= S_AXIS_ADC2_tdata;
+        if (input_select)
+            begin
+            IN1 <= S_AXIS_ADC1_tdata;
+            IN2 <= S_AXIS_ADC2_tdata;
+            end
+        else
+            begin
+            IN2 <= S_AXIS_ADC1_tdata;
+            IN1 <= S_AXIS_ADC2_tdata;
+            end
+                    
         RNG <= S_AXIS_RNG_tdata; 
         trigger <= trigger_in;
     end
@@ -179,9 +188,9 @@ parameter SEL_WIDTH=3
     // Carry out narrow 16x16 multiplications using inferred multipliers
     always @(posedge aclk)
     begin
-        ADC1_squared_result <= ADC1 * ADC1;
-        ADC1_ADC2_result <= ADC1 * ADC2;
-        ADC1_DDS_result <= ADC1 * dds_out;
+        IN1_squared_result <= IN1 * IN1;
+        IN1_IN2_result <= IN1 * IN2;
+        IN1_DDS_result <= IN1 * dds_out;
     end      
     
     
@@ -198,10 +207,7 @@ parameter SEL_WIDTH=3
         Param_C_in <= S_AXIS_CFG_tdata[PARAM_C_OFFSET + PARAM_WIDTH - 1: PARAM_C_OFFSET]; 
         Param_D_in <= S_AXIS_CFG_tdata[PARAM_D_OFFSET + PARAM_WIDTH - 1: PARAM_D_OFFSET]; 
         Param_E_in <= S_AXIS_CFG_tdata[PARAM_E_OFFSET + PARAM_WIDTH - 1: PARAM_E_OFFSET]; 
-        Param_F_in <= S_AXIS_CFG_tdata[PARAM_F_OFFSET + PARAM_WIDTH - 1: PARAM_F_OFFSET]; 
-        Param_G_in <= S_AXIS_CFG_tdata[PARAM_G_OFFSET + PARAM_WIDTH - 1: PARAM_G_OFFSET]; 
-        Param_H_in <= S_AXIS_CFG_tdata[PARAM_H_OFFSET + PARAM_WIDTH - 1: PARAM_H_OFFSET];
-        
+        Param_F_in <= S_AXIS_CFG_tdata[PARAM_F_OFFSET + PARAM_WIDTH - 1: PARAM_F_OFFSET];   
            
     end
     
@@ -239,12 +245,12 @@ parameter SEL_WIDTH=3
             
             lin: 
             begin
-                Operand_1_out <= ADC1_ADC2_result;
+                Operand_1_out <= IN1_IN2_result;
                 Operand_2_out <= Param_C_in;
                 Operand_3_out <= Param_D_in;
-                Operand_4_out <= ADC1_squared_result;
+                Operand_4_out <= IN1_squared_result;
                 Operand_5_out <= Param_E_in;
-                Operand_6_out <= ADC1_squared_result * ADC1;
+                Operand_6_out <= IN1_squared_result * IN1;
                 Operand_7_out <= Param_A_in;
                 Offset_out <= 32'b0;
                 LONG_7F <= 64'h7FFF;
@@ -252,12 +258,12 @@ parameter SEL_WIDTH=3
                     
             parametric: 
             begin 
-                Operand_1_out <= ADC1_DDS_result;
+                Operand_1_out <= IN1_DDS_result;
                 Operand_2_out <= Param_C_in;
                 Operand_3_out <= Param_D_in;
-                Operand_4_out <= ADC1_squared_result;
+                Operand_4_out <= IN1_squared_result;
                 Operand_5_out <= Param_E_in;
-                Operand_6_out <= ADC1_squared_result * ADC1;
+                Operand_6_out <= IN1_squared_result * IN1;
                 Operand_7_out <= Param_A_in;
                 Offset_out <= 32'b0;
                 LONG_7F <= 64'h7FFF;
@@ -278,7 +284,7 @@ parameter SEL_WIDTH=3
             
             A_x_plus_B:
             begin
-                Operand_1_out <= {ADC1, 16'b0}; // shift left 16'b to fixed-point-ise 
+                Operand_1_out <= {IN1, 16'b0}; // shift left 16'b to fixed-point-ise 
                 Operand_2_out <= feedback_mult;
                 Operand_3_out <= 32'b0;
                 Operand_4_out <= 32'b0;
@@ -291,12 +297,12 @@ parameter SEL_WIDTH=3
             
             polynomial:
             begin
-                Operand_1_out <= {ADC1, 16'b0}; // shift left 16'b to fixed-point-ise 
+                Operand_1_out <= {IN1, 16'b0}; // shift left 16'b to fixed-point-ise 
                 Operand_2_out <= Param_A_in;
                 Operand_3_out <= Param_B_in;
-                Operand_4_out <= ADC1_squared_result;
+                Operand_4_out <= IN1_squared_result;
                 Operand_5_out <= Param_C_in;
-                Operand_6_out <= ADC1_squared_result * ADC1;
+                Operand_6_out <= IN1_squared_result * IN1;
                 Operand_7_out <= 32'b0;
                 Offset_out <= Param_E_in;
                 LONG_7F <= 64'b0;

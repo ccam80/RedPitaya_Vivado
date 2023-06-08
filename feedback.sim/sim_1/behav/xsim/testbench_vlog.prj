@@ -7,14 +7,13 @@ verilog xil_defaultlib  --include "../../../../feedback.gen/sources_1/bd/system/
 "../../../../feedback.srcs/sources_1/new/GNG/gng_smul_16_18.v" \
 "../../../../feedback.srcs/sources_1/new/GNG/gng_smul_16_18_sadd_37.v" \
 "../../../../feedback.srcs/sources_1/new/GNG/gng.v" \
-"../../../../feedback.srcs/sources_1/new/feedback_combined.v" \
 "../../../../feedback.srcs/sources_1/new/rollover_counter.v" \
 "../../../../feedback.srcs/sources_1/new/multiplier_breakout.v" \
+"../../../../feedback.srcs/sources_1/new/feedback_combined.v" \
 "../../../../feedback.ip_user_files/bd/system/ip/system_pll_0_0_3/system_pll_0_0_clk_wiz.v" \
 "../../../../feedback.ip_user_files/bd/system/ip/system_pll_0_0_3/system_pll_0_0.v" \
 "../../../../feedback.ip_user_files/bd/system/ip/system_ps_0_0_3/sim/system_ps_0_0.v" \
 "../../../../feedback.ip_user_files/bd/system/ip/system_xbar_0_3/sim/system_xbar_0.v" \
-"../../../../feedback.ip_user_files/bd/system/ip/system_auto_pc_0_3/sim/system_auto_pc_0.v" \
 "../../../../feedback.ip_user_files/bd/system/ipshared/51a4/src/axis_ram_writer.v" \
 "../../../../feedback.ip_user_files/bd/system/ip/system_axis_ram_writer_0_0_3/sim/system_axis_ram_writer_0_0.v" \
 "../../../../feedback.ip_user_files/bd/system/ipshared/9a98/src/axi_sts_register.v" \
@@ -42,17 +41,19 @@ verilog xil_defaultlib  --include "../../../../feedback.gen/sources_1/bd/system/
 "../../../../feedback.ip_user_files/bd/system/ip/system_ch1_mem_fb_split_0_3/hdl/tuser_system_ch1_mem_fb_split_0.v" \
 "../../../../feedback.ip_user_files/bd/system/ip/system_ch1_mem_fb_split_0_3/hdl/top_system_ch1_mem_fb_split_0.v" \
 "../../../../feedback.ip_user_files/bd/system/ip/system_ch1_mem_fb_split_0_3/sim/system_ch1_mem_fb_split_0.v" \
-"../../../../feedback.ip_user_files/bd/system/ip/system_feedback_combined_0_0_3/sim/system_feedback_combined_0_0.v" \
 "../../../../feedback.ip_user_files/bd/system/ip/system_ch1_output_dac_mem_split_0_3/hdl/tdata_system_ch1_output_dac_mem_split_0.v" \
 "../../../../feedback.ip_user_files/bd/system/ip/system_ch1_output_dac_mem_split_0_3/hdl/tuser_system_ch1_output_dac_mem_split_0.v" \
 "../../../../feedback.ip_user_files/bd/system/ip/system_ch1_output_dac_mem_split_0_3/hdl/top_system_ch1_output_dac_mem_split_0.v" \
 "../../../../feedback.ip_user_files/bd/system/ip/system_ch1_output_dac_mem_split_0_3/sim/system_ch1_output_dac_mem_split_0.v" \
 "../../../../feedback.ip_user_files/bd/system/ip/system_multiplier_breakout_0_0/sim/system_multiplier_breakout_0_0.v" \
+"../../../../feedback.ip_user_files/bd/system/ip/system_feedback_combined_0_0_3/sim/system_feedback_combined_0_0.v" \
 "../../../../feedback.ip_user_files/bd/system/ipshared/8d3d/src/axis_red_pitaya_dac.v" \
 "../../../../feedback.ip_user_files/bd/system/ip/system_axis_red_pitaya_dac_0_0_3/sim/system_axis_red_pitaya_dac_0_0.v" \
 "../../../../feedback.ip_user_files/bd/system/ip/system_axis_combiner_0_1/sim/system_axis_combiner_0_1.v" \
 "../../../../feedback.ip_user_files/bd/system/ip/system_conv_0_0_3/sim/system_conv_0_0.v" \
+"../../../../feedback.ip_user_files/bd/system/ip/system_xlconstant_0_0/sim/system_xlconstant_0_0.v" \
 "../../../../feedback.ip_user_files/bd/system/sim/system.v" \
+"../../../../feedback.ip_user_files/bd/system/ip/system_auto_pc_0_3/sim/system_auto_pc_0.v" \
 "../../../../feedback.srcs/sources_1/imports/system_wrapper.v" \
 "../../../../feedback.srcs/sim_1/new/testbench.v" \
 

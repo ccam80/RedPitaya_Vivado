@@ -58,11 +58,11 @@ module system_RAM_addres_0 (
   Dout
 );
 
-input wire [319 : 0] Din;
+input wire [447 : 0] Din;
 output wire [31 : 0] Dout;
 
   xlslice_v1_0_2_xlslice #(
-    .DIN_WIDTH(320),
+    .DIN_WIDTH(448),
     .DIN_FROM(63),
     .DIN_TO(32)
   ) inst (

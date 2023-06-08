@@ -57,21 +57,28 @@
 module system_gng_0_0 (
   clk,
   rstn,
-  M_AXIS_tdata,
-  M_AXIS_tvalid
+  M_AXIS1_tdata,
+  M_AXIS1_tvalid,
+  M_AXIS2_tdata,
+  M_AXIS2_tvalid
 );
 
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF M_AXIS, ASSOCIATED_RESET rstn, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF M_AXIS1:M_AXIS2, ASSOCIATED_RESET rstn, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
 input wire clk;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rstn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rstn RST" *)
 input wire rstn;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS TDATA" *)
-output wire [15 : 0] M_AXIS_tdata;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M_AXIS, FREQ_HZ 125000000, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS TVALID" *)
-output wire M_AXIS_tvalid;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS1 TDATA" *)
+output wire [15 : 0] M_AXIS1_tdata;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M_AXIS1, FREQ_HZ 125000000, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS1 TVALID" *)
+output wire M_AXIS1_tvalid;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS2 TDATA" *)
+output wire [15 : 0] M_AXIS2_tdata;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M_AXIS2, FREQ_HZ 125000000, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS2 TVALID" *)
+output wire M_AXIS2_tvalid;
 
   gng #(
     .INIT_Z1(64'H45D000FFFFF005FF),
@@ -81,7 +88,9 @@ output wire M_AXIS_tvalid;
   ) inst (
     .clk(clk),
     .rstn(rstn),
-    .M_AXIS_tdata(M_AXIS_tdata),
-    .M_AXIS_tvalid(M_AXIS_tvalid)
+    .M_AXIS1_tdata(M_AXIS1_tdata),
+    .M_AXIS1_tvalid(M_AXIS1_tvalid),
+    .M_AXIS2_tdata(M_AXIS2_tdata),
+    .M_AXIS2_tvalid(M_AXIS2_tvalid)
   );
 endmodule

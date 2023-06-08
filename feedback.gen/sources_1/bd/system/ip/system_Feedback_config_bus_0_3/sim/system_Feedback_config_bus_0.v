@@ -58,12 +58,12 @@ module system_Feedback_config_bus_0 (
   Dout
 );
 
-input wire [319 : 0] Din;
-output wire [255 : 0] Dout;
+input wire [511 : 0] Din;
+output wire [447 : 0] Dout;
 
   xlslice_v1_0_2_xlslice #(
-    .DIN_WIDTH(320),
-    .DIN_FROM(319),
+    .DIN_WIDTH(512),
+    .DIN_FROM(511),
     .DIN_TO(64)
   ) inst (
     .Din(Din),

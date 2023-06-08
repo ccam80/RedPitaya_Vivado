@@ -48,8 +48,12 @@ module gng #(
     input rstn,                   // system synchronous reset, active low
     
     (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *)
-    output reg [15:0]                           M_AXIS_tdata,
-    output wire                                 M_AXIS_tvalid
+    output reg [15:0]                           M_AXIS1_tdata,
+    output wire                                 M_AXIS1_tvalid,
+    
+    (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *)
+    output reg [15:0]                           M_AXIS2_tdata,
+    output wire                                 M_AXIS2_tvalid
 );
 
     // Local variables
@@ -66,7 +70,9 @@ module gng #(
     
     always@(posedge clk)
     begin
-        M_AXIS_tdata <= data_out;
+        M_AXIS1_tdata <= data_out;
+        M_AXIS2_tdata <= data_out;
+
         clock_counter <= clock_counter + 1;
         
         if (clock_counter > (clock_divider / 2))

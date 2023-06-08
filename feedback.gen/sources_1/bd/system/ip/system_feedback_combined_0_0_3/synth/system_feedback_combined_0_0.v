@@ -52,19 +52,32 @@
 
 (* X_CORE_INFO = "feedback_combined,Vivado 2020.2" *)
 (* CHECK_LICENSE_TYPE = "system_feedback_combined_0_0,feedback_combined,{}" *)
-(* CORE_GENERATION_INFO = "system_feedback_combined_0_0,feedback_combined,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=feedback_combined,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,PRODUCT_1_WIDTH=56,PRODUCT_2_WIDTH=43,PRODUCT_3_WIDTH=56,PRODUCT_4_WIDTH=64,OFFSET_WIDTH=32,AXIS_TDATA_WIDTH=16,SELECT_WIDTH=3}" *)
+(* CORE_GENERATION_INFO = "system_feedback_combined_0_0,feedback_combined,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=feedback_combined,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,PRODUCT_1_WIDTH=56,PRODUCT_2_WIDTH=56,PRODUCT_3_WIDTH=43,PRODUCT_4_WIDTH=64,PRODUCT_5_WIDTH=43,PRODUCT_6_WIDTH=64,OFFSET_WIDTH=32,AXIS_TDATA_WIDTH=32,OUTPUT_CHANNEL_WIDTH=16,SELECT_WIDTH=4}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_feedback_combined_0_0 (
   aclk,
   trig_in,
   continuous_output_in,
-  sel,
-  product_1,
-  product_2,
-  product_3,
-  product_4,
-  offset,
+  CH1_sel,
+  CH2_sel,
+  CH1_product_1,
+  CH1_product_2,
+  CH1_product_3,
+  CH1_product_4,
+  CH1_offset,
+  CH2_product_1,
+  CH2_product_2,
+  CH2_product_3,
+  CH2_product_4,
+  CH2_offset,
+  CBC_product_1,
+  CBC_product_2,
+  CBC_product_3,
+  CBC_product_4,
+  CBC_product_5,
+  CBC_product_6,
+  CBC_offset,
   M_AXIS_tdata,
   M_AXIS_tvalid,
   trig_out
@@ -75,37 +88,66 @@ module system_feedback_combined_0_0 (
 input wire aclk;
 input wire trig_in;
 input wire continuous_output_in;
-input wire [2 : 0] sel;
-input wire [55 : 0] product_1;
-input wire [42 : 0] product_2;
-input wire [55 : 0] product_3;
-input wire [63 : 0] product_4;
-input wire [31 : 0] offset;
+input wire [3 : 0] CH1_sel;
+input wire [3 : 0] CH2_sel;
+input wire [55 : 0] CH1_product_1;
+input wire [55 : 0] CH1_product_2;
+input wire [42 : 0] CH1_product_3;
+input wire [63 : 0] CH1_product_4;
+input wire [31 : 0] CH1_offset;
+input wire [55 : 0] CH2_product_1;
+input wire [55 : 0] CH2_product_2;
+input wire [42 : 0] CH2_product_3;
+input wire [63 : 0] CH2_product_4;
+input wire [31 : 0] CH2_offset;
+input wire [55 : 0] CBC_product_1;
+input wire [55 : 0] CBC_product_2;
+input wire [42 : 0] CBC_product_3;
+input wire [63 : 0] CBC_product_4;
+input wire [42 : 0] CBC_product_5;
+input wire [63 : 0] CBC_product_6;
+input wire [31 : 0] CBC_offset;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS TDATA" *)
-output wire [15 : 0] M_AXIS_tdata;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M_AXIS, FREQ_HZ 125000000, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *)
+output wire [31 : 0] M_AXIS_tdata;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M_AXIS, FREQ_HZ 125000000, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS TVALID" *)
 output wire M_AXIS_tvalid;
 output wire trig_out;
 
   feedback_combined #(
     .PRODUCT_1_WIDTH(56),
-    .PRODUCT_2_WIDTH(43),
-    .PRODUCT_3_WIDTH(56),
+    .PRODUCT_2_WIDTH(56),
+    .PRODUCT_3_WIDTH(43),
     .PRODUCT_4_WIDTH(64),
+    .PRODUCT_5_WIDTH(43),
+    .PRODUCT_6_WIDTH(64),
     .OFFSET_WIDTH(32),
-    .AXIS_TDATA_WIDTH(16),
-    .SELECT_WIDTH(3)
+    .AXIS_TDATA_WIDTH(32),
+    .OUTPUT_CHANNEL_WIDTH(16),
+    .SELECT_WIDTH(4)
   ) inst (
     .aclk(aclk),
     .trig_in(trig_in),
     .continuous_output_in(continuous_output_in),
-    .sel(sel),
-    .product_1(product_1),
-    .product_2(product_2),
-    .product_3(product_3),
-    .product_4(product_4),
-    .offset(offset),
+    .CH1_sel(CH1_sel),
+    .CH2_sel(CH2_sel),
+    .CH1_product_1(CH1_product_1),
+    .CH1_product_2(CH1_product_2),
+    .CH1_product_3(CH1_product_3),
+    .CH1_product_4(CH1_product_4),
+    .CH1_offset(CH1_offset),
+    .CH2_product_1(CH2_product_1),
+    .CH2_product_2(CH2_product_2),
+    .CH2_product_3(CH2_product_3),
+    .CH2_product_4(CH2_product_4),
+    .CH2_offset(CH2_offset),
+    .CBC_product_1(CBC_product_1),
+    .CBC_product_2(CBC_product_2),
+    .CBC_product_3(CBC_product_3),
+    .CBC_product_4(CBC_product_4),
+    .CBC_product_5(CBC_product_5),
+    .CBC_product_6(CBC_product_6),
+    .CBC_offset(CBC_offset),
     .M_AXIS_tdata(M_AXIS_tdata),
     .M_AXIS_tvalid(M_AXIS_tvalid),
     .trig_out(trig_out)

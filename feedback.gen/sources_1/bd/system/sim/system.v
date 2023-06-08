@@ -1,13 +1,564 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-//Date        : Thu May 25 16:44:43 2023
+//Date        : Fri Jun  2 17:30:29 2023
 //Host        : acoustics-VirtualBox running 64-bit Ubuntu 20.04.5 LTS
 //Command     : generate_target system.bd
 //Design      : system
 //Purpose     : IP block netlist
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
+
+module CBC_config_imp_3DYLP
+   (Din1,
+    Dout11,
+    Dout12,
+    Dout13,
+    Dout14,
+    M_AXIS_tdata,
+    M_AXIS_tvalid,
+    aclk,
+    cfg_data);
+  input [447:0]Din1;
+  output [0:0]Dout11;
+  output [0:0]Dout12;
+  output [0:0]Dout13;
+  output [0:0]Dout14;
+  output [447:0]M_AXIS_tdata;
+  output M_AXIS_tvalid;
+  input aclk;
+  input [447:0]cfg_data;
+
+  wire [447:0]Conn1_TDATA;
+  wire Conn1_TVALID;
+  wire [447:0]Din1_1;
+  wire [0:0]Displacement_int_ext_Dout;
+  wire [0:0]Polynomial_target_Dout;
+  wire [0:0]Velocity_int_ext_Dout;
+  wire aclk_1;
+  wire [447:0]cfg_data_1;
+  wire [0:0]input_order_Dout;
+
+  assign Din1_1 = Din1[447:0];
+  assign Dout11[0] = input_order_Dout;
+  assign Dout12[0] = Velocity_int_ext_Dout;
+  assign Dout13[0] = Polynomial_target_Dout;
+  assign Dout14[0] = Displacement_int_ext_Dout;
+  assign M_AXIS_tdata[447:0] = Conn1_TDATA;
+  assign M_AXIS_tvalid = Conn1_TVALID;
+  assign aclk_1 = aclk;
+  assign cfg_data_1 = cfg_data[447:0];
+  system_axis_constant_0_0 ALL_Feedback_Params
+       (.aclk(aclk_1),
+        .cfg_data(cfg_data_1),
+        .m_axis_tdata(Conn1_TDATA),
+        .m_axis_tvalid(Conn1_TVALID));
+  system_input_select_2_0 Displacement_int_ext
+       (.Din(Din1_1),
+        .Dout(Displacement_int_ext_Dout));
+  system_input_select_2_1 Polynomial_target
+       (.Din(Din1_1),
+        .Dout(Polynomial_target_Dout));
+  system_Feedback_State_1_0 Velocity_int_ext
+       (.Din(Din1_1),
+        .Dout(Velocity_int_ext_Dout));
+  system_input_select_3_0 input_order
+       (.Din(Din1_1),
+        .Dout(input_order_Dout));
+endmodule
+
+module CBC_imp_ZV89ZT
+   (OFFSET,
+    P,
+    P1,
+    P2,
+    P3,
+    P4,
+    P5,
+    S_AXIS_ADC1_tdata,
+    S_AXIS_ADC1_tvalid,
+    S_AXIS_ADC2_tdata,
+    S_AXIS_ADC2_tvalid,
+    S_AXIS_CFG_tdata,
+    S_AXIS_CFG_tvalid,
+    aclk,
+    displacement_int_ext,
+    input_select2,
+    polynomial_target,
+    sel,
+    trig_in,
+    velocity_int_ext);
+  output [31:0]OFFSET;
+  output [55:0]P;
+  output [42:0]P1;
+  output [63:0]P2;
+  output [55:0]P3;
+  output [55:0]P4;
+  output [42:0]P5;
+  input [15:0]S_AXIS_ADC1_tdata;
+  input S_AXIS_ADC1_tvalid;
+  input [15:0]S_AXIS_ADC2_tdata;
+  input S_AXIS_ADC2_tvalid;
+  input [447:0]S_AXIS_CFG_tdata;
+  input S_AXIS_CFG_tvalid;
+  input aclk;
+  input displacement_int_ext;
+  input input_select2;
+  input polynomial_target;
+  input [3:0]sel;
+  input trig_in;
+  input velocity_int_ext;
+
+  wire [31:0]CBC_0_OFFSET;
+  wire [31:0]CBC_0_OP1;
+  wire [31:0]CBC_0_OP10;
+  wire [31:0]CBC_0_OP11;
+  wire [63:0]CBC_0_OP12;
+  wire [31:0]CBC_0_OP2;
+  wire [31:0]CBC_0_OP3;
+  wire [31:0]CBC_0_OP4;
+  wire [31:0]CBC_0_OP5;
+  wire [47:0]CBC_0_OP6;
+  wire [31:0]CBC_0_OP7;
+  wire [31:0]CBC_0_OP8;
+  wire [31:0]CBC_0_OP9;
+  wire [55:0]CBC_Mult1_P;
+  wire [63:0]CBC_Mult3_P;
+  wire [42:0]CBC_mult2_P;
+  wire [55:0]CBC_mult4_P;
+  wire [55:0]CBC_mult5_P;
+  wire [42:0]CBC_mult6_P;
+  wire [15:0]Conn1_TDATA;
+  wire Conn1_TVALID;
+  wire [15:0]Conn2_TDATA;
+  wire Conn2_TVALID;
+  wire [447:0]Conn3_TDATA;
+  wire Conn3_TVALID;
+  wire aclk_1;
+  wire displacement_int_ext_1;
+  wire input_select2_1;
+  wire polynomial_target_1;
+  wire [3:0]sel_1;
+  wire trig_in_1;
+  wire velocity_int_ext_1;
+
+  assign Conn1_TDATA = S_AXIS_ADC1_tdata[15:0];
+  assign Conn1_TVALID = S_AXIS_ADC1_tvalid;
+  assign Conn2_TDATA = S_AXIS_ADC2_tdata[15:0];
+  assign Conn2_TVALID = S_AXIS_ADC2_tvalid;
+  assign Conn3_TDATA = S_AXIS_CFG_tdata[447:0];
+  assign Conn3_TVALID = S_AXIS_CFG_tvalid;
+  assign OFFSET[31:0] = CBC_0_OFFSET;
+  assign P[55:0] = CBC_Mult1_P;
+  assign P1[42:0] = CBC_mult2_P;
+  assign P2[63:0] = CBC_Mult3_P;
+  assign P3[55:0] = CBC_mult4_P;
+  assign P4[55:0] = CBC_mult5_P;
+  assign P5[42:0] = CBC_mult6_P;
+  assign aclk_1 = aclk;
+  assign displacement_int_ext_1 = displacement_int_ext;
+  assign input_select2_1 = input_select2;
+  assign polynomial_target_1 = polynomial_target;
+  assign sel_1 = sel[3:0];
+  assign trig_in_1 = trig_in;
+  assign velocity_int_ext_1 = velocity_int_ext;
+  system_CBC_0_0 CBC_0
+       (.OFFSET(CBC_0_OFFSET),
+        .OP1(CBC_0_OP1),
+        .OP10(CBC_0_OP10),
+        .OP11(CBC_0_OP11),
+        .OP12(CBC_0_OP12),
+        .OP2(CBC_0_OP2),
+        .OP3(CBC_0_OP3),
+        .OP4(CBC_0_OP4),
+        .OP5(CBC_0_OP5),
+        .OP6(CBC_0_OP6),
+        .OP7(CBC_0_OP7),
+        .OP8(CBC_0_OP8),
+        .OP9(CBC_0_OP9),
+        .S_AXIS_ADC1_tdata(Conn1_TDATA),
+        .S_AXIS_ADC1_tvalid(Conn1_TVALID),
+        .S_AXIS_ADC2_tdata(Conn2_TDATA),
+        .S_AXIS_ADC2_tvalid(Conn2_TVALID),
+        .S_AXIS_CFG_tdata(Conn3_TDATA),
+        .S_AXIS_CFG_tvalid(Conn3_TVALID),
+        .aclk(aclk_1),
+        .displacement_int_ext(displacement_int_ext_1),
+        .input_select(input_select2_1),
+        .polynomial_target(polynomial_target_1),
+        .sel(sel_1),
+        .trigger_in(trig_in_1),
+        .velocity_int_ext(velocity_int_ext_1));
+  system_CH2_mult2_0 CBC_Mult1
+       (.A(CBC_0_OP1),
+        .B(CBC_0_OP2),
+        .CLK(aclk_1),
+        .P(CBC_Mult1_P));
+  system_CH2_mult4_0 CBC_Mult3
+       (.A(CBC_0_OP3),
+        .B({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,CBC_0_OP4}),
+        .CLK(aclk_1),
+        .P(CBC_Mult3_P));
+  system_CH2_mult3_0 CBC_mult2
+       (.A(CBC_0_OP5),
+        .B(CBC_0_OP6),
+        .CLK(aclk_1),
+        .P(CBC_mult2_P));
+  system_CH2_mult1_1 CBC_mult4
+       (.A(CBC_0_OP7),
+        .B(CBC_0_OP8),
+        .CLK(aclk_1),
+        .P(CBC_mult4_P));
+  system_CH2_mult2_1 CBC_mult5
+       (.A(CBC_0_OP9),
+        .B(CBC_0_OP10),
+        .CLK(aclk_1),
+        .P(CBC_mult5_P));
+  system_CH2_mult3_1 CBC_mult6
+       (.A(CBC_0_OP11),
+        .B(CBC_0_OP12[47:0]),
+        .CLK(aclk_1),
+        .P(CBC_mult6_P));
+endmodule
+
+module CH1_Config_imp_WASEI3
+   (Din1,
+    Dout,
+    Dout7,
+    M_AXIS3_tdata,
+    M_AXIS3_tvalid,
+    aclk,
+    cfg_data);
+  input [447:0]Din1;
+  output [3:0]Dout;
+  output [0:0]Dout7;
+  output [191:0]M_AXIS3_tdata;
+  output M_AXIS3_tvalid;
+  input aclk;
+  input [191:0]cfg_data;
+
+  wire [191:0]Conn1_TDATA;
+  wire Conn1_TVALID;
+  wire [447:0]Din1_1;
+  wire [3:0]Feedback_State_Dout;
+  wire aclk_1;
+  wire [191:0]cfg_data_1;
+  wire [0:0]input_select_Dout;
+
+  assign Din1_1 = Din1[447:0];
+  assign Dout[3:0] = Feedback_State_Dout;
+  assign Dout7[0] = input_select_Dout;
+  assign M_AXIS3_tdata[191:0] = Conn1_TDATA;
+  assign M_AXIS3_tvalid = Conn1_TVALID;
+  assign aclk_1 = aclk;
+  assign cfg_data_1 = cfg_data[191:0];
+  system_ALL_Feedback_Params_0 CH1_Feedback_Params_1
+       (.aclk(aclk_1),
+        .cfg_data(cfg_data_1),
+        .m_axis_tdata(Conn1_TDATA),
+        .m_axis_tvalid(Conn1_TVALID));
+  system_Feedback_State_0 Feedback_State
+       (.Din(Din1_1),
+        .Dout(Feedback_State_Dout));
+  system_Feedback_State_1 input_select
+       (.Din(Din1_1),
+        .Dout(input_select_Dout));
+endmodule
+
+module CH1_imp_TTA6VN
+   (OFFSET,
+    P,
+    P1,
+    P2,
+    P3,
+    S_AXIS_ADC1_tdata,
+    S_AXIS_ADC1_tvalid,
+    S_AXIS_ADC2_tdata,
+    S_AXIS_ADC2_tvalid,
+    S_AXIS_CFG_tdata,
+    S_AXIS_CFG_tvalid,
+    S_AXIS_RNG_tdata,
+    S_AXIS_RNG_tvalid,
+    aclk,
+    input_select,
+    sel,
+    trig_in,
+    trigger_out);
+  output [31:0]OFFSET;
+  output [55:0]P;
+  output [55:0]P1;
+  output [42:0]P2;
+  output [63:0]P3;
+  input [15:0]S_AXIS_ADC1_tdata;
+  input S_AXIS_ADC1_tvalid;
+  input [15:0]S_AXIS_ADC2_tdata;
+  input S_AXIS_ADC2_tvalid;
+  input [191:0]S_AXIS_CFG_tdata;
+  input S_AXIS_CFG_tvalid;
+  input [15:0]S_AXIS_RNG_tdata;
+  input S_AXIS_RNG_tvalid;
+  input aclk;
+  input input_select;
+  input [3:0]sel;
+  input trig_in;
+  output trigger_out;
+
+  wire [15:0]Conn2_TDATA;
+  wire Conn2_TVALID;
+  wire [15:0]Conn3_TDATA;
+  wire Conn3_TVALID;
+  wire [15:0]Conn4_TDATA;
+  wire Conn4_TVALID;
+  wire [3:0]Net;
+  wire [191:0]S_AXIS_CFG1_1_TDATA;
+  wire S_AXIS_CFG1_1_TVALID;
+  wire input_select_1;
+  wire [55:0]mult_gen_0_P;
+  wire [55:0]mult_gen_1_P;
+  wire [63:0]multiplier_breakout_0_LONG_7F;
+  wire [31:0]multiplier_breakout_0_OFFSET;
+  wire [31:0]multiplier_breakout_0_OP1;
+  wire [31:0]multiplier_breakout_0_OP2;
+  wire [31:0]multiplier_breakout_0_OP3;
+  wire [31:0]multiplier_breakout_0_OP4;
+  wire [31:0]multiplier_breakout_0_OP5;
+  wire [47:0]multiplier_breakout_0_OP6;
+  wire [31:0]multiplier_breakout_0_OP7;
+  wire multiplier_breakout_0_trigger_out;
+  wire pll_0_clk_out1;
+  wire [42:0]premultiplier_P1;
+  wire [63:0]premultiplier_P2;
+  wire trig_in_1;
+
+  assign Conn2_TDATA = S_AXIS_RNG_tdata[15:0];
+  assign Conn2_TVALID = S_AXIS_RNG_tvalid;
+  assign Conn3_TDATA = S_AXIS_ADC1_tdata[15:0];
+  assign Conn3_TVALID = S_AXIS_ADC1_tvalid;
+  assign Conn4_TDATA = S_AXIS_ADC2_tdata[15:0];
+  assign Conn4_TVALID = S_AXIS_ADC2_tvalid;
+  assign Net = sel[3:0];
+  assign OFFSET[31:0] = multiplier_breakout_0_OFFSET;
+  assign P[55:0] = mult_gen_0_P;
+  assign P1[55:0] = mult_gen_1_P;
+  assign P2[42:0] = premultiplier_P1;
+  assign P3[63:0] = premultiplier_P2;
+  assign S_AXIS_CFG1_1_TDATA = S_AXIS_CFG_tdata[191:0];
+  assign S_AXIS_CFG1_1_TVALID = S_AXIS_CFG_tvalid;
+  assign input_select_1 = input_select;
+  assign pll_0_clk_out1 = aclk;
+  assign trig_in_1 = trig_in;
+  assign trigger_out = multiplier_breakout_0_trigger_out;
+  system_mult_gen_0_0 CH1_mult1
+       (.A(multiplier_breakout_0_OP1),
+        .B(multiplier_breakout_0_OP2),
+        .CLK(pll_0_clk_out1),
+        .P(mult_gen_0_P));
+  system_mult_gen_0_4 CH1_mult2
+       (.A(multiplier_breakout_0_OP3),
+        .B(multiplier_breakout_0_OP4),
+        .CLK(pll_0_clk_out1),
+        .P(mult_gen_1_P));
+  system_mult_gen_0_5 CH1_mult3
+       (.A(multiplier_breakout_0_OP5),
+        .B(multiplier_breakout_0_OP6),
+        .CLK(pll_0_clk_out1),
+        .P(premultiplier_P1));
+  system_mult_gen_0_6 CH1_mult4
+       (.A(multiplier_breakout_0_OP7),
+        .B(multiplier_breakout_0_LONG_7F),
+        .CLK(pll_0_clk_out1),
+        .P(premultiplier_P2));
+  system_multiplier_breakout_0_0 CH1_multiplier_breakout
+       (.LONG_7F(multiplier_breakout_0_LONG_7F),
+        .OFFSET(multiplier_breakout_0_OFFSET),
+        .OP1(multiplier_breakout_0_OP1),
+        .OP2(multiplier_breakout_0_OP2),
+        .OP3(multiplier_breakout_0_OP3),
+        .OP4(multiplier_breakout_0_OP4),
+        .OP5(multiplier_breakout_0_OP5),
+        .OP6(multiplier_breakout_0_OP6),
+        .OP7(multiplier_breakout_0_OP7),
+        .S_AXIS_ADC1_tdata(Conn3_TDATA),
+        .S_AXIS_ADC1_tvalid(Conn3_TVALID),
+        .S_AXIS_ADC2_tdata(Conn4_TDATA),
+        .S_AXIS_ADC2_tvalid(Conn4_TVALID),
+        .S_AXIS_CFG_tdata(S_AXIS_CFG1_1_TDATA),
+        .S_AXIS_CFG_tvalid(S_AXIS_CFG1_1_TVALID),
+        .S_AXIS_RNG_tdata(Conn2_TDATA),
+        .S_AXIS_RNG_tvalid(Conn2_TVALID),
+        .aclk(pll_0_clk_out1),
+        .input_select(input_select_1),
+        .sel(Net),
+        .trigger_in(trig_in_1),
+        .trigger_out(multiplier_breakout_0_trigger_out));
+endmodule
+
+module CH2_config_imp_4I2YBS
+   (Din1,
+    Dout10,
+    Dout9,
+    M_AXIS2_tdata,
+    M_AXIS2_tvalid,
+    aclk,
+    cfg_data);
+  input [447:0]Din1;
+  output [0:0]Dout10;
+  output [3:0]Dout9;
+  output [191:0]M_AXIS2_tdata;
+  output M_AXIS2_tvalid;
+  input aclk;
+  input [191:0]cfg_data;
+
+  wire [191:0]Conn1_TDATA;
+  wire Conn1_TVALID;
+  wire [447:0]Din1_1;
+  wire [3:0]Feedback_State_1_Dout;
+  wire aclk_1;
+  wire [191:0]cfg_data_1;
+  wire [0:0]input_select_2_Dout;
+
+  assign Din1_1 = Din1[447:0];
+  assign Dout10[0] = input_select_2_Dout;
+  assign Dout9[3:0] = Feedback_State_1_Dout;
+  assign M_AXIS2_tdata[191:0] = Conn1_TDATA;
+  assign M_AXIS2_tvalid = Conn1_TVALID;
+  assign aclk_1 = aclk;
+  assign cfg_data_1 = cfg_data[191:0];
+  system_ALL_Feedback_Params_1 CH2_Feedback_Params_2
+       (.aclk(aclk_1),
+        .cfg_data(cfg_data_1),
+        .m_axis_tdata(Conn1_TDATA),
+        .m_axis_tvalid(Conn1_TVALID));
+  system_Feedback_State_3 Feedback_State_1
+       (.Din(Din1_1),
+        .Dout(Feedback_State_1_Dout));
+  system_input_select_0 input_select_2
+       (.Din(Din1_1),
+        .Dout(input_select_2_Dout));
+endmodule
+
+module CH2_imp_P5187I
+   (CH2_sel,
+    OFFSET,
+    P,
+    P1,
+    P2,
+    P3,
+    S_AXIS_ADC1_tdata,
+    S_AXIS_ADC1_tvalid,
+    S_AXIS_ADC2_tdata,
+    S_AXIS_ADC2_tvalid,
+    S_AXIS_CFG_tdata,
+    S_AXIS_CFG_tvalid,
+    S_AXIS_RNG2_tdata,
+    S_AXIS_RNG2_tvalid,
+    aclk,
+    input_select1,
+    trig_in);
+  input [3:0]CH2_sel;
+  output [31:0]OFFSET;
+  output [55:0]P;
+  output [42:0]P1;
+  output [63:0]P2;
+  output [55:0]P3;
+  input [15:0]S_AXIS_ADC1_tdata;
+  input S_AXIS_ADC1_tvalid;
+  input [15:0]S_AXIS_ADC2_tdata;
+  input S_AXIS_ADC2_tvalid;
+  input [191:0]S_AXIS_CFG_tdata;
+  input S_AXIS_CFG_tvalid;
+  input [15:0]S_AXIS_RNG2_tdata;
+  input S_AXIS_RNG2_tvalid;
+  input aclk;
+  input input_select1;
+  input trig_in;
+
+  wire [55:0]CH2_mult1_P;
+  wire [55:0]CH2_mult2_P;
+  wire [42:0]CH2_mult3_P;
+  wire [63:0]CH2_mult4_P;
+  wire [63:0]CH2_multiplier_breakout_LONG_7F;
+  wire [31:0]CH2_multiplier_breakout_OFFSET;
+  wire [31:0]CH2_multiplier_breakout_OP1;
+  wire [31:0]CH2_multiplier_breakout_OP2;
+  wire [31:0]CH2_multiplier_breakout_OP3;
+  wire [31:0]CH2_multiplier_breakout_OP4;
+  wire [31:0]CH2_multiplier_breakout_OP5;
+  wire [47:0]CH2_multiplier_breakout_OP6;
+  wire [31:0]CH2_multiplier_breakout_OP7;
+  wire [15:0]Conn1_TDATA;
+  wire Conn1_TVALID;
+  wire [15:0]Conn6_TDATA;
+  wire Conn6_TVALID;
+  wire [15:0]Conn7_TDATA;
+  wire Conn7_TVALID;
+  wire [3:0]Net1;
+  wire [191:0]S_AXIS_CFG_1_TDATA;
+  wire S_AXIS_CFG_1_TVALID;
+  wire input_select1_1;
+  wire pll_0_clk_out1;
+  wire trig_in_1;
+
+  assign Conn1_TDATA = S_AXIS_RNG2_tdata[15:0];
+  assign Conn1_TVALID = S_AXIS_RNG2_tvalid;
+  assign Conn6_TDATA = S_AXIS_ADC1_tdata[15:0];
+  assign Conn6_TVALID = S_AXIS_ADC1_tvalid;
+  assign Conn7_TDATA = S_AXIS_ADC2_tdata[15:0];
+  assign Conn7_TVALID = S_AXIS_ADC2_tvalid;
+  assign Net1 = CH2_sel[3:0];
+  assign OFFSET[31:0] = CH2_multiplier_breakout_OFFSET;
+  assign P[55:0] = CH2_mult2_P;
+  assign P1[42:0] = CH2_mult3_P;
+  assign P2[63:0] = CH2_mult4_P;
+  assign P3[55:0] = CH2_mult1_P;
+  assign S_AXIS_CFG_1_TDATA = S_AXIS_CFG_tdata[191:0];
+  assign S_AXIS_CFG_1_TVALID = S_AXIS_CFG_tvalid;
+  assign input_select1_1 = input_select1;
+  assign pll_0_clk_out1 = aclk;
+  assign trig_in_1 = trig_in;
+  system_CH1_mult1_0 CH2_mult1
+       (.A(CH2_multiplier_breakout_OP1),
+        .B(CH2_multiplier_breakout_OP2),
+        .CLK(pll_0_clk_out1),
+        .P(CH2_mult1_P));
+  system_CH1_mult2_0 CH2_mult2
+       (.A(CH2_multiplier_breakout_OP3),
+        .B(CH2_multiplier_breakout_OP4),
+        .CLK(pll_0_clk_out1),
+        .P(CH2_mult2_P));
+  system_CH1_mult3_0 CH2_mult3
+       (.A(CH2_multiplier_breakout_OP5),
+        .B(CH2_multiplier_breakout_OP6),
+        .CLK(pll_0_clk_out1),
+        .P(CH2_mult3_P));
+  system_CH1_mult4_0 CH2_mult4
+       (.A(CH2_multiplier_breakout_OP7),
+        .B(CH2_multiplier_breakout_LONG_7F),
+        .CLK(pll_0_clk_out1),
+        .P(CH2_mult4_P));
+  system_CH1_multiplier_breakout_0_0 CH2_multiplier_breakout
+       (.LONG_7F(CH2_multiplier_breakout_LONG_7F),
+        .OFFSET(CH2_multiplier_breakout_OFFSET),
+        .OP1(CH2_multiplier_breakout_OP1),
+        .OP2(CH2_multiplier_breakout_OP2),
+        .OP3(CH2_multiplier_breakout_OP3),
+        .OP4(CH2_multiplier_breakout_OP4),
+        .OP5(CH2_multiplier_breakout_OP5),
+        .OP6(CH2_multiplier_breakout_OP6),
+        .OP7(CH2_multiplier_breakout_OP7),
+        .S_AXIS_ADC1_tdata(Conn6_TDATA),
+        .S_AXIS_ADC1_tvalid(Conn6_TVALID),
+        .S_AXIS_ADC2_tdata(Conn7_TDATA),
+        .S_AXIS_ADC2_tvalid(Conn7_TVALID),
+        .S_AXIS_CFG_tdata(S_AXIS_CFG_1_TDATA),
+        .S_AXIS_CFG_tvalid(S_AXIS_CFG_1_TVALID),
+        .S_AXIS_RNG_tdata(Conn1_TDATA),
+        .S_AXIS_RNG_tvalid(Conn1_TVALID),
+        .aclk(pll_0_clk_out1),
+        .input_select(input_select1_1),
+        .sel(Net1),
+        .trigger_in(trig_in_1));
+endmodule
 
 module Core_imp_1JF9L0S
    (DDR_addr,
@@ -571,7 +1122,6 @@ module Memory_IO_imp_19T7DMV
     S_AXI1_wready,
     S_AXI1_wvalid,
     S_AXIS_tdata,
-    S_AXIS_tready,
     S_AXIS_tvalid,
     S_AXI_araddr,
     S_AXI_arready,
@@ -630,7 +1180,6 @@ module Memory_IO_imp_19T7DMV
   output S_AXI1_wready;
   input S_AXI1_wvalid;
   input [63:0]S_AXIS_tdata;
-  output S_AXIS_tready;
   input S_AXIS_tvalid;
   input [31:0]S_AXI_araddr;
   output S_AXI_arready;
@@ -652,7 +1201,7 @@ module Memory_IO_imp_19T7DMV
   input aclk;
   input aresetn;
   input aresetn1;
-  output [319:0]cfg_data;
+  output [447:0]cfg_data;
   input [31:0]cfg_data1;
   input [127:0]sts_data;
   output [15:0]sts_data1;
@@ -674,7 +1223,6 @@ module Memory_IO_imp_19T7DMV
   wire S_AXI1_1_WREADY;
   wire S_AXI1_1_WVALID;
   wire [63:0]S_AXIS_1_TDATA;
-  wire S_AXIS_1_TREADY;
   wire S_AXIS_1_TVALID;
   wire [31:0]S_AXI_1_ARADDR;
   wire S_AXI_1_ARREADY;
@@ -694,7 +1242,7 @@ module Memory_IO_imp_19T7DMV
   wire [3:0]S_AXI_1_WSTRB;
   wire S_AXI_1_WVALID;
   wire aresetn1_1;
-  wire [319:0]axi_cfg_register_0_cfg_data;
+  wire [447:0]axi_cfg_register_0_cfg_data;
   wire [31:0]axis_ram_writer_0_M_AXI_AWADDR;
   wire [1:0]axis_ram_writer_0_M_AXI_AWBURST;
   wire [3:0]axis_ram_writer_0_M_AXI_AWCACHE;
@@ -748,7 +1296,6 @@ module Memory_IO_imp_19T7DMV
   assign S_AXI1_wready = S_AXI1_1_WREADY;
   assign S_AXIS_1_TDATA = S_AXIS_tdata[63:0];
   assign S_AXIS_1_TVALID = S_AXIS_tvalid;
-  assign S_AXIS_tready = S_AXIS_1_TREADY;
   assign S_AXI_1_ARADDR = S_AXI_araddr[31:0];
   assign S_AXI_1_ARVALID = S_AXI_arvalid;
   assign S_AXI_1_AWADDR = S_AXI_awaddr[31:0];
@@ -770,7 +1317,7 @@ module Memory_IO_imp_19T7DMV
   assign axis_ram_writer_0_M_AXI_AWREADY = M_AXI_awready;
   assign axis_ram_writer_0_M_AXI_BVALID = M_AXI_bvalid;
   assign axis_ram_writer_0_M_AXI_WREADY = M_AXI_wready;
-  assign cfg_data[319:0] = axi_cfg_register_0_cfg_data;
+  assign cfg_data[447:0] = axi_cfg_register_0_cfg_data;
   assign cfg_data1_1 = cfg_data1[31:0];
   assign pll_0_clk_out1 = aclk;
   assign rst_0_peripheral_aresetn = aresetn;
@@ -838,7 +1385,6 @@ module Memory_IO_imp_19T7DMV
         .m_axi_wstrb(axis_ram_writer_0_M_AXI_WSTRB),
         .m_axi_wvalid(axis_ram_writer_0_M_AXI_WVALID),
         .s_axis_tdata(S_AXIS_1_TDATA),
-        .s_axis_tready(S_AXIS_1_TREADY),
         .s_axis_tvalid(S_AXIS_1_TVALID),
         .sts_data(axis_ram_writer_0_sts_data));
 endmodule
@@ -846,13 +1392,25 @@ endmodule
 module Reg_Brakeout_imp_H22Q4C
    (Din1,
     Dout,
+    Dout10,
+    Dout11,
+    Dout12,
+    Dout13,
+    Dout14,
     Dout7,
     Dout8,
+    Dout9,
     In2,
     M_AXIS1_tdata,
     M_AXIS1_tvalid,
     M_AXIS2_tdata,
     M_AXIS2_tvalid,
+    M_AXIS3_tdata,
+    M_AXIS3_tvalid,
+    M_AXIS4_tdata,
+    M_AXIS4_tvalid,
+    M_AXIS5_tdata,
+    M_AXIS5_tvalid,
     aclk,
     aresetn,
     dout1,
@@ -861,15 +1419,27 @@ module Reg_Brakeout_imp_H22Q4C
     dout4,
     dout5,
     dout6);
-  input [319:0]Din1;
-  output [2:0]Dout;
+  input [447:0]Din1;
+  output [3:0]Dout;
+  output [0:0]Dout10;
+  output [0:0]Dout11;
+  output [0:0]Dout12;
+  output [0:0]Dout13;
+  output [0:0]Dout14;
   output [0:0]Dout7;
   output [0:0]Dout8;
+  output [3:0]Dout9;
   input [15:0]In2;
-  output [255:0]M_AXIS1_tdata;
+  output [447:0]M_AXIS1_tdata;
   output M_AXIS1_tvalid;
-  output [15:0]M_AXIS2_tdata;
+  output [191:0]M_AXIS2_tdata;
   output M_AXIS2_tvalid;
+  output [191:0]M_AXIS3_tdata;
+  output M_AXIS3_tvalid;
+  output [15:0]M_AXIS4_tdata;
+  output M_AXIS4_tvalid;
+  output [15:0]M_AXIS5_tdata;
+  output M_AXIS5_tvalid;
   input aclk;
   input aresetn;
   output [31:0]dout1;
@@ -879,132 +1449,178 @@ module Reg_Brakeout_imp_H22Q4C
   output [0:0]dout5;
   output [0:0]dout6;
 
-  wire [15:0]Conn1_TDATA;
-  wire Conn1_TVALID;
-  wire [319:0]Din1_1;
-  wire [2:0]Feedback_State_Dout;
-  wire [255:0]Feedback_config_bus_Dout;
+  wire [0:0]CBC_config_Dout11;
+  wire [0:0]CBC_config_Dout12;
+  wire [0:0]CBC_config_Dout13;
+  wire [0:0]CBC_config_Dout14;
+  wire [3:0]CH1_Config_Dout;
+  wire [191:0]CH1_Config_M_AXIS3_TDATA;
+  wire CH1_Config_M_AXIS3_TVALID;
+  wire [191:0]CH1_params_Dout;
+  wire [0:0]CH2_config_Dout10;
+  wire [3:0]CH2_config_Dout9;
+  wire [191:0]CH2_config_M_AXIS2_TDATA;
+  wire CH2_config_M_AXIS2_TVALID;
+  wire [191:0]CH2_params_Dout;
+  wire [447:0]Conn2_TDATA;
+  wire Conn2_TVALID;
+  wire [447:0]Din1_1;
+  wire [447:0]Feedback_config_bus_Dout;
+  wire [15:0]In2_1;
   wire [31:0]RAM_addres_Dout;
-  wire [255:0]axis_constant_0_M_AXIS_TDATA;
-  wire axis_constant_0_M_AXIS_TVALID;
-  wire [127:0]concat_1_dout;
   wire [0:0]const_0_dout;
   wire [0:0]continuous_output_Dout;
   wire [56:0]dna_reader_0_dna_data;
   wire [0:0]feedback_trigger_Dout;
+  wire [15:0]gng_0_M_AXIS1_TDATA;
+  wire gng_0_M_AXIS1_TVALID;
+  wire [15:0]gng_0_M_AXIS2_TDATA;
+  wire gng_0_M_AXIS2_TVALID;
   wire [0:0]input_select_Dout;
   wire pll_0_clk_out1;
   wire [0:0]pre_memory_reset_Dout;
   wire [0:0]ram_writer_reset_Dout;
   wire rst_0_peripheral_aresetn;
-  wire [15:0]writer_0_sts_data;
+  wire [127:0]status_concat_1_dout;
 
-  assign Din1_1 = Din1[319:0];
-  assign Dout[2:0] = Feedback_State_Dout;
+  assign Din1_1 = Din1[447:0];
+  assign Dout[3:0] = CH1_Config_Dout;
+  assign Dout10[0] = CH2_config_Dout10;
+  assign Dout11[0] = CBC_config_Dout11;
+  assign Dout12[0] = CBC_config_Dout12;
+  assign Dout13[0] = CBC_config_Dout13;
+  assign Dout14[0] = CBC_config_Dout14;
   assign Dout7[0] = input_select_Dout;
   assign Dout8[0] = continuous_output_Dout;
-  assign M_AXIS1_tdata[255:0] = axis_constant_0_M_AXIS_TDATA;
-  assign M_AXIS1_tvalid = axis_constant_0_M_AXIS_TVALID;
-  assign M_AXIS2_tdata[15:0] = Conn1_TDATA;
-  assign M_AXIS2_tvalid = Conn1_TVALID;
+  assign Dout9[3:0] = CH2_config_Dout9;
+  assign In2_1 = In2[15:0];
+  assign M_AXIS1_tdata[447:0] = Conn2_TDATA;
+  assign M_AXIS1_tvalid = Conn2_TVALID;
+  assign M_AXIS2_tdata[191:0] = CH2_config_M_AXIS2_TDATA;
+  assign M_AXIS2_tvalid = CH2_config_M_AXIS2_TVALID;
+  assign M_AXIS3_tdata[191:0] = CH1_Config_M_AXIS3_TDATA;
+  assign M_AXIS3_tvalid = CH1_Config_M_AXIS3_TVALID;
+  assign M_AXIS4_tdata[15:0] = gng_0_M_AXIS1_TDATA;
+  assign M_AXIS4_tvalid = gng_0_M_AXIS1_TVALID;
+  assign M_AXIS5_tdata[15:0] = gng_0_M_AXIS2_TDATA;
+  assign M_AXIS5_tvalid = gng_0_M_AXIS2_TVALID;
   assign dout1[31:0] = RAM_addres_Dout;
   assign dout2[0] = const_0_dout;
-  assign dout3[127:0] = concat_1_dout;
+  assign dout3[127:0] = status_concat_1_dout;
   assign dout4[0] = feedback_trigger_Dout;
   assign dout5[0] = ram_writer_reset_Dout;
   assign dout6[0] = pre_memory_reset_Dout;
   assign pll_0_clk_out1 = aclk;
   assign rst_0_peripheral_aresetn = aresetn;
-  assign writer_0_sts_data = In2[15:0];
-  system_Feedback_State_0 Feedback_State
+  CBC_config_imp_3DYLP CBC_config
+       (.Din1(Din1_1),
+        .Dout11(CBC_config_Dout11),
+        .Dout12(CBC_config_Dout12),
+        .Dout13(CBC_config_Dout13),
+        .Dout14(CBC_config_Dout14),
+        .M_AXIS_tdata(Conn2_TDATA),
+        .M_AXIS_tvalid(Conn2_TVALID),
+        .aclk(pll_0_clk_out1),
+        .cfg_data(Feedback_config_bus_Dout));
+  CH1_Config_imp_WASEI3 CH1_Config
+       (.Din1(Din1_1),
+        .Dout(CH1_Config_Dout),
+        .Dout7(input_select_Dout),
+        .M_AXIS3_tdata(CH1_Config_M_AXIS3_TDATA),
+        .M_AXIS3_tvalid(CH1_Config_M_AXIS3_TVALID),
+        .aclk(pll_0_clk_out1),
+        .cfg_data(CH1_params_Dout));
+  system_Feedback_config_bus_1 CH1_params
        (.Din(Din1_1),
-        .Dout(Feedback_State_Dout));
+        .Dout(CH1_params_Dout));
+  CH2_config_imp_4I2YBS CH2_config
+       (.Din1(Din1_1),
+        .Dout10(CH2_config_Dout10),
+        .Dout9(CH2_config_Dout9),
+        .M_AXIS2_tdata(CH2_config_M_AXIS2_TDATA),
+        .M_AXIS2_tvalid(CH2_config_M_AXIS2_TVALID),
+        .aclk(pll_0_clk_out1),
+        .cfg_data(CH2_params_Dout));
+  system_Feedback_config_bus_1_0 CH2_params
+       (.Din(Din1_1),
+        .Dout(CH2_params_Dout));
   system_Feedback_config_bus_0 Feedback_config_bus
-       (.Din(Din1_1),
+       (.Din({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,Din1_1}),
         .Dout(Feedback_config_bus_Dout));
-  system_RAM_addres_0 RAM_addres
-       (.Din(Din1_1),
-        .Dout(RAM_addres_Dout));
-  system_axis_constant_0_0 axis_constant_0
-       (.aclk(pll_0_clk_out1),
-        .cfg_data(Feedback_config_bus_Dout),
-        .m_axis_tdata(axis_constant_0_M_AXIS_TDATA),
-        .m_axis_tvalid(axis_constant_0_M_AXIS_TVALID));
-  system_Feedback_State_2 continuous_output
-       (.Din(Din1_1),
-        .Dout(continuous_output_Dout));
   system_dna_reader_0_0 dna_reader_0
        (.aclk(pll_0_clk_out1),
         .aresetn(rst_0_peripheral_aresetn),
         .dna_data(dna_reader_0_dna_data));
   system_external_reset_fake_0 external_reset_fake
        (.dout(const_0_dout));
-  system_feedback_trigger_0 feedback_trigger
-       (.Din(Din1_1),
-        .Dout(feedback_trigger_Dout));
   system_gng_0_0 gng_0
-       (.M_AXIS_tdata(Conn1_TDATA),
-        .M_AXIS_tvalid(Conn1_TVALID),
+       (.M_AXIS1_tdata(gng_0_M_AXIS1_TDATA),
+        .M_AXIS1_tvalid(gng_0_M_AXIS1_TVALID),
+        .M_AXIS2_tdata(gng_0_M_AXIS2_TDATA),
+        .M_AXIS2_tvalid(gng_0_M_AXIS2_TVALID),
         .clk(pll_0_clk_out1),
         .rstn(rst_0_peripheral_aresetn));
-  system_Feedback_State_1 input_select
-       (.Din(Din1_1),
-        .Dout(input_select_Dout));
-  system_pre_memory_reset_0 pre_memory_reset
-       (.Din(Din1_1),
-        .Dout(pre_memory_reset_Dout));
-  system_ram_writer_reset_0 ram_writer_reset
-       (.Din(Din1_1),
-        .Dout(ram_writer_reset_Dout));
   system_status_concat_1_0 status_concat_1
        (.In0({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,const_0_dout}),
         .In1({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,dna_reader_0_dna_data}),
-        .In2({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,writer_0_sts_data}),
-        .dout(concat_1_dout));
+        .In2({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,In2_1}),
+        .dout(status_concat_1_dout));
+  system_params_imp_1MROCIH system_params
+       (.Din1(Din1_1),
+        .Dout8(continuous_output_Dout),
+        .dout1(RAM_addres_Dout),
+        .dout4(feedback_trigger_Dout),
+        .dout5(ram_writer_reset_Dout),
+        .dout6(pre_memory_reset_Dout));
 endmodule
 
 module downsampling_imp_1CFV2HL
    (M_AXIS_tdata,
-    M_AXIS_tready,
     M_AXIS_tvalid,
-    S00_AXIS_tdata,
-    S00_AXIS_tvalid,
+    S00_AXIS1_tdata,
+    S00_AXIS1_tvalid,
+    S01_AXIS1_tdata,
+    S01_AXIS1_tvalid,
     S01_AXIS_tdata,
     S01_AXIS_tvalid,
     aclk,
     aresetn);
   output [63:0]M_AXIS_tdata;
-  input M_AXIS_tready;
   output M_AXIS_tvalid;
-  input [15:0]S00_AXIS_tdata;
-  input [0:0]S00_AXIS_tvalid;
-  input [15:0]S01_AXIS_tdata;
+  input [15:0]S00_AXIS1_tdata;
+  input [0:0]S00_AXIS1_tvalid;
+  input [15:0]S01_AXIS1_tdata;
+  input [0:0]S01_AXIS1_tvalid;
+  input [31:0]S01_AXIS_tdata;
   input [0:0]S01_AXIS_tvalid;
   input aclk;
   input aresetn;
 
-  wire [15:0]S01_AXIS_1_TDATA;
-  wire [0:0]S01_AXIS_1_TVALID;
-  wire [31:0]axis_combiner_1_M_AXIS_TDATA;
+  wire [15:0]Conn1_TDATA;
+  wire [0:0]Conn1_TVALID;
+  wire [15:0]Conn2_TDATA;
+  wire [0:0]Conn2_TVALID;
+  wire [31:0]Conn3_TDATA;
+  wire [0:0]Conn3_TVALID;
+  wire [63:0]axis_combiner_1_M_AXIS_TDATA;
   wire axis_combiner_1_M_AXIS_TREADY;
   wire axis_combiner_1_M_AXIS_TVALID;
-  wire [15:0]ch1_mem_fb_split_M00_AXIS_TDATA;
-  wire [0:0]ch1_mem_fb_split_M00_AXIS_TVALID;
-  wire [63:0]conv_0_M_AXIS_TDATA;
-  wire conv_0_M_AXIS_TREADY;
-  wire conv_0_M_AXIS_TVALID;
-  wire [31:0]fir_compiler_0_M_AXIS_DATA_TDATA;
+  wire [31:0]axis_combiner_2_M_AXIS_TDATA;
+  wire [0:0]axis_combiner_2_M_AXIS_TREADY;
+  wire axis_combiner_2_M_AXIS_TVALID;
+  wire [63:0]fir_compiler_0_M_AXIS_DATA_TDATA;
   wire fir_compiler_0_M_AXIS_DATA_TVALID;
   wire pll_0_clk_out1;
   wire slice_0_dout;
 
-  assign M_AXIS_tdata[63:0] = conv_0_M_AXIS_TDATA;
-  assign M_AXIS_tvalid = conv_0_M_AXIS_TVALID;
-  assign S01_AXIS_1_TDATA = S01_AXIS_tdata[15:0];
-  assign S01_AXIS_1_TVALID = S01_AXIS_tvalid[0];
-  assign ch1_mem_fb_split_M00_AXIS_TDATA = S00_AXIS_tdata[15:0];
-  assign ch1_mem_fb_split_M00_AXIS_TVALID = S00_AXIS_tvalid[0];
-  assign conv_0_M_AXIS_TREADY = M_AXIS_tready;
+  assign Conn1_TDATA = S00_AXIS1_tdata[15:0];
+  assign Conn1_TVALID = S00_AXIS1_tvalid[0];
+  assign Conn2_TDATA = S01_AXIS1_tdata[15:0];
+  assign Conn2_TVALID = S01_AXIS1_tvalid[0];
+  assign Conn3_TDATA = S01_AXIS_tdata[31:0];
+  assign Conn3_TVALID = S01_AXIS_tvalid[0];
+  assign M_AXIS_tdata[63:0] = fir_compiler_0_M_AXIS_DATA_TDATA;
+  assign M_AXIS_tvalid = fir_compiler_0_M_AXIS_DATA_TVALID;
   assign pll_0_clk_out1 = aclk;
   assign slice_0_dout = aresetn;
   system_axis_combiner_0_1 axis_combiner_1
@@ -1013,16 +1629,17 @@ module downsampling_imp_1CFV2HL
         .m_axis_tdata(axis_combiner_1_M_AXIS_TDATA),
         .m_axis_tready(axis_combiner_1_M_AXIS_TREADY),
         .m_axis_tvalid(axis_combiner_1_M_AXIS_TVALID),
-        .s_axis_tdata({S01_AXIS_1_TDATA,ch1_mem_fb_split_M00_AXIS_TDATA}),
-        .s_axis_tvalid({S01_AXIS_1_TVALID,ch1_mem_fb_split_M00_AXIS_TVALID}));
-  system_conv_0_0 conv_0
+        .s_axis_tdata({Conn3_TDATA,axis_combiner_2_M_AXIS_TDATA}),
+        .s_axis_tready(axis_combiner_2_M_AXIS_TREADY),
+        .s_axis_tvalid({Conn3_TVALID,axis_combiner_2_M_AXIS_TVALID}));
+  system_axis_combiner_1_0 axis_combiner_2
        (.aclk(pll_0_clk_out1),
         .aresetn(slice_0_dout),
-        .m_axis_tdata(conv_0_M_AXIS_TDATA),
-        .m_axis_tready(conv_0_M_AXIS_TREADY),
-        .m_axis_tvalid(conv_0_M_AXIS_TVALID),
-        .s_axis_tdata(fir_compiler_0_M_AXIS_DATA_TDATA),
-        .s_axis_tvalid(fir_compiler_0_M_AXIS_DATA_TVALID));
+        .m_axis_tdata(axis_combiner_2_M_AXIS_TDATA),
+        .m_axis_tready(axis_combiner_2_M_AXIS_TREADY),
+        .m_axis_tvalid(axis_combiner_2_M_AXIS_TVALID),
+        .s_axis_tdata({Conn2_TDATA,Conn1_TDATA}),
+        .s_axis_tvalid({Conn2_TVALID,Conn1_TVALID}));
   system_fir_compiler_0_0 fir_compiler_0
        (.aclk(pll_0_clk_out1),
         .aresetn(slice_0_dout),
@@ -1034,100 +1651,242 @@ module downsampling_imp_1CFV2HL
 endmodule
 
 module feedback_and_generation_imp_GDMTQL
-   (M00_AXIS_tdata,
+   (CH2_sel,
+    M00_AXIS_tdata,
     M00_AXIS_tvalid,
     M01_AXIS_tdata,
     M01_AXIS_tvalid,
-    S_AXIS1_tdata,
-    S_AXIS1_tvalid,
     S_AXIS_ADC1_tdata,
     S_AXIS_ADC1_tvalid,
     S_AXIS_ADC2_tdata,
     S_AXIS_ADC2_tvalid,
-    S_AXIS_RNG_tdata,
-    S_AXIS_RNG_tvalid,
+    S_AXIS_ADC3_tdata,
+    S_AXIS_ADC3_tvalid,
+    S_AXIS_ADC4_tdata,
+    S_AXIS_ADC4_tvalid,
+    S_AXIS_ADC5_tdata,
+    S_AXIS_ADC5_tvalid,
+    S_AXIS_ADC6_tdata,
+    S_AXIS_ADC6_tvalid,
+    S_AXIS_CFG1_tdata,
+    S_AXIS_CFG1_tvalid,
+    S_AXIS_CFG2_tdata,
+    S_AXIS_CFG2_tvalid,
+    S_AXIS_CFG_tdata,
+    S_AXIS_CFG_tvalid,
+    S_AXIS_RNG1_tdata,
+    S_AXIS_RNG1_tvalid,
+    S_AXIS_RNG2_tdata,
+    S_AXIS_RNG2_tvalid,
     aclk,
     aresetn,
     continuous_output_in,
+    displacement_int_ext,
     exp_p_tri_io,
     input_select,
+    input_select1,
+    input_select2,
+    polynomial_target,
     sel,
-    trig_in);
-  output [15:0]M00_AXIS_tdata;
+    trig_in,
+    velocity_int_ext);
+  input [3:0]CH2_sel;
+  output [31:0]M00_AXIS_tdata;
   output [0:0]M00_AXIS_tvalid;
-  output [15:0]M01_AXIS_tdata;
+  output [31:0]M01_AXIS_tdata;
   output M01_AXIS_tvalid;
-  input [255:0]S_AXIS1_tdata;
-  input S_AXIS1_tvalid;
   input [15:0]S_AXIS_ADC1_tdata;
   input S_AXIS_ADC1_tvalid;
   input [15:0]S_AXIS_ADC2_tdata;
   input S_AXIS_ADC2_tvalid;
-  input [15:0]S_AXIS_RNG_tdata;
-  input S_AXIS_RNG_tvalid;
+  input [15:0]S_AXIS_ADC3_tdata;
+  input S_AXIS_ADC3_tvalid;
+  input [15:0]S_AXIS_ADC4_tdata;
+  input S_AXIS_ADC4_tvalid;
+  input [15:0]S_AXIS_ADC5_tdata;
+  input S_AXIS_ADC5_tvalid;
+  input [15:0]S_AXIS_ADC6_tdata;
+  input S_AXIS_ADC6_tvalid;
+  input [191:0]S_AXIS_CFG1_tdata;
+  input S_AXIS_CFG1_tvalid;
+  input [447:0]S_AXIS_CFG2_tdata;
+  input S_AXIS_CFG2_tvalid;
+  input [191:0]S_AXIS_CFG_tdata;
+  input S_AXIS_CFG_tvalid;
+  input [15:0]S_AXIS_RNG1_tdata;
+  input S_AXIS_RNG1_tvalid;
+  input [15:0]S_AXIS_RNG2_tdata;
+  input S_AXIS_RNG2_tvalid;
   input aclk;
   input aresetn;
   input [0:0]continuous_output_in;
+  input displacement_int_ext;
   output exp_p_tri_io;
   input input_select;
-  input [2:0]sel;
+  input input_select1;
+  input input_select2;
+  input polynomial_target;
+  input [3:0]sel;
   input trig_in;
+  input velocity_int_ext;
 
-  wire [15:0]Conn1_TDATA;
+  wire [31:0]CBC_OFFSET;
+  wire [55:0]CBC_P;
+  wire [42:0]CBC_P1;
+  wire [63:0]CBC_P2;
+  wire [55:0]CBC_P3;
+  wire [55:0]CBC_P4;
+  wire [42:0]CBC_P5;
+  wire [55:0]CH2_mult1_P;
+  wire [55:0]CH2_mult2_P;
+  wire [42:0]CH2_mult3_P;
+  wire [63:0]CH2_mult4_P;
+  wire [31:0]CH2_multiplier_breakout_OFFSET;
+  wire [447:0]Conn10_TDATA;
+  wire Conn10_TVALID;
+  wire [31:0]Conn1_TDATA;
   wire [0:0]Conn1_TVALID;
-  wire [15:0]Conn2_TDATA;
-  wire Conn2_TVALID;
   wire [15:0]Conn3_TDATA;
   wire Conn3_TVALID;
   wire [15:0]Conn4_TDATA;
   wire Conn4_TVALID;
-  wire [31:16]Conn5_TDATA;
+  wire [63:32]Conn5_TDATA;
   wire [1:1]Conn5_TVALID;
-  wire [2:0]Net;
-  wire [255:0]S_AXIS1_1_TDATA;
-  wire S_AXIS1_1_TVALID;
+  wire [15:0]Conn6_TDATA;
+  wire Conn6_TVALID;
+  wire [15:0]Conn7_TDATA;
+  wire Conn7_TVALID;
+  wire [15:0]Conn8_TDATA;
+  wire Conn8_TVALID;
+  wire [15:0]Conn9_TDATA;
+  wire Conn9_TVALID;
+  wire [3:0]Net1;
+  wire [191:0]S_AXIS_CFG1_1_TDATA;
+  wire S_AXIS_CFG1_1_TVALID;
+  wire [191:0]S_AXIS_CFG_1_TDATA;
+  wire S_AXIS_CFG_1_TVALID;
+  wire [15:0]S_AXIS_RNG1_1_TDATA;
+  wire S_AXIS_RNG1_1_TVALID;
+  wire [15:0]S_AXIS_RNG2_1_TDATA;
+  wire S_AXIS_RNG2_1_TVALID;
   wire [0:0]continuous_output_in_1;
-  wire [15:0]feedback_combined_0_M_AXIS_TDATA;
+  wire displacement_int_ext_1;
+  wire [31:0]feedback_combined_0_M_AXIS_TDATA;
   wire feedback_combined_0_M_AXIS_TVALID;
   wire feedback_combined_0_trig_out;
+  wire input_select1_1;
+  wire input_select2_1;
   wire input_select_1;
   wire [55:0]mult_gen_0_P;
   wire [55:0]mult_gen_1_P;
-  wire [63:0]multiplier_breakout_0_LONG_7F;
   wire [31:0]multiplier_breakout_0_OFFSET;
-  wire [31:0]multiplier_breakout_0_OP1;
-  wire [31:0]multiplier_breakout_0_OP2;
-  wire [31:0]multiplier_breakout_0_OP3;
-  wire [31:0]multiplier_breakout_0_OP4;
-  wire [31:0]multiplier_breakout_0_OP5;
-  wire [47:0]multiplier_breakout_0_OP6;
-  wire [31:0]multiplier_breakout_0_OP7;
   wire multiplier_breakout_0_trigger_out;
   wire pll_0_clk_out1;
+  wire polynomial_target_1;
   wire [42:0]premultiplier_P1;
   wire [63:0]premultiplier_P2;
   wire rst_0_peripheral_aresetn;
+  wire [3:0]sel_1;
   wire trig_in_1;
+  wire velocity_int_ext_1;
 
-  assign Conn2_TDATA = S_AXIS_RNG_tdata[15:0];
-  assign Conn2_TVALID = S_AXIS_RNG_tvalid;
+  assign Conn10_TDATA = S_AXIS_CFG2_tdata[447:0];
+  assign Conn10_TVALID = S_AXIS_CFG2_tvalid;
   assign Conn3_TDATA = S_AXIS_ADC1_tdata[15:0];
   assign Conn3_TVALID = S_AXIS_ADC1_tvalid;
   assign Conn4_TDATA = S_AXIS_ADC2_tdata[15:0];
   assign Conn4_TVALID = S_AXIS_ADC2_tvalid;
-  assign M00_AXIS_tdata[15:0] = Conn1_TDATA;
+  assign Conn6_TDATA = S_AXIS_ADC3_tdata[15:0];
+  assign Conn6_TVALID = S_AXIS_ADC3_tvalid;
+  assign Conn7_TDATA = S_AXIS_ADC4_tdata[15:0];
+  assign Conn7_TVALID = S_AXIS_ADC4_tvalid;
+  assign Conn8_TDATA = S_AXIS_ADC5_tdata[15:0];
+  assign Conn8_TVALID = S_AXIS_ADC5_tvalid;
+  assign Conn9_TDATA = S_AXIS_ADC6_tdata[15:0];
+  assign Conn9_TVALID = S_AXIS_ADC6_tvalid;
+  assign M00_AXIS_tdata[31:0] = Conn1_TDATA;
   assign M00_AXIS_tvalid[0] = Conn1_TVALID;
-  assign M01_AXIS_tdata[15:0] = Conn5_TDATA;
+  assign M01_AXIS_tdata[31:0] = Conn5_TDATA;
   assign M01_AXIS_tvalid = Conn5_TVALID;
-  assign Net = sel[2:0];
-  assign S_AXIS1_1_TDATA = S_AXIS1_tdata[255:0];
-  assign S_AXIS1_1_TVALID = S_AXIS1_tvalid;
+  assign Net1 = CH2_sel[3:0];
+  assign S_AXIS_CFG1_1_TDATA = S_AXIS_CFG1_tdata[191:0];
+  assign S_AXIS_CFG1_1_TVALID = S_AXIS_CFG1_tvalid;
+  assign S_AXIS_CFG_1_TDATA = S_AXIS_CFG_tdata[191:0];
+  assign S_AXIS_CFG_1_TVALID = S_AXIS_CFG_tvalid;
+  assign S_AXIS_RNG1_1_TDATA = S_AXIS_RNG1_tdata[15:0];
+  assign S_AXIS_RNG1_1_TVALID = S_AXIS_RNG1_tvalid;
+  assign S_AXIS_RNG2_1_TDATA = S_AXIS_RNG2_tdata[15:0];
+  assign S_AXIS_RNG2_1_TVALID = S_AXIS_RNG2_tvalid;
   assign continuous_output_in_1 = continuous_output_in[0];
+  assign displacement_int_ext_1 = displacement_int_ext;
   assign exp_p_tri_io = feedback_combined_0_trig_out;
+  assign input_select1_1 = input_select1;
+  assign input_select2_1 = input_select2;
   assign input_select_1 = input_select;
   assign pll_0_clk_out1 = aclk;
+  assign polynomial_target_1 = polynomial_target;
   assign rst_0_peripheral_aresetn = aresetn;
+  assign sel_1 = sel[3:0];
   assign trig_in_1 = trig_in;
+  assign velocity_int_ext_1 = velocity_int_ext;
+  CBC_imp_ZV89ZT CBC
+       (.OFFSET(CBC_OFFSET),
+        .P(CBC_P),
+        .P1(CBC_P1),
+        .P2(CBC_P2),
+        .P3(CBC_P3),
+        .P4(CBC_P4),
+        .P5(CBC_P5),
+        .S_AXIS_ADC1_tdata(Conn8_TDATA),
+        .S_AXIS_ADC1_tvalid(Conn8_TVALID),
+        .S_AXIS_ADC2_tdata(Conn9_TDATA),
+        .S_AXIS_ADC2_tvalid(Conn9_TVALID),
+        .S_AXIS_CFG_tdata(Conn10_TDATA),
+        .S_AXIS_CFG_tvalid(Conn10_TVALID),
+        .aclk(pll_0_clk_out1),
+        .displacement_int_ext(displacement_int_ext_1),
+        .input_select2(input_select2_1),
+        .polynomial_target(polynomial_target_1),
+        .sel(sel_1),
+        .trig_in(trig_in_1),
+        .velocity_int_ext(velocity_int_ext_1));
+  CH1_imp_TTA6VN CH1
+       (.OFFSET(multiplier_breakout_0_OFFSET),
+        .P(mult_gen_0_P),
+        .P1(mult_gen_1_P),
+        .P2(premultiplier_P1),
+        .P3(premultiplier_P2),
+        .S_AXIS_ADC1_tdata(Conn3_TDATA),
+        .S_AXIS_ADC1_tvalid(Conn3_TVALID),
+        .S_AXIS_ADC2_tdata(Conn4_TDATA),
+        .S_AXIS_ADC2_tvalid(Conn4_TVALID),
+        .S_AXIS_CFG_tdata(S_AXIS_CFG1_1_TDATA),
+        .S_AXIS_CFG_tvalid(S_AXIS_CFG1_1_TVALID),
+        .S_AXIS_RNG_tdata(S_AXIS_RNG1_1_TDATA),
+        .S_AXIS_RNG_tvalid(S_AXIS_RNG1_1_TVALID),
+        .aclk(pll_0_clk_out1),
+        .input_select(input_select_1),
+        .sel(sel_1),
+        .trig_in(trig_in_1),
+        .trigger_out(multiplier_breakout_0_trigger_out));
+  CH2_imp_P5187I CH2
+       (.CH2_sel(Net1),
+        .OFFSET(CH2_multiplier_breakout_OFFSET),
+        .P(CH2_mult2_P),
+        .P1(CH2_mult3_P),
+        .P2(CH2_mult4_P),
+        .P3(CH2_mult1_P),
+        .S_AXIS_ADC1_tdata(Conn6_TDATA),
+        .S_AXIS_ADC1_tvalid(Conn6_TVALID),
+        .S_AXIS_ADC2_tdata(Conn7_TDATA),
+        .S_AXIS_ADC2_tvalid(Conn7_TVALID),
+        .S_AXIS_CFG_tdata(S_AXIS_CFG_1_TDATA),
+        .S_AXIS_CFG_tvalid(S_AXIS_CFG_1_TVALID),
+        .S_AXIS_RNG2_tdata(S_AXIS_RNG2_1_TDATA),
+        .S_AXIS_RNG2_tvalid(S_AXIS_RNG2_1_TVALID),
+        .aclk(pll_0_clk_out1),
+        .input_select1(input_select1_1),
+        .trig_in(trig_in_1));
   system_ch1_output_dac_mem_split_0 ch1_output_dac_mem_split
        (.aclk(pll_0_clk_out1),
         .aresetn(rst_0_peripheral_aresetn),
@@ -1136,61 +1895,31 @@ module feedback_and_generation_imp_GDMTQL
         .s_axis_tdata(feedback_combined_0_M_AXIS_TDATA),
         .s_axis_tvalid(feedback_combined_0_M_AXIS_TVALID));
   system_feedback_combined_0_0 feedback_combined_0
-       (.M_AXIS_tdata(feedback_combined_0_M_AXIS_TDATA),
+       (.CBC_offset(CBC_OFFSET),
+        .CBC_product_1(CBC_P),
+        .CBC_product_2({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,CBC_P1}),
+        .CBC_product_3(CBC_P2[42:0]),
+        .CBC_product_4({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,CBC_P3}),
+        .CBC_product_5(CBC_P4[42:0]),
+        .CBC_product_6({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,CBC_P5}),
+        .CH1_offset(multiplier_breakout_0_OFFSET),
+        .CH1_product_1(mult_gen_0_P),
+        .CH1_product_2(mult_gen_1_P),
+        .CH1_product_3(premultiplier_P1),
+        .CH1_product_4(premultiplier_P2),
+        .CH1_sel(sel_1),
+        .CH2_offset(CH2_multiplier_breakout_OFFSET),
+        .CH2_product_1(CH2_mult1_P),
+        .CH2_product_2(CH2_mult2_P),
+        .CH2_product_3(CH2_mult3_P),
+        .CH2_product_4(CH2_mult4_P),
+        .CH2_sel(Net1),
+        .M_AXIS_tdata(feedback_combined_0_M_AXIS_TDATA),
         .M_AXIS_tvalid(feedback_combined_0_M_AXIS_TVALID),
         .aclk(pll_0_clk_out1),
         .continuous_output_in(continuous_output_in_1),
-        .offset(multiplier_breakout_0_OFFSET),
-        .product_1(mult_gen_0_P),
-        .product_2(mult_gen_1_P[42:0]),
-        .product_3({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,premultiplier_P1}),
-        .product_4(premultiplier_P2),
-        .sel(Net),
         .trig_in(multiplier_breakout_0_trigger_out),
         .trig_out(feedback_combined_0_trig_out));
-  system_mult_gen_0_0 mult_gen_0
-       (.A(multiplier_breakout_0_OP1),
-        .B(multiplier_breakout_0_OP2),
-        .CLK(pll_0_clk_out1),
-        .P(mult_gen_0_P));
-  system_mult_gen_0_4 mult_gen_1
-       (.A(multiplier_breakout_0_OP3),
-        .B(multiplier_breakout_0_OP4),
-        .CLK(pll_0_clk_out1),
-        .P(mult_gen_1_P));
-  system_mult_gen_0_5 mult_gen_2
-       (.A(multiplier_breakout_0_OP5),
-        .B(multiplier_breakout_0_OP6),
-        .CLK(pll_0_clk_out1),
-        .P(premultiplier_P1));
-  system_mult_gen_0_6 mult_gen_3
-       (.A(multiplier_breakout_0_OP7),
-        .B(multiplier_breakout_0_LONG_7F),
-        .CLK(pll_0_clk_out1),
-        .P(premultiplier_P2));
-  system_multiplier_breakout_0_0 multiplier_breakout_0
-       (.LONG_7F(multiplier_breakout_0_LONG_7F),
-        .OFFSET(multiplier_breakout_0_OFFSET),
-        .OP1(multiplier_breakout_0_OP1),
-        .OP2(multiplier_breakout_0_OP2),
-        .OP3(multiplier_breakout_0_OP3),
-        .OP4(multiplier_breakout_0_OP4),
-        .OP5(multiplier_breakout_0_OP5),
-        .OP6(multiplier_breakout_0_OP6),
-        .OP7(multiplier_breakout_0_OP7),
-        .S_AXIS_ADC1_tdata(Conn3_TDATA),
-        .S_AXIS_ADC1_tvalid(Conn3_TVALID),
-        .S_AXIS_ADC2_tdata(Conn4_TDATA),
-        .S_AXIS_ADC2_tvalid(Conn4_TVALID),
-        .S_AXIS_CFG_tdata(S_AXIS1_1_TDATA),
-        .S_AXIS_CFG_tvalid(S_AXIS1_1_TVALID),
-        .S_AXIS_RNG_tdata(Conn2_TDATA),
-        .S_AXIS_RNG_tvalid(Conn2_TVALID),
-        .aclk(pll_0_clk_out1),
-        .input_select(input_select_1),
-        .sel(Net),
-        .trigger_in(trig_in_1),
-        .trigger_out(multiplier_breakout_0_trigger_out));
 endmodule
 
 module m00_couplers_imp_18R8RDN
@@ -1755,7 +2484,7 @@ module s00_couplers_imp_15TT0JU
         .s_axi_wvalid(s00_couplers_to_auto_pc_WVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=44,numReposBlks=35,numNonXlnxBlks=0,numHierBlks=9,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=3,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=13,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=10,synth_mode=Global}" *) (* HW_HANDOFF = "system.hwdef" *) 
+(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=72,numReposBlks=56,numNonXlnxBlks=0,numHierBlks=16,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=5,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=13,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=10,synth_mode=Global}" *) (* HW_HANDOFF = "system.hwdef" *) 
 module system
    (DDR_addr,
     DDR_ba,
@@ -1835,15 +2564,23 @@ module system
   wire Core_clk_out2;
   wire Core_clk_out3;
   wire Core_locked;
-  wire [319:0]Memory_IO_cfg_data;
-  wire [2:0]Net;
-  wire [255:0]Reg_Brakeout_M_AXIS1_TDATA;
-  wire Reg_Brakeout_M_AXIS1_TVALID;
-  wire [15:0]Reg_Brakeout_M_AXIS2_TDATA;
-  wire Reg_Brakeout_M_AXIS2_TVALID;
+  wire [447:0]Memory_IO_cfg_data;
+  wire [15:0]Memory_IO_sts_data1;
+  wire [3:0]Reg_Brakeout_Dout;
+  wire [3:0]Reg_Brakeout_Dout9;
+  wire [191:0]Reg_Brakeout_M_AXIS3_TDATA;
+  wire Reg_Brakeout_M_AXIS3_TVALID;
+  wire [15:0]Reg_Brakeout_M_AXIS4_TDATA;
+  wire Reg_Brakeout_M_AXIS4_TVALID;
   wire [0:0]Reg_Brakeout_dout4;
-  wire [15:0]S01_AXIS_1_TDATA;
-  wire [0:0]S01_AXIS_1_TVALID;
+  wire [63:48]S_AXIS_ADC2_1_TDATA;
+  wire [3:3]S_AXIS_ADC2_1_TVALID;
+  wire [447:0]S_AXIS_CFG2_1_TDATA;
+  wire S_AXIS_CFG2_1_TVALID;
+  wire [191:0]S_AXIS_CFG_1_TDATA;
+  wire S_AXIS_CFG_1_TVALID;
+  wire [15:0]S_AXIS_RNG2_1_TDATA;
+  wire S_AXIS_RNG2_1_TVALID;
   wire adc_clk_n_i_1;
   wire adc_clk_p_i_1;
   wire [15:0]adc_dat_a_i_1;
@@ -1862,16 +2599,29 @@ module system
   wire [1:1]ch1_mem_fb_split_M01_AXIS_TVALID;
   wire [47:32]ch1_mem_fb_split_M02_AXIS_TDATA;
   wire [2:2]ch1_mem_fb_split_M02_AXIS_TVALID;
-  wire [127:0]concat_1_dout;
+  wire [79:64]ch1_mem_fb_split_M04_AXIS_TDATA;
+  wire [4:4]ch1_mem_fb_split_M04_AXIS_TVALID;
+  wire [95:80]ch1_mem_fb_split_M05_AXIS_TDATA;
+  wire [5:5]ch1_mem_fb_split_M05_AXIS_TVALID;
+  wire [111:96]ch1_mem_fb_split_M06_AXIS_TDATA;
+  wire [6:6]ch1_mem_fb_split_M06_AXIS_TVALID;
+  wire [127:112]ch1_mem_fb_split_M07_AXIS_TDATA;
+  wire [7:7]ch1_mem_fb_split_M07_AXIS_TVALID;
   wire [0:0]const_0_dout;
+  wire [0:0]continuous_output_in_1;
   wire [63:0]conv_0_M_AXIS_TDATA;
-  wire conv_0_M_AXIS_TREADY;
   wire conv_0_M_AXIS_TVALID;
-  wire [15:0]feedback_and_generation_M01_AXIS_TDATA;
+  wire [0:0]displacement_int_ext_1;
+  wire [31:0]feedback_and_generation_M00_AXIS_TDATA;
+  wire [0:0]feedback_and_generation_M00_AXIS_TVALID;
+  wire [31:0]feedback_and_generation_M01_AXIS_TDATA;
   wire feedback_and_generation_M01_AXIS_TVALID;
   wire feedback_combined_0_trig_out;
+  wire [0:0]input_select1_1;
+  wire [0:0]input_select2_1;
   wire [0:0]input_select_1;
   wire pll_0_clk_out1;
+  wire [0:0]polynomial_target_1;
   wire [14:0]ps_0_DDR_ADDR;
   wire [2:0]ps_0_DDR_BA;
   wire ps_0_DDR_CAS_N;
@@ -1930,6 +2680,8 @@ module system
   wire [0:0]slice_0_dout;
   wire [0:0]slice_1_dout;
   wire [31:0]slice_3_dout;
+  wire [127:0]sts_data_1;
+  wire [0:0]velocity_int_ext_1;
   wire [31:0]writer_0_M_AXI_AWADDR;
   wire [1:0]writer_0_M_AXI_AWBURST;
   wire [3:0]writer_0_M_AXI_AWCACHE;
@@ -1946,8 +2698,6 @@ module system
   wire writer_0_M_AXI_WREADY;
   wire [7:0]writer_0_M_AXI_WSTRB;
   wire writer_0_M_AXI_WVALID;
-  wire [15:0]writer_0_sts_data;
-  wire [0:0]xlconstant_0_dout;
 
   assign adc_clk_n_i_1 = adc_clk_n_i;
   assign adc_clk_p_i_1 = adc_clk_p_i;
@@ -2073,7 +2823,6 @@ module system
         .S_AXI1_wready(ps_0_axi_periph_M00_AXI_WREADY),
         .S_AXI1_wvalid(ps_0_axi_periph_M00_AXI_WVALID),
         .S_AXIS_tdata(conv_0_M_AXIS_TDATA),
-        .S_AXIS_tready(conv_0_M_AXIS_TREADY),
         .S_AXIS_tvalid(conv_0_M_AXIS_TVALID),
         .S_AXI_araddr(ps_0_axi_periph_M01_AXI_ARADDR),
         .S_AXI_arready(ps_0_axi_periph_M01_AXI_ARREADY),
@@ -2097,22 +2846,35 @@ module system
         .aresetn1(slice_1_dout),
         .cfg_data(Memory_IO_cfg_data),
         .cfg_data1(slice_3_dout),
-        .sts_data(concat_1_dout),
-        .sts_data1(writer_0_sts_data));
+        .sts_data(sts_data_1),
+        .sts_data1(Memory_IO_sts_data1));
   Reg_Brakeout_imp_H22Q4C Reg_Brakeout
        (.Din1(Memory_IO_cfg_data),
-        .Dout(Net),
+        .Dout(Reg_Brakeout_Dout),
+        .Dout10(input_select1_1),
+        .Dout11(input_select2_1),
+        .Dout12(velocity_int_ext_1),
+        .Dout13(polynomial_target_1),
+        .Dout14(displacement_int_ext_1),
         .Dout7(input_select_1),
-        .In2(writer_0_sts_data),
-        .M_AXIS1_tdata(Reg_Brakeout_M_AXIS1_TDATA),
-        .M_AXIS1_tvalid(Reg_Brakeout_M_AXIS1_TVALID),
-        .M_AXIS2_tdata(Reg_Brakeout_M_AXIS2_TDATA),
-        .M_AXIS2_tvalid(Reg_Brakeout_M_AXIS2_TVALID),
+        .Dout8(continuous_output_in_1),
+        .Dout9(Reg_Brakeout_Dout9),
+        .In2(Memory_IO_sts_data1),
+        .M_AXIS1_tdata(S_AXIS_CFG2_1_TDATA),
+        .M_AXIS1_tvalid(S_AXIS_CFG2_1_TVALID),
+        .M_AXIS2_tdata(S_AXIS_CFG_1_TDATA),
+        .M_AXIS2_tvalid(S_AXIS_CFG_1_TVALID),
+        .M_AXIS3_tdata(Reg_Brakeout_M_AXIS3_TDATA),
+        .M_AXIS3_tvalid(Reg_Brakeout_M_AXIS3_TVALID),
+        .M_AXIS4_tdata(Reg_Brakeout_M_AXIS4_TDATA),
+        .M_AXIS4_tvalid(Reg_Brakeout_M_AXIS4_TVALID),
+        .M_AXIS5_tdata(S_AXIS_RNG2_1_TDATA),
+        .M_AXIS5_tvalid(S_AXIS_RNG2_1_TVALID),
         .aclk(pll_0_clk_out1),
         .aresetn(rst_0_peripheral_aresetn),
         .dout1(slice_3_dout),
         .dout2(const_0_dout),
-        .dout3(concat_1_dout),
+        .dout3(sts_data_1),
         .dout4(Reg_Brakeout_dout4),
         .dout5(slice_1_dout),
         .dout6(slice_0_dout));
@@ -2132,48 +2894,111 @@ module system
         .dac_wrt(axis_red_pitaya_dac_0_dac_wrt),
         .ddr_clk(Core_clk_out2),
         .locked(Core_locked),
-        .s_axis_tdata({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,feedback_and_generation_M01_AXIS_TDATA}),
+        .s_axis_tdata(feedback_and_generation_M01_AXIS_TDATA),
         .s_axis_tvalid(feedback_and_generation_M01_AXIS_TVALID),
         .wrt_clk(Core_clk_out3));
   system_ch1_mem_fb_split_0 ch1_mem_fb_split
        (.aclk(pll_0_clk_out1),
         .aresetn(rst_0_peripheral_aresetn),
-        .m_axis_tdata({ch1_mem_fb_split_M02_AXIS_TDATA,ch1_mem_fb_split_M01_AXIS_TDATA,ch1_mem_fb_split_M00_AXIS_TDATA}),
-        .m_axis_tvalid({ch1_mem_fb_split_M02_AXIS_TVALID,ch1_mem_fb_split_M01_AXIS_TVALID,ch1_mem_fb_split_M00_AXIS_TVALID}),
+        .m_axis_tdata({ch1_mem_fb_split_M07_AXIS_TDATA,ch1_mem_fb_split_M06_AXIS_TDATA,ch1_mem_fb_split_M05_AXIS_TDATA,ch1_mem_fb_split_M04_AXIS_TDATA,S_AXIS_ADC2_1_TDATA,ch1_mem_fb_split_M02_AXIS_TDATA,ch1_mem_fb_split_M01_AXIS_TDATA,ch1_mem_fb_split_M00_AXIS_TDATA}),
+        .m_axis_tvalid({ch1_mem_fb_split_M07_AXIS_TVALID,ch1_mem_fb_split_M06_AXIS_TVALID,ch1_mem_fb_split_M05_AXIS_TVALID,ch1_mem_fb_split_M04_AXIS_TVALID,S_AXIS_ADC2_1_TVALID,ch1_mem_fb_split_M02_AXIS_TVALID,ch1_mem_fb_split_M01_AXIS_TVALID,ch1_mem_fb_split_M00_AXIS_TVALID}),
         .s_axis_tdata(axis_red_pitaya_adc_0_M_AXIS_TDATA),
         .s_axis_tvalid(axis_red_pitaya_adc_0_M_AXIS_TVALID));
   downsampling_imp_1CFV2HL downsampling
        (.M_AXIS_tdata(conv_0_M_AXIS_TDATA),
-        .M_AXIS_tready(conv_0_M_AXIS_TREADY),
         .M_AXIS_tvalid(conv_0_M_AXIS_TVALID),
-        .S00_AXIS_tdata(ch1_mem_fb_split_M00_AXIS_TDATA),
-        .S00_AXIS_tvalid(ch1_mem_fb_split_M00_AXIS_TVALID),
-        .S01_AXIS_tdata(S01_AXIS_1_TDATA),
-        .S01_AXIS_tvalid(S01_AXIS_1_TVALID),
+        .S00_AXIS1_tdata(ch1_mem_fb_split_M00_AXIS_TDATA),
+        .S00_AXIS1_tvalid(ch1_mem_fb_split_M00_AXIS_TVALID),
+        .S01_AXIS1_tdata(ch1_mem_fb_split_M01_AXIS_TDATA),
+        .S01_AXIS1_tvalid(ch1_mem_fb_split_M01_AXIS_TVALID),
+        .S01_AXIS_tdata(feedback_and_generation_M00_AXIS_TDATA),
+        .S01_AXIS_tvalid(feedback_and_generation_M00_AXIS_TVALID),
         .aclk(pll_0_clk_out1),
         .aresetn(slice_0_dout));
   feedback_and_generation_imp_GDMTQL feedback_and_generation
-       (.M00_AXIS_tdata(S01_AXIS_1_TDATA),
-        .M00_AXIS_tvalid(S01_AXIS_1_TVALID),
+       (.CH2_sel(Reg_Brakeout_Dout9),
+        .M00_AXIS_tdata(feedback_and_generation_M00_AXIS_TDATA),
+        .M00_AXIS_tvalid(feedback_and_generation_M00_AXIS_TVALID),
         .M01_AXIS_tdata(feedback_and_generation_M01_AXIS_TDATA),
         .M01_AXIS_tvalid(feedback_and_generation_M01_AXIS_TVALID),
-        .S_AXIS1_tdata(Reg_Brakeout_M_AXIS1_TDATA),
-        .S_AXIS1_tvalid(Reg_Brakeout_M_AXIS1_TVALID),
-        .S_AXIS_ADC1_tdata(ch1_mem_fb_split_M01_AXIS_TDATA),
-        .S_AXIS_ADC1_tvalid(ch1_mem_fb_split_M01_AXIS_TVALID),
-        .S_AXIS_ADC2_tdata(ch1_mem_fb_split_M02_AXIS_TDATA),
-        .S_AXIS_ADC2_tvalid(ch1_mem_fb_split_M02_AXIS_TVALID),
-        .S_AXIS_RNG_tdata(Reg_Brakeout_M_AXIS2_TDATA),
-        .S_AXIS_RNG_tvalid(Reg_Brakeout_M_AXIS2_TVALID),
+        .S_AXIS_ADC1_tdata(ch1_mem_fb_split_M02_AXIS_TDATA),
+        .S_AXIS_ADC1_tvalid(ch1_mem_fb_split_M02_AXIS_TVALID),
+        .S_AXIS_ADC2_tdata(S_AXIS_ADC2_1_TDATA),
+        .S_AXIS_ADC2_tvalid(S_AXIS_ADC2_1_TVALID),
+        .S_AXIS_ADC3_tdata(ch1_mem_fb_split_M04_AXIS_TDATA),
+        .S_AXIS_ADC3_tvalid(ch1_mem_fb_split_M04_AXIS_TVALID),
+        .S_AXIS_ADC4_tdata(ch1_mem_fb_split_M05_AXIS_TDATA),
+        .S_AXIS_ADC4_tvalid(ch1_mem_fb_split_M05_AXIS_TVALID),
+        .S_AXIS_ADC5_tdata(ch1_mem_fb_split_M06_AXIS_TDATA),
+        .S_AXIS_ADC5_tvalid(ch1_mem_fb_split_M06_AXIS_TVALID),
+        .S_AXIS_ADC6_tdata(ch1_mem_fb_split_M07_AXIS_TDATA),
+        .S_AXIS_ADC6_tvalid(ch1_mem_fb_split_M07_AXIS_TVALID),
+        .S_AXIS_CFG1_tdata(Reg_Brakeout_M_AXIS3_TDATA),
+        .S_AXIS_CFG1_tvalid(Reg_Brakeout_M_AXIS3_TVALID),
+        .S_AXIS_CFG2_tdata(S_AXIS_CFG2_1_TDATA),
+        .S_AXIS_CFG2_tvalid(S_AXIS_CFG2_1_TVALID),
+        .S_AXIS_CFG_tdata(S_AXIS_CFG_1_TDATA),
+        .S_AXIS_CFG_tvalid(S_AXIS_CFG_1_TVALID),
+        .S_AXIS_RNG1_tdata(Reg_Brakeout_M_AXIS4_TDATA),
+        .S_AXIS_RNG1_tvalid(Reg_Brakeout_M_AXIS4_TVALID),
+        .S_AXIS_RNG2_tdata(S_AXIS_RNG2_1_TDATA),
+        .S_AXIS_RNG2_tvalid(S_AXIS_RNG2_1_TVALID),
         .aclk(pll_0_clk_out1),
         .aresetn(rst_0_peripheral_aresetn),
-        .continuous_output_in(xlconstant_0_dout),
+        .continuous_output_in(continuous_output_in_1),
+        .displacement_int_ext(displacement_int_ext_1),
         .exp_p_tri_io(exp_p_tri_io[0]),
         .input_select(input_select_1),
-        .sel(Net),
-        .trig_in(Reg_Brakeout_dout4));
-  system_xlconstant_0_0 xlconstant_0
-       (.dout(xlconstant_0_dout));
+        .input_select1(input_select1_1),
+        .input_select2(input_select2_1),
+        .polynomial_target(polynomial_target_1),
+        .sel(Reg_Brakeout_Dout),
+        .trig_in(Reg_Brakeout_dout4),
+        .velocity_int_ext(velocity_int_ext_1));
+endmodule
+
+module system_params_imp_1MROCIH
+   (Din1,
+    Dout8,
+    dout1,
+    dout4,
+    dout5,
+    dout6);
+  input [447:0]Din1;
+  output [0:0]Dout8;
+  output [31:0]dout1;
+  output [0:0]dout4;
+  output [0:0]dout5;
+  output [0:0]dout6;
+
+  wire [447:0]Din1_1;
+  wire [31:0]RAM_addres_Dout;
+  wire [0:0]continuous_output_Dout;
+  wire [0:0]feedback_trigger_Dout;
+  wire [0:0]pre_memory_reset_Dout;
+  wire [0:0]ram_writer_reset_Dout;
+
+  assign Din1_1 = Din1[447:0];
+  assign Dout8[0] = continuous_output_Dout;
+  assign dout1[31:0] = RAM_addres_Dout;
+  assign dout4[0] = feedback_trigger_Dout;
+  assign dout5[0] = ram_writer_reset_Dout;
+  assign dout6[0] = pre_memory_reset_Dout;
+  system_RAM_addres_0 RAM_addres
+       (.Din(Din1_1),
+        .Dout(RAM_addres_Dout));
+  system_Feedback_State_2 continuous_output
+       (.Din(Din1_1),
+        .Dout(continuous_output_Dout));
+  system_feedback_trigger_0 feedback_trigger
+       (.Din(Din1_1),
+        .Dout(feedback_trigger_Dout));
+  system_pre_memory_reset_0 pre_memory_reset
+       (.Din(Din1_1),
+        .Dout(pre_memory_reset_Dout));
+  system_ram_writer_reset_0 ram_writer_reset
+       (.Din(Din1_1),
+        .Dout(ram_writer_reset_Dout));
 endmodule
 
 module system_ps_0_axi_periph_0

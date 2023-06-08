@@ -311,7 +311,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>TDATA_NUM_BYTES</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXIS_CFG.TDATA_NUM_BYTES">32</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXIS_CFG.TDATA_NUM_BYTES">24</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -644,7 +644,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:a168c0c6</spirit:value>
+            <spirit:value>9:0c5537a2</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -655,7 +655,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:a168c0c6</spirit:value>
+            <spirit:value>9:0c5537a2</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -671,11 +671,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu May 25 01:57:28 UTC 2023</spirit:value>
+            <spirit:value>Thu Jun 01 05:33:37 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:a168c0c6</spirit:value>
+            <spirit:value>9:0c5537a2</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -687,7 +687,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:d2f23774</spirit:value>
+            <spirit:value>9:b1cfabae</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -703,11 +703,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu May 25 01:57:28 UTC 2023</spirit:value>
+            <spirit:value>Thu Jun 01 05:33:37 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:d2f23774</spirit:value>
+            <spirit:value>9:b1cfabae</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -753,16 +753,12 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>sel</spirit:name>
+        <spirit:name>input_select</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.SEL_WIDTH&apos;)) - 1)">2</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:typeName>wire</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -770,12 +766,16 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>input_select</spirit:name>
+        <spirit:name>sel</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.SEL_WIDTH&apos;)) - 1)">3</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -886,7 +886,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.CFG_WIDTH&apos;)) - 1)">255</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.CFG_WIDTH&apos;)) - 1)">191</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1072,7 +1072,7 @@
       <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="integer">
         <spirit:name>CFG_WIDTH</spirit:name>
         <spirit:displayName>Cfg Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CFG_WIDTH">256</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CFG_WIDTH">192</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>PARAM_WIDTH</spirit:name>
@@ -1110,16 +1110,6 @@
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PARAM_F_OFFSET">160</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>PARAM_G_OFFSET</spirit:name>
-        <spirit:displayName>Param G Offset</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PARAM_G_OFFSET">192</spirit:value>
-      </spirit:modelParameter>
-      <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>PARAM_H_OFFSET</spirit:name>
-        <spirit:displayName>Param H Offset</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PARAM_H_OFFSET">224</spirit:value>
-      </spirit:modelParameter>
-      <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>ADC_WIDTH</spirit:name>
         <spirit:displayName>Adc Width</spirit:displayName>
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.ADC_WIDTH">16</spirit:value>
@@ -1142,7 +1132,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>SEL_WIDTH</spirit:name>
         <spirit:displayName>Sel Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.SEL_WIDTH">3</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.SEL_WIDTH">4</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -1169,7 +1159,7 @@
     <spirit:parameter>
       <spirit:name>CFG_WIDTH</spirit:name>
       <spirit:displayName>Cfg Width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CFG_WIDTH">256</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CFG_WIDTH">192</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PARAM_WIDTH</spirit:name>
@@ -1207,16 +1197,6 @@
       <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PARAM_F_OFFSET">160</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>PARAM_G_OFFSET</spirit:name>
-      <spirit:displayName>Param G Offset</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PARAM_G_OFFSET">192</spirit:value>
-    </spirit:parameter>
-    <spirit:parameter>
-      <spirit:name>PARAM_H_OFFSET</spirit:name>
-      <spirit:displayName>Param H Offset</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PARAM_H_OFFSET">224</spirit:value>
-    </spirit:parameter>
-    <spirit:parameter>
       <spirit:name>ADC_WIDTH</spirit:name>
       <spirit:displayName>Adc Width</spirit:displayName>
       <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.ADC_WIDTH">16</spirit:value>
@@ -1239,7 +1219,7 @@
     <spirit:parameter>
       <spirit:name>SEL_WIDTH</spirit:name>
       <spirit:displayName>Sel Width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.SEL_WIDTH">3</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.SEL_WIDTH">4</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>

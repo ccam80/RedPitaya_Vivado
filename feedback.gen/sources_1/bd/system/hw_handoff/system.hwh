@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Jun  2 17:30:31 2023" VIVADOVERSION="2020.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Jun  8 15:19:15 2023" VIVADOVERSION="2020.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z010" NAME="system" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -849,14 +849,13 @@
             <CONNECTION INSTANCE="feedback_and_generation_CH2_CH2_mult4" PORT="CLK"/>
             <CONNECTION INSTANCE="feedback_and_generation_CH2_CH2_multiplier_breakout" PORT="aclk"/>
             <CONNECTION INSTANCE="feedback_and_generation_CH2_CH2_mult2" PORT="CLK"/>
-            <CONNECTION INSTANCE="feedback_and_generation_feedback_combined_0" PORT="aclk"/>
             <CONNECTION INSTANCE="feedback_and_generation_CBC_CBC_Mult1" PORT="CLK"/>
             <CONNECTION INSTANCE="feedback_and_generation_CBC_CBC_mult2" PORT="CLK"/>
             <CONNECTION INSTANCE="feedback_and_generation_CBC_CBC_Mult3" PORT="CLK"/>
             <CONNECTION INSTANCE="feedback_and_generation_CBC_CBC_mult4" PORT="CLK"/>
             <CONNECTION INSTANCE="feedback_and_generation_CBC_CBC_mult5" PORT="CLK"/>
-            <CONNECTION INSTANCE="feedback_and_generation_CBC_CBC_mult6" PORT="CLK"/>
             <CONNECTION INSTANCE="feedback_and_generation_CBC_CBC_0" PORT="aclk"/>
+            <CONNECTION INSTANCE="feedback_and_generation_feedback_combined_0" PORT="aclk"/>
             <CONNECTION INSTANCE="axis_red_pitaya_dac_0" PORT="aclk"/>
             <CONNECTION INSTANCE="downsampling_axis_combiner_1" PORT="aclk"/>
             <CONNECTION INSTANCE="downsampling_fir_compiler_0" PORT="aclk"/>
@@ -4157,8 +4156,8 @@
         <PORT DIR="O" LEFT="3" NAME="Dout" RIGHT="0" SIGIS="undef" SIGNAME="Reg_Brakeout_CH1_Config_Feedback_State_Dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="feedback_and_generation_CBC_CBC_0" PORT="sel"/>
-            <CONNECTION INSTANCE="feedback_and_generation_feedback_combined_0" PORT="CH1_sel"/>
             <CONNECTION INSTANCE="feedback_and_generation_CH1_CH1_multiplier_breakout" PORT="sel"/>
+            <CONNECTION INSTANCE="feedback_and_generation_feedback_combined_0" PORT="CH1_sel"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -5779,7 +5778,11 @@
             <CONNECTION INSTANCE="Reg_Brakeout_system_params_feedback_trigger" PORT="Dout"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="trigger_out" SIGIS="undef"/>
+        <PORT DIR="O" NAME="trigger_out" SIGIS="undef" SIGNAME="feedback_and_generation_CBC_CBC_0_trigger_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="feedback_and_generation_feedback_combined_0" PORT="trig_in_CBC"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" NAME="input_select" SIGIS="undef" SIGNAME="Reg_Brakeout_CBC_config_input_order_Dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Reg_Brakeout_CBC_config_input_order" PORT="Dout"/>
@@ -5840,7 +5843,7 @@
             <CONNECTION INSTANCE="feedback_and_generation_CBC_CBC_Mult1" PORT="A"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="OP2" RIGHT="0" SIGIS="undef" SIGNAME="feedback_and_generation_CBC_CBC_0_OP2">
+        <PORT DIR="O" LEFT="15" NAME="OP2" RIGHT="0" SIGIS="undef" SIGNAME="feedback_and_generation_CBC_CBC_0_OP2">
           <CONNECTIONS>
             <CONNECTION INSTANCE="feedback_and_generation_CBC_CBC_Mult1" PORT="B"/>
           </CONNECTIONS>
@@ -5850,7 +5853,7 @@
             <CONNECTION INSTANCE="feedback_and_generation_CBC_CBC_Mult3" PORT="A"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="OP4" RIGHT="0" SIGIS="undef" SIGNAME="feedback_and_generation_CBC_CBC_0_OP4">
+        <PORT DIR="O" LEFT="15" NAME="OP4" RIGHT="0" SIGIS="undef" SIGNAME="feedback_and_generation_CBC_CBC_0_OP4">
           <CONNECTIONS>
             <CONNECTION INSTANCE="feedback_and_generation_CBC_CBC_Mult3" PORT="B"/>
           </CONNECTIONS>
@@ -5880,19 +5883,9 @@
             <CONNECTION INSTANCE="feedback_and_generation_CBC_CBC_mult5" PORT="A"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="OP10" RIGHT="0" SIGIS="undef" SIGNAME="feedback_and_generation_CBC_CBC_0_OP10">
+        <PORT DIR="O" LEFT="15" NAME="OP10" RIGHT="0" SIGIS="undef" SIGNAME="feedback_and_generation_CBC_CBC_0_OP10">
           <CONNECTIONS>
             <CONNECTION INSTANCE="feedback_and_generation_CBC_CBC_mult5" PORT="B"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="31" NAME="OP11" RIGHT="0" SIGIS="undef" SIGNAME="feedback_and_generation_CBC_CBC_0_OP11">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="feedback_and_generation_CBC_CBC_mult6" PORT="A"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="63" NAME="OP12" RIGHT="0" SIGIS="undef" SIGNAME="feedback_and_generation_CBC_CBC_0_OP12">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="feedback_and_generation_CBC_CBC_mult6" PORT="B"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="OFFSET" RIGHT="0" SIGIS="undef" SIGNAME="feedback_and_generation_CBC_CBC_0_OFFSET">
@@ -5975,7 +5968,7 @@
         <PARAMETER NAME="C_LATENCY" VALUE="4"/>
         <PARAMETER NAME="C_A_WIDTH" VALUE="32"/>
         <PARAMETER NAME="C_A_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_B_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_B_WIDTH" VALUE="16"/>
         <PARAMETER NAME="C_B_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_OUT_HIGH" VALUE="63"/>
         <PARAMETER NAME="C_OUT_LOW" VALUE="8"/>
@@ -5992,7 +5985,7 @@
         <PARAMETER NAME="PortAType" VALUE="Signed"/>
         <PARAMETER NAME="PortAWidth" VALUE="32"/>
         <PARAMETER NAME="PortBType" VALUE="Signed"/>
-        <PARAMETER NAME="PortBWidth" VALUE="32"/>
+        <PARAMETER NAME="PortBWidth" VALUE="16"/>
         <PARAMETER NAME="ConstValue" VALUE="129"/>
         <PARAMETER NAME="CcmImp" VALUE="Distributed_Memory"/>
         <PARAMETER NAME="Multiplier_Construction" VALUE="Use_Mults"/>
@@ -6020,7 +6013,7 @@
             <CONNECTION INSTANCE="feedback_and_generation_CBC_CBC_0" PORT="OP1"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="B" RIGHT="0" SIGIS="data" SIGNAME="feedback_and_generation_CBC_CBC_0_OP2">
+        <PORT DIR="I" LEFT="15" NAME="B" RIGHT="0" SIGIS="data" SIGNAME="feedback_and_generation_CBC_CBC_0_OP2">
           <CONNECTIONS>
             <CONNECTION INSTANCE="feedback_and_generation_CBC_CBC_0" PORT="OP2"/>
           </CONNECTIONS>
@@ -6044,12 +6037,12 @@
         <PARAMETER NAME="C_XDEVICEFAMILY" VALUE="zynq"/>
         <PARAMETER NAME="C_HAS_CE" VALUE="0"/>
         <PARAMETER NAME="C_HAS_SCLR" VALUE="0"/>
-        <PARAMETER NAME="C_LATENCY" VALUE="4"/>
+        <PARAMETER NAME="C_LATENCY" VALUE="3"/>
         <PARAMETER NAME="C_A_WIDTH" VALUE="32"/>
         <PARAMETER NAME="C_A_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_B_WIDTH" VALUE="64"/>
+        <PARAMETER NAME="C_B_WIDTH" VALUE="16"/>
         <PARAMETER NAME="C_B_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_OUT_HIGH" VALUE="63"/>
+        <PARAMETER NAME="C_OUT_HIGH" VALUE="47"/>
         <PARAMETER NAME="C_OUT_LOW" VALUE="0"/>
         <PARAMETER NAME="C_MULT_TYPE" VALUE="1"/>
         <PARAMETER NAME="C_CE_OVERRIDES_SCLR" VALUE="0"/>
@@ -6064,17 +6057,17 @@
         <PARAMETER NAME="PortAType" VALUE="Signed"/>
         <PARAMETER NAME="PortAWidth" VALUE="32"/>
         <PARAMETER NAME="PortBType" VALUE="Signed"/>
-        <PARAMETER NAME="PortBWidth" VALUE="64"/>
+        <PARAMETER NAME="PortBWidth" VALUE="16"/>
         <PARAMETER NAME="ConstValue" VALUE="129"/>
         <PARAMETER NAME="CcmImp" VALUE="Distributed_Memory"/>
         <PARAMETER NAME="Multiplier_Construction" VALUE="Use_Mults"/>
         <PARAMETER NAME="OptGoal" VALUE="Speed"/>
-        <PARAMETER NAME="Use_Custom_Output_Width" VALUE="true"/>
-        <PARAMETER NAME="OutputWidthHigh" VALUE="63"/>
+        <PARAMETER NAME="Use_Custom_Output_Width" VALUE="false"/>
+        <PARAMETER NAME="OutputWidthHigh" VALUE="47"/>
         <PARAMETER NAME="OutputWidthLow" VALUE="0"/>
         <PARAMETER NAME="UseRounding" VALUE="false"/>
         <PARAMETER NAME="RoundPoint" VALUE="0"/>
-        <PARAMETER NAME="PipeStages" VALUE="4"/>
+        <PARAMETER NAME="PipeStages" VALUE="3"/>
         <PARAMETER NAME="ClockEnable" VALUE="false"/>
         <PARAMETER NAME="SyncClear" VALUE="false"/>
         <PARAMETER NAME="SclrCePriority" VALUE="SCLR_Overrides_CE"/>
@@ -6092,12 +6085,12 @@
             <CONNECTION INSTANCE="feedback_and_generation_CBC_CBC_0" PORT="OP3"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="63" NAME="B" RIGHT="0" SIGIS="data" SIGNAME="feedback_and_generation_CBC_CBC_0_OP4">
+        <PORT DIR="I" LEFT="15" NAME="B" RIGHT="0" SIGIS="data" SIGNAME="feedback_and_generation_CBC_CBC_0_OP4">
           <CONNECTIONS>
             <CONNECTION INSTANCE="feedback_and_generation_CBC_CBC_0" PORT="OP4"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="63" NAME="P" RIGHT="0" SIGIS="data" SIGNAME="feedback_and_generation_CBC_CBC_Mult3_P">
+        <PORT DIR="O" LEFT="47" NAME="P" RIGHT="0" SIGIS="data" SIGNAME="feedback_and_generation_CBC_CBC_Mult3_P">
           <CONNECTIONS>
             <CONNECTION INSTANCE="feedback_and_generation_feedback_combined_0" PORT="CBC_product_3"/>
           </CONNECTIONS>
@@ -6116,7 +6109,7 @@
         <PARAMETER NAME="C_XDEVICEFAMILY" VALUE="zynq"/>
         <PARAMETER NAME="C_HAS_CE" VALUE="0"/>
         <PARAMETER NAME="C_HAS_SCLR" VALUE="0"/>
-        <PARAMETER NAME="C_LATENCY" VALUE="4"/>
+        <PARAMETER NAME="C_LATENCY" VALUE="3"/>
         <PARAMETER NAME="C_A_WIDTH" VALUE="32"/>
         <PARAMETER NAME="C_A_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_B_WIDTH" VALUE="48"/>
@@ -6146,7 +6139,7 @@
         <PARAMETER NAME="OutputWidthLow" VALUE="21"/>
         <PARAMETER NAME="UseRounding" VALUE="false"/>
         <PARAMETER NAME="RoundPoint" VALUE="0"/>
-        <PARAMETER NAME="PipeStages" VALUE="4"/>
+        <PARAMETER NAME="PipeStages" VALUE="3"/>
         <PARAMETER NAME="ClockEnable" VALUE="false"/>
         <PARAMETER NAME="SyncClear" VALUE="false"/>
         <PARAMETER NAME="SclrCePriority" VALUE="SCLR_Overrides_CE"/>
@@ -6260,10 +6253,10 @@
         <PARAMETER NAME="C_XDEVICEFAMILY" VALUE="zynq"/>
         <PARAMETER NAME="C_HAS_CE" VALUE="0"/>
         <PARAMETER NAME="C_HAS_SCLR" VALUE="0"/>
-        <PARAMETER NAME="C_LATENCY" VALUE="4"/>
+        <PARAMETER NAME="C_LATENCY" VALUE="3"/>
         <PARAMETER NAME="C_A_WIDTH" VALUE="32"/>
         <PARAMETER NAME="C_A_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_B_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_B_WIDTH" VALUE="16"/>
         <PARAMETER NAME="C_B_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_OUT_HIGH" VALUE="63"/>
         <PARAMETER NAME="C_OUT_LOW" VALUE="8"/>
@@ -6280,7 +6273,7 @@
         <PARAMETER NAME="PortAType" VALUE="Signed"/>
         <PARAMETER NAME="PortAWidth" VALUE="32"/>
         <PARAMETER NAME="PortBType" VALUE="Signed"/>
-        <PARAMETER NAME="PortBWidth" VALUE="32"/>
+        <PARAMETER NAME="PortBWidth" VALUE="16"/>
         <PARAMETER NAME="ConstValue" VALUE="129"/>
         <PARAMETER NAME="CcmImp" VALUE="Distributed_Memory"/>
         <PARAMETER NAME="Multiplier_Construction" VALUE="Use_Mults"/>
@@ -6290,7 +6283,7 @@
         <PARAMETER NAME="OutputWidthLow" VALUE="8"/>
         <PARAMETER NAME="UseRounding" VALUE="false"/>
         <PARAMETER NAME="RoundPoint" VALUE="0"/>
-        <PARAMETER NAME="PipeStages" VALUE="4"/>
+        <PARAMETER NAME="PipeStages" VALUE="3"/>
         <PARAMETER NAME="ClockEnable" VALUE="false"/>
         <PARAMETER NAME="SyncClear" VALUE="false"/>
         <PARAMETER NAME="SclrCePriority" VALUE="SCLR_Overrides_CE"/>
@@ -6308,7 +6301,7 @@
             <CONNECTION INSTANCE="feedback_and_generation_CBC_CBC_0" PORT="OP9"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="B" RIGHT="0" SIGIS="data" SIGNAME="feedback_and_generation_CBC_CBC_0_OP10">
+        <PORT DIR="I" LEFT="15" NAME="B" RIGHT="0" SIGIS="data" SIGNAME="feedback_and_generation_CBC_CBC_0_OP10">
           <CONNECTIONS>
             <CONNECTION INSTANCE="feedback_and_generation_CBC_CBC_0" PORT="OP10"/>
           </CONNECTIONS>
@@ -6316,78 +6309,6 @@
         <PORT DIR="O" LEFT="55" NAME="P" RIGHT="0" SIGIS="data" SIGNAME="feedback_and_generation_CBC_CBC_mult5_P">
           <CONNECTIONS>
             <CONNECTION INSTANCE="feedback_and_generation_feedback_combined_0" PORT="CBC_product_5"/>
-          </CONNECTIONS>
-        </PORT>
-      </PORTS>
-      <BUSINTERFACES/>
-    </MODULE>
-    <MODULE COREREVISION="16" FULLNAME="/feedback_and_generation/CBC/CBC_mult6" HWVERSION="12.0" INSTANCE="feedback_and_generation_CBC_CBC_mult6" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="mult_gen" VLNV="xilinx.com:ip:mult_gen:12.0">
-      <DOCUMENTS>
-        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=mult_gen;v=v12_0;d=pg108-mult-gen.pdf"/>
-      </DOCUMENTS>
-      <PARAMETERS>
-        <PARAMETER NAME="C_VERBOSITY" VALUE="0"/>
-        <PARAMETER NAME="C_MODEL_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_OPTIMIZE_GOAL" VALUE="1"/>
-        <PARAMETER NAME="C_XDEVICEFAMILY" VALUE="zynq"/>
-        <PARAMETER NAME="C_HAS_CE" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_SCLR" VALUE="0"/>
-        <PARAMETER NAME="C_LATENCY" VALUE="4"/>
-        <PARAMETER NAME="C_A_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="C_A_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_B_WIDTH" VALUE="48"/>
-        <PARAMETER NAME="C_B_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_OUT_HIGH" VALUE="63"/>
-        <PARAMETER NAME="C_OUT_LOW" VALUE="21"/>
-        <PARAMETER NAME="C_MULT_TYPE" VALUE="1"/>
-        <PARAMETER NAME="C_CE_OVERRIDES_SCLR" VALUE="0"/>
-        <PARAMETER NAME="C_CCM_IMP" VALUE="0"/>
-        <PARAMETER NAME="C_B_VALUE" VALUE="10000001"/>
-        <PARAMETER NAME="C_HAS_ZERO_DETECT" VALUE="0"/>
-        <PARAMETER NAME="C_ROUND_OUTPUT" VALUE="0"/>
-        <PARAMETER NAME="C_ROUND_PT" VALUE="0"/>
-        <PARAMETER NAME="InternalUser" VALUE="0"/>
-        <PARAMETER NAME="Component_Name" VALUE="system_CH2_mult3_1"/>
-        <PARAMETER NAME="MultType" VALUE="Parallel_Multiplier"/>
-        <PARAMETER NAME="PortAType" VALUE="Signed"/>
-        <PARAMETER NAME="PortAWidth" VALUE="32"/>
-        <PARAMETER NAME="PortBType" VALUE="Signed"/>
-        <PARAMETER NAME="PortBWidth" VALUE="48"/>
-        <PARAMETER NAME="ConstValue" VALUE="129"/>
-        <PARAMETER NAME="CcmImp" VALUE="Distributed_Memory"/>
-        <PARAMETER NAME="Multiplier_Construction" VALUE="Use_Mults"/>
-        <PARAMETER NAME="OptGoal" VALUE="Speed"/>
-        <PARAMETER NAME="Use_Custom_Output_Width" VALUE="true"/>
-        <PARAMETER NAME="OutputWidthHigh" VALUE="63"/>
-        <PARAMETER NAME="OutputWidthLow" VALUE="21"/>
-        <PARAMETER NAME="UseRounding" VALUE="false"/>
-        <PARAMETER NAME="RoundPoint" VALUE="0"/>
-        <PARAMETER NAME="PipeStages" VALUE="4"/>
-        <PARAMETER NAME="ClockEnable" VALUE="false"/>
-        <PARAMETER NAME="SyncClear" VALUE="false"/>
-        <PARAMETER NAME="SclrCePriority" VALUE="SCLR_Overrides_CE"/>
-        <PARAMETER NAME="ZeroDetect" VALUE="false"/>
-        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
-      </PARAMETERS>
-      <PORTS>
-        <PORT CLKFREQUENCY="125000000" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="Core_pll_0_clk_out1">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="Core_pll_0" PORT="clk_out1"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="31" NAME="A" RIGHT="0" SIGIS="data" SIGNAME="feedback_and_generation_CBC_CBC_0_OP11">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="feedback_and_generation_CBC_CBC_0" PORT="OP11"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="47" NAME="B" RIGHT="0" SIGIS="data" SIGNAME="feedback_and_generation_CBC_CBC_0_OP12">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="feedback_and_generation_CBC_CBC_0" PORT="OP12"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="42" NAME="P" RIGHT="0" SIGIS="data" SIGNAME="feedback_and_generation_CBC_CBC_mult6_P">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="feedback_and_generation_feedback_combined_0" PORT="CBC_product_6"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -6713,7 +6634,7 @@
         </PORT>
         <PORT DIR="O" NAME="trigger_out" SIGIS="undef" SIGNAME="feedback_and_generation_CH1_CH1_multiplier_breakout_trigger_out">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="feedback_and_generation_feedback_combined_0" PORT="trig_in"/>
+            <CONNECTION INSTANCE="feedback_and_generation_feedback_combined_0" PORT="trig_in_channels"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="input_select" SIGIS="undef" SIGNAME="Reg_Brakeout_CH1_Config_input_select_Dout">
@@ -7554,9 +7475,12 @@
         <PARAMETER NAME="PRODUCT_2_WIDTH" VALUE="56"/>
         <PARAMETER NAME="PRODUCT_3_WIDTH" VALUE="43"/>
         <PARAMETER NAME="PRODUCT_4_WIDTH" VALUE="64"/>
-        <PARAMETER NAME="PRODUCT_5_WIDTH" VALUE="43"/>
-        <PARAMETER NAME="PRODUCT_6_WIDTH" VALUE="64"/>
         <PARAMETER NAME="OFFSET_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="CBC_PRODUCT_1_WIDTH" VALUE="56"/>
+        <PARAMETER NAME="CBC_PRODUCT_2_WIDTH" VALUE="56"/>
+        <PARAMETER NAME="CBC_PRODUCT_3_WIDTH" VALUE="43"/>
+        <PARAMETER NAME="CBC_PRODUCT_4_WIDTH" VALUE="64"/>
+        <PARAMETER NAME="CBC_PRODUCT_5_WIDTH" VALUE="43"/>
         <PARAMETER NAME="AXIS_TDATA_WIDTH" VALUE="32"/>
         <PARAMETER NAME="OUTPUT_CHANNEL_WIDTH" VALUE="16"/>
         <PARAMETER NAME="SELECT_WIDTH" VALUE="4"/>
@@ -7569,9 +7493,14 @@
             <CONNECTION INSTANCE="Core_pll_0" PORT="clk_out1"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="trig_in" SIGIS="undef" SIGNAME="feedback_and_generation_CH1_CH1_multiplier_breakout_trigger_out">
+        <PORT DIR="I" NAME="trig_in_channels" SIGIS="undef" SIGNAME="feedback_and_generation_CH1_CH1_multiplier_breakout_trigger_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="feedback_and_generation_CH1_CH1_multiplier_breakout" PORT="trigger_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="trig_in_CBC" SIGIS="undef" SIGNAME="feedback_and_generation_CBC_CBC_0_trigger_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="feedback_and_generation_CBC_CBC_0" PORT="trigger_out"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="continuous_output_in" SIGIS="undef" SIGNAME="Reg_Brakeout_system_params_continuous_output_Dout">
@@ -7662,11 +7591,6 @@
         <PORT DIR="I" LEFT="42" NAME="CBC_product_5" RIGHT="0" SIGIS="undef" SIGNAME="feedback_and_generation_CBC_CBC_mult5_P">
           <CONNECTIONS>
             <CONNECTION INSTANCE="feedback_and_generation_CBC_CBC_mult5" PORT="P"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="63" NAME="CBC_product_6" RIGHT="0" SIGIS="undef" SIGNAME="feedback_and_generation_CBC_CBC_mult6_P">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="feedback_and_generation_CBC_CBC_mult6" PORT="P"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="31" NAME="CBC_offset" RIGHT="0" SIGIS="undef" SIGNAME="feedback_and_generation_CBC_CBC_0_OFFSET">

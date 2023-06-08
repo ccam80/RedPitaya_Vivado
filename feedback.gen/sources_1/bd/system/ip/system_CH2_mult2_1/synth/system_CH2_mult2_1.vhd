@@ -60,7 +60,7 @@ ENTITY system_CH2_mult2_1 IS
   PORT (
     CLK : IN STD_LOGIC;
     A : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-    B : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    B : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     P : OUT STD_LOGIC_VECTOR(55 DOWNTO 0)
   );
 END system_CH2_mult2_1;
@@ -94,7 +94,7 @@ ARCHITECTURE system_CH2_mult2_1_arch OF system_CH2_mult2_1 IS
     PORT (
       CLK : IN STD_LOGIC;
       A : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-      B : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+      B : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       CE : IN STD_LOGIC;
       SCLR : IN STD_LOGIC;
       P : OUT STD_LOGIC_VECTOR(55 DOWNTO 0)
@@ -105,7 +105,7 @@ ARCHITECTURE system_CH2_mult2_1_arch OF system_CH2_mult2_1 IS
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF system_CH2_mult2_1_arch : ARCHITECTURE IS "system_CH2_mult2_1,mult_gen_v12_0_16,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF system_CH2_mult2_1_arch: ARCHITECTURE IS "system_CH2_mult2_1,mult_gen_v12_0_16,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=mult_gen,x_ipVersion=12.0,x_ipCoreRevision=16,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_VERBOSITY=0,C_MODEL_TYPE=0,C_OPTIMIZE_GOAL=1,C_XDEVICEFAMILY=zynq,C_HAS_CE=0,C_HAS_SCLR=0,C_LATENCY=4,C_A_WIDTH=32,C_A_TYPE=0,C_B_WIDTH=32,C_B_TYPE=0,C_OUT_HIGH=63,C_OUT_LOW=8,C_MULT_TYPE=1,C_CE_OVERRIDES_SCLR=0,C_CCM_IMP=0,C_B_VALUE=10000001,C_HAS_ZERO_DETECT=0,C_ROUND_OUTPUT=0,C_ROUND_PT=0}";
+  ATTRIBUTE CORE_GENERATION_INFO OF system_CH2_mult2_1_arch: ARCHITECTURE IS "system_CH2_mult2_1,mult_gen_v12_0_16,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=mult_gen,x_ipVersion=12.0,x_ipCoreRevision=16,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_VERBOSITY=0,C_MODEL_TYPE=0,C_OPTIMIZE_GOAL=1,C_XDEVICEFAMILY=zynq,C_HAS_CE=0,C_HAS_SCLR=0,C_LATENCY=3,C_A_WIDTH=32,C_A_TYPE=0,C_B_WIDTH=16,C_B_TYPE=0,C_OUT_HIGH=63,C_OUT_LOW=8,C_MULT_TYPE=1,C_CE_OVERRIDES_SCLR=0,C_CCM_IMP=0,C_B_VALUE=10000001,C_HAS_ZERO_DETECT=0,C_ROUND_OUTPUT=0,C_ROUND_PT=0}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER OF P: SIGNAL IS "XIL_INTERFACENAME p_intf, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data} bitwidth {attribs {resolve_type generated dependency bitwidth format long minimum {} maximum {}} value 56} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type generated dependency signed format bool minimum {} maximu" & 
@@ -126,10 +126,10 @@ BEGIN
       C_XDEVICEFAMILY => "zynq",
       C_HAS_CE => 0,
       C_HAS_SCLR => 0,
-      C_LATENCY => 4,
+      C_LATENCY => 3,
       C_A_WIDTH => 32,
       C_A_TYPE => 0,
-      C_B_WIDTH => 32,
+      C_B_WIDTH => 16,
       C_B_TYPE => 0,
       C_OUT_HIGH => 63,
       C_OUT_LOW => 8,

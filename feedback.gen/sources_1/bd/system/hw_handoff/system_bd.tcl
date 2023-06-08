@@ -478,7 +478,7 @@ proc create_hier_cell_CBC { parentCell nameHier } {
   create_bd_pin -dir O -from 31 -to 0 OFFSET
   create_bd_pin -dir O -from 55 -to 0 -type data P
   create_bd_pin -dir O -from 42 -to 0 -type data P1
-  create_bd_pin -dir O -from 63 -to 0 -type data P2
+  create_bd_pin -dir O -from 47 -to 0 -type data P2
   create_bd_pin -dir O -from 55 -to 0 -type data P3
   create_bd_pin -dir O -from 55 -to 0 -type data P4
   create_bd_pin -dir O -from 42 -to 0 -type data P5
@@ -488,6 +488,7 @@ proc create_hier_cell_CBC { parentCell nameHier } {
   create_bd_pin -dir I polynomial_target
   create_bd_pin -dir I -from 3 -to 0 sel
   create_bd_pin -dir I trig_in
+  create_bd_pin -dir O trigger_out
   create_bd_pin -dir I velocity_int_ext
 
   # Create instance: CBC_0, and set properties
@@ -511,7 +512,7 @@ proc create_hier_cell_CBC { parentCell nameHier } {
    CONFIG.PortAType {Signed} \
    CONFIG.PortAWidth {32} \
    CONFIG.PortBType {Signed} \
-   CONFIG.PortBWidth {32} \
+   CONFIG.PortBWidth {16} \
    CONFIG.Use_Custom_Output_Width {true} \
  ] $CBC_Mult1
 
@@ -519,14 +520,14 @@ proc create_hier_cell_CBC { parentCell nameHier } {
   set CBC_Mult3 [ create_bd_cell -type ip -vlnv xilinx.com:ip:mult_gen:12.0 CBC_Mult3 ]
   set_property -dict [ list \
    CONFIG.Multiplier_Construction {Use_Mults} \
-   CONFIG.OutputWidthHigh {63} \
+   CONFIG.OutputWidthHigh {47} \
    CONFIG.OutputWidthLow {0} \
-   CONFIG.PipeStages {4} \
+   CONFIG.PipeStages {3} \
    CONFIG.PortAType {Signed} \
    CONFIG.PortAWidth {32} \
    CONFIG.PortBType {Signed} \
-   CONFIG.PortBWidth {64} \
-   CONFIG.Use_Custom_Output_Width {true} \
+   CONFIG.PortBWidth {16} \
+   CONFIG.Use_Custom_Output_Width {false} \
  ] $CBC_Mult3
 
   # Create instance: CBC_mult2, and set properties
@@ -535,7 +536,7 @@ proc create_hier_cell_CBC { parentCell nameHier } {
    CONFIG.Multiplier_Construction {Use_Mults} \
    CONFIG.OutputWidthHigh {63} \
    CONFIG.OutputWidthLow {21} \
-   CONFIG.PipeStages {4} \
+   CONFIG.PipeStages {3} \
    CONFIG.PortAType {Signed} \
    CONFIG.PortAWidth {32} \
    CONFIG.PortBType {Signed} \
@@ -563,27 +564,13 @@ proc create_hier_cell_CBC { parentCell nameHier } {
    CONFIG.Multiplier_Construction {Use_Mults} \
    CONFIG.OutputWidthHigh {63} \
    CONFIG.OutputWidthLow {8} \
-   CONFIG.PipeStages {4} \
+   CONFIG.PipeStages {3} \
    CONFIG.PortAType {Signed} \
    CONFIG.PortAWidth {32} \
    CONFIG.PortBType {Signed} \
-   CONFIG.PortBWidth {32} \
+   CONFIG.PortBWidth {16} \
    CONFIG.Use_Custom_Output_Width {true} \
  ] $CBC_mult5
-
-  # Create instance: CBC_mult6, and set properties
-  set CBC_mult6 [ create_bd_cell -type ip -vlnv xilinx.com:ip:mult_gen:12.0 CBC_mult6 ]
-  set_property -dict [ list \
-   CONFIG.Multiplier_Construction {Use_Mults} \
-   CONFIG.OutputWidthHigh {63} \
-   CONFIG.OutputWidthLow {21} \
-   CONFIG.PipeStages {4} \
-   CONFIG.PortAType {Signed} \
-   CONFIG.PortAWidth {32} \
-   CONFIG.PortBType {Signed} \
-   CONFIG.PortBWidth {48} \
-   CONFIG.Use_Custom_Output_Width {true} \
- ] $CBC_mult6
 
   # Create interface connections
   connect_bd_intf_net -intf_net Conn1 [get_bd_intf_pins S_AXIS_ADC1] [get_bd_intf_pins CBC_0/S_AXIS_ADC1]
@@ -602,15 +589,13 @@ proc create_hier_cell_CBC { parentCell nameHier } {
   connect_bd_net -net CBC_0_OP8 [get_bd_pins CBC_0/OP8] [get_bd_pins CBC_mult4/B]
   connect_bd_net -net CBC_0_OP9 [get_bd_pins CBC_0/OP9] [get_bd_pins CBC_mult5/A]
   connect_bd_net -net CBC_0_OP10 [get_bd_pins CBC_0/OP10] [get_bd_pins CBC_mult5/B]
-  connect_bd_net -net CBC_0_OP11 [get_bd_pins CBC_0/OP11] [get_bd_pins CBC_mult6/A]
-  connect_bd_net -net CBC_0_OP12 [get_bd_pins CBC_0/OP12] [get_bd_pins CBC_mult6/B]
+  connect_bd_net -net CBC_0_trigger_out [get_bd_pins trigger_out] [get_bd_pins CBC_0/trigger_out]
   connect_bd_net -net CBC_Mult1_P [get_bd_pins P] [get_bd_pins CBC_Mult1/P]
   connect_bd_net -net CBC_Mult3_P [get_bd_pins P2] [get_bd_pins CBC_Mult3/P]
   connect_bd_net -net CBC_mult2_P [get_bd_pins P1] [get_bd_pins CBC_mult2/P]
   connect_bd_net -net CBC_mult4_P [get_bd_pins P3] [get_bd_pins CBC_mult4/P]
   connect_bd_net -net CBC_mult5_P [get_bd_pins P4] [get_bd_pins CBC_mult5/P]
-  connect_bd_net -net CBC_mult6_P [get_bd_pins P5] [get_bd_pins CBC_mult6/P]
-  connect_bd_net -net aclk_1 [get_bd_pins aclk] [get_bd_pins CBC_0/aclk] [get_bd_pins CBC_Mult1/CLK] [get_bd_pins CBC_Mult3/CLK] [get_bd_pins CBC_mult2/CLK] [get_bd_pins CBC_mult4/CLK] [get_bd_pins CBC_mult5/CLK] [get_bd_pins CBC_mult6/CLK]
+  connect_bd_net -net aclk_1 [get_bd_pins aclk] [get_bd_pins CBC_0/aclk] [get_bd_pins CBC_Mult1/CLK] [get_bd_pins CBC_Mult3/CLK] [get_bd_pins CBC_mult2/CLK] [get_bd_pins CBC_mult4/CLK] [get_bd_pins CBC_mult5/CLK]
   connect_bd_net -net displacement_int_ext_1 [get_bd_pins displacement_int_ext] [get_bd_pins CBC_0/displacement_int_ext]
   connect_bd_net -net input_select2_1 [get_bd_pins input_select2] [get_bd_pins CBC_0/input_select]
   connect_bd_net -net polynomial_target_1 [get_bd_pins polynomial_target] [get_bd_pins CBC_0/polynomial_target]
@@ -1051,8 +1036,6 @@ proc create_hier_cell_feedback_and_generation { parentCell nameHier } {
 
   create_bd_intf_pin -mode Slave -vlnv xilinx.com:interface:axis_rtl:1.0 S_AXIS_CFG2
 
-  create_bd_intf_pin -mode Slave -vlnv xilinx.com:interface:axis_rtl:1.0 S_AXIS_RNG
-
   create_bd_intf_pin -mode Slave -vlnv xilinx.com:interface:axis_rtl:1.0 S_AXIS_RNG1
 
   create_bd_intf_pin -mode Slave -vlnv xilinx.com:interface:axis_rtl:1.0 S_AXIS_RNG2
@@ -1129,7 +1112,7 @@ proc create_hier_cell_feedback_and_generation { parentCell nameHier } {
   connect_bd_net -net CBC_P2 [get_bd_pins CBC/P2] [get_bd_pins feedback_combined_0/CBC_product_3]
   connect_bd_net -net CBC_P3 [get_bd_pins CBC/P3] [get_bd_pins feedback_combined_0/CBC_product_4]
   connect_bd_net -net CBC_P4 [get_bd_pins CBC/P4] [get_bd_pins feedback_combined_0/CBC_product_5]
-  connect_bd_net -net CBC_P5 [get_bd_pins CBC/P5] [get_bd_pins feedback_combined_0/CBC_product_6]
+  connect_bd_net -net CBC_trigger_out [get_bd_pins CBC/trigger_out] [get_bd_pins feedback_combined_0/trig_in_CBC]
   connect_bd_net -net CH2_mult1_P [get_bd_pins CH2/P3] [get_bd_pins feedback_combined_0/CH2_product_1]
   connect_bd_net -net CH2_mult2_P [get_bd_pins CH2/P] [get_bd_pins feedback_combined_0/CH2_product_2]
   connect_bd_net -net CH2_mult3_P [get_bd_pins CH2/P1] [get_bd_pins feedback_combined_0/CH2_product_3]
@@ -1145,7 +1128,7 @@ proc create_hier_cell_feedback_and_generation { parentCell nameHier } {
   connect_bd_net -net mult_gen_0_P [get_bd_pins CH1/P] [get_bd_pins feedback_combined_0/CH1_product_1]
   connect_bd_net -net mult_gen_1_P [get_bd_pins CH1/P1] [get_bd_pins feedback_combined_0/CH1_product_2]
   connect_bd_net -net multiplier_breakout_0_OFFSET [get_bd_pins CH1/OFFSET] [get_bd_pins feedback_combined_0/CH1_offset]
-  connect_bd_net -net multiplier_breakout_0_trigger_out [get_bd_pins CH1/trigger_out] [get_bd_pins feedback_combined_0/trig_in]
+  connect_bd_net -net multiplier_breakout_0_trigger_out [get_bd_pins CH1/trigger_out] [get_bd_pins feedback_combined_0/trig_in_channels]
   connect_bd_net -net pll_0_clk_out1 [get_bd_pins aclk] [get_bd_pins CBC/aclk] [get_bd_pins CH1/aclk] [get_bd_pins CH2/aclk] [get_bd_pins ch1_output_dac_mem_split/aclk] [get_bd_pins feedback_combined_0/aclk]
   connect_bd_net -net polynomial_target_1 [get_bd_pins polynomial_target] [get_bd_pins CBC/polynomial_target]
   connect_bd_net -net premultiplier_P1 [get_bd_pins CH1/P2] [get_bd_pins feedback_combined_0/CH1_product_3]

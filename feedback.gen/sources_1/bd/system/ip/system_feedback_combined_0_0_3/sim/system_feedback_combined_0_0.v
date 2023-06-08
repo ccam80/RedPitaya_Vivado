@@ -56,7 +56,8 @@
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_feedback_combined_0_0 (
   aclk,
-  trig_in,
+  trig_in_channels,
+  trig_in_CBC,
   continuous_output_in,
   CH1_sel,
   CH2_sel,
@@ -75,7 +76,6 @@ module system_feedback_combined_0_0 (
   CBC_product_3,
   CBC_product_4,
   CBC_product_5,
-  CBC_product_6,
   CBC_offset,
   M_AXIS_tdata,
   M_AXIS_tvalid,
@@ -85,7 +85,8 @@ module system_feedback_combined_0_0 (
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF M_AXIS, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *)
 input wire aclk;
-input wire trig_in;
+input wire trig_in_channels;
+input wire trig_in_CBC;
 input wire continuous_output_in;
 input wire [3 : 0] CH1_sel;
 input wire [3 : 0] CH2_sel;
@@ -104,7 +105,6 @@ input wire [55 : 0] CBC_product_2;
 input wire [42 : 0] CBC_product_3;
 input wire [63 : 0] CBC_product_4;
 input wire [42 : 0] CBC_product_5;
-input wire [63 : 0] CBC_product_6;
 input wire [31 : 0] CBC_offset;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS TDATA" *)
 output wire [31 : 0] M_AXIS_tdata;
@@ -118,15 +118,19 @@ output wire trig_out;
     .PRODUCT_2_WIDTH(56),
     .PRODUCT_3_WIDTH(43),
     .PRODUCT_4_WIDTH(64),
-    .PRODUCT_5_WIDTH(43),
-    .PRODUCT_6_WIDTH(64),
     .OFFSET_WIDTH(32),
+    .CBC_PRODUCT_1_WIDTH(56),
+    .CBC_PRODUCT_2_WIDTH(56),
+    .CBC_PRODUCT_3_WIDTH(43),
+    .CBC_PRODUCT_4_WIDTH(64),
+    .CBC_PRODUCT_5_WIDTH(43),
     .AXIS_TDATA_WIDTH(32),
     .OUTPUT_CHANNEL_WIDTH(16),
     .SELECT_WIDTH(4)
   ) inst (
     .aclk(aclk),
-    .trig_in(trig_in),
+    .trig_in_channels(trig_in_channels),
+    .trig_in_CBC(trig_in_CBC),
     .continuous_output_in(continuous_output_in),
     .CH1_sel(CH1_sel),
     .CH2_sel(CH2_sel),
@@ -145,7 +149,6 @@ output wire trig_out;
     .CBC_product_3(CBC_product_3),
     .CBC_product_4(CBC_product_4),
     .CBC_product_5(CBC_product_5),
-    .CBC_product_6(CBC_product_6),
     .CBC_offset(CBC_offset),
     .M_AXIS_tdata(M_AXIS_tdata),
     .M_AXIS_tvalid(M_AXIS_tvalid),

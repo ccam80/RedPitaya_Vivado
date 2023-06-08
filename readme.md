@@ -57,6 +57,7 @@ Arguments to feeback equations are collected by the multiplier_breakout module, 
 | CBC	       |  0          |  0  |    0   |    0   |    0    |   0   |    0   |    0   |    0   |
 | Result Slice |    [63:8]   |     | [63:8] |        | [63:21] |       | [63:0] |        | [31:0] |
 |              |             |     |        |        |         |       |        |        |        |
+|--------------|:-----------:|:---:|:------:|:------:|:-------:|:-----:|:------:|:------:|:------:|
 |     Width    |      32     |  32 |   32   |   32   |    32   |   48  |   32   |   64   |   32   |
 
 \+ is included where parameter is sweeping.
@@ -67,12 +68,27 @@ CBC Applies two equations simultaneously:
 Out1[V] (internal) =  A*target^3 + B*target^2 + C*target + D
 Out2[V] (external) =  K_p * (displacement - ref) * K_d * (velocity - reference_velocity) 
 
-Where ref is rhat * 8192*sin(2*pi*freq_t) and reference_velocity is rhat * 8192*cos(2*pi*freq_t)
-and t is time since recording trigger or mode start.
+| **Mode**     | OP1 | OP2 | OP3 |  OP4  | OP5 |  OP6  | OP7 |  OP8  | OP9 |  OP10  | OFFSET |
+|--------------|:---:|:---:|:---:|:-----:|:---:|:-----:|:---:|:-----:|:---:|:------:|:------:|
+|     CBC      | KP  |  e  | KD  | e_dot |  A  |  p^3  |  B  |  p^2  |  C  |    p   |    D   |
+|--------------|:---:|:---:|:---:|:-----:|:---:|:-----:|:---:|:-----:|:---:|:------:|:------:|
+|    Width     | 32  | 16  | 32  |   16  |  32 |   48  |  32 |   32  |  32 |   16   |   32   |
 
-| **Mode**     |     OP1     | OP2 |   OP3  |   OP4  |   OP5   |  OP6  |   OP7  | LONG_F | OFFSET |
-|--------------|:-----------:|:---:|:------:|:------:|:-------:|:-----:|:------:|:------:|:------:|
-| fixed        |  {DDS << 8} |  B  |    0   |    0   |    0    |   0   |    0   |    0   |    C   |
+where variables are selected by toggles in memory, which can result in:
+
+|variable | 				formula 		  	|
+|---------|:-----------------------------------:|
+|    e    | 		disp - ref_disp 	  		|
+|  e\_dot | 		vel - vel_disp   	 		|
+| ref_disp| 		rhat * sin(2*pi*f*t)		|
+| ref_vel |     ref_disp - ref_disp_last    	|
+|  rhat   | Ref amplitude (Q32 fraction of max) |
+|  disp   |   ADC1, ADC2, or vel integrated 	|
+|   vel	  |   ADC1, ADC2, or disp differ.  		|
+|    p    | 		  disp or vel				|
+
+Constants rhat, f, A, B, C, D are taken from memory (input via GUI), and all may be swept or constant.
+
 
 
 V_out is then calculated by: <br>

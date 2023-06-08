@@ -72,27 +72,29 @@ parameter SEL_WIDTH=4
 
     //Outputs for multipliers
     output reg [OPERAND_WIDTH-1:0]              OP1,    
-    output reg [OPERAND_WIDTH-1:0]              OP2,    
+    output reg [ADC_WIDTH-1:0]                  OP2,    
     output reg [OPERAND_WIDTH-1:0]              OP3,  
-    output reg [OPERAND_WIDTH-1:0]              OP4,   
+    output reg [ADC_WIDTH-1:0]                  OP4,   
     output reg [OPERAND_WIDTH-1:0]              OP5,  
     output reg [(ADC_WIDTH * 3) - 1:0]          OP6,
     output reg [OPERAND_WIDTH-1:0]              OP7,   
     output reg [OPERAND_WIDTH-1:0]              OP8, 
     output reg [OPERAND_WIDTH-1:0]              OP9,    
-    output reg [OPERAND_WIDTH-1:0]              OP10, 
-    output reg [OPERAND_WIDTH-1:0]              OP11,    
-    output reg [63:0]                           OP12, 
+    output reg [ADC_WIDTH-1:0]                  OP10, 
     
     output reg [OPERAND_WIDTH-1:0]              OFFSET
     );
+    
+    localparam DISP_1_VEL_2 = 1, DISP_2_VEL_1 = 0, INTERNAL = 0, EXTERNAL = 1;
     
     reg trigger;
     reg trigger_1;
     reg trigger_2;
     reg trigger_3;
-    reg trigger_4;    
-    
+    reg trigger_4;
+    reg trigger_5;  
+    reg trigger_6; 
+     
     reg input_order;
     reg velocity_external;
     reg displacement_external;
@@ -105,9 +107,9 @@ parameter SEL_WIDTH=4
                                  KP, KD;
                                  
                                  
-    reg signed [OPERAND_WIDTH-1:0] Operand_1_out, Operand_2_out, Operand_3_out, Operand_4_out, Operand_5_out, Operand_6_out,
-                                   Operand_7_out, Operand_8_out, Operand_9_out, Operand_10_out, Operand_11_out, Offset_out;   
-    reg signed [ADC_WIDTH * 3 - 1:0] Operand_12_out;   
+    reg signed [OPERAND_WIDTH-1:0] Operand_1_out, Operand_3_out, Operand_5_out, Operand_7_out, Operand_8_out, Operand_9_out, Offset_out;  
+    reg signed [ADC_WIDTH-1: 0]    Operand_2_out, Operand_4_out, Operand_10_out;                           
+    reg signed [ADC_WIDTH*3-1:0]   Operand_6_out;   
     reg [SEL_WIDTH-1:0] state;  
 
     
@@ -115,8 +117,6 @@ parameter SEL_WIDTH=4
     reg signed [ADC_WIDTH-1:0] displacement_last, velocity_last, polynomial_var_last;
         
     reg signed [ADC_WIDTH * 2 -1:0] polynomial_var_squared_result;
-
-    reg signed [RNG_WIDTH-1:0] RNG;
     
     localparam CBC=7; 
     
@@ -161,10 +161,15 @@ parameter SEL_WIDTH=4
     
     //Signals for I/O from DDS
     reg signed [31:0] phase_next, phase, dds_phase_in = 32'b0;
-    wire signed [DDS_WIDTH - 1:0] ref_displacement, ref_velocity;
-    reg signed [DDS_WIDTH - 1:0] ref_displacement_last, ref_velocity_last;
+    wire signed [DDS_WIDTH - 1:0] ref_dds;
     wire dds_M_AXIS_tvalid;       
-    
+    reg resync_dds;
+
+    reg dds_synced;    
+    wire signed [DDS_WIDTH-1:0] ref_master;
+    reg signed [DDS_WIDTH - 1:0] ref_master_last,
+                                 ref_displacement, ref_velocity;
+    reg signed [DDS_WIDTH - 1:0] error, error_dot;    
     
 ////////////////////////////////////
 ////Instantiate further IP Cores////
@@ -228,11 +233,18 @@ parameter SEL_WIDTH=4
     dds_compiler_0 reference_sinusoids (
     .aclk(aclk),                                // input wire aclk
     .s_axis_phase_tvalid(S_AXIS_CFG_TVALID),  // input wire s_axis_phase_tvalid
-    .s_axis_phase_tdata(phase_in),    // input wire [31 : 0] s_axis_phase_tdata
+    .s_axis_phase_tdata({resync_dds, 2'b0, phase_in}),    // input wire [39 : 0] s_axis_phase_tdata
     .m_axis_data_tvalid(m_axis_data_tvalid),    // output wire m_axis_data_tvalid
-    .m_axis_data_tdata({ref_displacement, ref_velocity})      // output wire [31 : 0] m_axis_data_tdata
+    .m_axis_data_tdata({ref_displacement_dds})      // output wire [31 : 0] m_axis_data_tdata
     );
     
+    // 3-cycle_delay fixed-point multiplication of ref sinusoid by Q32 fractional rhat
+    mult_gen_0 Reference_multiplier (
+    .CLK(aclk),  // input wire CLK
+    .A(ref_dds),      // input wire [13 : 0] A
+    .B(rhat),      // input wire [31 : 0] B
+    .P(ref_master)      // output wire [13 : 0] P
+    );
     
     //**************************NARROW (Inferred) Multiplier ***************************** //                               
         //input pipeline stage for config parameters
@@ -260,88 +272,131 @@ parameter SEL_WIDTH=4
            
     end
     
-    
-    // Store variable inputs in first stage of pipeline - assign displacement, velocity, based on memory toggles
+   
+    // Store variable inputs in first stage of pipeline - assign displacement, velocity, based on memory toggles.
+    // Input order could be handled more elegantly but I want to avoid adding another pipeline stage here unintentionally.
     always @(posedge aclk)
     begin
-        if (input_order)
+        case (input_order)   
+        DISP_1_VEL_2:
+        
             begin
-                if (displacement_external & velocity_external)
+                case({displacement_external, velocity_external})
+                {EXTERNAL, EXTERNAL}: 
                     begin
                     displacement <= S_AXIS_ADC1_tdata;
                     velocity <= S_AXIS_ADC2_tdata;
                     end
-                else if (displacement_external)
+                {EXTERNAL, INTERNAL}:
                     begin
                     displacement <= S_AXIS_ADC1_tdata;
                     velocity <= S_AXIS_ADC1_tdata - displacement_last;
                     end                
-                else if (velocity_external)
+                {INTERNAL, EXTERNAL}:
                     begin
                     velocity <= S_AXIS_ADC2_tdata;
                     displacement <= displacement + (S_AXIS_ADC2_tdata << 8); // This shift/scaling is arbitrary and will likely not work
                     end
+                {INTERNAL, INTERNAL}:
+                    begin
+                    velocity = ref_velocity;
+                    displacement = ref_displacement;
+                    end
+                endcase                                
             end
-        else
+            
+        DISP_2_VEL_1:
             begin
-                if (displacement_external & velocity_external)
+                case({displacement_external, velocity_external})
+                {EXTERNAL, EXTERNAL}: 
                     begin
                     displacement <= S_AXIS_ADC2_tdata;
                     velocity <= S_AXIS_ADC1_tdata;
                     end
-                else if (displacement_external)
+                {EXTERNAL, INTERNAL}:
                     begin
                     displacement <= S_AXIS_ADC2_tdata;
-                    velocity <= S_AXIS_ADC2_tdata - displacement;
+                    velocity <= S_AXIS_ADC2_tdata - displacement_last;
                     end                
-                else if (velocity_external)
+                {INTERNAL, EXTERNAL}:
                     begin
                     velocity <= S_AXIS_ADC1_tdata;
                     displacement <= displacement + (S_AXIS_ADC1_tdata << 8); // This shift/scaling is arbitrary and will likely not work
                     end
+                {INTERNAL, INTERNAL}:
+                    begin
+                    velocity = ref_velocity;
+                    displacement = ref_displacement;
+                    end
+                endcase                                
             end
-            
-            trigger <= trigger_in;
-            velocity_external = velocity_int_ext;
-            displacement_external = displacement_int_ext;
+        
+        endcase 
+                   
+        trigger <= trigger_in;
+        velocity_external = velocity_int_ext;
+        displacement_external = displacement_int_ext;
     end
     
     // set polynomial target based on toggle, get "last" values of variables
     always @(negedge aclk)
     begin
+        
+        //Save "lasts" for anything that's quick (1/2 cycle) to work out
         displacement_last <= displacement;
         velocity_last <= velocity;
+        ref_master_last <= ref_master;
+        
+        // Set target variable for polynomial feedback
         if (polynomial_target)
             polynomial_var <= velocity;
         else
             polynomial_var <= displacement;        
+            
+        
+        // Assign reference signals from multiplied master
+        ref_velocity <= ref_master - ref_master_last;
+        ref_displacement <= ref_master;                                            
     end
+    
+    always @ (*)
+    begin
+        error <= displacement - ref_displacement;
         
+        //Shift externally measured x_dot_n velocity sample back half a sample (linear interpolation) to be at the same time point
+        // as calculated by the ref signal.
+        case(velocity_external)
+            INTERNAL: error_dot <= ((velocity + velocity_last) << 2) - ref_velocity;
+            EXTERNAL: error_dot <= velocity - ref_velocity;              
+        endcase   
+    end    
         
-    // Carry out narrow 16x16 multiplication using inferred multiplier
+    // Carry out narrow 16x16 multiplication using inferred multipliers
     always @(posedge aclk)
     begin
         polynomial_var_squared_result <= polynomial_var * polynomial_var;
     end      
     
-    
+  
     // ####################  Multiplier outputs  ################ //
+    always @(posedge aclk)
+    begin
+        //Control outputs
+        Operand_1_out <= KP;
+        Operand_2_out <= error;
+        Operand_3_out <= KD;
+        Operand_4_out <= error_dot;
+        
+        //Polynomial outputs
+        Operand_5_out <= A;
+        Operand_6_out <= polynomial_var_squared_result * polynomial_var;
+        Operand_7_out <= B;
+        Operand_8_out <= polynomial_var_squared_result;
+        Operand_9_out <= C; 
+        Operand_10_out <= polynomial_var;
+        Offset_out <= D;
     
-    //Assign multipliers to operand outputs 
-    //Applied equation: V_out = (OP1 * OP2)[63:8] + (OP3 * OP4)[63:8] + (OP5 * OP6)[63:21] + (OP7*LONG_F)[63:0] + OFFSET
-    //Operand table given in readme.md
-    always@(posedge aclk)
-        begin
-//        Operand_1_out <= { {8{dds_out[15]}}, dds_out, 8'b0}; // shift left 8'b to compensate for output slicing 
-        Operand_2_out <= rhat_interval;
-        Operand_3_out <= 32'b0;
-        Operand_4_out <= 32'b0;
-        Operand_5_out <= 32'b0;
-        Operand_6_out <= 48'b0;
-        Operand_7_out <= 32'b0;
-        Offset_out <= freq_start;
-        Operand_12_out <= 64'b0;
-        end
+    end  
                 
     //Output pipeline stage
     always@(*)
@@ -356,14 +411,30 @@ parameter SEL_WIDTH=4
         OFFSET <= Offset_out;
         end  
         
-  //Trigger delay chain. pick one of these for trigger output which matches your multiplier latency
-    always @(posedge(aclk))
+  //Control logic and trigger delay chain. Delay is 3 cycles for internal multiplier, 3 for external multipliers.
+  
+  always @(posedge(aclk))
         begin
+            
+            if (trigger)
+            begin
+                dds_synced <= 1;
+                if (dds_synced) resync_dds <= 0;
+                else resync_dds <= 1;                                
+            end
+            else
+            begin
+                dds_synced <= 0;
+                resync_dds <= 0;
+            end
+                            
             trigger_1 <= trigger;
             trigger_2 <= trigger_1;
             trigger_3 <= trigger_2;
             trigger_4 <= trigger_3;
-            trigger_out <= trigger_4;
+            trigger_5 <= trigger_4;
+            trigger_6 <= trigger_5;
+            trigger_out <= trigger_6;
         end       
         
 // ####################  Sweep logic  ################ //    
@@ -481,6 +552,7 @@ parameter SEL_WIDTH=4
             C <= C_next;
             D <= D_next;
         end
-    
-     
+        
+             
+            
 endmodule

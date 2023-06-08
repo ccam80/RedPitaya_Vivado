@@ -1,7 +1,7 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-//Date        : Fri Jun  2 17:30:29 2023
+//Date        : Thu Jun  8 15:19:13 2023
 //Host        : acoustics-VirtualBox running 64-bit Ubuntu 20.04.5 LTS
 //Command     : generate_target system.bd
 //Design      : system
@@ -87,11 +87,12 @@ module CBC_imp_ZV89ZT
     polynomial_target,
     sel,
     trig_in,
+    trigger_out,
     velocity_int_ext);
   output [31:0]OFFSET;
   output [55:0]P;
   output [42:0]P1;
-  output [63:0]P2;
+  output [47:0]P2;
   output [55:0]P3;
   output [55:0]P4;
   output [42:0]P5;
@@ -107,27 +108,26 @@ module CBC_imp_ZV89ZT
   input polynomial_target;
   input [3:0]sel;
   input trig_in;
+  output trigger_out;
   input velocity_int_ext;
 
   wire [31:0]CBC_0_OFFSET;
   wire [31:0]CBC_0_OP1;
-  wire [31:0]CBC_0_OP10;
-  wire [31:0]CBC_0_OP11;
-  wire [63:0]CBC_0_OP12;
-  wire [31:0]CBC_0_OP2;
+  wire [15:0]CBC_0_OP10;
+  wire [15:0]CBC_0_OP2;
   wire [31:0]CBC_0_OP3;
-  wire [31:0]CBC_0_OP4;
+  wire [15:0]CBC_0_OP4;
   wire [31:0]CBC_0_OP5;
   wire [47:0]CBC_0_OP6;
   wire [31:0]CBC_0_OP7;
   wire [31:0]CBC_0_OP8;
   wire [31:0]CBC_0_OP9;
+  wire CBC_0_trigger_out;
   wire [55:0]CBC_Mult1_P;
-  wire [63:0]CBC_Mult3_P;
+  wire [47:0]CBC_Mult3_P;
   wire [42:0]CBC_mult2_P;
   wire [55:0]CBC_mult4_P;
   wire [55:0]CBC_mult5_P;
-  wire [42:0]CBC_mult6_P;
   wire [15:0]Conn1_TDATA;
   wire Conn1_TVALID;
   wire [15:0]Conn2_TDATA;
@@ -151,23 +151,21 @@ module CBC_imp_ZV89ZT
   assign OFFSET[31:0] = CBC_0_OFFSET;
   assign P[55:0] = CBC_Mult1_P;
   assign P1[42:0] = CBC_mult2_P;
-  assign P2[63:0] = CBC_Mult3_P;
+  assign P2[47:0] = CBC_Mult3_P;
   assign P3[55:0] = CBC_mult4_P;
   assign P4[55:0] = CBC_mult5_P;
-  assign P5[42:0] = CBC_mult6_P;
   assign aclk_1 = aclk;
   assign displacement_int_ext_1 = displacement_int_ext;
   assign input_select2_1 = input_select2;
   assign polynomial_target_1 = polynomial_target;
   assign sel_1 = sel[3:0];
   assign trig_in_1 = trig_in;
+  assign trigger_out = CBC_0_trigger_out;
   assign velocity_int_ext_1 = velocity_int_ext;
   system_CBC_0_0 CBC_0
        (.OFFSET(CBC_0_OFFSET),
         .OP1(CBC_0_OP1),
         .OP10(CBC_0_OP10),
-        .OP11(CBC_0_OP11),
-        .OP12(CBC_0_OP12),
         .OP2(CBC_0_OP2),
         .OP3(CBC_0_OP3),
         .OP4(CBC_0_OP4),
@@ -188,6 +186,7 @@ module CBC_imp_ZV89ZT
         .polynomial_target(polynomial_target_1),
         .sel(sel_1),
         .trigger_in(trig_in_1),
+        .trigger_out(CBC_0_trigger_out),
         .velocity_int_ext(velocity_int_ext_1));
   system_CH2_mult2_0 CBC_Mult1
        (.A(CBC_0_OP1),
@@ -196,7 +195,7 @@ module CBC_imp_ZV89ZT
         .P(CBC_Mult1_P));
   system_CH2_mult4_0 CBC_Mult3
        (.A(CBC_0_OP3),
-        .B({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,CBC_0_OP4}),
+        .B(CBC_0_OP4),
         .CLK(aclk_1),
         .P(CBC_Mult3_P));
   system_CH2_mult3_0 CBC_mult2
@@ -214,11 +213,6 @@ module CBC_imp_ZV89ZT
         .B(CBC_0_OP10),
         .CLK(aclk_1),
         .P(CBC_mult5_P));
-  system_CH2_mult3_1 CBC_mult6
-       (.A(CBC_0_OP11),
-        .B(CBC_0_OP12[47:0]),
-        .CLK(aclk_1),
-        .P(CBC_mult6_P));
 endmodule
 
 module CH1_Config_imp_WASEI3
@@ -1733,10 +1727,10 @@ module feedback_and_generation_imp_GDMTQL
   wire [31:0]CBC_OFFSET;
   wire [55:0]CBC_P;
   wire [42:0]CBC_P1;
-  wire [63:0]CBC_P2;
+  wire [47:0]CBC_P2;
   wire [55:0]CBC_P3;
   wire [55:0]CBC_P4;
-  wire [42:0]CBC_P5;
+  wire CBC_trigger_out;
   wire [55:0]CH2_mult1_P;
   wire [55:0]CH2_mult2_P;
   wire [42:0]CH2_mult3_P;
@@ -1836,7 +1830,6 @@ module feedback_and_generation_imp_GDMTQL
         .P2(CBC_P2),
         .P3(CBC_P3),
         .P4(CBC_P4),
-        .P5(CBC_P5),
         .S_AXIS_ADC1_tdata(Conn8_TDATA),
         .S_AXIS_ADC1_tvalid(Conn8_TVALID),
         .S_AXIS_ADC2_tdata(Conn9_TDATA),
@@ -1849,6 +1842,7 @@ module feedback_and_generation_imp_GDMTQL
         .polynomial_target(polynomial_target_1),
         .sel(sel_1),
         .trig_in(trig_in_1),
+        .trigger_out(CBC_trigger_out),
         .velocity_int_ext(velocity_int_ext_1));
   CH1_imp_TTA6VN CH1
        (.OFFSET(multiplier_breakout_0_OFFSET),
@@ -1901,7 +1895,6 @@ module feedback_and_generation_imp_GDMTQL
         .CBC_product_3(CBC_P2[42:0]),
         .CBC_product_4({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,CBC_P3}),
         .CBC_product_5(CBC_P4[42:0]),
-        .CBC_product_6({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,CBC_P5}),
         .CH1_offset(multiplier_breakout_0_OFFSET),
         .CH1_product_1(mult_gen_0_P),
         .CH1_product_2(mult_gen_1_P),
@@ -1918,7 +1911,8 @@ module feedback_and_generation_imp_GDMTQL
         .M_AXIS_tvalid(feedback_combined_0_M_AXIS_TVALID),
         .aclk(pll_0_clk_out1),
         .continuous_output_in(continuous_output_in_1),
-        .trig_in(multiplier_breakout_0_trigger_out),
+        .trig_in_CBC(CBC_trigger_out),
+        .trig_in_channels(multiplier_breakout_0_trigger_out),
         .trig_out(feedback_combined_0_trig_out));
 endmodule
 
@@ -2484,7 +2478,7 @@ module s00_couplers_imp_15TT0JU
         .s_axi_wvalid(s00_couplers_to_auto_pc_WVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=72,numReposBlks=56,numNonXlnxBlks=0,numHierBlks=16,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=5,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=13,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=10,synth_mode=Global}" *) (* HW_HANDOFF = "system.hwdef" *) 
+(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=71,numReposBlks=55,numNonXlnxBlks=0,numHierBlks=16,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=5,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=13,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=10,synth_mode=Global}" *) (* HW_HANDOFF = "system.hwdef" *) 
 module system
    (DDR_addr,
     DDR_ba,

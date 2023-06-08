@@ -60,7 +60,7 @@ ENTITY system_CH2_mult2_0 IS
   PORT (
     CLK : IN STD_LOGIC;
     A : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-    B : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    B : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     P : OUT STD_LOGIC_VECTOR(55 DOWNTO 0)
   );
 END system_CH2_mult2_0;
@@ -94,7 +94,7 @@ ARCHITECTURE system_CH2_mult2_0_arch OF system_CH2_mult2_0 IS
     PORT (
       CLK : IN STD_LOGIC;
       A : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-      B : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+      B : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       CE : IN STD_LOGIC;
       SCLR : IN STD_LOGIC;
       P : OUT STD_LOGIC_VECTOR(55 DOWNTO 0)
@@ -123,7 +123,7 @@ BEGIN
       C_LATENCY => 4,
       C_A_WIDTH => 32,
       C_A_TYPE => 0,
-      C_B_WIDTH => 32,
+      C_B_WIDTH => 16,
       C_B_TYPE => 0,
       C_OUT_HIGH => 63,
       C_OUT_LOW => 8,

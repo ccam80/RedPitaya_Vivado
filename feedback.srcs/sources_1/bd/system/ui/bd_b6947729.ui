@@ -1,0 +1,51 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.961765",
+   "Default View_TopLeft":"-220,-10",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port S_AXIS_ADC1 -pg 1 -lvl 0 -x -10 -y 350 -defaultsOSRD
+preplace port S_AXIS_ADC2 -pg 1 -lvl 0 -x -10 -y 370 -defaultsOSRD
+preplace port S_AXIS_CFG -pg 1 -lvl 0 -x -10 -y 390 -defaultsOSRD
+preplace port S_AXIS_RNG2 -pg 1 -lvl 0 -x -10 -y 410 -defaultsOSRD
+preplace port aclk -pg 1 -lvl 0 -x -10 -y 430 -defaultsOSRD
+preplace port trig_in -pg 1 -lvl 0 -x -10 -y 450 -defaultsOSRD
+preplace port input_select1 -pg 1 -lvl 0 -x -10 -y 470 -defaultsOSRD
+preplace portBus P -pg 1 -lvl 3 -x 590 -y 70 -defaultsOSRD
+preplace portBus P1 -pg 1 -lvl 3 -x 590 -y 210 -defaultsOSRD
+preplace portBus P2 -pg 1 -lvl 3 -x 590 -y 590 -defaultsOSRD
+preplace portBus CH2_sel -pg 1 -lvl 0 -x -10 -y 490 -defaultsOSRD
+preplace portBus OFFSET -pg 1 -lvl 3 -x 590 -y 510 -defaultsOSRD
+preplace portBus P3 -pg 1 -lvl 3 -x 590 -y 350 -defaultsOSRD
+preplace inst CH2_mult2 -pg 1 -lvl 2 -x 470 -y 70 -defaultsOSRD
+preplace inst CH2_mult3 -pg 1 -lvl 2 -x 470 -y 210 -defaultsOSRD
+preplace inst CH2_mult4 -pg 1 -lvl 2 -x 470 -y 590 -defaultsOSRD
+preplace inst CH2_multiplier_breakout -pg 1 -lvl 1 -x 170 -y 420 -defaultsOSRD
+preplace inst CH2_mult1 -pg 1 -lvl 2 -x 470 -y 350 -defaultsOSRD
+preplace netloc CH2_multiplier_breakout_OP3 1 1 1 330 70n
+preplace netloc CH2_multiplier_breakout_OP4 1 1 1 340 90n
+preplace netloc CH2_multiplier_breakout_OP5 1 1 1 360 210n
+preplace netloc CH2_multiplier_breakout_OP6 1 1 1 370 230n
+preplace netloc CH2_multiplier_breakout_OP7 1 1 1 370 470n
+preplace netloc CH2_multiplier_breakout_LONG_7F 1 1 1 330 490n
+preplace netloc CH2_multiplier_breakout_OP1 1 1 1 N 350
+preplace netloc CH2_multiplier_breakout_OP2 1 1 1 N 370
+preplace netloc pll_0_clk_out1 1 0 2 10 570 350
+preplace netloc CH2_mult2_P 1 2 1 NJ 70
+preplace netloc CH2_mult3_P 1 2 1 NJ 210
+preplace netloc CH2_mult4_P 1 2 1 NJ 590
+preplace netloc trig_in_1 1 0 1 NJ 450
+preplace netloc input_select1_1 1 0 1 NJ 470
+preplace netloc Net1 1 0 1 NJ 490
+preplace netloc CH2_multiplier_breakout_OFFSET 1 1 2 NJ 510 NJ
+preplace netloc CH2_mult1_P 1 2 1 NJ 350
+preplace netloc Conn6 1 0 1 NJ 350
+preplace netloc Conn7 1 0 1 NJ 370
+preplace netloc S_AXIS_CFG_1 1 0 1 NJ 390
+preplace netloc Conn1 1 0 1 NJ 410
+levelinfo -pg 1 -10 170 470 590
+pagesize -pg 1 -db -bbox -sgen -160 -10 740 670
+"
+}
+

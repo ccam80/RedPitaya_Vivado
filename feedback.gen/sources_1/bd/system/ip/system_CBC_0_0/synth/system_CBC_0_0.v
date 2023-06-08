@@ -81,8 +81,6 @@ module system_CBC_0_0 (
   OP8,
   OP9,
   OP10,
-  OP11,
-  OP12,
   OFFSET
 );
 
@@ -112,17 +110,15 @@ input wire [447 : 0] S_AXIS_CFG_tdata;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_CFG TVALID" *)
 input wire S_AXIS_CFG_tvalid;
 output wire [31 : 0] OP1;
-output wire [31 : 0] OP2;
+output wire [15 : 0] OP2;
 output wire [31 : 0] OP3;
-output wire [31 : 0] OP4;
+output wire [15 : 0] OP4;
 output wire [31 : 0] OP5;
 output wire [47 : 0] OP6;
 output wire [31 : 0] OP7;
 output wire [31 : 0] OP8;
 output wire [31 : 0] OP9;
-output wire [31 : 0] OP10;
-output wire [31 : 0] OP11;
-output wire [63 : 0] OP12;
+output wire [15 : 0] OP10;
 output wire [31 : 0] OFFSET;
 
   CBC #(
@@ -172,8 +168,6 @@ output wire [31 : 0] OFFSET;
     .OP8(OP8),
     .OP9(OP9),
     .OP10(OP10),
-    .OP11(OP11),
-    .OP12(OP12),
     .OFFSET(OFFSET)
   );
 endmodule

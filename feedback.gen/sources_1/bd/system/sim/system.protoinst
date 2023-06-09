@@ -1229,7 +1229,7 @@
 					"ports": {
 						"ACLK": { "actual": "aclk"},
 						"ARESETN": { "actual": "aresetn"},
-						"TDATA": { "actual": "M00_AXIS_tdata[15:0]"},
+						"TDATA": { "actual": "M00_AXIS_tdata[31:0]"},
 						"TVALID": { "actual": "M00_AXIS_tvalid[0:0]"}
 					}
 				},
@@ -1238,7 +1238,7 @@
 					"ports": {
 						"ACLK": { "actual": "aclk"},
 						"ARESETN": { "actual": "aresetn"},
-						"TDATA": { "actual": "M01_AXIS_tdata[31:16]"},
+						"TDATA": { "actual": "M01_AXIS_tdata[63:32]"},
 						"TVALID": { "actual": "M01_AXIS_tvalid"}
 					}
 				},
@@ -1278,7 +1278,7 @@
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
-						"TDATA": { "actual": "S_AXIS_ADC5_tdata[111:96]"},
+						"TDATA": { "actual": "S_AXIS_ADC5_tdata"},
 						"TVALID": { "actual": "S_AXIS_ADC5_tvalid"}
 					}
 				},
@@ -1286,7 +1286,7 @@
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
-						"TDATA": { "actual": "S_AXIS_ADC6_tdata[127:112]"},
+						"TDATA": { "actual": "S_AXIS_ADC6_tdata"},
 						"TVALID": { "actual": "S_AXIS_ADC6_tvalid"}
 					}
 				},

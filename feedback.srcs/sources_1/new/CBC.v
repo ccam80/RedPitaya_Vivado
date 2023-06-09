@@ -94,7 +94,8 @@ parameter SEL_WIDTH=4
     reg trigger_4;
     reg trigger_5;  
     reg trigger_6; 
-     
+    reg trigger_7; 
+ 
     reg input_order;
     reg velocity_external;
     reg displacement_external;
@@ -346,19 +347,22 @@ parameter SEL_WIDTH=4
         displacement_last <= displacement;
         velocity_last <= velocity;
         ref_master_last <= ref_master;
-        
-        // Set target variable for polynomial feedback
-        if (polynomial_target)
-            polynomial_var <= velocity;
-        else
-            polynomial_var <= displacement;        
-            
-        
+               
         // Assign reference signals from multiplied master
         ref_velocity <= ref_master - ref_master_last;
         ref_displacement <= ref_master;                                            
     end
     
+    
+    always @ (posedge aclk)
+    begin
+            // Set target variable for polynomial feedback
+        if (polynomial_target)
+            polynomial_var <= velocity;
+        else
+            polynomial_var <= displacement;   
+    end
+
     always @ (*)
     begin
         error <= displacement - ref_displacement;
@@ -411,7 +415,7 @@ parameter SEL_WIDTH=4
         OFFSET <= Offset_out;
         end  
         
-  //Control logic and trigger delay chain. Delay is 3 cycles for internal multiplier, 3 for external multipliers.
+  //Control logic and trigger delay chain. Delay is 3 cycles for internal multiplier, 4 for external multipliers.
   
   always @(posedge(aclk))
         begin
@@ -434,7 +438,9 @@ parameter SEL_WIDTH=4
             trigger_4 <= trigger_3;
             trigger_5 <= trigger_4;
             trigger_6 <= trigger_5;
-            trigger_out <= trigger_6;
+            trigger_7 <= trigger_6;
+
+            trigger_out <= trigger_7;
         end       
         
 // ####################  Sweep logic  ################ //    

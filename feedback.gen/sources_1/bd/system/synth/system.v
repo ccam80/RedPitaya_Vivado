@@ -1,7 +1,7 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-//Date        : Thu Jun  8 15:19:12 2023
+//Date        : Thu Jun  8 19:12:26 2023
 //Host        : acoustics-VirtualBox running 64-bit Ubuntu 20.04.5 LTS
 //Command     : generate_target system.bd
 //Design      : system
@@ -74,7 +74,6 @@ module CBC_imp_ZV89ZT
     P2,
     P3,
     P4,
-    P5,
     S_AXIS_ADC1_tdata,
     S_AXIS_ADC1_tvalid,
     S_AXIS_ADC2_tdata,
@@ -92,10 +91,9 @@ module CBC_imp_ZV89ZT
   output [31:0]OFFSET;
   output [55:0]P;
   output [42:0]P1;
-  output [47:0]P2;
+  output [42:0]P2;
   output [55:0]P3;
   output [55:0]P4;
-  output [42:0]P5;
   input [15:0]S_AXIS_ADC1_tdata;
   input S_AXIS_ADC1_tvalid;
   input [15:0]S_AXIS_ADC2_tdata;
@@ -124,7 +122,7 @@ module CBC_imp_ZV89ZT
   wire [31:0]CBC_0_OP9;
   wire CBC_0_trigger_out;
   wire [55:0]CBC_Mult1_P;
-  wire [47:0]CBC_Mult3_P;
+  wire [42:0]CBC_Mult3_P;
   wire [42:0]CBC_mult2_P;
   wire [55:0]CBC_mult4_P;
   wire [55:0]CBC_mult5_P;
@@ -151,7 +149,7 @@ module CBC_imp_ZV89ZT
   assign OFFSET[31:0] = CBC_0_OFFSET;
   assign P[55:0] = CBC_Mult1_P;
   assign P1[42:0] = CBC_mult2_P;
-  assign P2[47:0] = CBC_Mult3_P;
+  assign P2[42:0] = CBC_Mult3_P;
   assign P3[55:0] = CBC_mult4_P;
   assign P4[55:0] = CBC_mult5_P;
   assign aclk_1 = aclk;
@@ -194,13 +192,13 @@ module CBC_imp_ZV89ZT
         .CLK(aclk_1),
         .P(CBC_Mult1_P));
   system_CH2_mult4_0 CBC_Mult3
-       (.A(CBC_0_OP3),
-        .B(CBC_0_OP4),
+       (.A(CBC_0_OP5[30:0]),
+        .B(CBC_0_OP6),
         .CLK(aclk_1),
         .P(CBC_Mult3_P));
   system_CH2_mult3_0 CBC_mult2
-       (.A(CBC_0_OP5),
-        .B(CBC_0_OP6),
+       (.A(CBC_0_OP3),
+        .B(CBC_0_OP4[14:0]),
         .CLK(aclk_1),
         .P(CBC_mult2_P));
   system_CH2_mult1_1 CBC_mult4
@@ -1727,7 +1725,7 @@ module feedback_and_generation_imp_GDMTQL
   wire [31:0]CBC_OFFSET;
   wire [55:0]CBC_P;
   wire [42:0]CBC_P1;
-  wire [47:0]CBC_P2;
+  wire [42:0]CBC_P2;
   wire [55:0]CBC_P3;
   wire [55:0]CBC_P4;
   wire CBC_trigger_out;
@@ -1892,7 +1890,7 @@ module feedback_and_generation_imp_GDMTQL
        (.CBC_offset(CBC_OFFSET),
         .CBC_product_1(CBC_P),
         .CBC_product_2({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,CBC_P1}),
-        .CBC_product_3(CBC_P2[42:0]),
+        .CBC_product_3(CBC_P2),
         .CBC_product_4({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,CBC_P3}),
         .CBC_product_5(CBC_P4[42:0]),
         .CH1_offset(multiplier_breakout_0_OFFSET),
@@ -2478,7 +2476,7 @@ module s00_couplers_imp_15TT0JU
         .s_axi_wvalid(s00_couplers_to_auto_pc_WVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=71,numReposBlks=55,numNonXlnxBlks=0,numHierBlks=16,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=5,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=13,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=10,synth_mode=Global}" *) (* HW_HANDOFF = "system.hwdef" *) 
+(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=71,numReposBlks=55,numNonXlnxBlks=0,numHierBlks=16,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=5,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=13,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=10,synth_mode=Global}" *) (* HW_HANDOFF = "system.hwdef" *) 
 module system
    (DDR_addr,
     DDR_ba,

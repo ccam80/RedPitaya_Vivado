@@ -478,10 +478,9 @@ proc create_hier_cell_CBC { parentCell nameHier } {
   create_bd_pin -dir O -from 31 -to 0 OFFSET
   create_bd_pin -dir O -from 55 -to 0 -type data P
   create_bd_pin -dir O -from 42 -to 0 -type data P1
-  create_bd_pin -dir O -from 47 -to 0 -type data P2
+  create_bd_pin -dir O -from 42 -to 0 -type data P2
   create_bd_pin -dir O -from 55 -to 0 -type data P3
   create_bd_pin -dir O -from 55 -to 0 -type data P4
-  create_bd_pin -dir O -from 42 -to 0 -type data P5
   create_bd_pin -dir I -type clk aclk
   create_bd_pin -dir I displacement_int_ext
   create_bd_pin -dir I input_select2
@@ -520,14 +519,14 @@ proc create_hier_cell_CBC { parentCell nameHier } {
   set CBC_Mult3 [ create_bd_cell -type ip -vlnv xilinx.com:ip:mult_gen:12.0 CBC_Mult3 ]
   set_property -dict [ list \
    CONFIG.Multiplier_Construction {Use_Mults} \
-   CONFIG.OutputWidthHigh {47} \
-   CONFIG.OutputWidthLow {0} \
-   CONFIG.PipeStages {3} \
+   CONFIG.OutputWidthHigh {63} \
+   CONFIG.OutputWidthLow {21} \
+   CONFIG.PipeStages {4} \
    CONFIG.PortAType {Signed} \
-   CONFIG.PortAWidth {32} \
+   CONFIG.PortAWidth {31} \
    CONFIG.PortBType {Signed} \
-   CONFIG.PortBWidth {16} \
-   CONFIG.Use_Custom_Output_Width {false} \
+   CONFIG.PortBWidth {48} \
+   CONFIG.Use_Custom_Output_Width {true} \
  ] $CBC_Mult3
 
   # Create instance: CBC_mult2, and set properties
@@ -540,7 +539,7 @@ proc create_hier_cell_CBC { parentCell nameHier } {
    CONFIG.PortAType {Signed} \
    CONFIG.PortAWidth {32} \
    CONFIG.PortBType {Signed} \
-   CONFIG.PortBWidth {48} \
+   CONFIG.PortBWidth {15} \
    CONFIG.Use_Custom_Output_Width {true} \
  ] $CBC_mult2
 
@@ -564,7 +563,7 @@ proc create_hier_cell_CBC { parentCell nameHier } {
    CONFIG.Multiplier_Construction {Use_Mults} \
    CONFIG.OutputWidthHigh {63} \
    CONFIG.OutputWidthLow {8} \
-   CONFIG.PipeStages {3} \
+   CONFIG.PipeStages {4} \
    CONFIG.PortAType {Signed} \
    CONFIG.PortAWidth {32} \
    CONFIG.PortBType {Signed} \
@@ -581,10 +580,10 @@ proc create_hier_cell_CBC { parentCell nameHier } {
   connect_bd_net -net CBC_0_OFFSET [get_bd_pins OFFSET] [get_bd_pins CBC_0/OFFSET]
   connect_bd_net -net CBC_0_OP1 [get_bd_pins CBC_0/OP1] [get_bd_pins CBC_Mult1/A]
   connect_bd_net -net CBC_0_OP2 [get_bd_pins CBC_0/OP2] [get_bd_pins CBC_Mult1/B]
-  connect_bd_net -net CBC_0_OP3 [get_bd_pins CBC_0/OP3] [get_bd_pins CBC_Mult3/A]
-  connect_bd_net -net CBC_0_OP4 [get_bd_pins CBC_0/OP4] [get_bd_pins CBC_Mult3/B]
-  connect_bd_net -net CBC_0_OP5 [get_bd_pins CBC_0/OP5] [get_bd_pins CBC_mult2/A]
-  connect_bd_net -net CBC_0_OP6 [get_bd_pins CBC_0/OP6] [get_bd_pins CBC_mult2/B]
+  connect_bd_net -net CBC_0_OP3 [get_bd_pins CBC_0/OP3] [get_bd_pins CBC_mult2/A]
+  connect_bd_net -net CBC_0_OP4 [get_bd_pins CBC_0/OP4] [get_bd_pins CBC_mult2/B]
+  connect_bd_net -net CBC_0_OP5 [get_bd_pins CBC_0/OP5] [get_bd_pins CBC_Mult3/A]
+  connect_bd_net -net CBC_0_OP6 [get_bd_pins CBC_0/OP6] [get_bd_pins CBC_Mult3/B]
   connect_bd_net -net CBC_0_OP7 [get_bd_pins CBC_0/OP7] [get_bd_pins CBC_mult4/A]
   connect_bd_net -net CBC_0_OP8 [get_bd_pins CBC_0/OP8] [get_bd_pins CBC_mult4/B]
   connect_bd_net -net CBC_0_OP9 [get_bd_pins CBC_0/OP9] [get_bd_pins CBC_mult5/A]

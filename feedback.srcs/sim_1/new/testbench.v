@@ -33,7 +33,7 @@ module testbench();
     system_wrapper sw (.adc_clk_p_i(clock_p),
                        .adc_clk_n_i(clock_n),
                        .adc_dat_a_i(adc_in),
-                       .adc_dat_b_ii(adc_in2),
+                       .adc_dat_b_i(adc_in2),
                        .dac_dat_o(dac_out)
                        );
 initial

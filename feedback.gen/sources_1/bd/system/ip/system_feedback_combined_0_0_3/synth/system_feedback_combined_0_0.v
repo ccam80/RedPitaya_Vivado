@@ -52,7 +52,7 @@
 
 (* X_CORE_INFO = "feedback_combined,Vivado 2020.2" *)
 (* CHECK_LICENSE_TYPE = "system_feedback_combined_0_0,feedback_combined,{}" *)
-(* CORE_GENERATION_INFO = "system_feedback_combined_0_0,feedback_combined,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=feedback_combined,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,PRODUCT_1_WIDTH=56,PRODUCT_2_WIDTH=56,PRODUCT_3_WIDTH=43,PRODUCT_4_WIDTH=64,OFFSET_WIDTH=32,CBC_PRODUCT_1_WIDTH=56,CBC_PRODUCT_2_WIDTH=56,CBC_PRODUCT_3_WIDTH=43,CBC_PRODUCT_4_WIDTH=64,CBC_PRODUCT_5_WIDTH=43,AXIS_TDATA_WIDTH=32,OUTPUT_CHANNEL_WIDTH=16,SELECT_WIDTH=4}" *)
+(* CORE_GENERATION_INFO = "system_feedback_combined_0_0,feedback_combined,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=feedback_combined,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,PRODUCT_1_WIDTH=56,PRODUCT_2_WIDTH=56,PRODUCT_3_WIDTH=43,PRODUCT_4_WIDTH=64,OFFSET_WIDTH=32,CBC_PRODUCT_1_WIDTH=48,CBC_PRODUCT_2_WIDTH=48,CBC_PRODUCT_3_WIDTH=43,CBC_PRODUCT_4_WIDTH=56,CBC_PRODUCT_5_WIDTH=56,AXIS_TDATA_WIDTH=32,OUTPUT_CHANNEL_WIDTH=16,SELECT_WIDTH=4}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_feedback_combined_0_0 (
@@ -101,11 +101,11 @@ input wire [55 : 0] CH2_product_2;
 input wire [42 : 0] CH2_product_3;
 input wire [63 : 0] CH2_product_4;
 input wire [31 : 0] CH2_offset;
-input wire [55 : 0] CBC_product_1;
-input wire [55 : 0] CBC_product_2;
+input wire [47 : 0] CBC_product_1;
+input wire [47 : 0] CBC_product_2;
 input wire [42 : 0] CBC_product_3;
-input wire [63 : 0] CBC_product_4;
-input wire [42 : 0] CBC_product_5;
+input wire [55 : 0] CBC_product_4;
+input wire [55 : 0] CBC_product_5;
 input wire [31 : 0] CBC_offset;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS TDATA" *)
 output wire [31 : 0] M_AXIS_tdata;
@@ -120,11 +120,11 @@ output wire trig_out;
     .PRODUCT_3_WIDTH(43),
     .PRODUCT_4_WIDTH(64),
     .OFFSET_WIDTH(32),
-    .CBC_PRODUCT_1_WIDTH(56),
-    .CBC_PRODUCT_2_WIDTH(56),
+    .CBC_PRODUCT_1_WIDTH(48),
+    .CBC_PRODUCT_2_WIDTH(48),
     .CBC_PRODUCT_3_WIDTH(43),
-    .CBC_PRODUCT_4_WIDTH(64),
-    .CBC_PRODUCT_5_WIDTH(43),
+    .CBC_PRODUCT_4_WIDTH(56),
+    .CBC_PRODUCT_5_WIDTH(56),
     .AXIS_TDATA_WIDTH(32),
     .OUTPUT_CHANNEL_WIDTH(16),
     .SELECT_WIDTH(4)

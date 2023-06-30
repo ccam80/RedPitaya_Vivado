@@ -58,11 +58,11 @@ module system_ram_writer_reset_0 (
   Dout
 );
 
-input wire [447 : 0] Din;
+input wire [511 : 0] Din;
 output wire [0 : 0] Dout;
 
   xlslice_v1_0_2_xlslice #(
-    .DIN_WIDTH(448),
+    .DIN_WIDTH(512),
     .DIN_FROM(1),
     .DIN_TO(1)
   ) inst (

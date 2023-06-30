@@ -31,17 +31,12 @@ Out1[V] = ((param_a * 2^15) + (param_c * In1 * 2^13 * sin(2pi*(param_f-0.5)/2^30
 simplified:<br>
 Out1[V] = ((param_a * 2^15) + (param_c * In1 * sin(2pi*(param_f-0.5)/2^30*125MHz*t) * 2^18) + (param_d * In1^2 * 2^18) + (param_e * In1^3 * 2^18)) / (2^28)
 ## AX + B
-frequenzy sweep from<br>
-Out1[V] = (param_c * sin(2pi*(param_a-0.5)/2^30*125MHz*t) * 2^15) / (2^15 * 2^13)<br>
-to<br>
-Out1[V] = (param_c * sin(2pi*(param_b-0.5)/2^30*125MHz*t) * 2^15) / (2^15 * 2^13)
+
 ## Random
-frequenzy sweep from<br>
-Out1[V] = (param_c * sin(2pi*(param_a-0.5)/2^30*125MHz*t) * 2^15) / (2^15 * 2^13)<br>
-to<br>
-Out1[V] = (param_c * sin(2pi*(param_b-0.5)/2^30*125MHz*t) * 2^15) / (2^15 * 2^13)
 
+#Data types
 
+   
 # Math Implementation:
 Arguments to feeback equations are collected by the multiplier_breakout module, which performs narrow 16x16 multiplications, then feeds operands to multiplier cores. There is one multiplier_breakout per channel. CBC has its own multiplier breakout, with multiple multiplexable signal pathways as described below. The feedback\_combined module then sums the products of these multiplications. The inputs and outputs for each stimulation mode are given by:
 

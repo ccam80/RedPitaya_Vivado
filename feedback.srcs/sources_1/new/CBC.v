@@ -378,7 +378,7 @@ parameter SEL_WIDTH=4
     // Carry out narrow 16x16 multiplication using inferred multipliers
     always @(posedge aclk)
     begin
-        polynomial_var_squared_result <= polynomial_var * polynomial_var;
+        polynomial_var_squared_result <= {4'b0, polynomial_var[13:0] * polynomial_var[13:0]};
     end      
     
   
@@ -386,14 +386,14 @@ parameter SEL_WIDTH=4
     always @(posedge aclk)
     begin
         //Control outputs
-        Operand_1_out <= KP;
-        Operand_2_out <= error;
-        Operand_3_out <= KD;
-        Operand_4_out <= error_dot;
+        Operand_1_out <= KP;        // Q16.16  Useful (integer) output will be left-shifted 16 bits
+        Operand_2_out <= error;     // 14-bit
+        Operand_3_out <= KD;        // Q16.16
+        Operand_4_out <= error_dot; // 14-bit
         
         //Polynomial outputs
         Operand_5_out <= A;
-        Operand_6_out <= polynomial_var_squared_result * polynomial_var;
+        Operand_6_out <= {{2{polynomial_var[15]}}, polynomial_var_squared_result * polynomial_var[13:0]};
         Operand_7_out <= B;
         Operand_8_out <= polynomial_var_squared_result;
         Operand_9_out <= C; 

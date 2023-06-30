@@ -30,7 +30,8 @@ parameter PARAM_D_OFFSET = 96,
 parameter PARAM_E_OFFSET = 128,
 parameter PARAM_F_OFFSET = 160,
 
-parameter ADC_WIDTH = 16,
+parameter ADC_BUS_WIDTH = 16,
+parameter ADC_REAL_DATA_WIDTH = 16,
 parameter DDS_WIDTH = 16,
 parameter RNG_WIDTH = 16,
 parameter OPERAND_WIDTH = 32,    
@@ -46,11 +47,11 @@ parameter SEL_WIDTH=4
     input [SEL_WIDTH-1:0]                       sel,
     //Narrow inputs
     (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *)
-    input [ADC_WIDTH-1:0]                       S_AXIS_ADC1_tdata,
+    input [ADC_BUS_WIDTH-1:0]                       S_AXIS_ADC1_tdata,
     input                                       S_AXIS_ADC1_tvalid,
     
     (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *)
-    input [ADC_WIDTH-1:0]                       S_AXIS_ADC2_tdata,
+    input [ADC_BUS_WIDTH-1:0]                       S_AXIS_ADC2_tdata,
     input                                       S_AXIS_ADC2_tvalid,
     
     (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *)
@@ -69,7 +70,7 @@ parameter SEL_WIDTH=4
     output reg [OPERAND_WIDTH-1:0]              OP3,  
     output reg [OPERAND_WIDTH-1:0]              OP4,   
     output reg [OPERAND_WIDTH-1:0]              OP5,  
-    output reg [(ADC_WIDTH * 3) - 1:0]          OP6,
+    output reg [(ADC_BUS_WIDTH * 3) - 1:0]          OP6,
     output reg [OPERAND_WIDTH-1:0]              OP7,   
     output reg [63:0]                           LONG_7F, 
     output reg [OPERAND_WIDTH-1:0]              OFFSET
@@ -84,13 +85,14 @@ parameter SEL_WIDTH=4
     
     reg signed [PARAM_WIDTH-1:0] Param_A_in, Param_B_in, Param_C_in, Param_D_in, Param_E_in, Param_F_in;
     reg signed [OPERAND_WIDTH-1:0] Operand_1_out, Operand_2_out, Operand_3_out, Operand_4_out, Operand_5_out, Operand_7_out, Offset_out;   
-    reg signed [ADC_WIDTH * 3 - 1:0] Operand_6_out;   
+    reg signed [ADC_BUS_WIDTH * 3 - 1:0] Operand_6_out;   
     reg [SEL_WIDTH-1:0] state;  
 
     
-    reg signed [ADC_WIDTH-1:0] IN1, IN2;
+    reg signed [ADC_BUS_WIDTH-1:0] IN1, IN2;
     reg signed [RNG_WIDTH-1:0] RNG;
-    reg signed [OPERAND_WIDTH-1:0] IN1_squared_result, IN1_IN2_result, IN1_DDS_result;    
+    reg signed [OPERAND_WIDTH-1:0] IN1_DDS_result;  
+    reg signed [2*ADC_REAL_DATA_WIDTH - 1:0] IN1_squared_result, IN1_IN2_result;  
     
     localparam fixed = 0, sweep = 1, lin = 2, parametric = 3,  A_x_plus_B = 4, random = 5, polynomial = 6, CBC=7; 
    
@@ -185,12 +187,12 @@ parameter SEL_WIDTH=4
         trigger <= trigger_in;
     end
     
-    // Carry out narrow 16x16 multiplications using inferred multipliers
+    // Carry out narrow 16x16 multiplications using inferred multipliers - only multiply useful bits to cut down slack, then sign extend result
     always @(posedge aclk)
     begin
-        IN1_squared_result <= IN1 * IN1;
-        IN1_IN2_result <= IN1 * IN2;
-        IN1_DDS_result <= IN1 * dds_out;
+        IN1_squared_result <= IN1[13:0] * IN1[13:0];
+        IN1_IN2_result <= IN1[13:0]  * IN2[13:0];
+        IN1_DDS_result <= {{2{IN1[15]^dds_out[15]}},IN1[13:0] * dds_out};
     end      
     
     
@@ -245,12 +247,12 @@ parameter SEL_WIDTH=4
             
             lin: 
             begin
-                Operand_1_out <= IN1_IN2_result;
+                Operand_1_out <= {{4{IN1[15] ^ IN2[15]}}, IN1_IN2_result};
                 Operand_2_out <= Param_C_in;
                 Operand_3_out <= Param_D_in;
                 Operand_4_out <= IN1_squared_result;
                 Operand_5_out <= Param_E_in;
-                Operand_6_out <= IN1_squared_result * IN1;
+                Operand_6_out <= {{6{IN1[15]}}, IN1_squared_result * IN1[13:0]};
                 Operand_7_out <= Param_A_in;
                 Offset_out <= 32'b0;
                 LONG_7F <= 64'h7FFF;
@@ -263,7 +265,7 @@ parameter SEL_WIDTH=4
                 Operand_3_out <= Param_D_in;
                 Operand_4_out <= IN1_squared_result;
                 Operand_5_out <= Param_E_in;
-                Operand_6_out <= IN1_squared_result * IN1;
+                Operand_6_out <= {{6{IN1[15]}}, IN1_squared_result * IN1[13:0]};
                 Operand_7_out <= Param_A_in;
                 Offset_out <= 32'b0;
                 LONG_7F <= 64'h7FFF;
@@ -302,7 +304,7 @@ parameter SEL_WIDTH=4
                 Operand_3_out <= Param_B_in;
                 Operand_4_out <= IN1_squared_result;
                 Operand_5_out <= Param_C_in;
-                Operand_6_out <= IN1_squared_result * IN1;
+                Operand_6_out <= {{6{IN1[15]}}, IN1_squared_result * IN1[13:0]};
                 Operand_7_out <= 32'b0;
                 Offset_out <= Param_E_in;
                 LONG_7F <= 64'b0;

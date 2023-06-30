@@ -1,7 +1,7 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-//Date        : Thu Jun  8 19:12:26 2023
+//Date        : Thu Jun 22 20:36:21 2023
 //Host        : acoustics-VirtualBox running 64-bit Ubuntu 20.04.5 LTS
 //Command     : generate_target system.bd
 //Design      : system
@@ -19,7 +19,7 @@ module CBC_config_imp_3DYLP
     M_AXIS_tvalid,
     aclk,
     cfg_data);
-  input [447:0]Din1;
+  input [511:0]Din1;
   output [0:0]Dout11;
   output [0:0]Dout12;
   output [0:0]Dout13;
@@ -31,7 +31,7 @@ module CBC_config_imp_3DYLP
 
   wire [447:0]Conn1_TDATA;
   wire Conn1_TVALID;
-  wire [447:0]Din1_1;
+  wire [511:0]Din1_1;
   wire [0:0]Displacement_int_ext_Dout;
   wire [0:0]Polynomial_target_Dout;
   wire [0:0]Velocity_int_ext_Dout;
@@ -39,7 +39,7 @@ module CBC_config_imp_3DYLP
   wire [447:0]cfg_data_1;
   wire [0:0]input_order_Dout;
 
-  assign Din1_1 = Din1[447:0];
+  assign Din1_1 = Din1[511:0];
   assign Dout11[0] = input_order_Dout;
   assign Dout12[0] = Velocity_int_ext_Dout;
   assign Dout13[0] = Polynomial_target_Dout;
@@ -89,8 +89,8 @@ module CBC_imp_ZV89ZT
     trigger_out,
     velocity_int_ext);
   output [31:0]OFFSET;
-  output [55:0]P;
-  output [42:0]P1;
+  output [47:0]P;
+  output [47:0]P1;
   output [42:0]P2;
   output [55:0]P3;
   output [55:0]P4;
@@ -121,9 +121,9 @@ module CBC_imp_ZV89ZT
   wire [31:0]CBC_0_OP8;
   wire [31:0]CBC_0_OP9;
   wire CBC_0_trigger_out;
-  wire [55:0]CBC_Mult1_P;
+  wire [47:0]CBC_Mult1_P;
   wire [42:0]CBC_Mult3_P;
-  wire [42:0]CBC_mult2_P;
+  wire [47:0]CBC_mult2_P;
   wire [55:0]CBC_mult4_P;
   wire [55:0]CBC_mult5_P;
   wire [15:0]Conn1_TDATA;
@@ -147,8 +147,8 @@ module CBC_imp_ZV89ZT
   assign Conn3_TDATA = S_AXIS_CFG_tdata[447:0];
   assign Conn3_TVALID = S_AXIS_CFG_tvalid;
   assign OFFSET[31:0] = CBC_0_OFFSET;
-  assign P[55:0] = CBC_Mult1_P;
-  assign P1[42:0] = CBC_mult2_P;
+  assign P[47:0] = CBC_Mult1_P;
+  assign P1[47:0] = CBC_mult2_P;
   assign P2[42:0] = CBC_Mult3_P;
   assign P3[55:0] = CBC_mult4_P;
   assign P4[55:0] = CBC_mult5_P;
@@ -192,13 +192,13 @@ module CBC_imp_ZV89ZT
         .CLK(aclk_1),
         .P(CBC_Mult1_P));
   system_CH2_mult4_0 CBC_Mult3
-       (.A(CBC_0_OP5[30:0]),
+       (.A(CBC_0_OP5),
         .B(CBC_0_OP6),
         .CLK(aclk_1),
         .P(CBC_Mult3_P));
   system_CH2_mult3_0 CBC_mult2
        (.A(CBC_0_OP3),
-        .B(CBC_0_OP4[14:0]),
+        .B(CBC_0_OP4),
         .CLK(aclk_1),
         .P(CBC_mult2_P));
   system_CH2_mult1_1 CBC_mult4
@@ -221,7 +221,7 @@ module CH1_Config_imp_WASEI3
     M_AXIS3_tvalid,
     aclk,
     cfg_data);
-  input [447:0]Din1;
+  input [511:0]Din1;
   output [3:0]Dout;
   output [0:0]Dout7;
   output [191:0]M_AXIS3_tdata;
@@ -231,13 +231,13 @@ module CH1_Config_imp_WASEI3
 
   wire [191:0]Conn1_TDATA;
   wire Conn1_TVALID;
-  wire [447:0]Din1_1;
+  wire [511:0]Din1_1;
   wire [3:0]Feedback_State_Dout;
   wire aclk_1;
   wire [191:0]cfg_data_1;
   wire [0:0]input_select_Dout;
 
-  assign Din1_1 = Din1[447:0];
+  assign Din1_1 = Din1[511:0];
   assign Dout[3:0] = Feedback_State_Dout;
   assign Dout7[0] = input_select_Dout;
   assign M_AXIS3_tdata[191:0] = Conn1_TDATA;
@@ -393,7 +393,7 @@ module CH2_config_imp_4I2YBS
     M_AXIS2_tvalid,
     aclk,
     cfg_data);
-  input [447:0]Din1;
+  input [511:0]Din1;
   output [0:0]Dout10;
   output [3:0]Dout9;
   output [191:0]M_AXIS2_tdata;
@@ -403,13 +403,13 @@ module CH2_config_imp_4I2YBS
 
   wire [191:0]Conn1_TDATA;
   wire Conn1_TVALID;
-  wire [447:0]Din1_1;
+  wire [511:0]Din1_1;
   wire [3:0]Feedback_State_1_Dout;
   wire aclk_1;
   wire [191:0]cfg_data_1;
   wire [0:0]input_select_2_Dout;
 
-  assign Din1_1 = Din1[447:0];
+  assign Din1_1 = Din1[511:0];
   assign Dout10[0] = input_select_2_Dout;
   assign Dout9[3:0] = Feedback_State_1_Dout;
   assign M_AXIS2_tdata[191:0] = Conn1_TDATA;
@@ -1193,7 +1193,7 @@ module Memory_IO_imp_19T7DMV
   input aclk;
   input aresetn;
   input aresetn1;
-  output [447:0]cfg_data;
+  output [511:0]cfg_data;
   input [31:0]cfg_data1;
   input [127:0]sts_data;
   output [15:0]sts_data1;
@@ -1234,7 +1234,7 @@ module Memory_IO_imp_19T7DMV
   wire [3:0]S_AXI_1_WSTRB;
   wire S_AXI_1_WVALID;
   wire aresetn1_1;
-  wire [447:0]axi_cfg_register_0_cfg_data;
+  wire [511:0]axi_cfg_register_0_cfg_data;
   wire [31:0]axis_ram_writer_0_M_AXI_AWADDR;
   wire [1:0]axis_ram_writer_0_M_AXI_AWBURST;
   wire [3:0]axis_ram_writer_0_M_AXI_AWCACHE;
@@ -1309,7 +1309,7 @@ module Memory_IO_imp_19T7DMV
   assign axis_ram_writer_0_M_AXI_AWREADY = M_AXI_awready;
   assign axis_ram_writer_0_M_AXI_BVALID = M_AXI_bvalid;
   assign axis_ram_writer_0_M_AXI_WREADY = M_AXI_wready;
-  assign cfg_data[447:0] = axi_cfg_register_0_cfg_data;
+  assign cfg_data[511:0] = axi_cfg_register_0_cfg_data;
   assign cfg_data1_1 = cfg_data1[31:0];
   assign pll_0_clk_out1 = aclk;
   assign rst_0_peripheral_aresetn = aresetn;
@@ -1382,7 +1382,7 @@ module Memory_IO_imp_19T7DMV
 endmodule
 
 module Reg_Brakeout_imp_H22Q4C
-   (Din1,
+   (Din,
     Dout,
     Dout10,
     Dout11,
@@ -1411,7 +1411,7 @@ module Reg_Brakeout_imp_H22Q4C
     dout4,
     dout5,
     dout6);
-  input [447:0]Din1;
+  input [511:0]Din;
   output [3:0]Dout;
   output [0:0]Dout10;
   output [0:0]Dout11;
@@ -1456,7 +1456,7 @@ module Reg_Brakeout_imp_H22Q4C
   wire [191:0]CH2_params_Dout;
   wire [447:0]Conn2_TDATA;
   wire Conn2_TVALID;
-  wire [447:0]Din1_1;
+  wire [511:0]Din1_1;
   wire [447:0]Feedback_config_bus_Dout;
   wire [15:0]In2_1;
   wire [31:0]RAM_addres_Dout;
@@ -1475,7 +1475,7 @@ module Reg_Brakeout_imp_H22Q4C
   wire rst_0_peripheral_aresetn;
   wire [127:0]status_concat_1_dout;
 
-  assign Din1_1 = Din1[447:0];
+  assign Din1_1 = Din[511:0];
   assign Dout[3:0] = CH1_Config_Dout;
   assign Dout10[0] = CH2_config_Dout10;
   assign Dout11[0] = CBC_config_Dout11;
@@ -1537,7 +1537,7 @@ module Reg_Brakeout_imp_H22Q4C
        (.Din(Din1_1),
         .Dout(CH2_params_Dout));
   system_Feedback_config_bus_0 Feedback_config_bus
-       (.Din({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,Din1_1}),
+       (.Din(Din1_1),
         .Dout(Feedback_config_bus_Dout));
   system_dna_reader_0_0 dna_reader_0
        (.aclk(pll_0_clk_out1),
@@ -1723,8 +1723,8 @@ module feedback_and_generation_imp_GDMTQL
   input velocity_int_ext;
 
   wire [31:0]CBC_OFFSET;
-  wire [55:0]CBC_P;
-  wire [42:0]CBC_P1;
+  wire [47:0]CBC_P;
+  wire [47:0]CBC_P1;
   wire [42:0]CBC_P2;
   wire [55:0]CBC_P3;
   wire [55:0]CBC_P4;
@@ -1889,10 +1889,10 @@ module feedback_and_generation_imp_GDMTQL
   system_feedback_combined_0_0 feedback_combined_0
        (.CBC_offset(CBC_OFFSET),
         .CBC_product_1(CBC_P),
-        .CBC_product_2({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,CBC_P1}),
+        .CBC_product_2(CBC_P1),
         .CBC_product_3(CBC_P2),
-        .CBC_product_4({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,CBC_P3}),
-        .CBC_product_5(CBC_P4[42:0]),
+        .CBC_product_4(CBC_P3),
+        .CBC_product_5(CBC_P4),
         .CH1_offset(multiplier_breakout_0_OFFSET),
         .CH1_product_1(mult_gen_0_P),
         .CH1_product_2(mult_gen_1_P),
@@ -2476,7 +2476,7 @@ module s00_couplers_imp_15TT0JU
         .s_axi_wvalid(s00_couplers_to_auto_pc_WVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=71,numReposBlks=55,numNonXlnxBlks=0,numHierBlks=16,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=5,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=13,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=10,synth_mode=Global}" *) (* HW_HANDOFF = "system.hwdef" *) 
+(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=71,numReposBlks=55,numNonXlnxBlks=0,numHierBlks=16,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=5,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=13,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=10,synth_mode=Global}" *) (* HW_HANDOFF = "system.hwdef" *) 
 module system
    (DDR_addr,
     DDR_ba,
@@ -2556,7 +2556,7 @@ module system
   wire Core_clk_out2;
   wire Core_clk_out3;
   wire Core_locked;
-  wire [447:0]Memory_IO_cfg_data;
+  wire [511:0]Memory_IO_cfg_data;
   wire [15:0]Memory_IO_sts_data1;
   wire [3:0]Reg_Brakeout_Dout;
   wire [3:0]Reg_Brakeout_Dout9;
@@ -2841,7 +2841,7 @@ module system
         .sts_data(sts_data_1),
         .sts_data1(Memory_IO_sts_data1));
   Reg_Brakeout_imp_H22Q4C Reg_Brakeout
-       (.Din1(Memory_IO_cfg_data),
+       (.Din(Memory_IO_cfg_data),
         .Dout(Reg_Brakeout_Dout),
         .Dout10(input_select1_1),
         .Dout11(input_select2_1),
@@ -2956,21 +2956,21 @@ module system_params_imp_1MROCIH
     dout4,
     dout5,
     dout6);
-  input [447:0]Din1;
+  input [511:0]Din1;
   output [0:0]Dout8;
   output [31:0]dout1;
   output [0:0]dout4;
   output [0:0]dout5;
   output [0:0]dout6;
 
-  wire [447:0]Din1_1;
+  wire [511:0]Din1_1;
   wire [31:0]RAM_addres_Dout;
   wire [0:0]continuous_output_Dout;
   wire [0:0]feedback_trigger_Dout;
   wire [0:0]pre_memory_reset_Dout;
   wire [0:0]ram_writer_reset_Dout;
 
-  assign Din1_1 = Din1[447:0];
+  assign Din1_1 = Din1[511:0];
   assign Dout8[0] = continuous_output_Dout;
   assign dout1[31:0] = RAM_addres_Dout;
   assign dout4[0] = feedback_trigger_Dout;

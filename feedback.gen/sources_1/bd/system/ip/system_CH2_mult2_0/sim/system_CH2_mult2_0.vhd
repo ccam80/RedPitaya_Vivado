@@ -61,7 +61,7 @@ ENTITY system_CH2_mult2_0 IS
     CLK : IN STD_LOGIC;
     A : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     B : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    P : OUT STD_LOGIC_VECTOR(55 DOWNTO 0)
+    P : OUT STD_LOGIC_VECTOR(47 DOWNTO 0)
   );
 END system_CH2_mult2_0;
 
@@ -97,13 +97,13 @@ ARCHITECTURE system_CH2_mult2_0_arch OF system_CH2_mult2_0 IS
       B : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       CE : IN STD_LOGIC;
       SCLR : IN STD_LOGIC;
-      P : OUT STD_LOGIC_VECTOR(55 DOWNTO 0)
+      P : OUT STD_LOGIC_VECTOR(47 DOWNTO 0)
     );
   END COMPONENT mult_gen_v12_0_16;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER OF P: SIGNAL IS "XIL_INTERFACENAME p_intf, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data} bitwidth {attribs {resolve_type generated dependency bitwidth format long minimum {} maximum {}} value 56} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type generated dependency signed format bool minimum {} maximu" & 
-"m {}} value TRUE}}}} DATA_WIDTH 56}";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF P: SIGNAL IS "XIL_INTERFACENAME p_intf, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data} bitwidth {attribs {resolve_type generated dependency bitwidth format long minimum {} maximum {}} value 48} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type generated dependency signed format bool minimum {} maximu" & 
+"m {}} value TRUE}}}} DATA_WIDTH 48}";
   ATTRIBUTE X_INTERFACE_INFO OF P: SIGNAL IS "xilinx.com:signal:data:1.0 p_intf DATA";
   ATTRIBUTE X_INTERFACE_PARAMETER OF B: SIGNAL IS "XIL_INTERFACENAME b_intf, LAYERED_METADATA undef";
   ATTRIBUTE X_INTERFACE_INFO OF B: SIGNAL IS "xilinx.com:signal:data:1.0 b_intf DATA";
@@ -125,8 +125,8 @@ BEGIN
       C_A_TYPE => 0,
       C_B_WIDTH => 16,
       C_B_TYPE => 0,
-      C_OUT_HIGH => 63,
-      C_OUT_LOW => 8,
+      C_OUT_HIGH => 47,
+      C_OUT_LOW => 0,
       C_MULT_TYPE => 1,
       C_CE_OVERRIDES_SCLR => 0,
       C_CCM_IMP => 0,

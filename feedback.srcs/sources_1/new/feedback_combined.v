@@ -30,11 +30,11 @@ module feedback_combined #
     parameter PRODUCT_4_WIDTH = 64,
     parameter OFFSET_WIDTH = 32,
     
-    parameter CBC_PRODUCT_1_WIDTH = 56,
-    parameter CBC_PRODUCT_2_WIDTH = 56,
+    parameter CBC_PRODUCT_1_WIDTH = 48,
+    parameter CBC_PRODUCT_2_WIDTH = 48,
     parameter CBC_PRODUCT_3_WIDTH = 43,
-    parameter CBC_PRODUCT_4_WIDTH = 64,
-    parameter CBC_PRODUCT_5_WIDTH = 43,
+    parameter CBC_PRODUCT_4_WIDTH = 56,
+    parameter CBC_PRODUCT_5_WIDTH = 56,
     
     parameter AXIS_TDATA_WIDTH = 32,
     parameter OUTPUT_CHANNEL_WIDTH = 16,
@@ -162,17 +162,22 @@ module feedback_combined #
             A_x_plus_B: CH1_result <= {{18{CH1_PRODUCT_1_in[PRODUCT_1_WIDTH - 1]}}, CH1_PRODUCT_1_in[PRODUCT_1_WIDTH - 2:9]} + CH1_OFFSET_in;
             CBC: 
             begin
-                CH1_result <= CBC_PRODUCT_1_in + CBC_PRODUCT_2_in;
-                CH2_result <= CBC_PRODUCT_2_in + CBC_PRODUCT_4_in + CBC_PRODUCT_5_in + CBC_OFFSET_in;
+                CH1_result <= {{18{CBC_PRODUCT_1_in[CBC_PRODUCT_1_WIDTH - 1]}}, CBC_PRODUCT_1_in[CBC_PRODUCT_1_WIDTH - 2:9]} << 16 +
+                               {{18{CBC_PRODUCT_2_in[CBC_PRODUCT_2_WIDTH - 1]}}, CBC_PRODUCT_2_in[CBC_PRODUCT_1_WIDTH - 2:9]} << 16;
+                
+                CH2_result <= CBC_PRODUCT_3_in + CBC_PRODUCT_4_in + CBC_PRODUCT_5_in + CBC_OFFSET_in;
             end
             default: CH1_result <= CH1_PRODUCT_1_in + CH1_PRODUCT_2_in + CH1_PRODUCT_3_in + CH1_PRODUCT_4_in + CH1_OFFSET_in;
         endcase
-        
-        case(CH2_state)
-            A_x_plus_B: CH2_result <= {{18{CH2_PRODUCT_1_in[PRODUCT_1_WIDTH - 1]}}, CH2_PRODUCT_1_in[PRODUCT_1_WIDTH - 2:9]} + CH2_OFFSET_in;
-            default: CH2_result <= CH2_PRODUCT_1_in + CH2_PRODUCT_2_in + CH2_PRODUCT_3_in + CH2_PRODUCT_4_in + CH2_OFFSET_in;
-        endcase
 
+        if (CH1_state != CBC)        
+        begin
+            case(CH2_state)
+    
+                A_x_plus_B: CH2_result <= {{18{CH2_PRODUCT_1_in[PRODUCT_1_WIDTH - 1]}}, CH2_PRODUCT_1_in[PRODUCT_1_WIDTH - 2:9]} + CH2_OFFSET_in;
+                default: CH2_result <= CH2_PRODUCT_1_in + CH2_PRODUCT_2_in + CH2_PRODUCT_3_in + CH2_PRODUCT_4_in + CH2_OFFSET_in;
+            endcase
+        end
     end
     
 

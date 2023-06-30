@@ -476,8 +476,8 @@ proc create_hier_cell_CBC { parentCell nameHier } {
 
   # Create pins
   create_bd_pin -dir O -from 31 -to 0 OFFSET
-  create_bd_pin -dir O -from 55 -to 0 -type data P
-  create_bd_pin -dir O -from 42 -to 0 -type data P1
+  create_bd_pin -dir O -from 47 -to 0 -type data P
+  create_bd_pin -dir O -from 47 -to 0 -type data P1
   create_bd_pin -dir O -from 42 -to 0 -type data P2
   create_bd_pin -dir O -from 55 -to 0 -type data P3
   create_bd_pin -dir O -from 55 -to 0 -type data P4
@@ -505,14 +505,14 @@ proc create_hier_cell_CBC { parentCell nameHier } {
   set CBC_Mult1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:mult_gen:12.0 CBC_Mult1 ]
   set_property -dict [ list \
    CONFIG.Multiplier_Construction {Use_Mults} \
-   CONFIG.OutputWidthHigh {63} \
-   CONFIG.OutputWidthLow {8} \
+   CONFIG.OutputWidthHigh {47} \
+   CONFIG.OutputWidthLow {0} \
    CONFIG.PipeStages {4} \
    CONFIG.PortAType {Signed} \
    CONFIG.PortAWidth {32} \
    CONFIG.PortBType {Signed} \
    CONFIG.PortBWidth {16} \
-   CONFIG.Use_Custom_Output_Width {true} \
+   CONFIG.Use_Custom_Output_Width {false} \
  ] $CBC_Mult1
 
   # Create instance: CBC_Mult3, and set properties
@@ -523,7 +523,7 @@ proc create_hier_cell_CBC { parentCell nameHier } {
    CONFIG.OutputWidthLow {21} \
    CONFIG.PipeStages {4} \
    CONFIG.PortAType {Signed} \
-   CONFIG.PortAWidth {31} \
+   CONFIG.PortAWidth {32} \
    CONFIG.PortBType {Signed} \
    CONFIG.PortBWidth {48} \
    CONFIG.Use_Custom_Output_Width {true} \
@@ -533,14 +533,14 @@ proc create_hier_cell_CBC { parentCell nameHier } {
   set CBC_mult2 [ create_bd_cell -type ip -vlnv xilinx.com:ip:mult_gen:12.0 CBC_mult2 ]
   set_property -dict [ list \
    CONFIG.Multiplier_Construction {Use_Mults} \
-   CONFIG.OutputWidthHigh {63} \
-   CONFIG.OutputWidthLow {21} \
+   CONFIG.OutputWidthHigh {47} \
+   CONFIG.OutputWidthLow {0} \
    CONFIG.PipeStages {3} \
    CONFIG.PortAType {Signed} \
    CONFIG.PortAWidth {32} \
    CONFIG.PortBType {Signed} \
-   CONFIG.PortBWidth {15} \
-   CONFIG.Use_Custom_Output_Width {true} \
+   CONFIG.PortBWidth {16} \
+   CONFIG.Use_Custom_Output_Width {false} \
  ] $CBC_mult2
 
   # Create instance: CBC_mult4, and set properties
@@ -643,7 +643,7 @@ proc create_hier_cell_system_params { parentCell nameHier } {
   # Create interface pins
 
   # Create pins
-  create_bd_pin -dir I -from 447 -to 0 Din1
+  create_bd_pin -dir I -from 511 -to 0 Din1
   create_bd_pin -dir O -from 0 -to 0 Dout8
   create_bd_pin -dir O -from 31 -to 0 dout1
   create_bd_pin -dir O -from 0 -to 0 dout4
@@ -655,7 +655,7 @@ proc create_hier_cell_system_params { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.DIN_FROM {63} \
    CONFIG.DIN_TO {32} \
-   CONFIG.DIN_WIDTH {448} \
+   CONFIG.DIN_WIDTH {512} \
    CONFIG.DOUT_WIDTH {32} \
  ] $RAM_addres
 
@@ -664,7 +664,7 @@ proc create_hier_cell_system_params { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.DIN_FROM {3} \
    CONFIG.DIN_TO {3} \
-   CONFIG.DIN_WIDTH {448} \
+   CONFIG.DIN_WIDTH {512} \
    CONFIG.DOUT_WIDTH {1} \
  ] $continuous_output
 
@@ -673,7 +673,7 @@ proc create_hier_cell_system_params { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.DIN_FROM {2} \
    CONFIG.DIN_TO {2} \
-   CONFIG.DIN_WIDTH {448} \
+   CONFIG.DIN_WIDTH {512} \
    CONFIG.DOUT_WIDTH {1} \
  ] $feedback_trigger
 
@@ -682,7 +682,7 @@ proc create_hier_cell_system_params { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.DIN_FROM {0} \
    CONFIG.DIN_TO {0} \
-   CONFIG.DIN_WIDTH {448} \
+   CONFIG.DIN_WIDTH {512} \
    CONFIG.DOUT_WIDTH {1} \
  ] $pre_memory_reset
 
@@ -691,7 +691,7 @@ proc create_hier_cell_system_params { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.DIN_FROM {1} \
    CONFIG.DIN_TO {1} \
-   CONFIG.DIN_WIDTH {448} \
+   CONFIG.DIN_WIDTH {512} \
    CONFIG.DOUT_WIDTH {1} \
  ] $ram_writer_reset
 
@@ -746,7 +746,7 @@ proc create_hier_cell_CH2_config { parentCell nameHier } {
 
 
   # Create pins
-  create_bd_pin -dir I -from 447 -to 0 Din1
+  create_bd_pin -dir I -from 511 -to 0 Din1
   create_bd_pin -dir O -from 3 -to 0 Dout9
   create_bd_pin -dir O -from 0 -to 0 Dout10
   create_bd_pin -dir I -type clk aclk
@@ -763,7 +763,7 @@ proc create_hier_cell_CH2_config { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.DIN_FROM {20} \
    CONFIG.DIN_TO {17} \
-   CONFIG.DIN_WIDTH {448} \
+   CONFIG.DIN_WIDTH {512} \
    CONFIG.DOUT_WIDTH {4} \
  ] $Feedback_State_1
 
@@ -772,7 +772,7 @@ proc create_hier_cell_CH2_config { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.DIN_FROM {16} \
    CONFIG.DIN_TO {16} \
-   CONFIG.DIN_WIDTH {448} \
+   CONFIG.DIN_WIDTH {512} \
    CONFIG.DOUT_WIDTH {1} \
  ] $input_select_2
 
@@ -829,7 +829,7 @@ proc create_hier_cell_CH1_Config { parentCell nameHier } {
 
 
   # Create pins
-  create_bd_pin -dir I -from 447 -to 0 Din1
+  create_bd_pin -dir I -from 511 -to 0 Din1
   create_bd_pin -dir O -from 3 -to 0 Dout
   create_bd_pin -dir O -from 0 -to 0 Dout7
   create_bd_pin -dir I -type clk aclk
@@ -846,7 +846,7 @@ proc create_hier_cell_CH1_Config { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.DIN_FROM {12} \
    CONFIG.DIN_TO {9} \
-   CONFIG.DIN_WIDTH {448} \
+   CONFIG.DIN_WIDTH {512} \
    CONFIG.DOUT_WIDTH {4} \
  ] $Feedback_State
 
@@ -855,7 +855,7 @@ proc create_hier_cell_CH1_Config { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.DIN_FROM {8} \
    CONFIG.DIN_TO {8} \
-   CONFIG.DIN_WIDTH {448} \
+   CONFIG.DIN_WIDTH {512} \
    CONFIG.DOUT_WIDTH {1} \
  ] $input_select
 
@@ -912,7 +912,7 @@ proc create_hier_cell_CBC_config { parentCell nameHier } {
 
 
   # Create pins
-  create_bd_pin -dir I -from 447 -to 0 Din1
+  create_bd_pin -dir I -from 511 -to 0 Din1
   create_bd_pin -dir O -from 0 -to 0 Dout11
   create_bd_pin -dir O -from 0 -to 0 Dout12
   create_bd_pin -dir O -from 0 -to 0 Dout13
@@ -931,7 +931,7 @@ proc create_hier_cell_CBC_config { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.DIN_FROM {26} \
    CONFIG.DIN_TO {26} \
-   CONFIG.DIN_WIDTH {448} \
+   CONFIG.DIN_WIDTH {512} \
    CONFIG.DOUT_WIDTH {1} \
  ] $Displacement_int_ext
 
@@ -940,7 +940,7 @@ proc create_hier_cell_CBC_config { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.DIN_FROM {27} \
    CONFIG.DIN_TO {27} \
-   CONFIG.DIN_WIDTH {448} \
+   CONFIG.DIN_WIDTH {512} \
    CONFIG.DOUT_WIDTH {1} \
  ] $Polynomial_target
 
@@ -949,7 +949,7 @@ proc create_hier_cell_CBC_config { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.DIN_FROM {25} \
    CONFIG.DIN_TO {25} \
-   CONFIG.DIN_WIDTH {448} \
+   CONFIG.DIN_WIDTH {512} \
    CONFIG.DOUT_WIDTH {1} \
  ] $Velocity_int_ext
 
@@ -958,7 +958,7 @@ proc create_hier_cell_CBC_config { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.DIN_FROM {24} \
    CONFIG.DIN_TO {24} \
-   CONFIG.DIN_WIDTH {448} \
+   CONFIG.DIN_WIDTH {512} \
    CONFIG.DOUT_WIDTH {1} \
  ] $input_order
 
@@ -1309,7 +1309,7 @@ proc create_hier_cell_Reg_Brakeout { parentCell nameHier } {
 
 
   # Create pins
-  create_bd_pin -dir I -from 447 -to 0 Din1
+  create_bd_pin -dir I -from 511 -to 0 Din
   create_bd_pin -dir O -from 3 -to 0 Dout
   create_bd_pin -dir O -from 0 -to 0 Dout7
   create_bd_pin -dir O -from 0 -to 0 Dout8
@@ -1340,7 +1340,7 @@ proc create_hier_cell_Reg_Brakeout { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.DIN_FROM {255} \
    CONFIG.DIN_TO {64} \
-   CONFIG.DIN_WIDTH {448} \
+   CONFIG.DIN_WIDTH {512} \
    CONFIG.DOUT_WIDTH {192} \
  ] $CH1_params
 
@@ -1352,7 +1352,7 @@ proc create_hier_cell_Reg_Brakeout { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.DIN_FROM {447} \
    CONFIG.DIN_TO {256} \
-   CONFIG.DIN_WIDTH {448} \
+   CONFIG.DIN_WIDTH {512} \
    CONFIG.DOUT_WIDTH {192} \
  ] $CH2_params
 
@@ -1411,7 +1411,7 @@ proc create_hier_cell_Reg_Brakeout { parentCell nameHier } {
   connect_bd_net -net CH2_config_Dout9 [get_bd_pins Dout9] [get_bd_pins CH2_config/Dout9]
   connect_bd_net -net CH2_config_Dout10 [get_bd_pins Dout10] [get_bd_pins CH2_config/Dout10]
   connect_bd_net -net CH2_params_Dout [get_bd_pins CH2_config/cfg_data] [get_bd_pins CH2_params/Dout]
-  connect_bd_net -net Din1_1 [get_bd_pins Din1] [get_bd_pins CBC_config/Din1] [get_bd_pins CH1_Config/Din1] [get_bd_pins CH1_params/Din] [get_bd_pins CH2_config/Din1] [get_bd_pins CH2_params/Din] [get_bd_pins Feedback_config_bus/Din] [get_bd_pins system_params/Din1]
+  connect_bd_net -net Din1_1 [get_bd_pins Din] [get_bd_pins CBC_config/Din1] [get_bd_pins CH1_Config/Din1] [get_bd_pins CH1_params/Din] [get_bd_pins CH2_config/Din1] [get_bd_pins CH2_params/Din] [get_bd_pins Feedback_config_bus/Din] [get_bd_pins system_params/Din1]
   connect_bd_net -net Feedback_config_bus_Dout [get_bd_pins CBC_config/cfg_data] [get_bd_pins Feedback_config_bus/Dout]
   connect_bd_net -net In2_1 [get_bd_pins In2] [get_bd_pins status_concat_1/In2]
   connect_bd_net -net RAM_addres_Dout [get_bd_pins dout1] [get_bd_pins system_params/dout1]
@@ -1478,7 +1478,7 @@ proc create_hier_cell_Memory_IO { parentCell nameHier } {
   create_bd_pin -dir I -type clk aclk
   create_bd_pin -dir I -type rst aresetn
   create_bd_pin -dir I -type rst aresetn1
-  create_bd_pin -dir O -from 447 -to 0 cfg_data
+  create_bd_pin -dir O -from 511 -to 0 cfg_data
   create_bd_pin -dir I -from 31 -to 0 cfg_data1
   create_bd_pin -dir I -from 127 -to 0 sts_data
   create_bd_pin -dir O -from 15 -to 0 sts_data1
@@ -1487,7 +1487,7 @@ proc create_hier_cell_Memory_IO { parentCell nameHier } {
   set axi_cfg_register_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:axi_cfg_register:1.0 axi_cfg_register_0 ]
   set_property -dict [ list \
    CONFIG.AXI_ADDR_WIDTH {32} \
-   CONFIG.CFG_DATA_WIDTH {448} \
+   CONFIG.CFG_DATA_WIDTH {512} \
  ] $axi_cfg_register_0
 
   # Create instance: axi_sts_register_0, and set properties
@@ -2452,7 +2452,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net Core_clk_out2 [get_bd_pins Core/clk_out2] [get_bd_pins axis_red_pitaya_dac_0/ddr_clk]
   connect_bd_net -net Core_clk_out3 [get_bd_pins Core/clk_out3] [get_bd_pins axis_red_pitaya_dac_0/wrt_clk]
   connect_bd_net -net Core_locked [get_bd_pins Core/locked] [get_bd_pins axis_red_pitaya_dac_0/locked]
-  connect_bd_net -net Memory_IO_cfg_data [get_bd_pins Memory_IO/cfg_data] [get_bd_pins Reg_Brakeout/Din1]
+  connect_bd_net -net Memory_IO_cfg_data [get_bd_pins Memory_IO/cfg_data] [get_bd_pins Reg_Brakeout/Din]
   connect_bd_net -net Memory_IO_sts_data1 [get_bd_pins Memory_IO/sts_data1] [get_bd_pins Reg_Brakeout/In2]
   connect_bd_net -net Reg_Brakeout_Dout [get_bd_pins Reg_Brakeout/Dout] [get_bd_pins feedback_and_generation/sel]
   connect_bd_net -net Reg_Brakeout_Dout9 [get_bd_pins Reg_Brakeout/Dout9] [get_bd_pins feedback_and_generation/CH2_sel]

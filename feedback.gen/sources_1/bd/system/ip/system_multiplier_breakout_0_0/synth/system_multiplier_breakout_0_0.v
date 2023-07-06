@@ -52,7 +52,7 @@
 
 (* X_CORE_INFO = "multiplier_breakout,Vivado 2020.2" *)
 (* CHECK_LICENSE_TYPE = "system_multiplier_breakout_0_0,multiplier_breakout,{}" *)
-(* CORE_GENERATION_INFO = "system_multiplier_breakout_0_0,multiplier_breakout,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=multiplier_breakout,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,CFG_WIDTH=192,PARAM_WIDTH=32,PARAM_A_OFFSET=0,PARAM_B_OFFSET=32,PARAM_C_OFFSET=64,PARAM_D_OFFSET=96,PARAM_E_OFFSET=128,PARAM_F_OFFSET=160,ADC_BUS_WIDTH=16,ADC_REAL_DATA_WIDTH=16,DDS_WIDTH=16,RNG_WIDTH=16,OPERAND_WIDTH=32,SEL_WIDTH=4}" *)
+(* CORE_GENERATION_INFO = "system_multiplier_breakout_0_0,multiplier_breakout,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=multiplier_breakout,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,CFG_WIDTH=192,PARAM_WIDTH=32,PARAM_A_OFFSET=0,PARAM_B_OFFSET=32,PARAM_C_OFFSET=64,PARAM_D_OFFSET=96,PARAM_E_OFFSET=128,PARAM_F_OFFSET=160,ADC_BUS_WIDTH=16,ADC_REAL_DATA_WIDTH=16,DDS_WIDTH=16,RNG_WIDTH=16,OPERAND_WIDTH=32,OPERAND_WIDTH_LONG=64,SEL_WIDTH=4}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_multiplier_breakout_0_0 (
@@ -76,7 +76,6 @@ module system_multiplier_breakout_0_0 (
   OP5,
   OP6,
   OP7,
-  LONG_7F,
   OFFSET
 );
 
@@ -113,8 +112,7 @@ output wire [31 : 0] OP3;
 output wire [31 : 0] OP4;
 output wire [31 : 0] OP5;
 output wire [47 : 0] OP6;
-output wire [31 : 0] OP7;
-output wire [63 : 0] LONG_7F;
+output wire [63 : 0] OP7;
 output wire [31 : 0] OFFSET;
 
   multiplier_breakout #(
@@ -131,6 +129,7 @@ output wire [31 : 0] OFFSET;
     .DDS_WIDTH(16),
     .RNG_WIDTH(16),
     .OPERAND_WIDTH(32),
+    .OPERAND_WIDTH_LONG(64),
     .SEL_WIDTH(4)
   ) inst (
     .aclk(aclk),
@@ -153,7 +152,6 @@ output wire [31 : 0] OFFSET;
     .OP5(OP5),
     .OP6(OP6),
     .OP7(OP7),
-    .LONG_7F(LONG_7F),
     .OFFSET(OFFSET)
   );
 endmodule

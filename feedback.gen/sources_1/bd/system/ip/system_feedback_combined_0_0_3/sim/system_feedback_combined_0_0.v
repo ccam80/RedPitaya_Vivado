@@ -63,20 +63,15 @@ module system_feedback_combined_0_0 (
   CH2_sel,
   CH1_product_1,
   CH1_product_2,
-  CH1_product_3,
-  CH1_product_4,
-  CH1_offset,
   CH2_product_1,
-  CH2_product_2,
-  CH2_product_3,
-  CH2_product_4,
   CH2_offset,
-  CBC_product_1,
-  CBC_product_2,
-  CBC_product_3,
-  CBC_product_4,
-  CBC_product_5,
   CBC_offset,
+  CH1_offset,
+  Shared_product_1,
+  Shared_product_2,
+  Shared_product_3,
+  Shared_product_4,
+  Shared_product_5,
   M_AXIS_tdata,
   M_AXIS_tvalid,
   trig_out
@@ -90,22 +85,17 @@ input wire trig_in_CBC;
 input wire continuous_output_in;
 input wire [3 : 0] CH1_sel;
 input wire [3 : 0] CH2_sel;
-input wire [55 : 0] CH1_product_1;
-input wire [55 : 0] CH1_product_2;
-input wire [42 : 0] CH1_product_3;
-input wire [63 : 0] CH1_product_4;
-input wire [31 : 0] CH1_offset;
-input wire [55 : 0] CH2_product_1;
-input wire [55 : 0] CH2_product_2;
-input wire [42 : 0] CH2_product_3;
-input wire [63 : 0] CH2_product_4;
+input wire [63 : 0] CH1_product_1;
+input wire [42 : 0] CH1_product_2;
+input wire [63 : 0] CH2_product_1;
 input wire [31 : 0] CH2_offset;
-input wire [47 : 0] CBC_product_1;
-input wire [47 : 0] CBC_product_2;
-input wire [42 : 0] CBC_product_3;
-input wire [55 : 0] CBC_product_4;
-input wire [55 : 0] CBC_product_5;
 input wire [31 : 0] CBC_offset;
+input wire [31 : 0] CH1_offset;
+input wire [55 : 0] Shared_product_1;
+input wire [55 : 0] Shared_product_2;
+input wire [55 : 0] Shared_product_3;
+input wire [42 : 0] Shared_product_4;
+input wire [55 : 0] Shared_product_5;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS TDATA" *)
 output wire [31 : 0] M_AXIS_tdata;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M_AXIS, FREQ_HZ 125000000, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, PHASE 0.0, CLK_DOMAIN system_pll_0_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *)
@@ -114,16 +104,16 @@ output wire M_AXIS_tvalid;
 output wire trig_out;
 
   feedback_combined #(
-    .PRODUCT_1_WIDTH(56),
-    .PRODUCT_2_WIDTH(56),
-    .PRODUCT_3_WIDTH(43),
-    .PRODUCT_4_WIDTH(64),
+    .CH_PRODUCT_1_WIDTH(64),
+    .CH_PRODUCT_2_WIDTH(43),
+    .SHARED_PRODUCT_1_WIDTH(56),
+    .SHARED_PRODUCT_2_WIDTH(56),
+    .SHARED_PRODUCT_3_WIDTH(56),
+    .SHARED_PRODUCT_4_WIDTH(43),
+    .SHARED_PRODUCT_5_WIDTH(56),
     .OFFSET_WIDTH(32),
-    .CBC_PRODUCT_1_WIDTH(48),
-    .CBC_PRODUCT_2_WIDTH(48),
-    .CBC_PRODUCT_3_WIDTH(43),
-    .CBC_PRODUCT_4_WIDTH(56),
-    .CBC_PRODUCT_5_WIDTH(56),
+    .CBC_PRODUCT_A_WIDTH(48),
+    .CBC_PRODUCT_B_WIDTH(48),
     .AXIS_TDATA_WIDTH(32),
     .OUTPUT_CHANNEL_WIDTH(16),
     .SELECT_WIDTH(4)
@@ -136,20 +126,15 @@ output wire trig_out;
     .CH2_sel(CH2_sel),
     .CH1_product_1(CH1_product_1),
     .CH1_product_2(CH1_product_2),
-    .CH1_product_3(CH1_product_3),
-    .CH1_product_4(CH1_product_4),
-    .CH1_offset(CH1_offset),
     .CH2_product_1(CH2_product_1),
-    .CH2_product_2(CH2_product_2),
-    .CH2_product_3(CH2_product_3),
-    .CH2_product_4(CH2_product_4),
     .CH2_offset(CH2_offset),
-    .CBC_product_1(CBC_product_1),
-    .CBC_product_2(CBC_product_2),
-    .CBC_product_3(CBC_product_3),
-    .CBC_product_4(CBC_product_4),
-    .CBC_product_5(CBC_product_5),
     .CBC_offset(CBC_offset),
+    .CH1_offset(CH1_offset),
+    .Shared_product_1(Shared_product_1),
+    .Shared_product_2(Shared_product_2),
+    .Shared_product_3(Shared_product_3),
+    .Shared_product_4(Shared_product_4),
+    .Shared_product_5(Shared_product_5),
     .M_AXIS_tdata(M_AXIS_tdata),
     .M_AXIS_tvalid(M_AXIS_tvalid),
     .trig_out(trig_out)

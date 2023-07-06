@@ -75,7 +75,6 @@ module system_CH1_multiplier_breakout_0_0 (
   OP5,
   OP6,
   OP7,
-  LONG_7F,
   OFFSET
 );
 
@@ -112,8 +111,7 @@ output wire [31 : 0] OP3;
 output wire [31 : 0] OP4;
 output wire [31 : 0] OP5;
 output wire [47 : 0] OP6;
-output wire [31 : 0] OP7;
-output wire [63 : 0] LONG_7F;
+output wire [63 : 0] OP7;
 output wire [31 : 0] OFFSET;
 
   multiplier_breakout #(
@@ -130,6 +128,7 @@ output wire [31 : 0] OFFSET;
     .DDS_WIDTH(16),
     .RNG_WIDTH(16),
     .OPERAND_WIDTH(32),
+    .OPERAND_WIDTH_LONG(64),
     .SEL_WIDTH(4)
   ) inst (
     .aclk(aclk),
@@ -152,7 +151,6 @@ output wire [31 : 0] OFFSET;
     .OP5(OP5),
     .OP6(OP6),
     .OP7(OP7),
-    .LONG_7F(LONG_7F),
     .OFFSET(OFFSET)
   );
 endmodule

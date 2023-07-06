@@ -72,15 +72,15 @@ parameter SEL_WIDTH=4
 
     //Outputs for multipliers
     output reg [OPERAND_WIDTH-1:0]              OP1,    
-    output reg [ADC_WIDTH-1:0]                  OP2,    
+    output reg [OPERAND_WIDTH-1:0]              OP2,    
     output reg [OPERAND_WIDTH-1:0]              OP3,  
-    output reg [ADC_WIDTH-1:0]                  OP4,   
+    output reg [OPERAND_WIDTH-1:0]              OP4,   
     output reg [OPERAND_WIDTH-1:0]              OP5,  
     output reg [(ADC_WIDTH * 3) - 1:0]          OP6,
     output reg [OPERAND_WIDTH-1:0]              OP7,   
     output reg [OPERAND_WIDTH-1:0]              OP8, 
     output reg [OPERAND_WIDTH-1:0]              OP9,    
-    output reg [ADC_WIDTH-1:0]                  OP10, 
+    output reg [OPERAND_WIDTH-1:0]              OP10, 
     
     output reg [OPERAND_WIDTH-1:0]              OFFSET
     );
@@ -109,7 +109,7 @@ parameter SEL_WIDTH=4
                                  
                                  
     reg signed [OPERAND_WIDTH-1:0] Operand_1_out, Operand_3_out, Operand_5_out, Operand_7_out, Operand_8_out, Operand_9_out, Offset_out;  
-    reg signed [ADC_WIDTH-1: 0]    Operand_2_out, Operand_4_out, Operand_10_out;                           
+    reg signed [OPERAND_WIDTH-1: 0]    Operand_2_out, Operand_4_out, Operand_10_out;                           
     reg signed [ADC_WIDTH*3-1:0]   Operand_6_out;   
     reg [SEL_WIDTH-1:0] state;  
 
@@ -363,7 +363,7 @@ parameter SEL_WIDTH=4
             polynomial_var <= displacement;   
     end
 
-    always @ (*)
+    always @ (posedge aclk)
     begin
         error <= displacement - ref_displacement;
         
@@ -387,9 +387,9 @@ parameter SEL_WIDTH=4
     begin
         //Control outputs
         Operand_1_out <= KP;        // Q16.16  Useful (integer) output will be left-shifted 16 bits
-        Operand_2_out <= error;     // 14-bit
+        Operand_2_out <= {{16{error[15]}},error};     // extend to 32 bit to use shared mult
         Operand_3_out <= KD;        // Q16.16
-        Operand_4_out <= error_dot; // 14-bit
+        Operand_4_out <= {{16{error_dot[15]}},error_dot}; // extend to 32 bit to use shared mult
         
         //Polynomial outputs
         Operand_5_out <= A;
@@ -397,7 +397,7 @@ parameter SEL_WIDTH=4
         Operand_7_out <= B;
         Operand_8_out <= polynomial_var_squared_result;
         Operand_9_out <= C; 
-        Operand_10_out <= polynomial_var;
+        Operand_10_out <= {{16{polynomial_var[15]}}, polynomial_var}; // extend to 32 bit to use shared mult
         Offset_out <= D;
     
     end  

@@ -57,8 +57,8 @@
 #include "systemc.h"
 class system_external_reset_fake_0 : public sc_module {
   public:
-xlconstant_v1_1_7<1,1> mod;
-  sc_out< sc_bv<1> > dout;
+xlconstant_v1_1_7<32,1> mod;
+  sc_out< sc_bv<32> > dout;
 system_external_reset_fake_0 (sc_core::sc_module_name name);
   };
 

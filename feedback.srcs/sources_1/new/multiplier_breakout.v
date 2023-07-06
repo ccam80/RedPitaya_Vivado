@@ -35,6 +35,7 @@ parameter ADC_REAL_DATA_WIDTH = 16,
 parameter DDS_WIDTH = 16,
 parameter RNG_WIDTH = 16,
 parameter OPERAND_WIDTH = 32,    
+parameter OPERAND_WIDTH_LONG = 64,
 parameter SEL_WIDTH=4
     )
 (
@@ -70,9 +71,8 @@ parameter SEL_WIDTH=4
     output reg [OPERAND_WIDTH-1:0]              OP3,  
     output reg [OPERAND_WIDTH-1:0]              OP4,   
     output reg [OPERAND_WIDTH-1:0]              OP5,  
-    output reg [(ADC_BUS_WIDTH * 3) - 1:0]          OP6,
-    output reg [OPERAND_WIDTH-1:0]              OP7,   
-    output reg [63:0]                           LONG_7F, 
+    output reg [(ADC_BUS_WIDTH * 3) - 1:0]      OP6,
+    output reg [OPERAND_WIDTH_LONG - 1:0]       OP7,   
     output reg [OPERAND_WIDTH-1:0]              OFFSET
     );
     
@@ -84,7 +84,8 @@ parameter SEL_WIDTH=4
     
     
     reg signed [PARAM_WIDTH-1:0] Param_A_in, Param_B_in, Param_C_in, Param_D_in, Param_E_in, Param_F_in;
-    reg signed [OPERAND_WIDTH-1:0] Operand_1_out, Operand_2_out, Operand_3_out, Operand_4_out, Operand_5_out, Operand_7_out, Offset_out;   
+    reg signed [OPERAND_WIDTH-1:0] Operand_1_out, Operand_2_out, Operand_3_out, Operand_4_out, Operand_5_out, Offset_out;   
+    reg signed [OPERAND_WIDTH_LONG-1:0] Operand_7_out;
     reg signed [ADC_BUS_WIDTH * 3 - 1:0] Operand_6_out;   
     reg [SEL_WIDTH-1:0] state;  
 
@@ -229,7 +230,6 @@ parameter SEL_WIDTH=4
                 Operand_6_out <= 48'b0;
                 Operand_7_out <= 32'b0;
                 Offset_out <= Param_C_in;
-                LONG_7F <= 64'b0;
             end
                 
             sweep: 
@@ -242,7 +242,6 @@ parameter SEL_WIDTH=4
                 Operand_6_out <= 48'b0;
                 Operand_7_out <= 32'b0;
                 Offset_out <= Param_D_in;
-                LONG_7F <= 64'b0;
             end
             
             lin: 
@@ -253,9 +252,8 @@ parameter SEL_WIDTH=4
                 Operand_4_out <= IN1_squared_result;
                 Operand_5_out <= Param_E_in;
                 Operand_6_out <= {{6{IN1[15]}}, IN1_squared_result * IN1[13:0]};
-                Operand_7_out <= Param_A_in;
+                Operand_7_out <= (Param_A_in << 15) - 1;
                 Offset_out <= 32'b0;
-                LONG_7F <= 64'h7FFF;
             end
                     
             parametric: 
@@ -266,9 +264,8 @@ parameter SEL_WIDTH=4
                 Operand_4_out <= IN1_squared_result;
                 Operand_5_out <= Param_E_in;
                 Operand_6_out <= {{6{IN1[15]}}, IN1_squared_result * IN1[13:0]};
-                Operand_7_out <= Param_A_in;
+                Operand_7_out <= (Param_A_in << 15) - 1;
                 Offset_out <= 32'b0;
-                LONG_7F <= 64'h7FFF;
             end
             
             random: 
@@ -281,7 +278,6 @@ parameter SEL_WIDTH=4
                 Operand_6_out <= 48'b0;
                 Operand_7_out <= 32'b0;
                 Offset_out <= Param_D_in;
-                LONG_7F <= 64'b0;
             end
             
             A_x_plus_B:
@@ -294,7 +290,6 @@ parameter SEL_WIDTH=4
                 Operand_6_out <= 48'b0;
                 Operand_7_out <= 32'b0;
                 Offset_out <= feedback_add;
-                LONG_7F <= 64'b0;
             end
             
             polynomial:
@@ -307,7 +302,6 @@ parameter SEL_WIDTH=4
                 Operand_6_out <= {{6{IN1[15]}}, IN1_squared_result * IN1[13:0]};
                 Operand_7_out <= 32'b0;
                 Offset_out <= Param_E_in;
-                LONG_7F <= 64'b0;
             end
             
             default: //Zero out for any un-implemented states

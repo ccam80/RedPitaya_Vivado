@@ -57,11 +57,11 @@ module system_external_reset_fake_0 (
   dout
 );
 
-output wire [0 : 0] dout;
+output wire [31 : 0] dout;
 
   xlconstant_v1_1_7_xlconstant #(
-    .CONST_WIDTH(1),
-    .CONST_VAL(1'H1)
+    .CONST_WIDTH(32),
+    .CONST_VAL(32'H00000001)
   ) inst (
     .dout(dout)
   );

@@ -63,7 +63,7 @@ typedef bit bit_as_bool;
 
 (* SC_MODULE_EXPORT *)
 module system_external_reset_fake_0 (
-  output bit [0 : 0 ] dout
+  output bit [31 : 0 ] dout
 );
 endmodule
 `endif
@@ -73,14 +73,14 @@ endmodule
 module system_external_reset_fake_0 (dout)
 (* integer foreign = "SystemC";
 *);
- output wire [0 : 0 ] dout;  
+ output wire [31 : 0 ] dout;  
 endmodule
 `endif
 
 `ifdef RIVIERA
 (* SC_MODULE_EXPORT *)
 module system_external_reset_fake_0 (dout)
-  output wire [0 : 0 ] dout;
+  output wire [31 : 0 ] dout;
 endmodule
 `endif
 

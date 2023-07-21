@@ -1049,7 +1049,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:223dbc80</spirit:value>
+            <spirit:value>9:065e5d03</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1060,7 +1060,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:223dbc80</spirit:value>
+            <spirit:value>9:065e5d03</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1076,11 +1076,11 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Jul 06 03:13:28 UTC 2023</spirit:value>
+            <spirit:value>Thu Jul 20 08:43:07 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:223dbc80</spirit:value>
+            <spirit:value>9:065e5d03</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1106,7 +1106,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:a8de7720</spirit:value>
+            <spirit:value>9:e717553c</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1122,11 +1122,11 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Jul 06 03:13:28 UTC 2023</spirit:value>
+            <spirit:value>Thu Jul 20 08:43:07 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:a8de7720</spirit:value>
+            <spirit:value>9:e717553c</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1775,7 +1775,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_COEF_FILE_LINES</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_COEF_FILE_LINES">150</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_COEF_FILE_LINES">100</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_FILTER_TYPE</spirit:name>
@@ -1787,7 +1787,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_DECIM_RATE</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_DECIM_RATE">50</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_DECIM_RATE">25</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_ZERO_PACKING_FACTOR</spirit:name>
@@ -1803,7 +1803,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_NUM_TAPS</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_NUM_TAPS">257</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_NUM_TAPS">200</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_NUM_CHANNELS</spirit:name>
@@ -1835,7 +1835,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="string">
         <spirit:name>C_COL_CONFIG</spirit:name>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_COL_CONFIG">3</spirit:value>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_COL_CONFIG">4</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_OPTIMIZATION</spirit:name>
@@ -1887,7 +1887,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="string">
         <spirit:name>C_ACCUM_PATH_WIDTHS</spirit:name>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_ACCUM_PATH_WIDTHS">37,37,37,37</spirit:value>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_ACCUM_PATH_WIDTHS">36,36,36,36</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_OUTPUT_WIDTH</spirit:name>
@@ -1899,7 +1899,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="string">
         <spirit:name>C_ACCUM_OP_PATH_WIDTHS</spirit:name>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_ACCUM_OP_PATH_WIDTHS">37,37,37,37</spirit:value>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_ACCUM_OP_PATH_WIDTHS">36,36,36,36</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="string">
         <spirit:name>C_EXT_MULT_CNFG</spirit:name>
@@ -1915,7 +1915,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_NUM_MADDS</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_NUM_MADDS">3</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_NUM_MADDS">4</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="string">
         <spirit:name>C_OPT_MADDS</spirit:name>
@@ -1931,7 +1931,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_OUTPUT_RATE</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_OUTPUT_RATE">50</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_OUTPUT_RATE">25</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_DATA_MEMTYPE</spirit:name>
@@ -1971,7 +1971,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_LATENCY</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_LATENCY">13</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_LATENCY">14</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_HAS_ARESETn</spirit:name>
@@ -2076,6 +2076,11 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
       <spirit:enumeration>Distributed</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
+      <spirit:name>choice_pairs_1031a51f</spirit:name>
+      <spirit:enumeration spirit:text="Quantize Only">Quantize_Only</spirit:enumeration>
+      <spirit:enumeration spirit:text="Maximize Dynamic Range">Maximize_Dynamic_Range</spirit:enumeration>
+    </spirit:choice>
+    <spirit:choice>
       <spirit:name>choice_pairs_18e22ec6</spirit:name>
       <spirit:enumeration spirit:text="Full Precision">Full_Precision</spirit:enumeration>
       <spirit:enumeration spirit:text="Truncate LSBs">Truncate_LSBs</spirit:enumeration>
@@ -2109,12 +2114,6 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
       <spirit:enumeration spirit:text="Frequency Specification">Frequency_Specification</spirit:enumeration>
       <spirit:enumeration spirit:text="Input Sample Period">Input_Sample_Period</spirit:enumeration>
       <spirit:enumeration spirit:text="Output Sample Period">Output_Sample_Period</spirit:enumeration>
-    </spirit:choice>
-    <spirit:choice>
-      <spirit:name>choice_pairs_33abc840</spirit:name>
-      <spirit:enumeration spirit:text="Quantize Only">Quantize_Only</spirit:enumeration>
-      <spirit:enumeration spirit:text="Maximize Dynamic Range">Maximize_Dynamic_Range</spirit:enumeration>
-      <spirit:enumeration spirit:text="Normalize to Centre Coefficient">Normalize_to_Centre_Coefficient</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
       <spirit:name>choice_pairs_3ab545a3</spirit:name>
@@ -2301,13 +2300,24 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>CoefficientVector</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.CoefficientVector" spirit:order="4">0.000884877,0.00097541,0.001061776,0.001143508,0.001220148,0.001291246,0.001356366,0.001415085,0.001466998,0.001511718,0.001548882,0.001578148,0.001599201,0.001611755,0.001615553,0.001610371,0.001596017,0.001572338,0.001539215,0.00149657,0.001444366,0.001382606,0.001311336,0.001230647,0.001140672,0.001041591,0.00093363,0.000817058,0.000692193,0.000559397,0.000419076,0.000271683,0.000117715,-4.22903E-05,-0.00020775,-0.000378044,-0.000552509,-0.000730448,-0.000911127,-0.001093779,-0.001277604,-0.0
-01461777,-0.001645443,-0.001827725,-0.002007728,-0.002184536,-0.00235722,-0.002524842,-0.002686454,-0.002841104,-0.002987841,-0.003125717,-0.003253789,-0.003371127,-0.003476813,-0.003569947,-0.003649654,-0.00371508,-0.003765403,-0.003799834,-0.003817617,-0.003818039,-0.00380043,-0.003764164,-0.003708666,-0.003633415,-0.003537943,-0.00342184,-0.003284759,-0.003126413,-0.002946581,-0.002745109,-0.00252191,-0.00227697,-0.002010342,-0.001722154,-0.001412604,-0.001081966,-0.000730583,-0.000358875,3.2
-6685E-05,0.000443483,0.000872937,0.001320325,0.001784876,0.002265752,0.00276205,0.003272805,0.003796991,0.004333528,0.004881279,0.005439058,0.006005629,0.006579716,0.007159999,0.007745125,0.008333708,0.008924333,0.009515565,0.010105947,0.010694009,0.011278273,0.011857255,0.012429471,0.012993443,0.013547703,0.014090797,0.014621292,0.015137777,0.015638873,0.016123232,0.016589548,0.017036554,0.017463031,0.017867814,0.01824979,0.018607907,0.018941174,0.019248666,0.019529531,0.019782983,0.020008317,0
-.020204902,0.020372186,0.020509701,0.020617061,0.020693962,0.02074019,0.020755614,0.02074019,0.020693962,0.020617061,0.020509701,0.020372186,0.020204902,0.020008317,0.019782983,0.019529531,0.019248666,0.018941174,0.018607907,0.01824979,0.017867814,0.017463031,0.017036554,0.016589548,0.016123232,0.015638873,0.015137777,0.014621292,0.014090797,0.013547703,0.012993443,0.012429471,0.011857255,0.011278273,0.010694009,0.010105947,0.009515565,0.008924333,0.008333708,0.007745125,0.007159999,0.006579716,
-0.006005629,0.005439058,0.004881279,0.004333528,0.003796991,0.003272805,0.00276205,0.002265752,0.001784876,0.001320325,0.000872937,0.000443483,3.26685E-05,-0.000358875,-0.000730583,-0.001081966,-0.001412604,-0.001722154,-0.002010342,-0.00227697,-0.00252191,-0.002745109,-0.002946581,-0.003126413,-0.003284759,-0.00342184,-0.003537943,-0.003633415,-0.003708666,-0.003764164,-0.00380043,-0.003818039,-0.003817617,-0.003799834,-0.003765403,-0.00371508,-0.003649654,-0.003569947,-0.003476813,-0.003371127
-,-0.003253789,-0.003125717,-0.002987841,-0.002841104,-0.002686454,-0.002524842,-0.00235722,-0.002184536,-0.002007728,-0.001827725,-0.001645443,-0.001461777,-0.001277604,-0.001093779,-0.000911127,-0.000730448,-0.000552509,-0.000378044,-0.00020775,-4.22903E-05,0.000117715,0.000271683,0.000419076,0.000559397,0.000692193,0.000817058,0.00093363,0.001041591,0.001140672,0.001230647,0.001311336,0.001382606,0.001444366,0.00149657,0.001539215,0.001572338,0.001596017,0.001610371,0.001615553,0.001611755,0.0
-01599201,0.001578148,0.001548882,0.001511718,0.001466998,0.001415085,0.001356366,0.001291246,0.001220148,0.001143508,0.001061776,0.00097541,0.000884877</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.CoefficientVector" spirit:order="4">-0.001538539891099612944361241240187609947,-0.001732974212636380914945299913654253032,-0.001902862797118008058097626822302572691,-0.002045385950219367858504693202803537133,-0.002158011851507008610484561472731002141,-0.002238539166871130088598551566292371717,-0.002285136518755096282640160154642217094,-0.002296378191776754160158269257863139501,-0.002271275485008297095879115090610866901,-0.002209303164642681133883472810452985868,-0.002110420521640382369304989040870168537,-0.001975086597725283794196
+871056669806421,-0.001804269209160933636754142739277995133,-0.001599447470359002549528115721955146   ,-0.001362607597719929595353471896146402287,-0.001096231857250658508345919628368392296,-0.000803280606439147671672673656217966709,-0.000487167470508927168224705406274210873,-0.000151727784389552895890837524994765317, 0.000198819476656289154505377614334804548, 0.000559915964023554907531832203204658072, 0.000926714017899261856964221450994045881, 0.001294132036571549529413438506253442029, 0.00165691
+4583897016457481043971711187623, 0.002009696590466429708815576660185797664, 0.002347070935273969528173099163836923253, 0.002663658633702458301134585738623172801, 0.00295418080533746624585789142258818174 , 0.003213531552369019821113749202368126134, 0.003436850846872575512835901179187203525, 0.003619596503700080441373598816312551207, 0.00375761430554326673544873749222006154 , 0.003847205348300724876003942043212191493, 0.003885189688385093983308271603505090752, 0.00386896539909129064810366926963070
+0001, 0.003796562180501584018998961767010769108, 0.003666688716360277499467512640762834053, 0.00347877303148971589105697965749186551 , 0.003232995174064644001293844510769304179, 0.002930311627695773944030088742351836117, 0.002572470947935633946157540918875383795, 0.002162020215522944717456699237345674192, 0.001702302003318282002525263507664021745, 0.001197441664242327851591651821649975318, 0.000652324862304007086107049406820124204, 0.000072565386621145533288350371048380794,-0.0005355365922471988
+50458289598464034498,-0.001165045544797333300704456071628101199,-0.001808450486883495184411985157169056038,-0.002457733253519754808291697401045894367,-0.003104444518955281999417206151292702998,-0.003739786834695935351796647339028822898,-0.004354703859253449341193409338757192018,-0.004939974864046592709088123740457376698,-0.005486313520284733305509838885427598143,-0.005984469902956325235154899644385295687,-0.006425334591221396919602515396263697767,-0.006800043700428044964045870557356465724,-0.007
+10008365034925544023725052511508693 ,-0.007317394457616788715215161431615342735,-0.007444470338092781108718654081712884363,-0.007474456417272238445415055707599094603,-0.007401240373771308944661484474636381492,-0.007219537882371280905491328638845516252,-0.006924970778611934385526893720452790149,-0.006514136936042587422424077203686465509,-0.005984670929248911419584544546523829922,-0.005335294649814420996081221204576650052,-0.004565857147432616884585865335566268186,-0.003677363083288121524405678286
+484544515,-0.002671989306279337009902841160169373325,-0.001553089193243087015594561250964034116,-0.000325184530551354486222620510105230096, 0.001006055145319038326631733148985858861, 0.002433845688046476149479779849116312107, 0.003950333759097458818931869473090046085, 0.005546654177075693338549999822362224222, 0.007212998713708732717586613603089062963, 0.008938695716450192549351605464380554622, 0.010712299808865574993199665243537310744, 0.012521690798881990325241986283799633384, 0.01435418081312
+2190477071349334892147454, 0.016196628574314569232184268798846460413, 0.01803555964944611109124217307453363901 , 0.019857291420051884772712824656082375441, 0.021648061463791511832566172301994811278, 0.023394157989074310793897737426050298382, 0.025082050932598895509606506948330206797, 0.026698522313728226262874443364125909284, 0.028230794439885763258413220455622649752, 0.029666654573702121167055878458995721303, 0.030994574705331921771200853754635318182, 0.032203825121862303393349691305047599599, 
+0.03328458052953377904747966908871603664 , 0.034228017562872400936235806057084118947, 0.03502640260690375456631429074150219094 , 0.035673168963321545688049951650100410916, 0.036162982507611581006745637978383456357, 0.036491795110314466377143816089301253669, 0.036656885230386355989384838949263212271, 0.036656885230386355989384838949263212271, 0.036491795110314466377143816089301253669, 0.036162982507611581006745637978383456357, 0.035673168963321545688049951650100410916, 0.0350264026069037545663142
+9074150219094 , 0.034228017562872400936235806057084118947, 0.03328458052953377904747966908871603664 , 0.032203825121862303393349691305047599599, 0.030994574705331921771200853754635318182, 0.029666654573702121167055878458995721303, 0.028230794439885763258413220455622649752, 0.026698522313728226262874443364125909284, 0.025082050932598895509606506948330206797, 0.023394157989074310793897737426050298382, 0.021648061463791511832566172301994811278, 0.019857291420051884772712824656082375441, 0.018035559
+64944611109124217307453363901 , 0.016196628574314569232184268798846460413, 0.014354180813122190477071349334892147454, 0.012521690798881990325241986283799633384, 0.010712299808865574993199665243537310744, 0.008938695716450192549351605464380554622, 0.007212998713708732717586613603089062963, 0.005546654177075693338549999822362224222, 0.003950333759097458818931869473090046085, 0.002433845688046476149479779849116312107, 0.001006055145319038326631733148985858861,-0.000325184530551354486222620510105230
+096,-0.001553089193243087015594561250964034116,-0.002671989306279337009902841160169373325,-0.003677363083288121524405678286484544515,-0.004565857147432616884585865335566268186,-0.005335294649814420996081221204576650052,-0.005984670929248911419584544546523829922,-0.006514136936042587422424077203686465509,-0.006924970778611934385526893720452790149,-0.007219537882371280905491328638845516252,-0.007401240373771308944661484474636381492,-0.007474456417272238445415055707599094603,-0.00744447033809278110
+8718654081712884363,-0.007317394457616788715215161431615342735,-0.00710008365034925544023725052511508693 ,-0.006800043700428044964045870557356465724,-0.006425334591221396919602515396263697767,-0.005984469902956325235154899644385295687,-0.005486313520284733305509838885427598143,-0.004939974864046592709088123740457376698,-0.004354703859253449341193409338757192018,-0.003739786834695935351796647339028822898,-0.003104444518955281999417206151292702998,-0.002457733253519754808291697401045894367,-0.0018
+08450486883495184411985157169056038,-0.001165045544797333300704456071628101199,-0.000535536592247198850458289598464034498, 0.000072565386621145533288350371048380794, 0.000652324862304007086107049406820124204, 0.001197441664242327851591651821649975318, 0.001702302003318282002525263507664021745, 0.002162020215522944717456699237345674192, 0.002572470947935633946157540918875383795, 0.002930311627695773944030088742351836117, 0.003232995174064644001293844510769304179, 0.0034787730314897158910569796574
+9186551 , 0.003666688716360277499467512640762834053, 0.003796562180501584018998961767010769108, 0.003868965399091290648103669269630700001, 0.003885189688385093983308271603505090752, 0.003847205348300724876003942043212191493, 0.00375761430554326673544873749222006154 , 0.003619596503700080441373598816312551207, 0.003436850846872575512835901179187203525, 0.003213531552369019821113749202368126134, 0.00295418080533746624585789142258818174 , 0.002663658633702458301134585738623172801, 0.002347070935273
+969528173099163836923253, 0.002009696590466429708815576660185797664, 0.001656914583897016457481043971711187623, 0.001294132036571549529413438506253442029, 0.000926714017899261856964221450994045881, 0.000559915964023554907531832203204658072, 0.000198819476656289154505377614334804548,-0.000151727784389552895890837524994765317,-0.000487167470508927168224705406274210873,-0.000803280606439147671672673656217966709,-0.001096231857250658508345919628368392296,-0.001362607597719929595353471896146402287,-0
+.001599447470359002549528115721955146   ,-0.001804269209160933636754142739277995133,-0.001975086597725283794196871056669806421,-0.002110420521640382369304989040870168537,-0.002209303164642681133883472810452985868,-0.002271275485008297095879115090610866901,-0.002296378191776754160158269257863139501,-0.002285136518755096282640160154642217094,-0.002238539166871130088598551566292371717,-0.002158011851507008610484561472731002141,-0.002045385950219367858504693202803537133,-0.00190286279711800805809762
+6822302572691,-0.001732974212636380914945299913654253032,-0.001538539891099612944361241240187609947</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Coefficient_File</spirit:name>
@@ -2335,7 +2345,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Decimation_Rate</spirit:name>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.Decimation_Rate" spirit:order="11" spirit:minimum="2" spirit:maximum="1024" spirit:rangeType="long">50</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.Decimation_Rate" spirit:order="11" spirit:minimum="2" spirit:maximum="1024" spirit:rangeType="long">25</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Zero_Pack_Factor</spirit:name>
@@ -2387,7 +2397,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Quantization</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Quantization" spirit:choiceRef="choice_pairs_33abc840" spirit:order="24">Quantize_Only</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Quantization" spirit:choiceRef="choice_pairs_1031a51f" spirit:order="24">Quantize_Only</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Coefficient_Width</spirit:name>
@@ -2399,7 +2409,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Coefficient_Fractional_Bits</spirit:name>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.Coefficient_Fractional_Bits" spirit:order="27" spirit:minimum="0" spirit:maximum="20" spirit:rangeType="long">20</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.Coefficient_Fractional_Bits" spirit:order="27" spirit:minimum="0" spirit:maximum="19" spirit:rangeType="long">19</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Coefficient_Structure</spirit:name>
@@ -2423,7 +2433,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Output_Width</spirit:name>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.Output_Width" spirit:order="33" spirit:minimum="1" spirit:maximum="36" spirit:rangeType="long">16</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.Output_Width" spirit:order="33" spirit:minimum="1" spirit:maximum="35" spirit:rangeType="long">16</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Filter_Architecture</spirit:name>
@@ -2523,7 +2533,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>ColumnConfig</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.ColumnConfig" spirit:order="43">3</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.ColumnConfig" spirit:order="43">4</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>DATA_Has_TLAST</spirit:name>
@@ -2603,15 +2613,15 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Passband_Max</spirit:name>
-      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.Passband_Max" spirit:order="62" spirit:minimum="0" spirit:maximum="1">0.01</spirit:value>
+      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.Passband_Max" spirit:order="62" spirit:minimum="0" spirit:maximum="1">0.02</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Stopband_Min</spirit:name>
-      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.Stopband_Min" spirit:order="63" spirit:minimum="0" spirit:maximum="1">0.01</spirit:value>
+      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.Stopband_Min" spirit:order="63" spirit:minimum="0" spirit:maximum="1">0.02</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Stopband_Max</spirit:name>
-      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.Stopband_Max" spirit:order="64" spirit:minimum="0.01" spirit:maximum="1">1.0</spirit:value>
+      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.Stopband_Max" spirit:order="64" spirit:minimum="0.02" spirit:maximum="1">1.0</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Filter_Selection</spirit:name>
@@ -2674,7 +2684,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:value>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Data_Path_Broadcast" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Data_Path_Fanout" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Data_Sign" xilinx:valueSource="propagated" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Data_Width" xilinx:valueSource="propagated" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Data_Width" xilinx:valueSource="user" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Decimation_Rate" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Disable_Half_Band_Centre_Tap" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Filter_Architecture" xilinx:valueSource="user"/>

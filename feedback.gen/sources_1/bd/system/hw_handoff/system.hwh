@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Jul 20 21:36:52 2023" VIVADOVERSION="2020.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Jul 21 13:41:32 2023" VIVADOVERSION="2020.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z010" NAME="system" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -846,9 +846,9 @@
             <CONNECTION INSTANCE="feedback_and_generation_Shared_mult_4_Shared_mult4" PORT="CLK"/>
             <CONNECTION INSTANCE="feedback_and_generation_Shared_mult_3_Shared_mult3" PORT="CLK"/>
             <CONNECTION INSTANCE="feedback_and_generation_Shared_mult_1_Shared_mult1" PORT="CLK"/>
-            <CONNECTION INSTANCE="feedback_and_generation_feedback_combined_0" PORT="aclk"/>
             <CONNECTION INSTANCE="feedback_and_generation_CH2_multiplier_breakout" PORT="aclk"/>
             <CONNECTION INSTANCE="feedback_and_generation_CH1_multiplier_breakout" PORT="aclk"/>
+            <CONNECTION INSTANCE="feedback_and_generation_feedback_combined_0" PORT="aclk"/>
             <CONNECTION INSTANCE="axis_red_pitaya_dac_0" PORT="aclk"/>
             <CONNECTION INSTANCE="downsampling_axis_combiner_1" PORT="aclk"/>
             <CONNECTION INSTANCE="downsampling_fir_compiler_0" PORT="aclk"/>
@@ -4158,8 +4158,8 @@
             <CONNECTION INSTANCE="feedback_and_generation_Shared_mult_4_bus_multiplexer_comb4" PORT="sel"/>
             <CONNECTION INSTANCE="feedback_and_generation_Shared_mult_3_bus_multiplexer_comb3" PORT="sel"/>
             <CONNECTION INSTANCE="feedback_and_generation_Shared_mult_1_bus_multiplexer_comb1" PORT="sel"/>
-            <CONNECTION INSTANCE="feedback_and_generation_feedback_combined_0" PORT="CH1_sel"/>
             <CONNECTION INSTANCE="feedback_and_generation_CH1_multiplier_breakout" PORT="sel"/>
+            <CONNECTION INSTANCE="feedback_and_generation_feedback_combined_0" PORT="CH1_sel"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -4282,8 +4282,8 @@
         </PORT>
         <PORT DIR="O" LEFT="3" NAME="Dout" RIGHT="0" SIGIS="undef" SIGNAME="Reg_Brakeout_CH2_config_Feedback_State_1_Dout">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="feedback_and_generation_feedback_combined_0" PORT="CH2_sel"/>
             <CONNECTION INSTANCE="feedback_and_generation_CH2_multiplier_breakout" PORT="sel"/>
+            <CONNECTION INSTANCE="feedback_and_generation_feedback_combined_0" PORT="CH2_sel"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

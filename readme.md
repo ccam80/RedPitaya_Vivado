@@ -1,4 +1,8 @@
 # Getting started:
+## Vivado version
+Use Vivado 2020.2
+<https://www.xilinx.com/member/forms/download/xef.html?filename=Xilinx_Unified_2020.2_1118_1232_Win64.exe>
+
 ## IP Core location
 if project location is not
 ```
@@ -10,6 +14,10 @@ the IP Core location have to be changed. Therefore got to Tools --> Settings -->
 - Wihile bit file generation in the upper right corner a runing circle is shown, if the operation is finished there is written ""
 - the new bit file is located in ``*/feedback.runs/impl_1`` and is named ``system_wrapper.bit`` (don't change this name)
 - Coppy ``system_wrapper.bit`` with a FTP client (e.g. WinSCP) to the FPGA into ``/usr/src``
+  - IP: 192.168.1.100
+  - Port: 22
+  - User: root
+  - Password: changeme
 - if starting the server (<https://github.com/ccam80/RedPitaya_Onboard>) it is automatic implemented
 
 # System behaviour:

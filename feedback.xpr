@@ -75,6 +75,20 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
       <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sources_1/new/output_buffer.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/axi_writer_updated.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/new/GNG/gng_coef.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -173,13 +187,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/new/feedback_combined.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PSRCDIR/sources_1/ip/dds_compiler_1/dds_compiler_1.xci">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -188,6 +195,13 @@
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/new/multiplier_breakout.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/feedback_combined.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -356,11 +370,11 @@
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Flow_PerfOptimized_high" Flow="Vivado Synthesis 2020"/>
         <Step Id="synth_design">
+          <Option Id="KeepEquivalentRegisters">1</Option>
           <Option Id="NoCombineLuts">1</Option>
+          <Option Id="Directive">7</Option>
           <Option Id="FsmExtraction">1</Option>
           <Option Id="ResourceSharing">2</Option>
-          <Option Id="KeepEquivalentRegisters">1</Option>
-          <Option Id="Directive">7</Option>
           <Option Id="ShregMinSize">5</Option>
         </Step>
       </Strategy>

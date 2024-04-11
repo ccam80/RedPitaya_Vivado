@@ -40,7 +40,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# gng, AXI_mux, CBC, multiplier_breakout, multiplier_breakout, feedback_combined, bus_multiplexer_combin, bus_multiplexer_combin, bus_multiplexer_combin, bus_multiplexer_combin, bus_multiplexer_combin
+# axis_ram_writer, gng, AXI_mux, CBC, multiplier_breakout, multiplier_breakout, feedback_combined, bus_multiplexer_combin, bus_multiplexer_combin, bus_multiplexer_combin, bus_multiplexer_combin, bus_multiplexer_combin
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -1303,7 +1303,7 @@ proc create_hier_cell_downsampling { parentCell nameHier } {
    CONFIG.Coefficient_Sign {Signed} \
    CONFIG.Coefficient_Structure {Symmetric} \
    CONFIG.Coefficient_Width {16} \
-   CONFIG.ColumnConfig {4} \
+   CONFIG.ColumnConfig {2} \
    CONFIG.Control_Broadcast_Fanout {true} \
    CONFIG.Control_Column_Fanout {true} \
    CONFIG.Control_LUT_Pipeline {true} \
@@ -1311,7 +1311,7 @@ proc create_hier_cell_downsampling { parentCell nameHier } {
    CONFIG.Data_Path_Broadcast {false} \
    CONFIG.Data_Path_Fanout {true} \
    CONFIG.Data_Width {16} \
-   CONFIG.Decimation_Rate {25} \
+   CONFIG.Decimation_Rate {50} \
    CONFIG.Disable_Half_Band_Centre_Tap {false} \
    CONFIG.Filter_Architecture {Systolic_Multiply_Accumulate} \
    CONFIG.Filter_Selection {1} \
@@ -1420,7 +1420,7 @@ proc create_hier_cell_Reg_Brakeout { parentCell nameHier } {
   create_bd_pin -dir O -from 0 -to 0 Dout13
   create_bd_pin -dir O -from 0 -to 0 Dout14
   create_bd_pin -dir O -from 0 -to 0 Dout15
-  create_bd_pin -dir I -from 15 -to 0 In2
+  create_bd_pin -dir I -from 17 -to 0 In2
   create_bd_pin -dir I -type clk aclk
   create_bd_pin -dir I -type rst aresetn
   create_bd_pin -dir O -from 31 -to 0 dout1
@@ -1586,7 +1586,7 @@ proc create_hier_cell_Memory_IO { parentCell nameHier } {
   create_bd_pin -dir O -from 511 -to 0 cfg_data
   create_bd_pin -dir I -from 31 -to 0 cfg_data1
   create_bd_pin -dir I -from 127 -to 0 sts_data
-  create_bd_pin -dir O -from 15 -to 0 sts_data1
+  create_bd_pin -dir O -from 17 -to 0 sts_data1
 
   # Create instance: axi_cfg_register_0, and set properties
   set axi_cfg_register_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:axi_cfg_register:1.0 axi_cfg_register_0 ]
@@ -1602,27 +1602,43 @@ proc create_hier_cell_Memory_IO { parentCell nameHier } {
    CONFIG.STS_DATA_WIDTH {128} \
  ] $axi_sts_register_0
 
-  # Create instance: axis_ram_writer_0, and set properties
-  set axis_ram_writer_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:axis_ram_writer:2.0 axis_ram_writer_0 ]
-  set_property -dict [ list \
-   CONFIG.ADDR_WIDTH {16} \
+  # Create instance: axis_ram_writer_1, and set properties
+  set block_name axis_ram_writer
+  set block_cell_name axis_ram_writer_1
+  if { [catch {set axis_ram_writer_1 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2095 -severity "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $axis_ram_writer_1 eq "" } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2096 -severity "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+    set_property -dict [ list \
+   CONFIG.ADDR_WIDTH {18} \
    CONFIG.AXI_ID_WIDTH {3} \
- ] $axis_ram_writer_0
+ ] $axis_ram_writer_1
+
+  # Create instance: xlconstant_0, and set properties
+  set xlconstant_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0 ]
+  set_property -dict [ list \
+   CONFIG.CONST_VAL {262143} \
+   CONFIG.CONST_WIDTH {18} \
+ ] $xlconstant_0
 
   # Create interface connections
   connect_bd_intf_net -intf_net S_AXI1_1 [get_bd_intf_pins S_AXI1] [get_bd_intf_pins axi_sts_register_0/S_AXI]
-  connect_bd_intf_net -intf_net S_AXIS_1 [get_bd_intf_pins S_AXIS] [get_bd_intf_pins axis_ram_writer_0/S_AXIS]
+  connect_bd_intf_net -intf_net S_AXIS_1 [get_bd_intf_pins S_AXIS] [get_bd_intf_pins axis_ram_writer_1/s_axis]
   connect_bd_intf_net -intf_net S_AXI_1 [get_bd_intf_pins S_AXI] [get_bd_intf_pins axi_cfg_register_0/S_AXI]
-  connect_bd_intf_net -intf_net axis_ram_writer_0_M_AXI [get_bd_intf_pins M_AXI] [get_bd_intf_pins axis_ram_writer_0/M_AXI]
+  connect_bd_intf_net -intf_net axis_ram_writer_1_m_axi [get_bd_intf_pins M_AXI] [get_bd_intf_pins axis_ram_writer_1/m_axi]
 
   # Create port connections
-  connect_bd_net -net aresetn1_1 [get_bd_pins aresetn1] [get_bd_pins axis_ram_writer_0/aresetn]
+  connect_bd_net -net aresetn1_1 [get_bd_pins aresetn1] [get_bd_pins axis_ram_writer_1/aresetn]
   connect_bd_net -net axi_cfg_register_0_cfg_data [get_bd_pins cfg_data] [get_bd_pins axi_cfg_register_0/cfg_data]
-  connect_bd_net -net axis_ram_writer_0_sts_data [get_bd_pins sts_data1] [get_bd_pins axis_ram_writer_0/sts_data]
-  connect_bd_net -net cfg_data1_1 [get_bd_pins cfg_data1] [get_bd_pins axis_ram_writer_0/cfg_data]
-  connect_bd_net -net pll_0_clk_out1 [get_bd_pins aclk] [get_bd_pins axi_cfg_register_0/aclk] [get_bd_pins axi_sts_register_0/aclk] [get_bd_pins axis_ram_writer_0/aclk]
+  connect_bd_net -net axis_ram_writer_1_sts_data [get_bd_pins sts_data1] [get_bd_pins axis_ram_writer_1/sts_data]
+  connect_bd_net -net cfg_data1_1 [get_bd_pins cfg_data1] [get_bd_pins axis_ram_writer_1/min_addr]
+  connect_bd_net -net pll_0_clk_out1 [get_bd_pins aclk] [get_bd_pins axi_cfg_register_0/aclk] [get_bd_pins axi_sts_register_0/aclk] [get_bd_pins axis_ram_writer_1/aclk]
   connect_bd_net -net rst_0_peripheral_aresetn [get_bd_pins aresetn] [get_bd_pins axi_cfg_register_0/aresetn] [get_bd_pins axi_sts_register_0/aresetn]
   connect_bd_net -net sts_data_1 [get_bd_pins sts_data] [get_bd_pins axi_sts_register_0/sts_data]
+  connect_bd_net -net xlconstant_0_dout [get_bd_pins axis_ram_writer_1/cfg_data] [get_bd_pins xlconstant_0/dout]
 
   # Restore current instance
   current_bd_instance $oldCurInst
@@ -2592,7 +2608,9 @@ proc create_root_design { parentCell } {
   # Create address segments
   assign_bd_address -offset 0x40001000 -range 0x00001000 -target_address_space [get_bd_addr_spaces Core/ps_0/Data] [get_bd_addr_segs Memory_IO/axi_cfg_register_0/s_axi/reg0] -force
   assign_bd_address -offset 0x40000000 -range 0x00001000 -target_address_space [get_bd_addr_spaces Core/ps_0/Data] [get_bd_addr_segs Memory_IO/axi_sts_register_0/s_axi/reg0] -force
-  assign_bd_address -offset 0x00000000 -range 0x20000000 -target_address_space [get_bd_addr_spaces Memory_IO/axis_ram_writer_0/M_AXI] [get_bd_addr_segs Core/ps_0/S_AXI_ACP/ACP_DDR_LOWOCM] -force
+  assign_bd_address -offset 0x00000000 -range 0x20000000 -target_address_space [get_bd_addr_spaces Memory_IO/axis_ram_writer_1/m_axi] [get_bd_addr_segs Core/ps_0/S_AXI_ACP/ACP_DDR_LOWOCM] -force
+  assign_bd_address -offset 0xE0000000 -range 0x00400000 -target_address_space [get_bd_addr_spaces Memory_IO/axis_ram_writer_1/m_axi] [get_bd_addr_segs Core/ps_0/S_AXI_ACP/ACP_IOP] -force
+  assign_bd_address -offset 0x40000000 -range 0x40000000 -target_address_space [get_bd_addr_spaces Memory_IO/axis_ram_writer_1/m_axi] [get_bd_addr_segs Core/ps_0/S_AXI_ACP/ACP_M_AXI_GP0] -force
 
 
   # Restore current instance

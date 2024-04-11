@@ -94,7 +94,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:configurableElementVal
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_COEF_PATH_WIDTHS">16,16,16,16</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_COEF_RELOAD">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_COEF_WIDTH">16</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_COL_CONFIG">4</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_COL_CONFIG">2</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_COL_MODE">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_COL_PIPE_LEN">4</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_COMPONENT_NAME">system_fir_compiler_0_1</spirit:configurableElementValue>
@@ -112,7 +112,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:configurableElementVal
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_DATA_PATH_WIDTHS">16,16,16,16</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_DATA_PX_PATH_WIDTHS">16,16,16,16</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_DATA_WIDTH">16</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_DECIM_RATE">25</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_DECIM_RATE">50</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_ELABORATION_DIR">./</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_EXT_MULT_CNFG">none</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_FILTER_TYPE">1</spirit:configurableElementValue>
@@ -123,7 +123,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:configurableElementVal
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_INPUT_RATE">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_INTERP_RATE">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_IPBUFF_MEMTYPE">2</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_LATENCY">14</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_LATENCY">12</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_MEM_ARRANGEMENT">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_M_DATA_HAS_TREADY">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_M_DATA_HAS_TUSER">0</spirit:configurableElementValue>
@@ -131,7 +131,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:configurableElementVal
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_M_DATA_TUSER_WIDTH">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_NUM_CHANNELS">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_NUM_FILTS">1</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_NUM_MADDS">4</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_NUM_MADDS">2</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_NUM_RELOAD_SLOTS">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_NUM_TAPS">200</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_OPBUFF_MEMTYPE">0</spirit:configurableElementValue>
@@ -139,7 +139,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:configurableElementVal
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_OPT_MADDS">none</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_OP_PATH_PSAMP_SRC">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_OUTPUT_PATH_WIDTHS">16,16,16,16</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_OUTPUT_RATE">25</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_OUTPUT_RATE">50</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_OUTPUT_WIDTH">16</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_OVERSAMPLING_RATE">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_PX_PATH_SRC">0,1,2,3</spirit:configurableElementValue>
@@ -184,7 +184,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:configurableElementVal
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Coefficient_Sign">Signed</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Coefficient_Structure">Symmetric</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Coefficient_Width">16</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.ColumnConfig">4</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.ColumnConfig">2</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Component_Name">system_fir_compiler_0_1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Control_Broadcast_Fanout">true</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Control_Column_Fanout">true</spirit:configurableElementValue>
@@ -198,7 +198,7 @@ nimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}</spirit:configurableElementVal
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Data_Path_Fanout">true</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Data_Sign">Signed</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Data_Width">16</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Decimation_Rate">25</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Decimation_Rate">50</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Disable_Half_Band_Centre_Tap">false</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.DisplayReloadOrder">false</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Filter_Architecture">Systolic_Multiply_Accumulate</spirit:configurableElementValue>

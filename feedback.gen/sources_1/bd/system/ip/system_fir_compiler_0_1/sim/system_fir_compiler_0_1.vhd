@@ -1,4 +1,4 @@
--- (c) Copyright 1995-2023 Xilinx, Inc. All rights reserved.
+-- (c) Copyright 1995-2024 Xilinx, Inc. All rights reserved.
 -- 
 -- This file contains confidential and proprietary information
 -- of Xilinx, Inc. and is protected under U.S. and
@@ -206,7 +206,7 @@ BEGIN
       C_COEF_FILE_LINES => 100,
       C_FILTER_TYPE => 1,
       C_INTERP_RATE => 1,
-      C_DECIM_RATE => 25,
+      C_DECIM_RATE => 50,
       C_ZERO_PACKING_FACTOR => 1,
       C_SYMMETRY => 1,
       C_NUM_FILTS => 1,
@@ -218,7 +218,7 @@ BEGIN
       C_NUM_RELOAD_SLOTS => 1,
       C_COL_MODE => 1,
       C_COL_PIPE_LEN => 4,
-      C_COL_CONFIG => "4",
+      C_COL_CONFIG => "2",
       C_OPTIMIZATION => 2046,
       C_DATA_PATH_WIDTHS => "16,16,16,16",
       C_DATA_IP_PATH_WIDTHS => "16,16,16,16",
@@ -238,11 +238,11 @@ BEGIN
       C_EXT_MULT_CNFG => "none",
       C_DATA_PATH_PSAMP_SRC => "0",
       C_OP_PATH_PSAMP_SRC => "0",
-      C_NUM_MADDS => 4,
+      C_NUM_MADDS => 2,
       C_OPT_MADDS => "none",
       C_OVERSAMPLING_RATE => 1,
       C_INPUT_RATE => 1,
-      C_OUTPUT_RATE => 25,
+      C_OUTPUT_RATE => 50,
       C_DATA_MEMTYPE => 0,
       C_COEF_MEMTYPE => 2,
       C_IPBUFF_MEMTYPE => 2,
@@ -252,7 +252,7 @@ BEGIN
       C_DATA_MEM_PACKING => 0,
       C_COEF_MEM_PACKING => 0,
       C_FILTS_PACKED => 0,
-      C_LATENCY => 14,
+      C_LATENCY => 12,
       C_HAS_ARESETn => 1,
       C_HAS_ACLKEN => 0,
       C_DATA_HAS_TLAST => 0,

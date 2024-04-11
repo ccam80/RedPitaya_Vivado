@@ -1,7 +1,7 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-//Date        : Fri Jul 21 13:41:31 2023
+//Date        : Thu Apr 11 15:42:53 2024
 //Host        : acoustics-VirtualBox running 64-bit Ubuntu 20.04.5 LTS
 //Command     : generate_target system.bd
 //Design      : system
@@ -799,7 +799,7 @@ module Memory_IO_imp_19T7DMV
   output [511:0]cfg_data;
   input [31:0]cfg_data1;
   input [127:0]sts_data;
-  output [15:0]sts_data1;
+  output [17:0]sts_data1;
 
   wire [31:0]S_AXI1_1_ARADDR;
   wire S_AXI1_1_ARREADY;
@@ -838,41 +838,42 @@ module Memory_IO_imp_19T7DMV
   wire S_AXI_1_WVALID;
   wire aresetn1_1;
   wire [511:0]axi_cfg_register_0_cfg_data;
-  wire [31:0]axis_ram_writer_0_M_AXI_AWADDR;
-  wire [1:0]axis_ram_writer_0_M_AXI_AWBURST;
-  wire [3:0]axis_ram_writer_0_M_AXI_AWCACHE;
-  wire [2:0]axis_ram_writer_0_M_AXI_AWID;
-  wire [3:0]axis_ram_writer_0_M_AXI_AWLEN;
-  wire axis_ram_writer_0_M_AXI_AWREADY;
-  wire [2:0]axis_ram_writer_0_M_AXI_AWSIZE;
-  wire axis_ram_writer_0_M_AXI_AWVALID;
-  wire axis_ram_writer_0_M_AXI_BREADY;
-  wire axis_ram_writer_0_M_AXI_BVALID;
-  wire [63:0]axis_ram_writer_0_M_AXI_WDATA;
-  wire [2:0]axis_ram_writer_0_M_AXI_WID;
-  wire axis_ram_writer_0_M_AXI_WLAST;
-  wire axis_ram_writer_0_M_AXI_WREADY;
-  wire [7:0]axis_ram_writer_0_M_AXI_WSTRB;
-  wire axis_ram_writer_0_M_AXI_WVALID;
-  wire [15:0]axis_ram_writer_0_sts_data;
+  wire [31:0]axis_ram_writer_1_m_axi_AWADDR;
+  wire [1:0]axis_ram_writer_1_m_axi_AWBURST;
+  wire [3:0]axis_ram_writer_1_m_axi_AWCACHE;
+  wire [2:0]axis_ram_writer_1_m_axi_AWID;
+  wire [3:0]axis_ram_writer_1_m_axi_AWLEN;
+  wire axis_ram_writer_1_m_axi_AWREADY;
+  wire [2:0]axis_ram_writer_1_m_axi_AWSIZE;
+  wire axis_ram_writer_1_m_axi_AWVALID;
+  wire axis_ram_writer_1_m_axi_BREADY;
+  wire axis_ram_writer_1_m_axi_BVALID;
+  wire [63:0]axis_ram_writer_1_m_axi_WDATA;
+  wire [2:0]axis_ram_writer_1_m_axi_WID;
+  wire axis_ram_writer_1_m_axi_WLAST;
+  wire axis_ram_writer_1_m_axi_WREADY;
+  wire [7:0]axis_ram_writer_1_m_axi_WSTRB;
+  wire axis_ram_writer_1_m_axi_WVALID;
+  wire [17:0]axis_ram_writer_1_sts_data;
   wire [31:0]cfg_data1_1;
   wire pll_0_clk_out1;
   wire rst_0_peripheral_aresetn;
   wire [127:0]sts_data_1;
+  wire [17:0]xlconstant_0_dout;
 
-  assign M_AXI_awaddr[31:0] = axis_ram_writer_0_M_AXI_AWADDR;
-  assign M_AXI_awburst[1:0] = axis_ram_writer_0_M_AXI_AWBURST;
-  assign M_AXI_awcache[3:0] = axis_ram_writer_0_M_AXI_AWCACHE;
-  assign M_AXI_awid[2:0] = axis_ram_writer_0_M_AXI_AWID;
-  assign M_AXI_awlen[3:0] = axis_ram_writer_0_M_AXI_AWLEN;
-  assign M_AXI_awsize[2:0] = axis_ram_writer_0_M_AXI_AWSIZE;
-  assign M_AXI_awvalid = axis_ram_writer_0_M_AXI_AWVALID;
-  assign M_AXI_bready = axis_ram_writer_0_M_AXI_BREADY;
-  assign M_AXI_wdata[63:0] = axis_ram_writer_0_M_AXI_WDATA;
-  assign M_AXI_wid[2:0] = axis_ram_writer_0_M_AXI_WID;
-  assign M_AXI_wlast = axis_ram_writer_0_M_AXI_WLAST;
-  assign M_AXI_wstrb[7:0] = axis_ram_writer_0_M_AXI_WSTRB;
-  assign M_AXI_wvalid = axis_ram_writer_0_M_AXI_WVALID;
+  assign M_AXI_awaddr[31:0] = axis_ram_writer_1_m_axi_AWADDR;
+  assign M_AXI_awburst[1:0] = axis_ram_writer_1_m_axi_AWBURST;
+  assign M_AXI_awcache[3:0] = axis_ram_writer_1_m_axi_AWCACHE;
+  assign M_AXI_awid[2:0] = axis_ram_writer_1_m_axi_AWID;
+  assign M_AXI_awlen[3:0] = axis_ram_writer_1_m_axi_AWLEN;
+  assign M_AXI_awsize[2:0] = axis_ram_writer_1_m_axi_AWSIZE;
+  assign M_AXI_awvalid = axis_ram_writer_1_m_axi_AWVALID;
+  assign M_AXI_bready = axis_ram_writer_1_m_axi_BREADY;
+  assign M_AXI_wdata[63:0] = axis_ram_writer_1_m_axi_WDATA;
+  assign M_AXI_wid[2:0] = axis_ram_writer_1_m_axi_WID;
+  assign M_AXI_wlast = axis_ram_writer_1_m_axi_WLAST;
+  assign M_AXI_wstrb[7:0] = axis_ram_writer_1_m_axi_WSTRB;
+  assign M_AXI_wvalid = axis_ram_writer_1_m_axi_WVALID;
   assign S_AXI1_1_ARADDR = S_AXI1_araddr[31:0];
   assign S_AXI1_1_ARVALID = S_AXI1_arvalid;
   assign S_AXI1_1_AWADDR = S_AXI1_awaddr[31:0];
@@ -909,14 +910,14 @@ module Memory_IO_imp_19T7DMV
   assign S_AXI_rvalid = S_AXI_1_RVALID;
   assign S_AXI_wready = S_AXI_1_WREADY;
   assign aresetn1_1 = aresetn1;
-  assign axis_ram_writer_0_M_AXI_AWREADY = M_AXI_awready;
-  assign axis_ram_writer_0_M_AXI_BVALID = M_AXI_bvalid;
-  assign axis_ram_writer_0_M_AXI_WREADY = M_AXI_wready;
+  assign axis_ram_writer_1_m_axi_AWREADY = M_AXI_awready;
+  assign axis_ram_writer_1_m_axi_BVALID = M_AXI_bvalid;
+  assign axis_ram_writer_1_m_axi_WREADY = M_AXI_wready;
   assign cfg_data[511:0] = axi_cfg_register_0_cfg_data;
   assign cfg_data1_1 = cfg_data1[31:0];
   assign pll_0_clk_out1 = aclk;
   assign rst_0_peripheral_aresetn = aresetn;
-  assign sts_data1[15:0] = axis_ram_writer_0_sts_data;
+  assign sts_data1[17:0] = axis_ram_writer_1_sts_data;
   assign sts_data_1 = sts_data[127:0];
   system_axi_cfg_register_0_0 axi_cfg_register_0
        (.aclk(pll_0_clk_out1),
@@ -959,29 +960,32 @@ module Memory_IO_imp_19T7DMV
         .s_axi_wready(S_AXI1_1_WREADY),
         .s_axi_wvalid(S_AXI1_1_WVALID),
         .sts_data(sts_data_1));
-  system_axis_ram_writer_0_0 axis_ram_writer_0
+  system_axis_ram_writer_1_0 axis_ram_writer_1
        (.aclk(pll_0_clk_out1),
         .aresetn(aresetn1_1),
-        .cfg_data(cfg_data1_1),
-        .m_axi_awaddr(axis_ram_writer_0_M_AXI_AWADDR),
-        .m_axi_awburst(axis_ram_writer_0_M_AXI_AWBURST),
-        .m_axi_awcache(axis_ram_writer_0_M_AXI_AWCACHE),
-        .m_axi_awid(axis_ram_writer_0_M_AXI_AWID),
-        .m_axi_awlen(axis_ram_writer_0_M_AXI_AWLEN),
-        .m_axi_awready(axis_ram_writer_0_M_AXI_AWREADY),
-        .m_axi_awsize(axis_ram_writer_0_M_AXI_AWSIZE),
-        .m_axi_awvalid(axis_ram_writer_0_M_AXI_AWVALID),
-        .m_axi_bready(axis_ram_writer_0_M_AXI_BREADY),
-        .m_axi_bvalid(axis_ram_writer_0_M_AXI_BVALID),
-        .m_axi_wdata(axis_ram_writer_0_M_AXI_WDATA),
-        .m_axi_wid(axis_ram_writer_0_M_AXI_WID),
-        .m_axi_wlast(axis_ram_writer_0_M_AXI_WLAST),
-        .m_axi_wready(axis_ram_writer_0_M_AXI_WREADY),
-        .m_axi_wstrb(axis_ram_writer_0_M_AXI_WSTRB),
-        .m_axi_wvalid(axis_ram_writer_0_M_AXI_WVALID),
+        .cfg_data(xlconstant_0_dout),
+        .m_axi_awaddr(axis_ram_writer_1_m_axi_AWADDR),
+        .m_axi_awburst(axis_ram_writer_1_m_axi_AWBURST),
+        .m_axi_awcache(axis_ram_writer_1_m_axi_AWCACHE),
+        .m_axi_awid(axis_ram_writer_1_m_axi_AWID),
+        .m_axi_awlen(axis_ram_writer_1_m_axi_AWLEN),
+        .m_axi_awready(axis_ram_writer_1_m_axi_AWREADY),
+        .m_axi_awsize(axis_ram_writer_1_m_axi_AWSIZE),
+        .m_axi_awvalid(axis_ram_writer_1_m_axi_AWVALID),
+        .m_axi_bready(axis_ram_writer_1_m_axi_BREADY),
+        .m_axi_bvalid(axis_ram_writer_1_m_axi_BVALID),
+        .m_axi_wdata(axis_ram_writer_1_m_axi_WDATA),
+        .m_axi_wid(axis_ram_writer_1_m_axi_WID),
+        .m_axi_wlast(axis_ram_writer_1_m_axi_WLAST),
+        .m_axi_wready(axis_ram_writer_1_m_axi_WREADY),
+        .m_axi_wstrb(axis_ram_writer_1_m_axi_WSTRB),
+        .m_axi_wvalid(axis_ram_writer_1_m_axi_WVALID),
+        .min_addr(cfg_data1_1),
         .s_axis_tdata(S_AXIS_1_TDATA),
         .s_axis_tvalid(S_AXIS_1_TVALID),
-        .sts_data(axis_ram_writer_0_sts_data));
+        .sts_data(axis_ram_writer_1_sts_data));
+  system_xlconstant_0_0 xlconstant_0
+       (.dout(xlconstant_0_dout));
 endmodule
 
 module Reg_Brakeout_imp_H22Q4C
@@ -1026,7 +1030,7 @@ module Reg_Brakeout_imp_H22Q4C
   output [0:0]Dout7;
   output [0:0]Dout8;
   output [3:0]Dout9;
-  input [15:0]In2;
+  input [17:0]In2;
   output [447:0]M_AXIS1_tdata;
   output M_AXIS1_tvalid;
   output [191:0]M_AXIS2_tdata;
@@ -1063,7 +1067,7 @@ module Reg_Brakeout_imp_H22Q4C
   wire Conn2_TVALID;
   wire [511:0]Din1_1;
   wire [447:0]Feedback_config_bus_Dout;
-  wire [15:0]In2_1;
+  wire [17:0]In2_1;
   wire [31:0]RAM_addres_Dout;
   wire [31:0]const_0_dout;
   wire [0:0]continuous_output_Dout;
@@ -1092,7 +1096,7 @@ module Reg_Brakeout_imp_H22Q4C
   assign Dout7[0] = input_select_Dout;
   assign Dout8[0] = continuous_output_Dout;
   assign Dout9[3:0] = CH2_config_Dout9;
-  assign In2_1 = In2[15:0];
+  assign In2_1 = In2[17:0];
   assign M_AXIS1_tdata[447:0] = Conn2_TDATA;
   assign M_AXIS1_tvalid = Conn2_TVALID;
   assign M_AXIS2_tdata[191:0] = CH2_config_M_AXIS2_TDATA;
@@ -1162,7 +1166,7 @@ module Reg_Brakeout_imp_H22Q4C
   system_status_concat_1_0 status_concat_1
        (.In0(const_0_dout),
         .In1({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,dna_reader_0_dna_data}),
-        .In2({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,In2_1}),
+        .In2({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,In2_1}),
         .dout(status_concat_1_dout));
   system_params_imp_1MROCIH system_params
        (.Din1(Din1_1),
@@ -2432,7 +2436,7 @@ module s00_couplers_imp_15TT0JU
         .s_axi_wvalid(s00_couplers_to_auto_pc_WVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=75,numReposBlks=57,numNonXlnxBlks=0,numHierBlks=18,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=11,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=13,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=10,synth_mode=Global}" *) (* HW_HANDOFF = "system.hwdef" *) 
+(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=76,numReposBlks=58,numNonXlnxBlks=0,numHierBlks=18,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=12,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=13,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=10,synth_mode=Global}" *) (* HW_HANDOFF = "system.hwdef" *) 
 module system
    (DDR_addr,
     DDR_ba,
@@ -2513,7 +2517,7 @@ module system
   wire Core_clk_out3;
   wire Core_locked;
   wire [511:0]Memory_IO_cfg_data;
-  wire [15:0]Memory_IO_sts_data1;
+  wire [17:0]Memory_IO_sts_data1;
   wire [3:0]Reg_Brakeout_Dout;
   wire [0:0]Reg_Brakeout_Dout15;
   wire [3:0]Reg_Brakeout_Dout9;

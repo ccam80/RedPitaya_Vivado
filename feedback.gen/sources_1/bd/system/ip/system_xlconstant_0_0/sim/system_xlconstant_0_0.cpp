@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2024 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2014 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -47,50 +47,27 @@
 // DO NOT MODIFY THIS FILE.
 
 
-#include "system_auto_pc_0_sc.h"
+// IP VLNV: xilinx.com:ip:xlconstant:1.1
+// IP Revision: 1
 
-#include "axi_protocol_converter.h"
+#ifndef _system_xlconstant_0_0_CPP_
+#define _system_xlconstant_0_0_CPP_
 
-#include <map>
-#include <string>
+#include "system_xlconstant_0_0.h"
 
-system_auto_pc_0_sc::system_auto_pc_0_sc(const sc_core::sc_module_name& nm) : sc_core::sc_module(nm), mp_impl(NULL)
-{
-  // configure connectivity manager
-  xsc::utils::xsc_sim_manager::addInstance("system_auto_pc_0", this);
-
-  // initialize module
-    xsc::common_cpp::properties model_param_props;
-    model_param_props.addLong("C_M_AXI_PROTOCOL", "2");
-    model_param_props.addLong("C_S_AXI_PROTOCOL", "1");
-    model_param_props.addLong("C_IGNORE_ID", "0");
-    model_param_props.addLong("C_AXI_ID_WIDTH", "12");
-    model_param_props.addLong("C_AXI_ADDR_WIDTH", "32");
-    model_param_props.addLong("C_AXI_DATA_WIDTH", "32");
-    model_param_props.addLong("C_AXI_SUPPORTS_WRITE", "1");
-    model_param_props.addLong("C_AXI_SUPPORTS_READ", "1");
-    model_param_props.addLong("C_AXI_SUPPORTS_USER_SIGNALS", "0");
-    model_param_props.addLong("C_AXI_AWUSER_WIDTH", "1");
-    model_param_props.addLong("C_AXI_ARUSER_WIDTH", "1");
-    model_param_props.addLong("C_AXI_WUSER_WIDTH", "1");
-    model_param_props.addLong("C_AXI_RUSER_WIDTH", "1");
-    model_param_props.addLong("C_AXI_BUSER_WIDTH", "1");
-    model_param_props.addLong("C_TRANSLATION_MODE", "2");
-    model_param_props.addString("C_FAMILY", "zynq");
-
-  mp_impl = new axi_protocol_converter("inst", model_param_props);
-
-  // initialize AXI sockets
-  target_rd_socket = mp_impl->target_rd_socket;
-  target_wr_socket = mp_impl->target_wr_socket;
-  initiator_rd_socket = mp_impl->initiator_rd_socket;
-  initiator_wr_socket = mp_impl->initiator_wr_socket;
+system_xlconstant_0_0::system_xlconstant_0_0 (sc_core::sc_module_name name) :sc_module(name), mod("mod"), dout("dout") {
+    mod.dout(dout);
 }
+#ifdef MTI_SYSTEMC
+SC_MODULE_EXPORT(system_xlconstant_0_0);
+#endif
 
-system_auto_pc_0_sc::~system_auto_pc_0_sc()
-{
-  xsc::utils::xsc_sim_manager::clean();
+#ifdef XM_SYSTEMC
+XMSC_MODULE_EXPORT(system_xlconstant_0_0);
+#endif
 
-  delete mp_impl;
-}
+#ifdef RIVIERA
+SC_MODULE_EXPORT(system_xlconstant_0_0);
+#endif
+#endif
 

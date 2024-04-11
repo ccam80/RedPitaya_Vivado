@@ -139,9 +139,7 @@ module feedback_combined #
     always @(posedge aclk)
     begin
         CH1_state <= CH1_sel;
-        CH2_state <= CH2_sel;
-        trigger <= (trig_in_channels | trig_in_CBC);
-        
+        CH2_state <= CH2_sel;        
         CONTINUOUS_OUTPUT = continuous_output_in;
         
         //Premultiplied inputs
@@ -154,7 +152,9 @@ module feedback_combined #
                 CBC_PRODUCT_D_in <= Shared_product_5;
                 CBC_PRODUCT_E_in <= Shared_product_3;
                 CBC_OFFSET_in <= CBC_offset;
+                trigger <= trig_in_CBC;
                 end
+                
             default:
                 begin            
                 CH1_PRODUCT_A_in <= Shared_product_1;
@@ -165,9 +165,11 @@ module feedback_combined #
                 
                 CH2_PRODUCT_A_in <= Shared_product_5;
                 CH2_PRODUCT_B_in <= Shared_product_3;
-                CH2_PRODUCT_C_in <= Shared_product_1;
-                CH2_PRODUCT_D_in <= CH2_product_1;
+                CH2_PRODUCT_C_in <= CH2_product_1;
+                CH2_PRODUCT_D_in <= Shared_product_4;
                 CH2_OFFSET_in <= CH2_offset;
+                
+                trigger <= trig_in_channels;
                 end
                 
         endcase            

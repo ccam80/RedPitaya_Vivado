@@ -191,8 +191,8 @@ parameter SEL_WIDTH=4
     // Carry out narrow 16x16 multiplications using inferred multipliers - only multiply useful bits to cut down slack, then sign extend result
     always @(posedge aclk)
     begin
-        IN1_squared_result <= IN1[13:0] * IN1[13:0];
-        IN1_IN2_result <= IN1[13:0]  * IN2[13:0];
+        IN1_squared_result <= IN1 * IN1; // sign extend, as it's a 28-bit number going into a 32-bit hole. Square iis always positive
+        IN1_IN2_result <= { {4{IN1[13]^IN2[13]}}, IN1[13:0]  * IN2[13:0]}; // Sign extend, as it's a 26-bit number going into a 32-bit hole
         IN1_DDS_result <= {{2{IN1[15]^dds_out[15]}},IN1[13:0] * dds_out};
     end      
     
@@ -299,7 +299,7 @@ parameter SEL_WIDTH=4
                 Operand_3_out <= Param_B_in;
                 Operand_4_out <= IN1_squared_result;
                 Operand_5_out <= Param_C_in;
-                Operand_6_out <= {{6{IN1[15]}}, IN1_squared_result * IN1[13:0]};
+                Operand_6_out <= {{2{IN1[15]}}, IN1_squared_result * IN1[13:0]};
                 Operand_7_out <= 32'b0;
                 Offset_out <= Param_E_in;
             end

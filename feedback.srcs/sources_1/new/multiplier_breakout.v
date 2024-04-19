@@ -94,6 +94,7 @@ parameter SEL_WIDTH=4
     reg signed [RNG_WIDTH-1:0] RNG;
     reg signed [OPERAND_WIDTH-1:0] IN1_DDS_result;  
     reg signed [2*ADC_REAL_DATA_WIDTH - 1:0] IN1_squared_result, IN1_IN2_result;  
+    reg signed [(ADC_BUS_WIDTH * 3) - 1:0] IN1_cubed_result;
     
     localparam fixed = 0, sweep = 1, lin = 2, parametric = 3,  A_x_plus_B = 4, random = 5, polynomial = 6, CBC=7; 
    
@@ -194,6 +195,7 @@ parameter SEL_WIDTH=4
         IN1_squared_result <= IN1 * IN1; // sign extend, as it's a 28-bit number going into a 32-bit hole. Square iis always positive
         IN1_IN2_result <= IN1  * IN2; // Sign extend, as it's a 26-bit number going into a 32-bit hole
         IN1_DDS_result <= {{2{IN1[15]^dds_out[15]}},IN1[13:0] * dds_out};
+        IN1_cubed_result <= IN1_squared_result * IN1; // This one might break assumptions - this is preevious sample squared multiplied by current sample. Far below filter frequencies so seems tolerable. 
     end      
     
     
@@ -251,7 +253,7 @@ parameter SEL_WIDTH=4
                 Operand_3_out <= Param_D_in;
                 Operand_4_out <= IN1_squared_result;
                 Operand_5_out <= Param_E_in;
-                Operand_6_out <= {{6{IN1[15]}}, IN1_squared_result * IN1[13:0]};
+                Operand_6_out <= IN1_cubed_result;
                 Operand_7_out <= (Param_A_in << 15) - 1;
                 Offset_out <= 32'b0;
             end
@@ -263,7 +265,7 @@ parameter SEL_WIDTH=4
                 Operand_3_out <= Param_D_in;
                 Operand_4_out <= IN1_squared_result;
                 Operand_5_out <= Param_E_in;
-                Operand_6_out <= {{6{IN1[15]}}, IN1_squared_result * IN1[13:0]};
+                Operand_6_out <= IN1_cubed_result;
                 Operand_7_out <= (Param_A_in << 15) - 1;
                 Offset_out <= 32'b0;
             end
@@ -299,7 +301,7 @@ parameter SEL_WIDTH=4
                 Operand_3_out <= Param_B_in;
                 Operand_4_out <= IN1_squared_result;
                 Operand_5_out <= Param_C_in;
-                Operand_6_out <= IN1_squared_result * IN1;
+                Operand_6_out <= IN1_cubed_result;
                 Operand_7_out <= 32'b0;
                 Offset_out <= Param_E_in;
             end

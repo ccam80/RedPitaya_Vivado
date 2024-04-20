@@ -129,7 +129,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>8e6e5d63</spirit:value>
+            <spirit:value>e0227ba5</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -142,7 +142,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>8e6e5d63</spirit:value>
+            <spirit:value>e0227ba5</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -191,7 +191,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.FAST_AXIS_TDATA_WIDTH&apos;)) - 1)">63</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.FAST_AXIS_TDATA_WIDTH&apos;)) - 1)">95</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -224,7 +224,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.SLOW_AXIS_TDATA_WIDTH&apos;)) - 1)">159</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.SLOW_AXIS_TDATA_WIDTH&apos;)) - 1)">95</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -287,17 +287,22 @@
       <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="integer">
         <spirit:name>FAST_AXIS_TDATA_WIDTH</spirit:name>
         <spirit:displayName>Fast Axis Tdata Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.FAST_AXIS_TDATA_WIDTH">64</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.FAST_AXIS_TDATA_WIDTH">96</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>SLOW_AXIS_TDATA_WIDTH</spirit:name>
         <spirit:displayName>Slow Axis Tdata Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.SLOW_AXIS_TDATA_WIDTH">160</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.SLOW_AXIS_TDATA_WIDTH">96</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>SLOW_SHIFT</spirit:name>
         <spirit:displayName>Slow Shift</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.SLOW_SHIFT">21</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.SLOW_SHIFT">8</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>DAC_WIDTH</spirit:name>
+        <spirit:displayName>Dac Width</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DAC_WIDTH">14</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>CHANNEL_WIDTH_OUT</spirit:name>
@@ -307,17 +312,17 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>CHANNEL_WIDTH_IN_SLOW</spirit:name>
         <spirit:displayName>Channel Width In Slow</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CHANNEL_WIDTH_IN_SLOW">40</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CHANNEL_WIDTH_IN_SLOW">24</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>CHANNEL_WIDTH_IN_FAST</spirit:name>
         <spirit:displayName>Channel Width In Fast</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CHANNEL_WIDTH_IN_FAST">16</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CHANNEL_WIDTH_IN_FAST">24</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>FAST_SHIFT</spirit:name>
         <spirit:displayName>Fast Shift</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.FAST_SHIFT">0</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.FAST_SHIFT">9</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>S_AXIS_TDATA_WIDTH</spirit:name>
@@ -337,7 +342,7 @@
       <spirit:file>
         <spirit:name>xgui/AXI_mux_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_daa49fcf</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_05dac738</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -347,17 +352,22 @@
     <spirit:parameter>
       <spirit:name>FAST_AXIS_TDATA_WIDTH</spirit:name>
       <spirit:displayName>Fast Axis Tdata Width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.FAST_AXIS_TDATA_WIDTH">64</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.FAST_AXIS_TDATA_WIDTH">96</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>SLOW_AXIS_TDATA_WIDTH</spirit:name>
       <spirit:displayName>Slow Axis Tdata Width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.SLOW_AXIS_TDATA_WIDTH">160</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.SLOW_AXIS_TDATA_WIDTH">96</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>SLOW_SHIFT</spirit:name>
       <spirit:displayName>Slow Shift</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.SLOW_SHIFT">21</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.SLOW_SHIFT">8</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>DAC_WIDTH</spirit:name>
+      <spirit:displayName>Dac Width</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DAC_WIDTH">14</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>CHANNEL_WIDTH_OUT</spirit:name>
@@ -367,17 +377,17 @@
     <spirit:parameter>
       <spirit:name>CHANNEL_WIDTH_IN_SLOW</spirit:name>
       <spirit:displayName>Channel Width In Slow</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CHANNEL_WIDTH_IN_SLOW">40</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CHANNEL_WIDTH_IN_SLOW">24</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>CHANNEL_WIDTH_IN_FAST</spirit:name>
       <spirit:displayName>Channel Width In Fast</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CHANNEL_WIDTH_IN_FAST">16</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CHANNEL_WIDTH_IN_FAST">24</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>FAST_SHIFT</spirit:name>
       <spirit:displayName>Fast Shift</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.FAST_SHIFT">0</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.FAST_SHIFT">9</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>S_AXIS_TDATA_WIDTH</spirit:name>
@@ -409,7 +419,7 @@
         <xilinx:designToolContext>IPI</xilinx:designToolContext>
       </xilinx:designToolContexts>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2024-04-19T10:23:50Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2024-04-20T10:17:14Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>

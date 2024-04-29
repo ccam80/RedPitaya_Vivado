@@ -85,7 +85,7 @@ parameter SEL_WIDTH=4
     output reg [OPERAND_WIDTH-1:0]              OFFSET
     );
     
-    localparam DISP_1_VEL_2 = 1, DISP_2_VEL_1 = 0, INTERNAL = 0, EXTERNAL = 1;
+    localparam DISP_1_VEL_2 = 1'b1, DISP_2_VEL_1 = 1'b0, INTERNAL = 1'b0, EXTERNAL = 1'b1;
     
     reg trigger;
     reg trigger_1;
@@ -118,6 +118,7 @@ parameter SEL_WIDTH=4
     reg signed [ADC_WIDTH-1:0] displacement_last, velocity_last, polynomial_var_last;
         
     reg signed [ADC_WIDTH * 2 -1:0] polynomial_var_squared_result;
+    reg signed [ADC_WIDTH * 3 -1:0] polynomial_var_cubed_result;
     
     localparam CBC=7; 
     
@@ -166,7 +167,6 @@ parameter SEL_WIDTH=4
     wire dds_M_AXIS_tvalid;       
     reg resync_dds;
 
-    reg dds_synced;    
     wire signed [DDS_WIDTH-1:0] ref_master;
     reg signed [DDS_WIDTH - 1:0] ref_master_last,
                                  ref_displacement, ref_velocity;
@@ -236,7 +236,7 @@ parameter SEL_WIDTH=4
     .s_axis_phase_tvalid(S_AXIS_CFG_TVALID),  // input wire s_axis_phase_tvalid
     .s_axis_phase_tdata({resync_dds, 2'b0, phase_in}),    // input wire [39 : 0] s_axis_phase_tdata
     .m_axis_data_tvalid(m_axis_data_tvalid),    // output wire m_axis_data_tvalid
-    .m_axis_data_tdata({ref_displacement_dds})      // output wire [31 : 0] m_axis_data_tdata
+    .m_axis_data_tdata(ref_dds)      // output wire [31 : 0] m_axis_data_tdata
     );
     
     // 3-cycle_delay fixed-point multiplication of ref sinusoid by Q32 fractional rhat
@@ -335,8 +335,8 @@ parameter SEL_WIDTH=4
         endcase 
                    
         trigger <= trigger_in;
-        velocity_external = velocity_int_ext;
-        displacement_external = displacement_int_ext;
+        velocity_external <= velocity_int_ext;
+        displacement_external <= displacement_int_ext;
     end
     
     // set polynomial target based on toggle, get "last" values of variables
@@ -378,7 +378,8 @@ parameter SEL_WIDTH=4
     // Carry out narrow 16x16 multiplication using inferred multipliers
     always @(posedge aclk)
     begin
-        polynomial_var_squared_result <= {4'b0, polynomial_var[13:0] * polynomial_var[13:0]};
+        polynomial_var_squared_result <= polynomial_var * polynomial_var;
+        polynomial_var_cubed_result <= polynomial_var_squared_result * polynomial_var;
     end      
     
   
@@ -387,13 +388,13 @@ parameter SEL_WIDTH=4
     begin
         //Control outputs
         Operand_1_out <= KP;        // Q16.16  Useful (integer) output will be left-shifted 16 bits
-        Operand_2_out <= {{16{error[15]}},error};     // extend to 32 bit to use shared mult
+        Operand_2_out <= {{8{error[15]}},error<<8};     // extend to 32 bit to use shared mult, shift up 8b to compensate for shared mult slicing
         Operand_3_out <= KD;        // Q16.16
-        Operand_4_out <= {{16{error_dot[15]}},error_dot}; // extend to 32 bit to use shared mult
+        Operand_4_out <= {{8{error_dot[15]}},error_dot<<8}; // extend to 32 bit to use shared mult
         
         //Polynomial outputs
         Operand_5_out <= A;
-        Operand_6_out <= {{2{polynomial_var[15]}}, polynomial_var_squared_result * polynomial_var[13:0]};
+        Operand_6_out <= polynomial_var_cubed_result;
         Operand_7_out <= B;
         Operand_8_out <= polynomial_var_squared_result;
         Operand_9_out <= C; 
@@ -420,15 +421,12 @@ parameter SEL_WIDTH=4
   always @(posedge(aclk))
         begin
             
-            if (trigger)
+            if (!trigger_1 && trigger)
             begin
-                dds_synced <= 1;
-                if (dds_synced) resync_dds <= 0;
-                else resync_dds <= 1;                                
+                resync_dds <= 1;             
             end
             else
             begin
-                dds_synced <= 0;
                 resync_dds <= 0;
             end
                             

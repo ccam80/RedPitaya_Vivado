@@ -187,8 +187,8 @@ module feedback_combined #
             A_x_plus_B: CH1_result <= {{18{CH1_PRODUCT_A_in[CH_PRODUCT_A_WIDTH - 1]}}, CH1_PRODUCT_A_in[CH_PRODUCT_A_WIDTH - 2:9]} + {{10{CH1_OFFSET_in[OFFSET_WIDTH - 1]}}, CH1_OFFSET_in, 15'b0};
             CBC: 
             begin
-                CH1_result <= {{18{CBC_PRODUCT_A_in[CBC_PRODUCT_A_WIDTH - 1]}}, CBC_PRODUCT_A_in[CBC_PRODUCT_A_WIDTH - 2:9]} << 16 +
-                               {{18{CBC_PRODUCT_B_in[CBC_PRODUCT_B_WIDTH - 1]}}, CBC_PRODUCT_B_in[CBC_PRODUCT_B_WIDTH - 2:9]} << 16;
+                CH1_result <= {{16{CBC_PRODUCT_A_in[CBC_PRODUCT_A_WIDTH - 1]}}, CBC_PRODUCT_A_in[CBC_PRODUCT_A_WIDTH - 1:0]} +
+                               {{16{CBC_PRODUCT_B_in[CBC_PRODUCT_B_WIDTH - 1]}}, CBC_PRODUCT_B_in[CBC_PRODUCT_B_WIDTH - 1:0]};
                 
                 CH2_result <= CBC_PRODUCT_C_in + CBC_PRODUCT_D_in + CBC_PRODUCT_E_in + {{10{CBC_OFFSET_in[OFFSET_WIDTH - 1]}}, CBC_OFFSET_in, 15'b0};
             end

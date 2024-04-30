@@ -163,6 +163,8 @@ parameter SEL_WIDTH=4
     reg signed [DDS_WIDTH - 1:0] ref_master_last,
                                  ref_displacement, ref_velocity;
     reg signed [DDS_WIDTH - 1:0] error, error_dot, error_last;    
+    reg signed [(DDS_WIDTH*2) - 1:0] error_dot;    
+
     
 ////////////////////////////////////
 ////Instantiate further IP Cores////
@@ -359,7 +361,7 @@ parameter SEL_WIDTH=4
     begin
         error <= ref_displacement - displacement;
         error_last <= error;
-        error_dot  <= (error - error_last); 
+        error_dot  <= (error - error_last) << 24; 
         //Shift externally measured x_dot_n velocity sample back half a sample (linear interpolation) to be at the same time point
         // as calculated by the ref signal.
 //        case(velocity_external)
@@ -383,7 +385,7 @@ parameter SEL_WIDTH=4
         Operand_1_out <= KP;        // Q16.16  Useful (integer) output will be left-shifted 16 bits
         Operand_2_out <= {{8{error[15]}},error, 8'b0};     // extend to 32 bit to use shared mult, shift up 8b to compensate for shared mult slicing
         Operand_3_out <= KD;        // Q16.16
-        Operand_4_out <= {{8{error_dot[15]}},error_dot, 8'b0}; // extend to 32 bit to use shared mult
+        Operand_4_out <= error_dot; // extend to 32 bit to use shared mult
         
         //Polynomial outputs
         Operand_5_out <= A;

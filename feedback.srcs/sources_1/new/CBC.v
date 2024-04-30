@@ -96,7 +96,6 @@ parameter SEL_WIDTH=4
     reg trigger_6; 
     reg trigger_7; 
  
-    reg input_order;
     reg velocity_external;
     reg displacement_external;
     
@@ -115,7 +114,7 @@ parameter SEL_WIDTH=4
 
     
     reg signed [ADC_WIDTH-1:0] displacement, velocity, polynomial_var;
-    reg signed [ADC_WIDTH-1:0] displacement_last, velocity_last, polynomial_var_last;
+    reg signed [ADC_WIDTH-1:0] displacement_last, velocity_last;
         
     reg signed [ADC_WIDTH * 2 -1:0] polynomial_var_squared_result;
     reg signed [ADC_WIDTH * 3 -1:0] polynomial_var_cubed_result;
@@ -126,43 +125,36 @@ parameter SEL_WIDTH=4
     reg rhat_counter_en = 1'b1;
     reg rhat_counter_nreset = 1'b1;
     wire rhat_counter_thresh;
-    reg rhat_sweep_active;
     
     //Signals for freq_counter
     reg freq_counter_en = 1'b1;
     reg freq_counter_nreset = 1'b1;
     wire freq_counter_thresh;   
-    reg freq_sweep_active;
 
     
     //Signals for A_counter
     reg A_counter_en = 1'b1;
     reg A_counter_nreset = 1'b1;
     wire A_counter_thresh;
-    reg A_sweep_active; 
     
     
     //Signals for add_counter
     reg B_counter_en = 1'b1;
     reg B_counter_nreset = 1'b1;
     wire B_counter_thresh;
-    reg B_sweep_active; 
     
     //Signals for add_counter
     reg C_counter_en = 1'b1;
     reg C_counter_nreset = 1'b1;
     wire C_counter_thresh;
-    reg C_sweep_active; 
     
         //Signals for add_counter
     reg D_counter_en = 1'b1;
     reg D_counter_nreset = 1'b1;
     wire D_counter_thresh;
-    reg D_sweep_active; 
     
     
     //Signals for I/O from DDS
-    reg signed [31:0] phase_next, phase, dds_phase_in = 32'b0;
     wire signed [DDS_WIDTH - 1:0] ref_dds;
     wire dds_M_AXIS_tvalid;       
     reg resync_dds;
@@ -170,7 +162,7 @@ parameter SEL_WIDTH=4
     wire signed [DDS_WIDTH-1:0] ref_master;
     reg signed [DDS_WIDTH - 1:0] ref_master_last,
                                  ref_displacement, ref_velocity;
-    reg signed [DDS_WIDTH - 1:0] error, error_dot;    
+    reg signed [DDS_WIDTH - 1:0] error, error_dot, error_last;    
     
 ////////////////////////////////////
 ////Instantiate further IP Cores////
@@ -233,8 +225,8 @@ parameter SEL_WIDTH=4
     // DDS compiler for sinusoidal output
     dds_compiler_0 reference_sinusoids (
     .aclk(aclk),                                // input wire aclk
-    .s_axis_phase_tvalid(S_AXIS_CFG_TVALID),  // input wire s_axis_phase_tvalid
-    .s_axis_phase_tdata({resync_dds, 2'b0, phase_in}),    // input wire [39 : 0] s_axis_phase_tdata
+    .s_axis_phase_tvalid(S_AXIS_CFG_tvalid),  // input wire s_axis_phase_tvalid
+    .s_axis_phase_tdata({7'b0,resync_dds, 2'b0, freq[29:0]}),    // input wire [39 : 0] s_axis_phase_tdata
     .m_axis_data_tvalid(m_axis_data_tvalid),    // output wire m_axis_data_tvalid
     .m_axis_data_tdata(ref_dds)      // output wire [31 : 0] m_axis_data_tdata
     );
@@ -278,7 +270,7 @@ parameter SEL_WIDTH=4
     // Input order could be handled more elegantly but I want to avoid adding another pipeline stage here unintentionally.
     always @(posedge aclk)
     begin
-        case (input_order)   
+        case (input_select)   
         DISP_1_VEL_2:
         
             begin
@@ -300,8 +292,8 @@ parameter SEL_WIDTH=4
                     end
                 {INTERNAL, INTERNAL}:
                     begin
-                    velocity = ref_velocity;
-                    displacement = ref_displacement;
+                    velocity = -ref_velocity;
+                    displacement = -ref_displacement;
                     end
                 endcase                                
             end
@@ -326,8 +318,8 @@ parameter SEL_WIDTH=4
                     end
                 {INTERNAL, INTERNAL}:
                     begin
-                    velocity = ref_velocity;
-                    displacement = ref_displacement;
+                    velocity = -ref_velocity;
+                    displacement = -ref_displacement;
                     end
                 endcase                                
             end
@@ -340,7 +332,7 @@ parameter SEL_WIDTH=4
     end
     
     // set polynomial target based on toggle, get "last" values of variables
-    always @(negedge aclk)
+    always @(posedge aclk)
     begin
         
         //Save "lasts" for anything that's quick (1/2 cycle) to work out
@@ -349,7 +341,7 @@ parameter SEL_WIDTH=4
         ref_master_last <= ref_master;
                
         // Assign reference signals from multiplied master
-        ref_velocity <= ref_master - ref_master_last;
+        ref_velocity <= ref_master - ref_master_last; // Shift to account for freq
         ref_displacement <= ref_master;                                            
     end
     
@@ -365,14 +357,15 @@ parameter SEL_WIDTH=4
 
     always @ (posedge aclk)
     begin
-        error <= displacement - ref_displacement;
-        
+        error <= ref_displacement - displacement;
+        error_last <= error;
+        error_dot  <= (error - error_last); 
         //Shift externally measured x_dot_n velocity sample back half a sample (linear interpolation) to be at the same time point
         // as calculated by the ref signal.
-        case(velocity_external)
-            INTERNAL: error_dot <= ((velocity + velocity_last) << 2) - ref_velocity;
-            EXTERNAL: error_dot <= velocity - ref_velocity;              
-        endcase   
+//        case(velocity_external)
+//            INTERNAL: error_dot <= ((velocity + velocity_last) << 1) - ref_velocity;
+//            EXTERNAL: error_dot <= velocity - ref_velocity;              
+//        endcase   
     end    
         
     // Carry out narrow 16x16 multiplication using inferred multipliers
@@ -388,9 +381,9 @@ parameter SEL_WIDTH=4
     begin
         //Control outputs
         Operand_1_out <= KP;        // Q16.16  Useful (integer) output will be left-shifted 16 bits
-        Operand_2_out <= {{8{error[15]}},error<<8};     // extend to 32 bit to use shared mult, shift up 8b to compensate for shared mult slicing
+        Operand_2_out <= {{8{error[15]}},error, 8'b0};     // extend to 32 bit to use shared mult, shift up 8b to compensate for shared mult slicing
         Operand_3_out <= KD;        // Q16.16
-        Operand_4_out <= {{8{error_dot[15]}},error_dot<<8}; // extend to 32 bit to use shared mult
+        Operand_4_out <= {{8{error_dot[15]}},error_dot, 8'b0}; // extend to 32 bit to use shared mult
         
         //Polynomial outputs
         Operand_5_out <= A;
@@ -398,7 +391,7 @@ parameter SEL_WIDTH=4
         Operand_7_out <= B;
         Operand_8_out <= polynomial_var_squared_result;
         Operand_9_out <= C; 
-        Operand_10_out <= {{16{polynomial_var[15]}}, polynomial_var}; // extend to 32 bit to use shared mult
+        Operand_10_out <= {polynomial_var, 16'b0}; // extend to 32 bit to use shared mult
         Offset_out <= D;
     
     end  
@@ -413,6 +406,9 @@ parameter SEL_WIDTH=4
         OP5 <= Operand_5_out;
         OP6 <= Operand_6_out;
         OP7 <= Operand_7_out;
+        OP8 <= Operand_8_out;
+        OP9 <= Operand_9_out;
+        OP10 <= Operand_10_out;
         OFFSET <= Offset_out;
         end  
         

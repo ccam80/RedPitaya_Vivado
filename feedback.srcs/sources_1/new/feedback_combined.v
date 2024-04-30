@@ -187,8 +187,9 @@ module feedback_combined #
             A_x_plus_B: CH1_result <= {{18{CH1_PRODUCT_A_in[CH_PRODUCT_A_WIDTH - 1]}}, CH1_PRODUCT_A_in[CH_PRODUCT_A_WIDTH - 2:9]} + {{10{CH1_OFFSET_in[OFFSET_WIDTH - 1]}}, CH1_OFFSET_in, 15'b0};
             CBC: 
             begin
-                CH1_result <= {{16{CBC_PRODUCT_A_in[CBC_PRODUCT_A_WIDTH - 1]}}, CBC_PRODUCT_A_in[CBC_PRODUCT_A_WIDTH - 1:0]} +
-                               {{16{CBC_PRODUCT_B_in[CBC_PRODUCT_B_WIDTH - 1]}}, CBC_PRODUCT_B_in[CBC_PRODUCT_B_WIDTH - 1:0]};
+                CH1_result <= {{17{CBC_PRODUCT_A_in[CBC_PRODUCT_A_WIDTH - 1]}}, CBC_PRODUCT_A_in[CBC_PRODUCT_A_WIDTH - 1:1]} + // Sign extend into 64b result (upper bits not used, could be skipped)
+                               {{17{CBC_PRODUCT_B_in[CBC_PRODUCT_B_WIDTH - 1]}}, CBC_PRODUCT_B_in[CBC_PRODUCT_B_WIDTH - 1:1]}; // Slice off last bit, as result is up 16 bits initially, and gets shifted 15 at the output
+                               // so we get one bit shifted here. Complicated, have manipulated it here for compatibility with other results
                 
                 CH2_result <= CBC_PRODUCT_C_in + CBC_PRODUCT_D_in + CBC_PRODUCT_E_in + {{10{CBC_OFFSET_in[OFFSET_WIDTH - 1]}}, CBC_OFFSET_in, 15'b0};
             end

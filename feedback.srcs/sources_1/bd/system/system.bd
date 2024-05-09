@@ -55,14 +55,12 @@
           "input_select_2": "",
           "CH2_Feedback_Params_2": ""
         },
-        "CBC_config": {
-          "Displacement_int_ext": "",
+        "gng_0": "",
+        "CBC_config_and_params": {
           "Polynomial_target": "",
-          "input_order": "",
-          "Velocity_int_ext": "",
-          "ALL_Feedback_Params": ""
-        },
-        "gng_0": ""
+          "ALL_Feedback_Params": "",
+          "input_order": ""
+        }
       },
       "axis_red_pitaya_adc_0": "",
       "ch1_mem_fb_split": "",
@@ -2335,10 +2333,22 @@
               }
             },
             "interface_nets": {
+              "s00_couplers_to_xbar": {
+                "interface_ports": [
+                  "s00_couplers/M_AXI",
+                  "xbar/S00_AXI"
+                ]
+              },
               "m00_couplers_to_ps_0_axi_periph": {
                 "interface_ports": [
                   "M00_AXI",
                   "m00_couplers/M_AXI"
+                ]
+              },
+              "xbar_to_m01_couplers": {
+                "interface_ports": [
+                  "xbar/M01_AXI",
+                  "m01_couplers/S_AXI"
                 ]
               },
               "xbar_to_m00_couplers": {
@@ -2353,22 +2363,10 @@
                   "s00_couplers/S_AXI"
                 ]
               },
-              "s00_couplers_to_xbar": {
-                "interface_ports": [
-                  "s00_couplers/M_AXI",
-                  "xbar/S00_AXI"
-                ]
-              },
               "m01_couplers_to_ps_0_axi_periph": {
                 "interface_ports": [
                   "M01_AXI",
                   "m01_couplers/M_AXI"
-                ]
-              },
-              "xbar_to_m01_couplers": {
-                "interface_ports": [
-                  "xbar/M01_AXI",
-                  "m01_couplers/S_AXI"
                 ]
               }
             },
@@ -2958,6 +2956,18 @@
           }
         },
         "interface_nets": {
+          "S_AXIS_1": {
+            "interface_ports": [
+              "S_AXIS",
+              "axis_ram_writer_1/s_axis"
+            ]
+          },
+          "S_AXI1_1": {
+            "interface_ports": [
+              "S_AXI1",
+              "axi_sts_register_0/S_AXI"
+            ]
+          },
           "axis_ram_writer_1_m_axi": {
             "interface_ports": [
               "M_AXI",
@@ -2968,18 +2978,6 @@
             "interface_ports": [
               "S_AXI",
               "axi_cfg_register_0/S_AXI"
-            ]
-          },
-          "S_AXI1_1": {
-            "interface_ports": [
-              "S_AXI1",
-              "axi_sts_register_0/S_AXI"
-            ]
-          },
-          "S_AXIS_1": {
-            "interface_ports": [
-              "S_AXIS",
-              "axis_ram_writer_1/s_axis"
             ]
           }
         },
@@ -3039,10 +3037,6 @@
       },
       "Reg_Brakeout": {
         "interface_ports": {
-          "M_AXIS": {
-            "mode": "Master",
-            "vlnv": "xilinx.com:interface:axis_rtl:1.0"
-          },
           "M_AXIS2": {
             "mode": "Master",
             "vlnv": "xilinx.com:interface:axis_rtl:1.0"
@@ -3138,17 +3132,7 @@
             "left": "0",
             "right": "0"
           },
-          "Dout12": {
-            "direction": "O",
-            "left": "0",
-            "right": "0"
-          },
           "Dout13": {
-            "direction": "O",
-            "left": "0",
-            "right": "0"
-          },
-          "Dout14": {
             "direction": "O",
             "left": "0",
             "right": "0"
@@ -3728,198 +3712,6 @@
               }
             }
           },
-          "CBC_config": {
-            "interface_ports": {
-              "M_AXIS": {
-                "mode": "Master",
-                "vlnv": "xilinx.com:interface:axis_rtl:1.0"
-              }
-            },
-            "ports": {
-              "cfg_data": {
-                "direction": "I",
-                "left": "447",
-                "right": "0"
-              },
-              "aclk": {
-                "type": "clk",
-                "direction": "I"
-              },
-              "Dout11": {
-                "direction": "O",
-                "left": "0",
-                "right": "0"
-              },
-              "Dout12": {
-                "direction": "O",
-                "left": "0",
-                "right": "0"
-              },
-              "Dout13": {
-                "direction": "O",
-                "left": "0",
-                "right": "0"
-              },
-              "Dout14": {
-                "direction": "O",
-                "left": "0",
-                "right": "0"
-              },
-              "Din1": {
-                "direction": "I",
-                "left": "511",
-                "right": "0"
-              }
-            },
-            "components": {
-              "Displacement_int_ext": {
-                "vlnv": "xilinx.com:ip:xlslice:1.0",
-                "xci_name": "system_input_select_2_0",
-                "xci_path": "ip/system_input_select_2_0/system_input_select_2_0.xci",
-                "inst_hier_path": "Reg_Brakeout/CBC_config/Displacement_int_ext",
-                "parameters": {
-                  "DIN_FROM": {
-                    "value": "26"
-                  },
-                  "DIN_TO": {
-                    "value": "26"
-                  },
-                  "DIN_WIDTH": {
-                    "value": "512"
-                  },
-                  "DOUT_WIDTH": {
-                    "value": "1"
-                  }
-                }
-              },
-              "Polynomial_target": {
-                "vlnv": "xilinx.com:ip:xlslice:1.0",
-                "xci_name": "system_input_select_2_1",
-                "xci_path": "ip/system_input_select_2_1/system_input_select_2_1.xci",
-                "inst_hier_path": "Reg_Brakeout/CBC_config/Polynomial_target",
-                "parameters": {
-                  "DIN_FROM": {
-                    "value": "27"
-                  },
-                  "DIN_TO": {
-                    "value": "27"
-                  },
-                  "DIN_WIDTH": {
-                    "value": "512"
-                  },
-                  "DOUT_WIDTH": {
-                    "value": "1"
-                  }
-                }
-              },
-              "input_order": {
-                "vlnv": "xilinx.com:ip:xlslice:1.0",
-                "xci_name": "system_input_select_3_0",
-                "xci_path": "ip/system_input_select_3_0/system_input_select_3_0.xci",
-                "inst_hier_path": "Reg_Brakeout/CBC_config/input_order",
-                "parameters": {
-                  "DIN_FROM": {
-                    "value": "24"
-                  },
-                  "DIN_TO": {
-                    "value": "24"
-                  },
-                  "DIN_WIDTH": {
-                    "value": "512"
-                  },
-                  "DOUT_WIDTH": {
-                    "value": "1"
-                  }
-                }
-              },
-              "Velocity_int_ext": {
-                "vlnv": "xilinx.com:ip:xlslice:1.0",
-                "xci_name": "system_Feedback_State_1_0",
-                "xci_path": "ip/system_Feedback_State_1_0/system_Feedback_State_1_0.xci",
-                "inst_hier_path": "Reg_Brakeout/CBC_config/Velocity_int_ext",
-                "parameters": {
-                  "DIN_FROM": {
-                    "value": "25"
-                  },
-                  "DIN_TO": {
-                    "value": "25"
-                  },
-                  "DIN_WIDTH": {
-                    "value": "512"
-                  },
-                  "DOUT_WIDTH": {
-                    "value": "1"
-                  }
-                }
-              },
-              "ALL_Feedback_Params": {
-                "vlnv": "xilinx.com:user:axis_constant:1.0",
-                "xci_name": "system_axis_constant_0_0",
-                "xci_path": "ip/system_axis_constant_0_0_3/system_axis_constant_0_0.xci",
-                "inst_hier_path": "Reg_Brakeout/CBC_config/ALL_Feedback_Params",
-                "parameters": {
-                  "AXIS_TDATA_WIDTH": {
-                    "value": "448"
-                  }
-                }
-              }
-            },
-            "interface_nets": {
-              "Conn1": {
-                "interface_ports": [
-                  "M_AXIS",
-                  "ALL_Feedback_Params/M_AXIS"
-                ]
-              }
-            },
-            "nets": {
-              "Din1_1": {
-                "ports": [
-                  "Din1",
-                  "Polynomial_target/Din",
-                  "Velocity_int_ext/Din",
-                  "Displacement_int_ext/Din",
-                  "input_order/Din"
-                ]
-              },
-              "cfg_data_1": {
-                "ports": [
-                  "cfg_data",
-                  "ALL_Feedback_Params/cfg_data"
-                ]
-              },
-              "aclk_1": {
-                "ports": [
-                  "aclk",
-                  "ALL_Feedback_Params/aclk"
-                ]
-              },
-              "input_order_Dout": {
-                "ports": [
-                  "input_order/Dout",
-                  "Dout11"
-                ]
-              },
-              "Velocity_int_ext_Dout": {
-                "ports": [
-                  "Velocity_int_ext/Dout",
-                  "Dout12"
-                ]
-              },
-              "Polynomial_target_Dout": {
-                "ports": [
-                  "Polynomial_target/Dout",
-                  "Dout13"
-                ]
-              },
-              "Displacement_int_ext_Dout": {
-                "ports": [
-                  "Displacement_int_ext/Dout",
-                  "Dout14"
-                ]
-              }
-            }
-          },
           "gng_0": {
             "vlnv": "xilinx.com:module_ref:gng:1.0",
             "xci_name": "system_gng_0_0",
@@ -4094,6 +3886,134 @@
                 }
               }
             }
+          },
+          "CBC_config_and_params": {
+            "interface_ports": {
+              "M_AXIS": {
+                "mode": "Master",
+                "vlnv": "xilinx.com:interface:axis_rtl:1.0"
+              }
+            },
+            "ports": {
+              "Din1": {
+                "direction": "I",
+                "left": "511",
+                "right": "0"
+              },
+              "Dout13": {
+                "direction": "O",
+                "left": "0",
+                "right": "0"
+              },
+              "aclk": {
+                "type": "clk",
+                "direction": "I"
+              },
+              "cfg_data": {
+                "direction": "I",
+                "left": "447",
+                "right": "0"
+              },
+              "Dout11": {
+                "direction": "O",
+                "left": "0",
+                "right": "0"
+              }
+            },
+            "components": {
+              "Polynomial_target": {
+                "vlnv": "xilinx.com:ip:xlslice:1.0",
+                "xci_name": "system_input_select_2_1",
+                "xci_path": "ip/system_input_select_2_1/system_input_select_2_1.xci",
+                "inst_hier_path": "Reg_Brakeout/CBC_config_and_params/Polynomial_target",
+                "parameters": {
+                  "DIN_FROM": {
+                    "value": "27"
+                  },
+                  "DIN_TO": {
+                    "value": "27"
+                  },
+                  "DIN_WIDTH": {
+                    "value": "512"
+                  },
+                  "DOUT_WIDTH": {
+                    "value": "1"
+                  }
+                }
+              },
+              "ALL_Feedback_Params": {
+                "vlnv": "xilinx.com:user:axis_constant:1.0",
+                "xci_name": "system_axis_constant_0_0",
+                "xci_path": "ip/system_axis_constant_0_0_3/system_axis_constant_0_0.xci",
+                "inst_hier_path": "Reg_Brakeout/CBC_config_and_params/ALL_Feedback_Params",
+                "parameters": {
+                  "AXIS_TDATA_WIDTH": {
+                    "value": "448"
+                  }
+                }
+              },
+              "input_order": {
+                "vlnv": "xilinx.com:ip:xlslice:1.0",
+                "xci_name": "system_input_select_3_0",
+                "xci_path": "ip/system_input_select_3_0/system_input_select_3_0.xci",
+                "inst_hier_path": "Reg_Brakeout/CBC_config_and_params/input_order",
+                "parameters": {
+                  "DIN_FROM": {
+                    "value": "24"
+                  },
+                  "DIN_TO": {
+                    "value": "24"
+                  },
+                  "DIN_WIDTH": {
+                    "value": "512"
+                  },
+                  "DOUT_WIDTH": {
+                    "value": "1"
+                  }
+                }
+              }
+            },
+            "interface_nets": {
+              "Conn1": {
+                "interface_ports": [
+                  "M_AXIS",
+                  "ALL_Feedback_Params/M_AXIS"
+                ]
+              }
+            },
+            "nets": {
+              "Din1_1": {
+                "ports": [
+                  "Din1",
+                  "input_order/Din",
+                  "Polynomial_target/Din"
+                ]
+              },
+              "Polynomial_target_Dout": {
+                "ports": [
+                  "Polynomial_target/Dout",
+                  "Dout13"
+                ]
+              },
+              "aclk_1": {
+                "ports": [
+                  "aclk",
+                  "ALL_Feedback_Params/aclk"
+                ]
+              },
+              "cfg_data_1": {
+                "ports": [
+                  "cfg_data",
+                  "ALL_Feedback_Params/cfg_data"
+                ]
+              },
+              "input_order_Dout": {
+                "ports": [
+                  "input_order/Dout",
+                  "Dout11"
+                ]
+              }
+            }
           }
         },
         "interface_nets": {
@@ -4101,12 +4021,6 @@
             "interface_ports": [
               "M_AXIS2",
               "CH2_config/M_AXIS2"
-            ]
-          },
-          "Conn2": {
-            "interface_ports": [
-              "M_AXIS1",
-              "CBC_config/M_AXIS"
             ]
           },
           "CH1_Config_M_AXIS3": {
@@ -4126,6 +4040,12 @@
               "M_AXIS4",
               "gng_0/M_AXIS1"
             ]
+          },
+          "CBC_config_and_params_M_AXIS": {
+            "interface_ports": [
+              "M_AXIS1",
+              "CBC_config_and_params/M_AXIS"
+            ]
           }
         },
         "nets": {
@@ -4135,8 +4055,8 @@
               "dna_reader_0/aclk",
               "CH1_Config/aclk",
               "CH2_config/aclk",
-              "CBC_config/aclk",
-              "gng_0/clk"
+              "gng_0/clk",
+              "CBC_config_and_params/aclk"
             ]
           },
           "rst_0_peripheral_aresetn": {
@@ -4162,7 +4082,7 @@
               "CH1_Config/Din1",
               "system_params/Din1",
               "CH2_config/Din1",
-              "CBC_config/Din1"
+              "CBC_config_and_params/Din1"
             ]
           },
           "RAM_addres_Dout": {
@@ -4249,40 +4169,28 @@
               "CH2_config/cfg_data"
             ]
           },
-          "Feedback_config_bus_Dout": {
-            "ports": [
-              "Feedback_config_bus/Dout",
-              "CBC_config/cfg_data"
-            ]
-          },
-          "CBC_config_Dout11": {
-            "ports": [
-              "CBC_config/Dout11",
-              "Dout11"
-            ]
-          },
-          "CBC_config_Dout12": {
-            "ports": [
-              "CBC_config/Dout12",
-              "Dout12"
-            ]
-          },
-          "CBC_config_Dout13": {
-            "ports": [
-              "CBC_config/Dout13",
-              "Dout13"
-            ]
-          },
-          "CBC_config_Dout14": {
-            "ports": [
-              "CBC_config/Dout14",
-              "Dout14"
-            ]
-          },
           "system_params_Dout15": {
             "ports": [
               "system_params/Dout15",
               "Dout15"
+            ]
+          },
+          "CBC_config_and_params_Dout11": {
+            "ports": [
+              "CBC_config_and_params/Dout11",
+              "Dout11"
+            ]
+          },
+          "CBC_config_and_params_Dout13": {
+            "ports": [
+              "CBC_config_and_params/Dout13",
+              "Dout13"
+            ]
+          },
+          "Feedback_config_bus_Dout": {
+            "ports": [
+              "Feedback_config_bus/Dout",
+              "CBC_config_and_params/cfg_data"
             ]
           }
         }
@@ -4408,12 +4316,6 @@
             "right": "0"
           },
           "polynomial_target": {
-            "direction": "I"
-          },
-          "displacement_int_ext": {
-            "direction": "I"
-          },
-          "velocity_int_ext": {
             "direction": "I"
           },
           "input_select2": {
@@ -6543,12 +6445,6 @@
               "input_select": {
                 "direction": "I"
               },
-              "velocity_int_ext": {
-                "direction": "I"
-              },
-              "displacement_int_ext": {
-                "direction": "I"
-              },
               "polynomial_target": {
                 "direction": "I"
               },
@@ -6616,42 +6512,6 @@
           }
         },
         "interface_nets": {
-          "S_AXIS_CFG1_1": {
-            "interface_ports": [
-              "S_AXIS_CFG1",
-              "CH1_multiplier_breakout/S_AXIS_CFG"
-            ]
-          },
-          "S_AXIS_CFG_1": {
-            "interface_ports": [
-              "S_AXIS_CFG",
-              "CH2_multiplier_breakout/S_AXIS_CFG"
-            ]
-          },
-          "Conn10": {
-            "interface_ports": [
-              "S_AXIS_CFG2",
-              "CBC_0/S_AXIS_CFG"
-            ]
-          },
-          "Conn8": {
-            "interface_ports": [
-              "S_AXIS_ADC5",
-              "CBC_0/S_AXIS_ADC1"
-            ]
-          },
-          "Conn1": {
-            "interface_ports": [
-              "M00_AXIS",
-              "ch1_output_dac_mem_split/M00_AXIS"
-            ]
-          },
-          "Conn5": {
-            "interface_ports": [
-              "M01_AXIS",
-              "ch1_output_dac_mem_split/M01_AXIS"
-            ]
-          },
           "feedback_combined_0_M_AXIS": {
             "interface_ports": [
               "feedback_combined_0/M_AXIS",
@@ -6698,6 +6558,42 @@
             "interface_ports": [
               "S_AXIS_ADC4",
               "CH2_multiplier_breakout/S_AXIS_ADC2"
+            ]
+          },
+          "Conn5": {
+            "interface_ports": [
+              "M01_AXIS",
+              "ch1_output_dac_mem_split/M01_AXIS"
+            ]
+          },
+          "S_AXIS_CFG1_1": {
+            "interface_ports": [
+              "S_AXIS_CFG1",
+              "CH1_multiplier_breakout/S_AXIS_CFG"
+            ]
+          },
+          "S_AXIS_CFG_1": {
+            "interface_ports": [
+              "S_AXIS_CFG",
+              "CH2_multiplier_breakout/S_AXIS_CFG"
+            ]
+          },
+          "Conn10": {
+            "interface_ports": [
+              "S_AXIS_CFG2",
+              "CBC_0/S_AXIS_CFG"
+            ]
+          },
+          "Conn8": {
+            "interface_ports": [
+              "S_AXIS_ADC5",
+              "CBC_0/S_AXIS_ADC1"
+            ]
+          },
+          "Conn1": {
+            "interface_ports": [
+              "M00_AXIS",
+              "ch1_output_dac_mem_split/M00_AXIS"
             ]
           }
         },
@@ -6774,18 +6670,6 @@
             "ports": [
               "polynomial_target",
               "CBC_0/polynomial_target"
-            ]
-          },
-          "displacement_int_ext_1": {
-            "ports": [
-              "displacement_int_ext",
-              "CBC_0/displacement_int_ext"
-            ]
-          },
-          "velocity_int_ext_1": {
-            "ports": [
-              "velocity_int_ext",
-              "CBC_0/velocity_int_ext"
             ]
           },
           "input_select2_1": {
@@ -7697,6 +7581,12 @@
       }
     },
     "interface_nets": {
+      "feedback_and_generation_M00_AXIS": {
+        "interface_ports": [
+          "downsampling/S01_AXIS",
+          "feedback_and_generation/M00_AXIS"
+        ]
+      },
       "ps_0_axi_periph_M01_AXI": {
         "interface_ports": [
           "Core/M01_AXI",
@@ -7791,12 +7681,6 @@
         "interface_ports": [
           "ch1_mem_fb_split/M05_AXIS",
           "feedback_and_generation/S_AXIS_ADC4"
-        ]
-      },
-      "feedback_and_generation_M00_AXIS": {
-        "interface_ports": [
-          "downsampling/S01_AXIS",
-          "feedback_and_generation/M00_AXIS"
         ]
       },
       "ch1_mem_fb_split_M07_AXIS": {
@@ -8001,18 +7885,6 @@
         "ports": [
           "Reg_Brakeout/Dout13",
           "feedback_and_generation/polynomial_target"
-        ]
-      },
-      "displacement_int_ext_1": {
-        "ports": [
-          "Reg_Brakeout/Dout14",
-          "feedback_and_generation/displacement_int_ext"
-        ]
-      },
-      "velocity_int_ext_1": {
-        "ports": [
-          "Reg_Brakeout/Dout12",
-          "feedback_and_generation/velocity_int_ext"
         ]
       },
       "input_select2_1": {

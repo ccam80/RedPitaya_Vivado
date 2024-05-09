@@ -506,7 +506,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:07adf618</spirit:value>
+            <spirit:value>9:69d2fb3b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -517,7 +517,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:07adf618</spirit:value>
+            <spirit:value>9:69d2fb3b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -533,11 +533,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Apr 30 05:38:26 UTC 2024</spirit:value>
+            <spirit:value>Thu May 09 03:54:31 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:07adf618</spirit:value>
+            <spirit:value>9:69d2fb3b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -549,7 +549,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:bf7dbc6a</spirit:value>
+            <spirit:value>9:e3830263</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -565,11 +565,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Apr 30 05:38:26 UTC 2024</spirit:value>
+            <spirit:value>Thu May 09 03:54:31 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:bf7dbc6a</spirit:value>
+            <spirit:value>9:e3830263</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -616,32 +616,6 @@
       </spirit:port>
       <spirit:port>
         <spirit:name>input_select</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>velocity_int_ext</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>displacement_int_ext</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>

@@ -61,8 +61,6 @@ module system_CBC_0_0 (
   trigger_in,
   trigger_out,
   input_select,
-  velocity_int_ext,
-  displacement_int_ext,
   polynomial_target,
   sel,
   S_AXIS_ADC1_tdata,
@@ -90,8 +88,6 @@ input wire aclk;
 input wire trigger_in;
 output wire trigger_out;
 input wire input_select;
-input wire velocity_int_ext;
-input wire displacement_int_ext;
 input wire polynomial_target;
 input wire [3 : 0] sel;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_ADC1 TDATA" *)
@@ -148,8 +144,6 @@ output wire [31 : 0] OFFSET;
     .trigger_in(trigger_in),
     .trigger_out(trigger_out),
     .input_select(input_select),
-    .velocity_int_ext(velocity_int_ext),
-    .displacement_int_ext(displacement_int_ext),
     .polynomial_target(polynomial_target),
     .sel(sel),
     .S_AXIS_ADC1_tdata(S_AXIS_ADC1_tdata),

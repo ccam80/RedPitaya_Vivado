@@ -834,13 +834,13 @@ proc create_hier_cell_CH1_Config { parentCell nameHier } {
   current_bd_instance $oldCurInst
 }
 
-# Hierarchical cell: CBC_config
-proc create_hier_cell_CBC_config { parentCell nameHier } {
+# Hierarchical cell: CBC_config_and_params
+proc create_hier_cell_CBC_config_and_params { parentCell nameHier } {
 
   variable script_folder
 
   if { $parentCell eq "" || $nameHier eq "" } {
-     catch {common::send_gid_msg -ssname BD::TCL -id 2092 -severity "ERROR" "create_hier_cell_CBC_config() - Empty argument(s)!"}
+     catch {common::send_gid_msg -ssname BD::TCL -id 2092 -severity "ERROR" "create_hier_cell_CBC_config_and_params() - Empty argument(s)!"}
      return
   }
 
@@ -875,9 +875,7 @@ proc create_hier_cell_CBC_config { parentCell nameHier } {
   # Create pins
   create_bd_pin -dir I -from 511 -to 0 Din1
   create_bd_pin -dir O -from 0 -to 0 Dout11
-  create_bd_pin -dir O -from 0 -to 0 Dout12
   create_bd_pin -dir O -from 0 -to 0 Dout13
-  create_bd_pin -dir O -from 0 -to 0 Dout14
   create_bd_pin -dir I -type clk aclk
   create_bd_pin -dir I -from 447 -to 0 cfg_data
 
@@ -887,15 +885,6 @@ proc create_hier_cell_CBC_config { parentCell nameHier } {
    CONFIG.AXIS_TDATA_WIDTH {448} \
  ] $ALL_Feedback_Params
 
-  # Create instance: Displacement_int_ext, and set properties
-  set Displacement_int_ext [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 Displacement_int_ext ]
-  set_property -dict [ list \
-   CONFIG.DIN_FROM {26} \
-   CONFIG.DIN_TO {26} \
-   CONFIG.DIN_WIDTH {512} \
-   CONFIG.DOUT_WIDTH {1} \
- ] $Displacement_int_ext
-
   # Create instance: Polynomial_target, and set properties
   set Polynomial_target [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 Polynomial_target ]
   set_property -dict [ list \
@@ -904,15 +893,6 @@ proc create_hier_cell_CBC_config { parentCell nameHier } {
    CONFIG.DIN_WIDTH {512} \
    CONFIG.DOUT_WIDTH {1} \
  ] $Polynomial_target
-
-  # Create instance: Velocity_int_ext, and set properties
-  set Velocity_int_ext [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 Velocity_int_ext ]
-  set_property -dict [ list \
-   CONFIG.DIN_FROM {25} \
-   CONFIG.DIN_TO {25} \
-   CONFIG.DIN_WIDTH {512} \
-   CONFIG.DOUT_WIDTH {1} \
- ] $Velocity_int_ext
 
   # Create instance: input_order, and set properties
   set input_order [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 input_order ]
@@ -927,10 +907,8 @@ proc create_hier_cell_CBC_config { parentCell nameHier } {
   connect_bd_intf_net -intf_net Conn1 [get_bd_intf_pins M_AXIS] [get_bd_intf_pins ALL_Feedback_Params/M_AXIS]
 
   # Create port connections
-  connect_bd_net -net Din1_1 [get_bd_pins Din1] [get_bd_pins Displacement_int_ext/Din] [get_bd_pins Polynomial_target/Din] [get_bd_pins Velocity_int_ext/Din] [get_bd_pins input_order/Din]
-  connect_bd_net -net Displacement_int_ext_Dout [get_bd_pins Dout14] [get_bd_pins Displacement_int_ext/Dout]
+  connect_bd_net -net Din1_1 [get_bd_pins Din1] [get_bd_pins Polynomial_target/Din] [get_bd_pins input_order/Din]
   connect_bd_net -net Polynomial_target_Dout [get_bd_pins Dout13] [get_bd_pins Polynomial_target/Dout]
-  connect_bd_net -net Velocity_int_ext_Dout [get_bd_pins Dout12] [get_bd_pins Velocity_int_ext/Dout]
   connect_bd_net -net aclk_1 [get_bd_pins aclk] [get_bd_pins ALL_Feedback_Params/aclk]
   connect_bd_net -net cfg_data_1 [get_bd_pins cfg_data] [get_bd_pins ALL_Feedback_Params/cfg_data]
   connect_bd_net -net input_order_Dout [get_bd_pins Dout11] [get_bd_pins input_order/Dout]
@@ -1006,7 +984,6 @@ proc create_hier_cell_feedback_and_generation { parentCell nameHier } {
   create_bd_pin -dir I -type clk aclk
   create_bd_pin -dir I -type rst aresetn
   create_bd_pin -dir I -from 0 -to 0 continuous_output_in
-  create_bd_pin -dir I displacement_int_ext
   create_bd_pin -dir O exp_p_tri_io
   create_bd_pin -dir I input_select
   create_bd_pin -dir I input_select1
@@ -1014,7 +991,6 @@ proc create_hier_cell_feedback_and_generation { parentCell nameHier } {
   create_bd_pin -dir I polynomial_target
   create_bd_pin -dir I -from 3 -to 0 sel
   create_bd_pin -dir I trig_in
-  create_bd_pin -dir I velocity_int_ext
 
   # Create instance: CBC_0, and set properties
   set block_name CBC
@@ -1149,7 +1125,6 @@ proc create_hier_cell_feedback_and_generation { parentCell nameHier } {
   connect_bd_net -net Shared_mult_4_P [get_bd_pins Shared_mult_4/P] [get_bd_pins feedback_combined_0/Shared_product_4]
   connect_bd_net -net Shared_mult_5_P [get_bd_pins Shared_mult_5/P] [get_bd_pins feedback_combined_0/Shared_product_5]
   connect_bd_net -net continuous_output_in_1 [get_bd_pins continuous_output_in] [get_bd_pins feedback_combined_0/continuous_output_in]
-  connect_bd_net -net displacement_int_ext_1 [get_bd_pins displacement_int_ext] [get_bd_pins CBC_0/displacement_int_ext]
   connect_bd_net -net feedback_combined_0_trig_out [get_bd_pins exp_p_tri_io] [get_bd_pins feedback_combined_0/trig_out]
   connect_bd_net -net input_select1_1 [get_bd_pins input_select1] [get_bd_pins CH2_multiplier_breakout/input_select]
   connect_bd_net -net input_select2_1 [get_bd_pins input_select2] [get_bd_pins CBC_0/input_select]
@@ -1162,7 +1137,6 @@ proc create_hier_cell_feedback_and_generation { parentCell nameHier } {
   connect_bd_net -net rst_0_peripheral_aresetn [get_bd_pins aresetn] [get_bd_pins ch1_output_dac_mem_split/aresetn]
   connect_bd_net -net sel_1 [get_bd_pins sel] [get_bd_pins CBC_0/sel] [get_bd_pins CH1_multiplier_breakout/sel] [get_bd_pins Shared_mult_1/sel] [get_bd_pins Shared_mult_2/sel] [get_bd_pins Shared_mult_3/sel] [get_bd_pins Shared_mult_4/sel] [get_bd_pins Shared_mult_5/sel] [get_bd_pins feedback_combined_0/CH1_sel]
   connect_bd_net -net trig_in_1 [get_bd_pins trig_in] [get_bd_pins CBC_0/trigger_in] [get_bd_pins CH1_multiplier_breakout/trigger_in] [get_bd_pins CH2_multiplier_breakout/trigger_in]
-  connect_bd_net -net velocity_int_ext_1 [get_bd_pins velocity_int_ext] [get_bd_pins CBC_0/velocity_int_ext]
 
   # Restore current instance
   current_bd_instance $oldCurInst
@@ -1400,8 +1374,6 @@ proc create_hier_cell_Reg_Brakeout { parentCell nameHier } {
   current_bd_instance $hier_obj
 
   # Create interface pins
-  create_bd_intf_pin -mode Master -vlnv xilinx.com:interface:axis_rtl:1.0 M_AXIS
-
   create_bd_intf_pin -mode Master -vlnv xilinx.com:interface:axis_rtl:1.0 M_AXIS1
 
   create_bd_intf_pin -mode Master -vlnv xilinx.com:interface:axis_rtl:1.0 M_AXIS2
@@ -1421,9 +1393,7 @@ proc create_hier_cell_Reg_Brakeout { parentCell nameHier } {
   create_bd_pin -dir O -from 3 -to 0 Dout9
   create_bd_pin -dir O -from 0 -to 0 Dout10
   create_bd_pin -dir O -from 0 -to 0 Dout11
-  create_bd_pin -dir O -from 0 -to 0 Dout12
   create_bd_pin -dir O -from 0 -to 0 Dout13
-  create_bd_pin -dir O -from 0 -to 0 Dout14
   create_bd_pin -dir O -from 0 -to 0 Dout15
   create_bd_pin -dir I -from 17 -to 0 In2
   create_bd_pin -dir I -type clk aclk
@@ -1435,8 +1405,8 @@ proc create_hier_cell_Reg_Brakeout { parentCell nameHier } {
   create_bd_pin -dir O -from 0 -to 0 dout5
   create_bd_pin -dir O -from 0 -to 0 dout6
 
-  # Create instance: CBC_config
-  create_hier_cell_CBC_config $hier_obj CBC_config
+  # Create instance: CBC_config_and_params
+  create_hier_cell_CBC_config_and_params $hier_obj CBC_config_and_params
 
   # Create instance: CH1_Config
   create_hier_cell_CH1_Config $hier_obj CH1_Config
@@ -1504,24 +1474,22 @@ proc create_hier_cell_Reg_Brakeout { parentCell nameHier } {
   create_hier_cell_system_params $hier_obj system_params
 
   # Create interface connections
+  connect_bd_intf_net -intf_net CBC_config_and_params_M_AXIS [get_bd_intf_pins M_AXIS1] [get_bd_intf_pins CBC_config_and_params/M_AXIS]
   connect_bd_intf_net -intf_net CH1_Config_M_AXIS3 [get_bd_intf_pins M_AXIS3] [get_bd_intf_pins CH1_Config/M_AXIS3]
   connect_bd_intf_net -intf_net CH2_config_M_AXIS2 [get_bd_intf_pins M_AXIS2] [get_bd_intf_pins CH2_config/M_AXIS2]
-  connect_bd_intf_net -intf_net Conn2 [get_bd_intf_pins M_AXIS1] [get_bd_intf_pins CBC_config/M_AXIS]
   connect_bd_intf_net -intf_net gng_0_M_AXIS1 [get_bd_intf_pins M_AXIS4] [get_bd_intf_pins gng_0/M_AXIS1]
   connect_bd_intf_net -intf_net gng_0_M_AXIS2 [get_bd_intf_pins M_AXIS5] [get_bd_intf_pins gng_0/M_AXIS2]
 
   # Create port connections
-  connect_bd_net -net CBC_config_Dout11 [get_bd_pins Dout11] [get_bd_pins CBC_config/Dout11]
-  connect_bd_net -net CBC_config_Dout12 [get_bd_pins Dout12] [get_bd_pins CBC_config/Dout12]
-  connect_bd_net -net CBC_config_Dout13 [get_bd_pins Dout13] [get_bd_pins CBC_config/Dout13]
-  connect_bd_net -net CBC_config_Dout14 [get_bd_pins Dout14] [get_bd_pins CBC_config/Dout14]
+  connect_bd_net -net CBC_config_and_params_Dout11 [get_bd_pins Dout11] [get_bd_pins CBC_config_and_params/Dout11]
+  connect_bd_net -net CBC_config_and_params_Dout13 [get_bd_pins Dout13] [get_bd_pins CBC_config_and_params/Dout13]
   connect_bd_net -net CH1_Config_Dout [get_bd_pins Dout] [get_bd_pins CH1_Config/Dout]
   connect_bd_net -net CH1_params_Dout [get_bd_pins CH1_Config/cfg_data] [get_bd_pins CH1_params/Dout]
   connect_bd_net -net CH2_config_Dout9 [get_bd_pins Dout9] [get_bd_pins CH2_config/Dout9]
   connect_bd_net -net CH2_config_Dout10 [get_bd_pins Dout10] [get_bd_pins CH2_config/Dout10]
   connect_bd_net -net CH2_params_Dout [get_bd_pins CH2_config/cfg_data] [get_bd_pins CH2_params/Dout]
-  connect_bd_net -net Din1_1 [get_bd_pins Din] [get_bd_pins CBC_config/Din1] [get_bd_pins CH1_Config/Din1] [get_bd_pins CH1_params/Din] [get_bd_pins CH2_config/Din1] [get_bd_pins CH2_params/Din] [get_bd_pins Feedback_config_bus/Din] [get_bd_pins system_params/Din1]
-  connect_bd_net -net Feedback_config_bus_Dout [get_bd_pins CBC_config/cfg_data] [get_bd_pins Feedback_config_bus/Dout]
+  connect_bd_net -net Din1_1 [get_bd_pins Din] [get_bd_pins CBC_config_and_params/Din1] [get_bd_pins CH1_Config/Din1] [get_bd_pins CH1_params/Din] [get_bd_pins CH2_config/Din1] [get_bd_pins CH2_params/Din] [get_bd_pins Feedback_config_bus/Din] [get_bd_pins system_params/Din1]
+  connect_bd_net -net Feedback_config_bus_Dout [get_bd_pins CBC_config_and_params/cfg_data] [get_bd_pins Feedback_config_bus/Dout]
   connect_bd_net -net In2_1 [get_bd_pins In2] [get_bd_pins status_concat_1/In2]
   connect_bd_net -net RAM_addres_Dout [get_bd_pins dout1] [get_bd_pins system_params/dout1]
   connect_bd_net -net const_0_dout [get_bd_pins dout2] [get_bd_pins external_reset_fake/dout] [get_bd_pins status_concat_1/In0]
@@ -1529,7 +1497,7 @@ proc create_hier_cell_Reg_Brakeout { parentCell nameHier } {
   connect_bd_net -net dna_reader_0_dna_data [get_bd_pins dna_reader_0/dna_data] [get_bd_pins status_concat_1/In1]
   connect_bd_net -net feedback_trigger_Dout [get_bd_pins dout4] [get_bd_pins system_params/dout4]
   connect_bd_net -net input_select_Dout [get_bd_pins Dout7] [get_bd_pins CH1_Config/Dout7]
-  connect_bd_net -net pll_0_clk_out1 [get_bd_pins aclk] [get_bd_pins CBC_config/aclk] [get_bd_pins CH1_Config/aclk] [get_bd_pins CH2_config/aclk] [get_bd_pins dna_reader_0/aclk] [get_bd_pins gng_0/clk]
+  connect_bd_net -net pll_0_clk_out1 [get_bd_pins aclk] [get_bd_pins CBC_config_and_params/aclk] [get_bd_pins CH1_Config/aclk] [get_bd_pins CH2_config/aclk] [get_bd_pins dna_reader_0/aclk] [get_bd_pins gng_0/clk]
   connect_bd_net -net pre_memory_reset_Dout [get_bd_pins dout6] [get_bd_pins system_params/dout6]
   connect_bd_net -net ram_writer_reset_Dout [get_bd_pins dout5] [get_bd_pins system_params/dout5]
   connect_bd_net -net rst_0_peripheral_aresetn [get_bd_pins aresetn] [get_bd_pins dna_reader_0/aresetn] [get_bd_pins gng_0/rstn]
@@ -2596,7 +2564,6 @@ proc create_root_design { parentCell } {
   connect_bd_net -net axis_red_pitaya_dac_0_dac_wrt [get_bd_ports dac_wrt_o] [get_bd_pins axis_red_pitaya_dac_0/dac_wrt]
   connect_bd_net -net const_0_dout [get_bd_pins Core/ext_reset_in] [get_bd_pins Reg_Brakeout/dout2]
   connect_bd_net -net continuous_output_in_1 [get_bd_pins Reg_Brakeout/Dout8] [get_bd_pins feedback_and_generation/continuous_output_in]
-  connect_bd_net -net displacement_int_ext_1 [get_bd_pins Reg_Brakeout/Dout14] [get_bd_pins feedback_and_generation/displacement_int_ext]
   connect_bd_net -net feedback_combined_0_trig_out [get_bd_ports exp_p_tri_io] [get_bd_ports led_o] [get_bd_pins feedback_and_generation/exp_p_tri_io]
   connect_bd_net -net input_select1_1 [get_bd_pins Reg_Brakeout/Dout10] [get_bd_pins feedback_and_generation/input_select1]
   connect_bd_net -net input_select2_1 [get_bd_pins Reg_Brakeout/Dout11] [get_bd_pins feedback_and_generation/input_select2]
@@ -2608,7 +2575,6 @@ proc create_root_design { parentCell } {
   connect_bd_net -net slice_1_dout [get_bd_pins Memory_IO/aresetn1] [get_bd_pins Reg_Brakeout/dout5]
   connect_bd_net -net slice_3_dout [get_bd_pins Memory_IO/cfg_data1] [get_bd_pins Reg_Brakeout/dout1]
   connect_bd_net -net sts_data_1 [get_bd_pins Memory_IO/sts_data] [get_bd_pins Reg_Brakeout/dout3]
-  connect_bd_net -net velocity_int_ext_1 [get_bd_pins Reg_Brakeout/Dout12] [get_bd_pins feedback_and_generation/velocity_int_ext]
 
   # Create address segments
   assign_bd_address -offset 0x40001000 -range 0x00001000 -target_address_space [get_bd_addr_spaces Core/ps_0/Data] [get_bd_addr_segs Memory_IO/axi_cfg_register_0/s_axi/reg0] -force

@@ -50,8 +50,6 @@ parameter SEL_WIDTH=4
     output reg trigger_out,  
     
     input wire                                  input_select,                       //1: displaecment ADC1, velocity ADC2
-    input wire                                  velocity_int_ext,                   // 1 external velocity, 0 differentiate displacement
-    input wire                                  displacement_int_ext,               // 1 external displacement, 0 integrate veloci
     input wire                                  polynomial_target,                  //1 velocity, 0 displacement
     
     input [SEL_WIDTH-1:0] sel,
@@ -233,7 +231,7 @@ parameter SEL_WIDTH=4
     .m_axis_data_tdata(ref_dds)      // output wire [31 : 0] m_axis_data_tdata
     );
     
-    // 3-cycle_delay fixed-point multiplication of ref sinusoid by Q32 fractional rhat
+    // 3-cycle latency fixed-point multiplication of ref sinusoid by Q32 fractional rhat
     mult_gen_0 Reference_multiplier (
     .CLK(aclk),  // input wire CLK
     .A(ref_dds),      // input wire [13 : 0] A
@@ -276,61 +274,20 @@ parameter SEL_WIDTH=4
         DISP_1_VEL_2:
         
             begin
-                case({displacement_external, velocity_external})
-                {EXTERNAL, EXTERNAL}: 
-                    begin
-                    displacement <= S_AXIS_ADC1_tdata;
-                    velocity <= S_AXIS_ADC2_tdata;
-                    end
-                {EXTERNAL, INTERNAL}:
-                    begin
-                    displacement <= S_AXIS_ADC1_tdata;
-                    velocity <= S_AXIS_ADC1_tdata - displacement_last;
-                    end                
-                {INTERNAL, EXTERNAL}:
-                    begin
-                    velocity <= S_AXIS_ADC2_tdata;
-                    displacement <= displacement + (S_AXIS_ADC2_tdata << 8); // This shift/scaling is arbitrary and will likely not work
-                    end
-                {INTERNAL, INTERNAL}:
-                    begin
-                    velocity = -ref_velocity;
-                    displacement = -ref_displacement;
-                    end
-                endcase                                
+                displacement <= S_AXIS_ADC1_tdata;
+                velocity <= S_AXIS_ADC2_tdata;                         
             end
             
         DISP_2_VEL_1:
             begin
-                case({displacement_external, velocity_external})
-                {EXTERNAL, EXTERNAL}: 
-                    begin
-                    displacement <= S_AXIS_ADC2_tdata;
-                    velocity <= S_AXIS_ADC1_tdata;
-                    end
-                {EXTERNAL, INTERNAL}:
-                    begin
-                    displacement <= S_AXIS_ADC2_tdata;
-                    velocity <= S_AXIS_ADC2_tdata - displacement_last;
-                    end                
-                {INTERNAL, EXTERNAL}:
-                    begin
-                    velocity <= S_AXIS_ADC1_tdata;
-                    displacement <= displacement + (S_AXIS_ADC1_tdata << 8); // This shift/scaling is arbitrary and will likely not work
-                    end
-                {INTERNAL, INTERNAL}:
-                    begin
-                    velocity = -ref_velocity;
-                    displacement = -ref_displacement;
-                    end
-                endcase                                
+                displacement <= S_AXIS_ADC2_tdata;
+                velocity <= S_AXIS_ADC1_tdata;                 
             end
         
         endcase 
                    
         trigger <= trigger_in;
-        velocity_external <= velocity_int_ext;
-        displacement_external <= displacement_int_ext;
+
     end
     
     // set polynomial target based on toggle, get "last" values of variables
@@ -361,13 +318,7 @@ parameter SEL_WIDTH=4
     begin
         error <= ref_displacement - displacement;
         error_last <= error;
-        error_dot  <= (error - error_last) << 24; 
-        //Shift externally measured x_dot_n velocity sample back half a sample (linear interpolation) to be at the same time point
-        // as calculated by the ref signal.
-//        case(velocity_external)
-//            INTERNAL: error_dot <= ((velocity + velocity_last) << 1) - ref_velocity;
-//            EXTERNAL: error_dot <= velocity - ref_velocity;              
-//        endcase   
+        error_dot  <= (error - error_last);  
     end    
         
     // Carry out narrow 16x16 multiplication using inferred multipliers

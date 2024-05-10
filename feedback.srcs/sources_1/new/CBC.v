@@ -93,10 +93,7 @@ parameter SEL_WIDTH=4
     reg trigger_5;  
     reg trigger_6; 
     reg trigger_7; 
- 
-    reg velocity_external;
-    reg displacement_external;
-    
+     
     reg signed [PARAM_WIDTH-1:0] rhat_start, freq_start, A_start, B_start, C_start, D_start,
                                  rhat_interval_in, freq_interval_in, A_interval_in, B_interval_in, C_interval_in, D_interval_in,
                                  rhat_interval, freq_interval, A_interval, B_interval, C_interval, D_interval,
@@ -112,7 +109,6 @@ parameter SEL_WIDTH=4
 
     
     reg signed [ADC_WIDTH-1:0] displacement, velocity, polynomial_var;
-    reg signed [ADC_WIDTH-1:0] displacement_last, velocity_last;
         
     reg signed [ADC_WIDTH * 2 -1:0] polynomial_var_squared_result;
     reg signed [ADC_WIDTH * 3 -1:0] polynomial_var_cubed_result;
@@ -153,15 +149,12 @@ parameter SEL_WIDTH=4
     
     
     //Signals for I/O from DDS
-    wire signed [DDS_WIDTH - 1:0] ref_dds;
+    wire signed [(DDS_WIDTH*2) - 1:0] ref_dds;
     wire dds_M_AXIS_tvalid;       
     reg resync_dds;
 
-    wire signed [DDS_WIDTH-1:0] ref_master;
-    reg signed [DDS_WIDTH - 1:0] ref_master_last,
-                                 ref_displacement, ref_velocity;
-    reg signed [DDS_WIDTH - 1:0] error, error_dot, error_last;    
-    reg signed [(DDS_WIDTH*2) - 1:0] error_dot;    
+    wire signed [(DDS_WIDTH)-1:0] ref_displacement, ref_velocity;
+    reg signed [DDS_WIDTH - 1:0] error, error_dot;    
 
     
 ////////////////////////////////////
@@ -231,12 +224,20 @@ parameter SEL_WIDTH=4
     .m_axis_data_tdata(ref_dds)      // output wire [31 : 0] m_axis_data_tdata
     );
     
-    // 3-cycle latency fixed-point multiplication of ref sinusoid by Q32 fractional rhat
-    mult_gen_0 Reference_multiplier (
+    // 4-cycle latency fixed-point multiplication of ref sinusoid by Q32 fractional rhat
+    mult_gen_0 Reference_multiplier_disp (
     .CLK(aclk),  // input wire CLK
-    .A(ref_dds),      // input wire [13 : 0] A
+    .A(ref_dds[29:16]),      // input wire [13 : 0] A
     .B(rhat),      // input wire [31 : 0] B
-    .P(ref_master)      // output wire [13 : 0] P
+    .P(ref_displacement)      // output wire [13 : 0] P
+    );
+    
+    
+    mult_gen_0 Reference_multiplier_vel (
+    .CLK(aclk),  // input wire CLK
+    .A(ref_dds[13:0]),      // input wire [13 : 0] A
+    .B(rhat),      // input wire [31 : 0] B
+    .P(ref_velocity)      // output wire [13 : 0] P
     );
     
     //**************************NARROW (Inferred) Multiplier ***************************** //                               
@@ -288,22 +289,7 @@ parameter SEL_WIDTH=4
                    
         trigger <= trigger_in;
 
-    end
-    
-    // set polynomial target based on toggle, get "last" values of variables
-    always @(posedge aclk)
-    begin
-        
-        //Save "lasts" for anything that's quick (1/2 cycle) to work out
-        displacement_last <= displacement;
-        velocity_last <= velocity;
-        ref_master_last <= ref_master;
-               
-        // Assign reference signals from multiplied master
-        ref_velocity <= ref_master - ref_master_last; // Shift to account for freq
-        ref_displacement <= ref_master;                                            
-    end
-    
+    end    
     
     always @ (posedge aclk)
     begin
@@ -317,8 +303,7 @@ parameter SEL_WIDTH=4
     always @ (posedge aclk)
     begin
         error <= ref_displacement - displacement;
-        error_last <= error;
-        error_dot  <= (error - error_last);  
+        error_dot  <= ref_velocity - velocity;  
     end    
         
     // Carry out narrow 16x16 multiplication using inferred multipliers
@@ -336,7 +321,7 @@ parameter SEL_WIDTH=4
         Operand_1_out <= KP;        // Q16.16  Useful (integer) output will be left-shifted 16 bits
         Operand_2_out <= {{8{error[15]}},error, 8'b0};     // extend to 32 bit to use shared mult, shift up 8b to compensate for shared mult slicing
         Operand_3_out <= KD;        // Q16.16
-        Operand_4_out <= error_dot; // extend to 32 bit to use shared mult
+        Operand_4_out <= {{8{error[15]}},error_dot, 8'b0}; // extend to 32 bit to use shared mult
         
         //Polynomial outputs
         Operand_5_out <= A;

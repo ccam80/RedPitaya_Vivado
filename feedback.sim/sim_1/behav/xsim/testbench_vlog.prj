@@ -45,10 +45,10 @@ verilog xil_defaultlib  --include "../../../../feedback.gen/sources_1/bd/system/
 "../../../../feedback.ip_user_files/bd/system/ip/system_Feedback_State_3/sim/system_Feedback_State_3.v" \
 "../../../../feedback.ip_user_files/bd/system/ip/system_input_select_0/sim/system_input_select_0.v" \
 "../../../../feedback.ip_user_files/bd/system/ip/system_ALL_Feedback_Params_1/sim/system_ALL_Feedback_Params_1.v" \
-"../../../../feedback.ip_user_files/bd/system/ip/system_input_select_2_1/sim/system_input_select_2_1.v" \
-"../../../../feedback.ip_user_files/bd/system/ip/system_input_select_3_0/sim/system_input_select_3_0.v" \
-"../../../../feedback.ip_user_files/bd/system/ip/system_axis_constant_0_0_3/sim/system_axis_constant_0_0.v" \
 "../../../../feedback.ip_user_files/bd/system/ip/system_gng_0_0/sim/system_gng_0_0.v" \
+"../../../../feedback.ip_user_files/bd/system/ip/system_input_select_2_1/sim/system_input_select_2_1.v" \
+"../../../../feedback.ip_user_files/bd/system/ip/system_axis_constant_0_0_3/sim/system_axis_constant_0_0.v" \
+"../../../../feedback.ip_user_files/bd/system/ip/system_input_select_3_0/sim/system_input_select_3_0.v" \
 "../../../../feedback.ip_user_files/bd/system/ipshared/cde1/src/axis_red_pitaya_adc.v" \
 "../../../../feedback.ip_user_files/bd/system/ip/system_axis_red_pitaya_adc_0_0_3/sim/system_axis_red_pitaya_adc_0_0.v" \
 "../../../../feedback.ip_user_files/bd/system/ip/system_ch1_mem_fb_split_0_3/hdl/tdata_system_ch1_mem_fb_split_0.v" \

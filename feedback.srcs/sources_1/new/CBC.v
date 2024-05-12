@@ -150,6 +150,7 @@ parameter SEL_WIDTH=4
     
     //Signals for I/O from DDS
     wire signed [(DDS_WIDTH*2) - 1:0] ref_dds;
+    reg signed [(DDS_WIDTH*2) - 1:0] ref_dds_reg;
     wire dds_M_AXIS_tvalid;       
     reg resync_dds;
 
@@ -227,7 +228,7 @@ parameter SEL_WIDTH=4
     // 4-cycle latency fixed-point multiplication of ref sinusoid by Q32 fractional rhat
     mult_gen_0 Reference_multiplier_disp (
     .CLK(aclk),  // input wire CLK
-    .A(ref_dds[29:16]),      // input wire [13 : 0] A
+    .A(ref_dds_reg[29:16]),      // input wire [13 : 0] A
     .B(rhat),      // input wire [31 : 0] B
     .P(ref_displacement)      // output wire [13 : 0] P
     );
@@ -235,7 +236,7 @@ parameter SEL_WIDTH=4
     
     mult_gen_0 Reference_multiplier_vel (
     .CLK(aclk),  // input wire CLK
-    .A(ref_dds[13:0]),      // input wire [13 : 0] A
+    .A(ref_dds_reg[13:0]),      // input wire [13 : 0] A
     .B(rhat),      // input wire [31 : 0] B
     .P(ref_velocity)      // output wire [13 : 0] P
     );
@@ -302,6 +303,7 @@ parameter SEL_WIDTH=4
 
     always @ (posedge aclk)
     begin
+        ref_dds_reg <= ref_dds;
         error <= ref_displacement - displacement;
         error_dot  <= ref_velocity - velocity;  
     end    

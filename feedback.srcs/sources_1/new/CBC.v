@@ -422,42 +422,42 @@ parameter SEL_WIDTH=4
                     freq_counter_nreset <= 1;
                     freq_counter_en <= 1;
                     if (freq_counter_thresh)
-                        freq_next <= (freq_interval[31:31]) ? (freq - 1) :  (freq + 1); //add 1 if RHAT_INTERVAL is positiv and -1 if negativ
+                        freq_next <= (freq_interval_in[31:31]) ? (freq - 1) :  (freq + 1); //add 1 if RHAT_INTERVAL is positiv and -1 if negativ
                 end
 
                 if (rhat_interval != 32'b0) begin
                     rhat_counter_nreset <= 1;
                     rhat_counter_en <= 1;
                     if (rhat_counter_thresh)
-                        rhat_next <= (rhat_interval[31:31]) ? (rhat - 1) :  (rhat + 1); //add 1 if RHAT_INTERVAL is positiv and -1 if negativ
+                        rhat_next <= (rhat_interval_in[31:31]) ? (rhat - 1) :  (rhat + 1); //add 1 if RHAT_INTERVAL is positiv and -1 if negativ
                 end
                 
                 if (A_interval != 32'b0) begin
                     A_counter_nreset <= 1;
                     A_counter_en <= 1;
                     if (A_counter_thresh)
-                        A_next <= (A_interval[31:31]) ? (A - 1) :  (A + 1); //add 1 if RHAT_INTERVAL is positiv and -1 if negativ
+                        A_next <= (A_interval_in[31:31]) ? (A - 1) :  (A + 1); //add 1 if RHAT_INTERVAL is positiv and -1 if negativ
                 end
                 
                 if (B_interval != 32'b0) begin
                     B_counter_nreset <= 1;
                     B_counter_en <= 1;
                     if (B_counter_thresh)
-                        B_next <= (B_interval[31:31]) ? (B - 1) :  (B + 1); //add 1 if RHAT_INTERVAL is positiv and -1 if negativ
+                        B_next <= (B_interval_in[31:31]) ? (B - 1) :  (B + 1); //add 1 if RHAT_INTERVAL is positiv and -1 if negativ
                 end
                 
                 if (C_interval != 32'b0) begin
                     C_counter_nreset <= 1;
                     C_counter_en <= 1;
                     if (C_counter_thresh)
-                        C_next <= (C_interval[31:31]) ? (C - 1) :  (C + 1); //add 1 if RHAT_INTERVAL is positiv and -1 if negativ
+                        C_next <= (C_interval_in[31:31]) ? (C - 1) :  (C + 1); //add 1 if RHAT_INTERVAL is positiv and -1 if negativ
                 end
                 
                 if (D_interval != 32'b0) begin
                     D_counter_nreset <= 1;
                     D_counter_en <= 1;
                     if (D_counter_thresh)
-                        D_next <= (D_interval[31:31]) ? (D - 1) :  (D + 1); //add 1 if RHAT_INTERVAL is positiv and -1 if negativ
+                        D_next <= (D_interval_in[31:31]) ? (D - 1) :  (D + 1); //add 1 if RHAT_INTERVAL is positiv and -1 if negativ
                 end
                 
 

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed May 15 19:30:11 2024" VIVADOVERSION="2020.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu May 16 16:20:41 2024" VIVADOVERSION="2020.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z010" NAME="system" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -845,10 +845,10 @@
             <CONNECTION INSTANCE="feedback_and_generation_Shared_mult_4_Shared_mult4" PORT="CLK"/>
             <CONNECTION INSTANCE="feedback_and_generation_Shared_mult_3_Shared_mult3" PORT="CLK"/>
             <CONNECTION INSTANCE="feedback_and_generation_Shared_mult_1_Shared_mult1" PORT="CLK"/>
+            <CONNECTION INSTANCE="feedback_and_generation_CBC_0" PORT="aclk"/>
+            <CONNECTION INSTANCE="feedback_and_generation_feedback_combined_0" PORT="aclk"/>
             <CONNECTION INSTANCE="feedback_and_generation_CH2_multiplier_breakout" PORT="aclk"/>
             <CONNECTION INSTANCE="feedback_and_generation_CH1_multiplier_breakout" PORT="aclk"/>
-            <CONNECTION INSTANCE="feedback_and_generation_feedback_combined_0" PORT="aclk"/>
-            <CONNECTION INSTANCE="feedback_and_generation_CBC_0" PORT="aclk"/>
             <CONNECTION INSTANCE="axis_red_pitaya_dac_0" PORT="aclk"/>
             <CONNECTION INSTANCE="downsampling_axis_combiner_1" PORT="aclk"/>
             <CONNECTION INSTANCE="downsampling_fir_compiler_0" PORT="aclk"/>
@@ -898,13 +898,13 @@
         <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=processing_system7;v=v5_3;d=pg082-processing-system7.pdf"/>
       </DOCUMENTS>
       <ADDRESSBLOCKS>
+        <ADDRESSBLOCK ACCESS="" INTERFACE="S_AXI_ACP" NAME="ACP_M_AXI_GP0" RANGE="0x40000000" USAGE="register"/>
+      </ADDRESSBLOCKS>
+      <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S_AXI_ACP" NAME="ACP_DDR_LOWOCM" RANGE="536870912" USAGE="memory"/>
       </ADDRESSBLOCKS>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S_AXI_ACP" NAME="ACP_IOP" RANGE="0x00400000" USAGE="register"/>
-      </ADDRESSBLOCKS>
-      <ADDRESSBLOCKS>
-        <ADDRESSBLOCK ACCESS="" INTERFACE="S_AXI_ACP" NAME="ACP_M_AXI_GP0" RANGE="0x40000000" USAGE="register"/>
       </ADDRESSBLOCKS>
       <PARAMETERS>
         <PARAMETER NAME="C_EN_EMIO_PJTAG" VALUE="0"/>
@@ -4138,9 +4138,9 @@
             <CONNECTION INSTANCE="feedback_and_generation_Shared_mult_4_bus_multiplexer_comb4" PORT="sel"/>
             <CONNECTION INSTANCE="feedback_and_generation_Shared_mult_3_bus_multiplexer_comb3" PORT="sel"/>
             <CONNECTION INSTANCE="feedback_and_generation_Shared_mult_1_bus_multiplexer_comb1" PORT="sel"/>
-            <CONNECTION INSTANCE="feedback_and_generation_CH1_multiplier_breakout" PORT="sel"/>
-            <CONNECTION INSTANCE="feedback_and_generation_feedback_combined_0" PORT="CH1_sel"/>
             <CONNECTION INSTANCE="feedback_and_generation_CBC_0" PORT="sel"/>
+            <CONNECTION INSTANCE="feedback_and_generation_feedback_combined_0" PORT="CH1_sel"/>
+            <CONNECTION INSTANCE="feedback_and_generation_CH1_multiplier_breakout" PORT="sel"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -4263,8 +4263,8 @@
         </PORT>
         <PORT DIR="O" LEFT="3" NAME="Dout" RIGHT="0" SIGIS="undef" SIGNAME="Reg_Brakeout_CH2_config_Feedback_State_1_Dout">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="feedback_and_generation_CH2_multiplier_breakout" PORT="sel"/>
             <CONNECTION INSTANCE="feedback_and_generation_feedback_combined_0" PORT="CH2_sel"/>
+            <CONNECTION INSTANCE="feedback_and_generation_CH2_multiplier_breakout" PORT="sel"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -4718,9 +4718,9 @@
         </PORT>
         <PORT DIR="O" LEFT="0" NAME="Dout" RIGHT="0" SIGIS="undef" SIGNAME="Reg_Brakeout_system_params_feedback_trigger_Dout">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="feedback_and_generation_CBC_0" PORT="trigger_in"/>
             <CONNECTION INSTANCE="feedback_and_generation_CH2_multiplier_breakout" PORT="trigger_in"/>
             <CONNECTION INSTANCE="feedback_and_generation_CH1_multiplier_breakout" PORT="trigger_in"/>
-            <CONNECTION INSTANCE="feedback_and_generation_CBC_0" PORT="trigger_in"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -6303,7 +6303,6 @@
         <PARAMETER NAME="D_INTERVAL_OFFSET" VALUE="416"/>
         <PARAMETER NAME="ADC_WIDTH" VALUE="16"/>
         <PARAMETER NAME="DDS_WIDTH" VALUE="16"/>
-        <PARAMETER NAME="RNG_WIDTH" VALUE="16"/>
         <PARAMETER NAME="OPERAND_WIDTH" VALUE="32"/>
         <PARAMETER NAME="SEL_WIDTH" VALUE="4"/>
         <PARAMETER NAME="Component_Name" VALUE="system_CBC_0_0"/>
@@ -6569,8 +6568,7 @@
         <PARAMETER NAME="PARAM_D_OFFSET" VALUE="96"/>
         <PARAMETER NAME="PARAM_E_OFFSET" VALUE="128"/>
         <PARAMETER NAME="PARAM_F_OFFSET" VALUE="160"/>
-        <PARAMETER NAME="ADC_BUS_WIDTH" VALUE="16"/>
-        <PARAMETER NAME="ADC_REAL_DATA_WIDTH" VALUE="16"/>
+        <PARAMETER NAME="ADC_WIDTH" VALUE="16"/>
         <PARAMETER NAME="DDS_WIDTH" VALUE="16"/>
         <PARAMETER NAME="RNG_WIDTH" VALUE="16"/>
         <PARAMETER NAME="OPERAND_WIDTH" VALUE="32"/>
@@ -6776,8 +6774,7 @@
         <PARAMETER NAME="PARAM_D_OFFSET" VALUE="96"/>
         <PARAMETER NAME="PARAM_E_OFFSET" VALUE="128"/>
         <PARAMETER NAME="PARAM_F_OFFSET" VALUE="160"/>
-        <PARAMETER NAME="ADC_BUS_WIDTH" VALUE="16"/>
-        <PARAMETER NAME="ADC_REAL_DATA_WIDTH" VALUE="16"/>
+        <PARAMETER NAME="ADC_WIDTH" VALUE="16"/>
         <PARAMETER NAME="DDS_WIDTH" VALUE="16"/>
         <PARAMETER NAME="RNG_WIDTH" VALUE="16"/>
         <PARAMETER NAME="OPERAND_WIDTH" VALUE="32"/>

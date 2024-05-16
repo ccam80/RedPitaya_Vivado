@@ -129,7 +129,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>f649958b</spirit:value>
+            <spirit:value>124653f2</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -142,7 +142,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>f649958b</spirit:value>
+            <spirit:value>124653f2</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -617,11 +617,6 @@
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DDS_WIDTH">16</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>RNG_WIDTH</spirit:name>
-        <spirit:displayName>Rng Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.RNG_WIDTH">16</spirit:value>
-      </spirit:modelParameter>
-      <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>OPERAND_WIDTH</spirit:name>
         <spirit:displayName>Operand Width</spirit:displayName>
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.OPERAND_WIDTH">32</spirit:value>
@@ -639,7 +634,7 @@
       <spirit:file>
         <spirit:name>xgui/CBC_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_8fd9d323</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_095a5f8b</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -737,11 +732,6 @@
       <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DDS_WIDTH">16</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>RNG_WIDTH</spirit:name>
-      <spirit:displayName>Rng Width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RNG_WIDTH">16</spirit:value>
-    </spirit:parameter>
-    <spirit:parameter>
       <spirit:name>OPERAND_WIDTH</spirit:name>
       <spirit:displayName>Operand Width</spirit:displayName>
       <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.OPERAND_WIDTH">32</spirit:value>
@@ -772,7 +762,7 @@
         <xilinx:designToolContext>IPI</xilinx:designToolContext>
       </xilinx:designToolContexts>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2024-05-15T07:28:37Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2024-05-16T03:26:29Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>

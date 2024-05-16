@@ -79,7 +79,7 @@ module feedback_combined #
 
     localparam RESULT_WIDTH = 64;
     
-    // Give products sensible names while allowing one customisable width parameter per multiplier
+    // Give products sensible names while allowing one customisable-width parameter per multiplier
     localparam CH_PRODUCT_A_WIDTH = SHARED_PRODUCT_1_WIDTH;
     localparam CH_PRODUCT_B_WIDTH = SHARED_PRODUCT_2_WIDTH;
     localparam CH_PRODUCT_C_WIDTH = CH_PRODUCT_1_WIDTH;
@@ -95,7 +95,6 @@ module feedback_combined #
 ////////////////////
 
     // input registers
-
     
     reg [CH_PRODUCT_A_WIDTH-1:0]            CH1_PRODUCT_A_in;
     reg [CH_PRODUCT_B_WIDTH-1:0]            CH1_PRODUCT_B_in;
@@ -120,16 +119,15 @@ module feedback_combined #
     reg                                     trigger;                       // 0 - trig output off, 1 - trig output on   
     reg [SELECT_WIDTH-1:0]                  CH1_state, CH2_state;  
     reg                                     CONTINUOUS_OUTPUT;
-       
     localparam fixed = 0, sweep = 1, lin = 2, parametric = 3,  A_x_plus_B = 4, random = 5, polynomial = 6, CBC=7, OFF=15; 
 
     // Math variables
     reg signed [RESULT_WIDTH - 1:0]         CH1_result, CH2_result, CBC_result;
 
 
-//////////////////
-////Data input////
-//////////////////  
+///////////////////////////
+////Data input pipeline////
+///////////////////////////
 
     // Bring in, break up, and store input data in registers as first pipeline stage.
     // Muxing due to sharing of multipliers between CBC and CH modules
@@ -184,23 +182,33 @@ module feedback_combined #
     always @(posedge aclk) 
     begin
         case(CH1_state)
+            
+            // Linear feedback was set up differently initially, so has different slicing.This step sign extends the A*x result and right shifts by 9 bits, and right shifts the offset by 15 bits 
             A_x_plus_B: CH1_result <= {{18{CH1_PRODUCT_A_in[CH_PRODUCT_A_WIDTH - 1]}}, CH1_PRODUCT_A_in[CH_PRODUCT_A_WIDTH - 2:9]} + {{10{CH1_OFFSET_in[OFFSET_WIDTH - 1]}}, CH1_OFFSET_in, 15'b0};
+            
             CBC: 
-            begin
-                CH1_result <= {{17{CBC_PRODUCT_A_in[CBC_PRODUCT_A_WIDTH - 1]}}, CBC_PRODUCT_A_in[CBC_PRODUCT_A_WIDTH - 1:1]} + // Sign extend into 64b result (upper bits not used, could be skipped)
-                               {{17{CBC_PRODUCT_B_in[CBC_PRODUCT_B_WIDTH - 1]}}, CBC_PRODUCT_B_in[CBC_PRODUCT_B_WIDTH - 1:1]}; // Slice off last bit, as result is up 16 bits initially, and gets shifted 15 at the output
-                               // so we get one bit shifted here. Complicated, have manipulated it here for compatibility with other results
-                
-                CH2_result <= CBC_PRODUCT_C_in + CBC_PRODUCT_D_in + CBC_PRODUCT_E_in + {{10{CBC_OFFSET_in[OFFSET_WIDTH - 1]}}, CBC_OFFSET_in, 15'b0};
-            end
-            default: CH1_result <= CH1_PRODUCT_A_in + CH1_PRODUCT_B_in + CH1_PRODUCT_C_in + CH1_PRODUCT_D_in + {{10{CH1_OFFSET_in[OFFSET_WIDTH - 1]}}, CH1_OFFSET_in, 15'b0};
+                begin
+                    // Control results (kp * error and kd * error_dot) have been left-shifted by 16 bits before input into this module. As the result is right-shifted
+                    // by 15 bits, we sign extend them into CH1_result and slice off the last bit.
+                    CH1_result <= {{17{CBC_PRODUCT_A_in[CBC_PRODUCT_A_WIDTH - 1]}}, CBC_PRODUCT_A_in[CBC_PRODUCT_A_WIDTH - 1:1]} + 
+                                   {{17{CBC_PRODUCT_B_in[CBC_PRODUCT_B_WIDTH - 1]}}, CBC_PRODUCT_B_in[CBC_PRODUCT_B_WIDTH - 1:1]}; 
+                    
+                    //All polynomial products are pre-shifted left by 15 bits so are in the correct form. The offset, however, isn't, so gets shifted 15 bits here.
+                    CH2_result <= CBC_PRODUCT_C_in + CBC_PRODUCT_D_in + CBC_PRODUCT_E_in + {{10{CBC_OFFSET_in[OFFSET_WIDTH - 1]}}, CBC_OFFSET_in, 15'b0};
+                end
+            default: 
+            
+                //In all remaining feedback modes, the products are pre-shifted left by 15 bits, so we do the same to the offset before it's shifted back at the output.
+                CH1_result <= CH1_PRODUCT_A_in + CH1_PRODUCT_B_in + CH1_PRODUCT_C_in + CH1_PRODUCT_D_in + {{10{CH1_OFFSET_in[OFFSET_WIDTH - 1]}}, CH1_OFFSET_in, 15'b0};
         endcase
 
         if (CH1_state != CBC)        
         begin
             case(CH2_state)
-    
+                // Linear feedback was set up differently initially, so has different slicing.This step sign extends the A*x result and right shifts by 9 bits, and right shifts the offset by 15 bits 
                 A_x_plus_B: CH2_result <= {{18{CH2_PRODUCT_A_in[CH_PRODUCT_A_WIDTH - 1]}}, CH2_PRODUCT_A_in[CH_PRODUCT_A_WIDTH - 2:9]} + {{10{CH2_OFFSET_in[OFFSET_WIDTH - 1]}}, CH2_OFFSET_in, 15'b0};
+              
+                //In all remaining feedback modes, the products are pre-shifted left by 15 bits, so we do the same to the offset before it's shifted back at the output.
                 default: CH2_result <= CH2_PRODUCT_A_in + CH2_PRODUCT_B_in + CH2_PRODUCT_C_in + CH2_PRODUCT_D_in + {{10{CH2_OFFSET_in[OFFSET_WIDTH - 1]}}, CH2_OFFSET_in, 15'b0};
             endcase
         end
@@ -215,6 +223,7 @@ module feedback_combined #
         trig_out <= trigger;
         // Mux outpout on/off using trigger signal or keep on if in continuous mode
         if (trigger || CONTINUOUS_OUTPUT)
+            //Clip output value to +/-8191 if it exceeds either end, right shift by 15 bits.
             M_AXIS_tdata <= {CH2_result[32] ? (CH2_result[31:28]==4'b1111 ? CH2_result[OUTPUT_CHANNEL_WIDTH-1+15:15] : -16'd8191) : (CH2_result[31:28]==4'b0000 ? CH2_result[OUTPUT_CHANNEL_WIDTH-1+15:15] : 16'd8191),
                             CH1_result[32] ? (CH1_result[31:28]==4'b1111 ? CH1_result[OUTPUT_CHANNEL_WIDTH-1+15:15] : -16'd8191) : (CH1_result[31:28]==4'b0000 ? CH1_result[OUTPUT_CHANNEL_WIDTH-1+15:15] : 16'd8191)}; //Take result devided by 32768 (2^15) for 14bit output
         else

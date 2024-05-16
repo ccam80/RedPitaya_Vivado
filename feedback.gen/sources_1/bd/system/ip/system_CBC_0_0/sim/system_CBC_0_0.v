@@ -134,7 +134,6 @@ output wire [31 : 0] OFFSET;
     .D_INTERVAL_OFFSET(416),
     .ADC_WIDTH(16),
     .DDS_WIDTH(16),
-    .RNG_WIDTH(16),
     .OPERAND_WIDTH(32),
     .SEL_WIDTH(4)
   ) inst (

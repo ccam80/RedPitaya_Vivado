@@ -6,8 +6,8 @@
    "Color Coded_ScaleFactor":"0.143021",
    "Color Coded_TopLeft":"-2643,-706",
    "Default View_Layers":"/dac_0_dac_rst:true|/mult_0_P:true|/dac_0_dac_clk:true|/pll_0_clk_out1:true|/pll_0_clk_out2:true|/rst_0_peripheral_aresetn:true|/pll_0_clk_out3:true|",
-   "Default View_ScaleFactor":"1.11753",
-   "Default View_TopLeft":"6183,1962",
+   "Default View_ScaleFactor":"1.16629",
+   "Default View_TopLeft":"5983,1881",
    "Display-PortTypeClock":"true",
    "Display-PortTypeData":"true",
    "Display-PortTypeOthers":"true",
@@ -64,10 +64,10 @@ preplace inst feedback_and_generation|ch1_output_dac_mem_split -pg 1 -lvl 4 -x 8
 preplace inst feedback_and_generation|Shared_mult_4 -pg 1 -lvl 2 -x 6946 -y 2336 -defaultsOSRD
 preplace inst feedback_and_generation|Shared_mult_3 -pg 1 -lvl 2 -x 6946 -y 2106 -defaultsOSRD
 preplace inst feedback_and_generation|Shared_mult_1 -pg 1 -lvl 2 -x 6946 -y 1486 -defaultsOSRD
+preplace inst feedback_and_generation|CBC_0 -pg 1 -lvl 1 -x 6276 -y 2242 -defaultsOSRD
+preplace inst feedback_and_generation|feedback_combined_0 -pg 1 -lvl 3 -x 7866 -y 2272 -defaultsOSRD
 preplace inst feedback_and_generation|CH2_multiplier_breakout -pg 1 -lvl 1 -x 6276 -y 2572 -defaultsOSRD
 preplace inst feedback_and_generation|CH1_multiplier_breakout -pg 1 -lvl 1 -x 6276 -y 1952 -defaultsOSRD
-preplace inst feedback_and_generation|feedback_combined_0 -pg 1 -lvl 3 -x 7866 -y 2272 -defaultsOSRD
-preplace inst feedback_and_generation|CBC_0 -pg 1 -lvl 1 -x 6276 -y 2242 -defaultsOSRD
 preplace inst feedback_and_generation|Shared_mult_1|bus_multiplexer_comb1 -pg 1 -lvl 1 -x 7066 -y 1516 -defaultsOSRD
 preplace inst feedback_and_generation|Shared_mult_1|Shared_mult1 -pg 1 -lvl 2 -x 7366 -y 1506 -defaultsOSRD
 preplace netloc adc_clk_p_i_1 1 0 1 -670J 450n

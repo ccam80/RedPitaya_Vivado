@@ -20,6 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
+// Simple up-counter that outpuuts a threshold signal and resets to zero upon reaching an input "modulus" count.
 module rollover_counter #
     (
         parameter COUNTER_WIDTH = 32

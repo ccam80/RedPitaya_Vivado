@@ -38,3 +38,63 @@ Out1[V] = ((param_a * 2^15) + (param_c * In1 * In2 * 2^18) + (param_d * In1^2 * 
 Out1[V] = ((param_a * 2^15) + (param_c * In1 * 2^13 * sin(2pi*(param_f-0.5)/2^30*125MHz*t) * 2^15)/2^10 + (param_d * In1 * 2^13 * In1 * 2^13)/2^8 + (param_e * In1 * 2^13 * In1 * 2^13 * In1 * 2^13)/2^21) / (2^15 * 2^13)<br>
 simplified:<br>
 Out1[V] = ((param_a * 2^15) + (param_c * In1 * sin(2pi*(param_f-0.5)/2^30*125MHz*t) * 2^18) + (param_d * In1^2 * 2^18) + (param_e * In1^3 * 2^18)) / (2^28)
+## AX + B
+
+## Random
+
+#Data types
+
+   
+# Math Implementation:
+Arguments to feeback equations are collected by the multiplier_breakout module, which performs narrow 16x16 multiplications, then feeds operands to multiplier cores. There is one multiplier_breakout per channel. CBC has its own multiplier breakout, with multiple multiplexable signal pathways as described below. The feedback\_combined module then sums the products of these multiplications. The inputs and outputs for each stimulation mode are given by:
+
+| **Mode**     |     OP1     | OP2 |   OP3  |   OP4  |   OP5   |  OP6   |    OP7    | OFFSET |
+|--------------|:-----------:|:---:|:------:|:------:|:-------:|:------:|:---------:|:------:|
+| fixed        |  {DDS << 8} |  B  |    0   |    0   |    0    |    0   |     0     |    C   |
+| sweep        |  {DDS << 8} |  C  |    0   |    0   |    0    |    0   |     0     |    D   |
+| lin          | {ADC1\*ADC2}|  C  |    D   | ADC1^2 |    E    | ADC\^3 | A<<15 - 1 |    0   |
+| parametric   |  {ADC1\*DDS}|  C  |    D   | ADC1^2 |    E    | ADC\^3 | A<<15 - 1 |    0   |
+| Ax + b       | {ADC1 << 16}|  B+ |    0   |    0   |    0    |    0   |     0     |    C+  |
+| random       |  {RNG << 8} |  C  |    0   |    0   |    0    |    0   |     0     |    D   | 	
+| polynomial   |  ADC1		 |  A  |    B   | ADC1^2 |    C    | ADC\^3 |     0     |    E   |
+| CBC	       |  0          |  0  |    0   |    0   |    0    |    0   |     0     |    0   |
+| Result Slice |    [63:8]   |     | [63:8] |        | [63:21] |        |   [63:0]  | [31:0] |
+|              |             |     |        |        |         |        |           |        |
+|--------------|:-----------:|:---:|:------:|:------:|:-------:|:------:|:---------:|:------:|
+|     Width    |      32     |  32 |   32   |   32   |    32   |   48   |     64    |   32   |
+
+\+ is included where parameter is sweeping.
+
+# Control Based Continuation
+CBC Applies two equations simultaneously:
+
+Out1[V] (internal) =  A*target^3 + B*target^2 + C*target + D
+Out2[V] (external) =  K_p * (displacement - ref) * K_d * (velocity - reference_velocity) 
+
+| **Mode**     | OP1 | OP2 | OP3 |  OP4  | OP5 |  OP6  | OP7 |  OP8  | OP9 |  OP10  | OFFSET |
+|--------------|:---:|:---:|:---:|:-----:|:---:|:-----:|:---:|:-----:|:---:|:------:|:------:|
+|     CBC      | KP  |  e  | KD  | e_dot |  A  |  p^3  |  B  |  p^2  |  C  |    p   |    D   |
+|--------------|:---:|:---:|:---:|:-----:|:---:|:-----:|:---:|:-----:|:---:|:------:|:------:|
+|    Width     | 32  | 16  | 32  |   16  |  32 |   48  |  32 |   32  |  32 |   16   |   32   |
+
+where variables are selected by toggles in memory, which can result in:
+
+|variable | 				formula 		  	|
+|---------|:-----------------------------------:|
+|    e    | 		disp - ref_disp 	  		|
+|  e\_dot | 		vel - vel_disp   	 		|
+| ref_disp| 		rhat * sin(2*pi*f*t)		|
+| ref_vel |     ref_disp - ref_disp_last    	|
+|  rhat   | Ref amplitude (Q32 fraction of max) |
+|  disp   |   ADC1, ADC2, or vel integrated 	|
+|   vel	  |   ADC1, ADC2, or disp differ.  	
+	|
+|    p    | 		  disp or vel				|
+
+Constants rhat, f, A, B, C, D are taken from memory (input via GUI), and all may be swept or constant.
+
+
+
+V_out is then calculated by: <br>
+
+V_out =	Product\_1 + Product\_2 + Product\_3 + Product\_4 + OFFSET

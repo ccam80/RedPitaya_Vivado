@@ -1,8 +1,0 @@
-Vivado Simulator 2020.2
-Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
-Running: /tools/Xilinx/Vivado/2020.2/bin/unwrapped/lnx64.o/xelab -wto 729371d6480a438c8d80597c0ecc884f --debug typical --relax --mt 8 --maxdelay -L xil_defaultlib -L xilinx_vip -L simprims_ver -L secureip --snapshot testbench_time_impl -transport_int_delays -pulse_r 0 -pulse_int_r 0 -pulse_e 0 -pulse_int_e 0 xil_defaultlib.testbench xil_defaultlib.glbl -log elaborate.log 
-Using 8 slave threads.
-Starting static elaboration
-Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-5021] port 'adc_dat_b_i' is not connected on this instance [/home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.srcs/sim_1/new/testbench.v:32]
-Completed static elaboration

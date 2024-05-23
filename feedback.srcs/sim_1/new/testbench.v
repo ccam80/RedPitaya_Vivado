@@ -25,6 +25,7 @@ module testbench();
     reg clock_p;
     reg clock_n;
     reg [15:0] adc_in;
+    reg [15:0] adc_in2;
     wire [13:0] dac_out;
     reg signed [13:0] sine [0:99];
     reg [7:0] i;
@@ -32,6 +33,7 @@ module testbench();
     system_wrapper sw (.adc_clk_p_i(clock_p),
                        .adc_clk_n_i(clock_n),
                        .adc_dat_a_i(adc_in),
+                       .adc_dat_b_i(adc_in2),
                        .dac_dat_o(dac_out)
                        );
 initial
@@ -64,13 +66,25 @@ always @(posedge clock_p)
 begin
     // values for a and b
     if ( i < 25 )
+       begin
        adc_in = sine[i];
+       adc_in2 = sine[50 - i];
+       end
     else if ( i < 50 )
+       begin
        adc_in = sine[50 - i];
+       adc_in2 = - sine[i - 50];
+       end
     else if  ( i < 75 )
+       begin
        adc_in = - sine[i - 50];
+       adc_in2 = - sine[100 - i];
+       end
     else 
+       begin
        adc_in = - sine[100 - i];
+       adc_in2 = sine[i];
+       end
     i = i+ 1;
     if(i == 100)
        i = 0;

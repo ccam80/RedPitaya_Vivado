@@ -1,0 +1,29 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-282,-77",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace portBus Din1 -pg 1 -lvl 0 -x -10 -y 50 -defaultsOSRD
+preplace portBus dout5 -pg 1 -lvl 2 -x 270 -y 350 -defaultsOSRD
+preplace portBus Dout8 -pg 1 -lvl 2 -x 270 -y 50 -defaultsOSRD
+preplace portBus dout4 -pg 1 -lvl 2 -x 270 -y 250 -defaultsOSRD
+preplace portBus dout6 -pg 1 -lvl 2 -x 270 -y 450 -defaultsOSRD
+preplace portBus dout1 -pg 1 -lvl 2 -x 270 -y 150 -defaultsOSRD
+preplace inst ram_writer_reset -pg 1 -lvl 1 -x 130 -y 350 -defaultsOSRD
+preplace inst continuous_output -pg 1 -lvl 1 -x 130 -y 50 -defaultsOSRD
+preplace inst feedback_trigger -pg 1 -lvl 1 -x 130 -y 250 -defaultsOSRD
+preplace inst pre_memory_reset -pg 1 -lvl 1 -x 130 -y 450 -defaultsOSRD
+preplace inst RAM_addres -pg 1 -lvl 1 -x 130 -y 150 -defaultsOSRD
+preplace netloc Din1_1 1 0 1 10 50n
+preplace netloc ram_writer_reset_Dout 1 1 1 NJ 350
+preplace netloc continuous_output_Dout 1 1 1 NJ 50
+preplace netloc feedback_trigger_Dout 1 1 1 NJ 250
+preplace netloc pre_memory_reset_Dout 1 1 1 NJ 450
+preplace netloc RAM_addres_Dout 1 1 1 NJ 150
+levelinfo -pg 1 -10 130 270
+pagesize -pg 1 -db -bbox -sgen -150 -10 410 510
+"
+}
+

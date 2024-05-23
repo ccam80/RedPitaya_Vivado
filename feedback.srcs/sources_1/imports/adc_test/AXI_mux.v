@@ -23,47 +23,43 @@
 module AXI_mux #
 (
     parameter AXIS_TDATA_WIDTH = 32,
-    parameter INPUT_CHANNELS = 3
+    parameter SELECT_WIDTH = 1
 )
 (
-    input [1:0] select,
+    input [SELECT_WIDTH-1:0] sel,
     input aclk,
       
     (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *)
-    input [AXIS_TDATA_WIDTH-1:0]        S_AXIS_PORT1_tdata,
-    input                               S_AXIS_PORT1_tvalid,
+    input [AXIS_TDATA_WIDTH-1:0]        S_AXIS_FAST_tdata,
+    input                               S_AXIS_FAST_tvalid,
     (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *)
-    input [AXIS_TDATA_WIDTH-1:0]        S_AXIS_PORT2_tdata,
-    input                               S_AXIS_PORT2_tvalid,
-    (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *)
-    input [AXIS_TDATA_WIDTH-1:0]        S_AXIS_PORT3_tdata,
-    input                               S_AXIS_PORT3_tvalid,
+    input [AXIS_TDATA_WIDTH-1:0]        S_AXIS_SLOW_tdata,
+    input                               S_AXIS_SLOW_tvalid,
+
     (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *)
     output reg [AXIS_TDATA_WIDTH-1:0]  M_AXIS_tdata,
     output reg                         M_AXIS_tvalid 
 );
    
-    always@*
+    localparam fast=1, slow=0;
     
-    case(select)
-        2'b01 : begin
-                    assign M_AXIS_tdata = S_AXIS_PORT1_tdata;
-                    assign M_AXIS_tvalid = S_AXIS_PORT1_tvalid;
+    always@(posedge aclk)
+    
+    case(sel)
+         fast: begin
+                    M_AXIS_tdata <= S_AXIS_FAST_tdata;
+                    M_AXIS_tvalid <= S_AXIS_FAST_tvalid;
                 end
                 
-        2'b10 : begin
-                    assign M_AXIS_tdata = S_AXIS_PORT2_tdata;
-                    assign M_AXIS_tvalid = S_AXIS_PORT2_tvalid;
+         slow :begin
+                    M_AXIS_tdata <= S_AXIS_SLOW_tdata;
+                    M_AXIS_tvalid <= S_AXIS_SLOW_tvalid;
                 end
                 
-        2'b11 : begin
-                    assign M_AXIS_tdata = S_AXIS_PORT3_tdata;
-                    assign M_AXIS_tvalid = S_AXIS_PORT3_tvalid;
-                end     
                         
         default : begin
-                    assign M_AXIS_tdata = 32'b0;
-                    assign M_AXIS_tvalid = 0;
+                    M_AXIS_tdata <= 32'b0;
+                    M_AXIS_tvalid <= 0;
                 end            
     endcase
 

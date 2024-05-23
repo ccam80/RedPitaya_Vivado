@@ -1,29 +1,25 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-//Date        : Fri Jul 21 13:41:31 2023
-//Host        : acoustics-VirtualBox running 64-bit Ubuntu 20.04.5 LTS
+//Date        : Thu May 16 16:20:39 2024
+//Host        : acoustics-VirtualBox running 64-bit Ubuntu 20.04.6 LTS
 //Command     : generate_target system.bd
 //Design      : system
 //Purpose     : IP block netlist
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-module CBC_config_imp_3DYLP
+module CBC_config_and_params_imp_1P650TH
    (Din1,
     Dout11,
-    Dout12,
     Dout13,
-    Dout14,
     M_AXIS_tdata,
     M_AXIS_tvalid,
     aclk,
     cfg_data);
   input [511:0]Din1;
   output [0:0]Dout11;
-  output [0:0]Dout12;
   output [0:0]Dout13;
-  output [0:0]Dout14;
   output [447:0]M_AXIS_tdata;
   output M_AXIS_tvalid;
   input aclk;
@@ -32,18 +28,14 @@ module CBC_config_imp_3DYLP
   wire [447:0]Conn1_TDATA;
   wire Conn1_TVALID;
   wire [511:0]Din1_1;
-  wire [0:0]Displacement_int_ext_Dout;
   wire [0:0]Polynomial_target_Dout;
-  wire [0:0]Velocity_int_ext_Dout;
   wire aclk_1;
   wire [447:0]cfg_data_1;
   wire [0:0]input_order_Dout;
 
   assign Din1_1 = Din1[511:0];
   assign Dout11[0] = input_order_Dout;
-  assign Dout12[0] = Velocity_int_ext_Dout;
   assign Dout13[0] = Polynomial_target_Dout;
-  assign Dout14[0] = Displacement_int_ext_Dout;
   assign M_AXIS_tdata[447:0] = Conn1_TDATA;
   assign M_AXIS_tvalid = Conn1_TVALID;
   assign aclk_1 = aclk;
@@ -53,15 +45,9 @@ module CBC_config_imp_3DYLP
         .cfg_data(cfg_data_1),
         .m_axis_tdata(Conn1_TDATA),
         .m_axis_tvalid(Conn1_TVALID));
-  system_input_select_2_0 Displacement_int_ext
-       (.Din(Din1_1),
-        .Dout(Displacement_int_ext_Dout));
   system_input_select_2_1 Polynomial_target
        (.Din(Din1_1),
         .Dout(Polynomial_target_Dout));
-  system_Feedback_State_1_0 Velocity_int_ext
-       (.Din(Din1_1),
-        .Dout(Velocity_int_ext_Dout));
   system_input_select_3_0 input_order
        (.Din(Din1_1),
         .Dout(input_order_Dout));
@@ -799,7 +785,7 @@ module Memory_IO_imp_19T7DMV
   output [511:0]cfg_data;
   input [31:0]cfg_data1;
   input [127:0]sts_data;
-  output [15:0]sts_data1;
+  output [17:0]sts_data1;
 
   wire [31:0]S_AXI1_1_ARADDR;
   wire S_AXI1_1_ARREADY;
@@ -838,41 +824,42 @@ module Memory_IO_imp_19T7DMV
   wire S_AXI_1_WVALID;
   wire aresetn1_1;
   wire [511:0]axi_cfg_register_0_cfg_data;
-  wire [31:0]axis_ram_writer_0_M_AXI_AWADDR;
-  wire [1:0]axis_ram_writer_0_M_AXI_AWBURST;
-  wire [3:0]axis_ram_writer_0_M_AXI_AWCACHE;
-  wire [2:0]axis_ram_writer_0_M_AXI_AWID;
-  wire [3:0]axis_ram_writer_0_M_AXI_AWLEN;
-  wire axis_ram_writer_0_M_AXI_AWREADY;
-  wire [2:0]axis_ram_writer_0_M_AXI_AWSIZE;
-  wire axis_ram_writer_0_M_AXI_AWVALID;
-  wire axis_ram_writer_0_M_AXI_BREADY;
-  wire axis_ram_writer_0_M_AXI_BVALID;
-  wire [63:0]axis_ram_writer_0_M_AXI_WDATA;
-  wire [2:0]axis_ram_writer_0_M_AXI_WID;
-  wire axis_ram_writer_0_M_AXI_WLAST;
-  wire axis_ram_writer_0_M_AXI_WREADY;
-  wire [7:0]axis_ram_writer_0_M_AXI_WSTRB;
-  wire axis_ram_writer_0_M_AXI_WVALID;
-  wire [15:0]axis_ram_writer_0_sts_data;
+  wire [31:0]axis_ram_writer_1_m_axi_AWADDR;
+  wire [1:0]axis_ram_writer_1_m_axi_AWBURST;
+  wire [3:0]axis_ram_writer_1_m_axi_AWCACHE;
+  wire [2:0]axis_ram_writer_1_m_axi_AWID;
+  wire [3:0]axis_ram_writer_1_m_axi_AWLEN;
+  wire axis_ram_writer_1_m_axi_AWREADY;
+  wire [2:0]axis_ram_writer_1_m_axi_AWSIZE;
+  wire axis_ram_writer_1_m_axi_AWVALID;
+  wire axis_ram_writer_1_m_axi_BREADY;
+  wire axis_ram_writer_1_m_axi_BVALID;
+  wire [63:0]axis_ram_writer_1_m_axi_WDATA;
+  wire [2:0]axis_ram_writer_1_m_axi_WID;
+  wire axis_ram_writer_1_m_axi_WLAST;
+  wire axis_ram_writer_1_m_axi_WREADY;
+  wire [7:0]axis_ram_writer_1_m_axi_WSTRB;
+  wire axis_ram_writer_1_m_axi_WVALID;
+  wire [17:0]axis_ram_writer_1_sts_data;
   wire [31:0]cfg_data1_1;
   wire pll_0_clk_out1;
   wire rst_0_peripheral_aresetn;
   wire [127:0]sts_data_1;
+  wire [17:0]xlconstant_0_dout;
 
-  assign M_AXI_awaddr[31:0] = axis_ram_writer_0_M_AXI_AWADDR;
-  assign M_AXI_awburst[1:0] = axis_ram_writer_0_M_AXI_AWBURST;
-  assign M_AXI_awcache[3:0] = axis_ram_writer_0_M_AXI_AWCACHE;
-  assign M_AXI_awid[2:0] = axis_ram_writer_0_M_AXI_AWID;
-  assign M_AXI_awlen[3:0] = axis_ram_writer_0_M_AXI_AWLEN;
-  assign M_AXI_awsize[2:0] = axis_ram_writer_0_M_AXI_AWSIZE;
-  assign M_AXI_awvalid = axis_ram_writer_0_M_AXI_AWVALID;
-  assign M_AXI_bready = axis_ram_writer_0_M_AXI_BREADY;
-  assign M_AXI_wdata[63:0] = axis_ram_writer_0_M_AXI_WDATA;
-  assign M_AXI_wid[2:0] = axis_ram_writer_0_M_AXI_WID;
-  assign M_AXI_wlast = axis_ram_writer_0_M_AXI_WLAST;
-  assign M_AXI_wstrb[7:0] = axis_ram_writer_0_M_AXI_WSTRB;
-  assign M_AXI_wvalid = axis_ram_writer_0_M_AXI_WVALID;
+  assign M_AXI_awaddr[31:0] = axis_ram_writer_1_m_axi_AWADDR;
+  assign M_AXI_awburst[1:0] = axis_ram_writer_1_m_axi_AWBURST;
+  assign M_AXI_awcache[3:0] = axis_ram_writer_1_m_axi_AWCACHE;
+  assign M_AXI_awid[2:0] = axis_ram_writer_1_m_axi_AWID;
+  assign M_AXI_awlen[3:0] = axis_ram_writer_1_m_axi_AWLEN;
+  assign M_AXI_awsize[2:0] = axis_ram_writer_1_m_axi_AWSIZE;
+  assign M_AXI_awvalid = axis_ram_writer_1_m_axi_AWVALID;
+  assign M_AXI_bready = axis_ram_writer_1_m_axi_BREADY;
+  assign M_AXI_wdata[63:0] = axis_ram_writer_1_m_axi_WDATA;
+  assign M_AXI_wid[2:0] = axis_ram_writer_1_m_axi_WID;
+  assign M_AXI_wlast = axis_ram_writer_1_m_axi_WLAST;
+  assign M_AXI_wstrb[7:0] = axis_ram_writer_1_m_axi_WSTRB;
+  assign M_AXI_wvalid = axis_ram_writer_1_m_axi_WVALID;
   assign S_AXI1_1_ARADDR = S_AXI1_araddr[31:0];
   assign S_AXI1_1_ARVALID = S_AXI1_arvalid;
   assign S_AXI1_1_AWADDR = S_AXI1_awaddr[31:0];
@@ -909,14 +896,14 @@ module Memory_IO_imp_19T7DMV
   assign S_AXI_rvalid = S_AXI_1_RVALID;
   assign S_AXI_wready = S_AXI_1_WREADY;
   assign aresetn1_1 = aresetn1;
-  assign axis_ram_writer_0_M_AXI_AWREADY = M_AXI_awready;
-  assign axis_ram_writer_0_M_AXI_BVALID = M_AXI_bvalid;
-  assign axis_ram_writer_0_M_AXI_WREADY = M_AXI_wready;
+  assign axis_ram_writer_1_m_axi_AWREADY = M_AXI_awready;
+  assign axis_ram_writer_1_m_axi_BVALID = M_AXI_bvalid;
+  assign axis_ram_writer_1_m_axi_WREADY = M_AXI_wready;
   assign cfg_data[511:0] = axi_cfg_register_0_cfg_data;
   assign cfg_data1_1 = cfg_data1[31:0];
   assign pll_0_clk_out1 = aclk;
   assign rst_0_peripheral_aresetn = aresetn;
-  assign sts_data1[15:0] = axis_ram_writer_0_sts_data;
+  assign sts_data1[17:0] = axis_ram_writer_1_sts_data;
   assign sts_data_1 = sts_data[127:0];
   system_axi_cfg_register_0_0 axi_cfg_register_0
        (.aclk(pll_0_clk_out1),
@@ -959,29 +946,32 @@ module Memory_IO_imp_19T7DMV
         .s_axi_wready(S_AXI1_1_WREADY),
         .s_axi_wvalid(S_AXI1_1_WVALID),
         .sts_data(sts_data_1));
-  system_axis_ram_writer_0_0 axis_ram_writer_0
+  system_axis_ram_writer_1_0 axis_ram_writer_1
        (.aclk(pll_0_clk_out1),
         .aresetn(aresetn1_1),
-        .cfg_data(cfg_data1_1),
-        .m_axi_awaddr(axis_ram_writer_0_M_AXI_AWADDR),
-        .m_axi_awburst(axis_ram_writer_0_M_AXI_AWBURST),
-        .m_axi_awcache(axis_ram_writer_0_M_AXI_AWCACHE),
-        .m_axi_awid(axis_ram_writer_0_M_AXI_AWID),
-        .m_axi_awlen(axis_ram_writer_0_M_AXI_AWLEN),
-        .m_axi_awready(axis_ram_writer_0_M_AXI_AWREADY),
-        .m_axi_awsize(axis_ram_writer_0_M_AXI_AWSIZE),
-        .m_axi_awvalid(axis_ram_writer_0_M_AXI_AWVALID),
-        .m_axi_bready(axis_ram_writer_0_M_AXI_BREADY),
-        .m_axi_bvalid(axis_ram_writer_0_M_AXI_BVALID),
-        .m_axi_wdata(axis_ram_writer_0_M_AXI_WDATA),
-        .m_axi_wid(axis_ram_writer_0_M_AXI_WID),
-        .m_axi_wlast(axis_ram_writer_0_M_AXI_WLAST),
-        .m_axi_wready(axis_ram_writer_0_M_AXI_WREADY),
-        .m_axi_wstrb(axis_ram_writer_0_M_AXI_WSTRB),
-        .m_axi_wvalid(axis_ram_writer_0_M_AXI_WVALID),
+        .cfg_data(xlconstant_0_dout),
+        .m_axi_awaddr(axis_ram_writer_1_m_axi_AWADDR),
+        .m_axi_awburst(axis_ram_writer_1_m_axi_AWBURST),
+        .m_axi_awcache(axis_ram_writer_1_m_axi_AWCACHE),
+        .m_axi_awid(axis_ram_writer_1_m_axi_AWID),
+        .m_axi_awlen(axis_ram_writer_1_m_axi_AWLEN),
+        .m_axi_awready(axis_ram_writer_1_m_axi_AWREADY),
+        .m_axi_awsize(axis_ram_writer_1_m_axi_AWSIZE),
+        .m_axi_awvalid(axis_ram_writer_1_m_axi_AWVALID),
+        .m_axi_bready(axis_ram_writer_1_m_axi_BREADY),
+        .m_axi_bvalid(axis_ram_writer_1_m_axi_BVALID),
+        .m_axi_wdata(axis_ram_writer_1_m_axi_WDATA),
+        .m_axi_wid(axis_ram_writer_1_m_axi_WID),
+        .m_axi_wlast(axis_ram_writer_1_m_axi_WLAST),
+        .m_axi_wready(axis_ram_writer_1_m_axi_WREADY),
+        .m_axi_wstrb(axis_ram_writer_1_m_axi_WSTRB),
+        .m_axi_wvalid(axis_ram_writer_1_m_axi_WVALID),
+        .min_addr(cfg_data1_1),
         .s_axis_tdata(S_AXIS_1_TDATA),
         .s_axis_tvalid(S_AXIS_1_TVALID),
-        .sts_data(axis_ram_writer_0_sts_data));
+        .sts_data(axis_ram_writer_1_sts_data));
+  system_xlconstant_0_0 xlconstant_0
+       (.dout(xlconstant_0_dout));
 endmodule
 
 module Reg_Brakeout_imp_H22Q4C
@@ -989,9 +979,7 @@ module Reg_Brakeout_imp_H22Q4C
     Dout,
     Dout10,
     Dout11,
-    Dout12,
     Dout13,
-    Dout14,
     Dout15,
     Dout7,
     Dout8,
@@ -1019,14 +1007,12 @@ module Reg_Brakeout_imp_H22Q4C
   output [3:0]Dout;
   output [0:0]Dout10;
   output [0:0]Dout11;
-  output [0:0]Dout12;
   output [0:0]Dout13;
-  output [0:0]Dout14;
   output [0:0]Dout15;
   output [0:0]Dout7;
   output [0:0]Dout8;
   output [3:0]Dout9;
-  input [15:0]In2;
+  input [17:0]In2;
   output [447:0]M_AXIS1_tdata;
   output M_AXIS1_tvalid;
   output [191:0]M_AXIS2_tdata;
@@ -1046,10 +1032,10 @@ module Reg_Brakeout_imp_H22Q4C
   output [0:0]dout5;
   output [0:0]dout6;
 
-  wire [0:0]CBC_config_Dout11;
-  wire [0:0]CBC_config_Dout12;
-  wire [0:0]CBC_config_Dout13;
-  wire [0:0]CBC_config_Dout14;
+  wire [0:0]CBC_config_and_params_Dout11;
+  wire [0:0]CBC_config_and_params_Dout13;
+  wire [447:0]CBC_config_and_params_M_AXIS_TDATA;
+  wire CBC_config_and_params_M_AXIS_TVALID;
   wire [3:0]CH1_Config_Dout;
   wire [191:0]CH1_Config_M_AXIS3_TDATA;
   wire CH1_Config_M_AXIS3_TVALID;
@@ -1059,11 +1045,9 @@ module Reg_Brakeout_imp_H22Q4C
   wire [191:0]CH2_config_M_AXIS2_TDATA;
   wire CH2_config_M_AXIS2_TVALID;
   wire [191:0]CH2_params_Dout;
-  wire [447:0]Conn2_TDATA;
-  wire Conn2_TVALID;
   wire [511:0]Din1_1;
   wire [447:0]Feedback_config_bus_Dout;
-  wire [15:0]In2_1;
+  wire [17:0]In2_1;
   wire [31:0]RAM_addres_Dout;
   wire [31:0]const_0_dout;
   wire [0:0]continuous_output_Dout;
@@ -1084,17 +1068,15 @@ module Reg_Brakeout_imp_H22Q4C
   assign Din1_1 = Din[511:0];
   assign Dout[3:0] = CH1_Config_Dout;
   assign Dout10[0] = CH2_config_Dout10;
-  assign Dout11[0] = CBC_config_Dout11;
-  assign Dout12[0] = CBC_config_Dout12;
-  assign Dout13[0] = CBC_config_Dout13;
-  assign Dout14[0] = CBC_config_Dout14;
+  assign Dout11[0] = CBC_config_and_params_Dout11;
+  assign Dout13[0] = CBC_config_and_params_Dout13;
   assign Dout15[0] = system_params_Dout15;
   assign Dout7[0] = input_select_Dout;
   assign Dout8[0] = continuous_output_Dout;
   assign Dout9[3:0] = CH2_config_Dout9;
-  assign In2_1 = In2[15:0];
-  assign M_AXIS1_tdata[447:0] = Conn2_TDATA;
-  assign M_AXIS1_tvalid = Conn2_TVALID;
+  assign In2_1 = In2[17:0];
+  assign M_AXIS1_tdata[447:0] = CBC_config_and_params_M_AXIS_TDATA;
+  assign M_AXIS1_tvalid = CBC_config_and_params_M_AXIS_TVALID;
   assign M_AXIS2_tdata[191:0] = CH2_config_M_AXIS2_TDATA;
   assign M_AXIS2_tvalid = CH2_config_M_AXIS2_TVALID;
   assign M_AXIS3_tdata[191:0] = CH1_Config_M_AXIS3_TDATA;
@@ -1111,14 +1093,12 @@ module Reg_Brakeout_imp_H22Q4C
   assign dout6[0] = pre_memory_reset_Dout;
   assign pll_0_clk_out1 = aclk;
   assign rst_0_peripheral_aresetn = aresetn;
-  CBC_config_imp_3DYLP CBC_config
+  CBC_config_and_params_imp_1P650TH CBC_config_and_params
        (.Din1(Din1_1),
-        .Dout11(CBC_config_Dout11),
-        .Dout12(CBC_config_Dout12),
-        .Dout13(CBC_config_Dout13),
-        .Dout14(CBC_config_Dout14),
-        .M_AXIS_tdata(Conn2_TDATA),
-        .M_AXIS_tvalid(Conn2_TVALID),
+        .Dout11(CBC_config_and_params_Dout11),
+        .Dout13(CBC_config_and_params_Dout13),
+        .M_AXIS_tdata(CBC_config_and_params_M_AXIS_TDATA),
+        .M_AXIS_tvalid(CBC_config_and_params_M_AXIS_TVALID),
         .aclk(pll_0_clk_out1),
         .cfg_data(Feedback_config_bus_Dout));
   CH1_Config_imp_WASEI3 CH1_Config
@@ -1162,7 +1142,7 @@ module Reg_Brakeout_imp_H22Q4C
   system_status_concat_1_0 status_concat_1
        (.In0(const_0_dout),
         .In1({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,dna_reader_0_dna_data}),
-        .In2({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,In2_1}),
+        .In2({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,In2_1}),
         .dout(status_concat_1_dout));
   system_params_imp_1MROCIH system_params
        (.Din1(Din1_1),
@@ -1458,9 +1438,9 @@ module downsampling_imp_1CFV2HL
   wire [31:0]axis_combiner_2_M_AXIS_TDATA;
   wire [0:0]axis_combiner_2_M_AXIS_TREADY;
   wire axis_combiner_2_M_AXIS_TVALID;
-  wire [63:0]fir_compiler_0_M_AXIS_DATA_TDATA;
+  wire [95:0]fir_compiler_0_M_AXIS_DATA_TDATA;
   wire fir_compiler_0_M_AXIS_DATA_TVALID;
-  wire [63:0]fir_compiler_1_M_AXIS_DATA_TDATA;
+  wire [95:0]fir_compiler_1_M_AXIS_DATA_TDATA;
   wire fir_compiler_1_M_AXIS_DATA_TVALID;
   wire pll_0_clk_out1;
   wire [0:0]select1_1;
@@ -1561,15 +1541,13 @@ module feedback_and_generation_imp_GDMTQL
     aclk,
     aresetn,
     continuous_output_in,
-    displacement_int_ext,
     exp_p_tri_io,
     input_select,
     input_select1,
     input_select2,
     polynomial_target,
     sel,
-    trig_in,
-    velocity_int_ext);
+    trig_in);
   input [3:0]CH2_sel;
   output [31:0]M00_AXIS_tdata;
   output [0:0]M00_AXIS_tvalid;
@@ -1600,7 +1578,6 @@ module feedback_and_generation_imp_GDMTQL
   input aclk;
   input aresetn;
   input [0:0]continuous_output_in;
-  input displacement_int_ext;
   output exp_p_tri_io;
   input input_select;
   input input_select1;
@@ -1608,7 +1585,6 @@ module feedback_and_generation_imp_GDMTQL
   input polynomial_target;
   input [3:0]sel;
   input trig_in;
-  input velocity_int_ext;
 
   wire [31:0]CBC_0_OP1;
   wire [31:0]CBC_0_OP10;
@@ -1670,7 +1646,6 @@ module feedback_and_generation_imp_GDMTQL
   wire [42:0]Shared_mult_4_P;
   wire [55:0]Shared_mult_5_P;
   wire [0:0]continuous_output_in_1;
-  wire displacement_int_ext_1;
   wire [31:0]feedback_combined_0_M_AXIS_TDATA;
   wire feedback_combined_0_M_AXIS_TVALID;
   wire feedback_combined_0_trig_out;
@@ -1685,7 +1660,6 @@ module feedback_and_generation_imp_GDMTQL
   wire rst_0_peripheral_aresetn;
   wire [3:0]sel_1;
   wire trig_in_1;
-  wire velocity_int_ext_1;
 
   assign Conn10_TDATA = S_AXIS_CFG2_tdata[447:0];
   assign Conn10_TVALID = S_AXIS_CFG2_tvalid;
@@ -1715,7 +1689,6 @@ module feedback_and_generation_imp_GDMTQL
   assign S_AXIS_RNG2_1_TDATA = S_AXIS_RNG2_tdata[15:0];
   assign S_AXIS_RNG2_1_TVALID = S_AXIS_RNG2_tvalid;
   assign continuous_output_in_1 = continuous_output_in[0];
-  assign displacement_int_ext_1 = displacement_int_ext;
   assign exp_p_tri_io = feedback_combined_0_trig_out;
   assign input_select1_1 = input_select1;
   assign input_select2_1 = input_select2;
@@ -1725,7 +1698,6 @@ module feedback_and_generation_imp_GDMTQL
   assign rst_0_peripheral_aresetn = aresetn;
   assign sel_1 = sel[3:0];
   assign trig_in_1 = trig_in;
-  assign velocity_int_ext_1 = velocity_int_ext;
   system_CBC_0_0 CBC_0
        (.OFFSET(CBC_OFFSET),
         .OP1(CBC_0_OP1),
@@ -1745,13 +1717,11 @@ module feedback_and_generation_imp_GDMTQL
         .S_AXIS_CFG_tdata(Conn10_TDATA),
         .S_AXIS_CFG_tvalid(Conn10_TVALID),
         .aclk(pll_0_clk_out1),
-        .displacement_int_ext(displacement_int_ext_1),
         .input_select(input_select2_1),
         .polynomial_target(polynomial_target_1),
         .sel(sel_1),
         .trigger_in(trig_in_1),
-        .trigger_out(CBC_trigger_out),
-        .velocity_int_ext(velocity_int_ext_1));
+        .trigger_out(CBC_trigger_out));
   system_mult_gen_0_5 CH1_mult2
        (.A(multiplier_breakout_0_OP5),
         .B(multiplier_breakout_0_OP6),
@@ -2432,7 +2402,7 @@ module s00_couplers_imp_15TT0JU
         .s_axi_wvalid(s00_couplers_to_auto_pc_WVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=75,numReposBlks=57,numNonXlnxBlks=0,numHierBlks=18,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=11,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=13,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=10,synth_mode=Global}" *) (* HW_HANDOFF = "system.hwdef" *) 
+(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=74,numReposBlks=56,numNonXlnxBlks=0,numHierBlks=18,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=12,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=13,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=10,synth_mode=Global}" *) (* HW_HANDOFF = "system.hwdef" *) 
 module system
    (DDR_addr,
     DDR_ba,
@@ -2513,7 +2483,7 @@ module system
   wire Core_clk_out3;
   wire Core_locked;
   wire [511:0]Memory_IO_cfg_data;
-  wire [15:0]Memory_IO_sts_data1;
+  wire [17:0]Memory_IO_sts_data1;
   wire [3:0]Reg_Brakeout_Dout;
   wire [0:0]Reg_Brakeout_Dout15;
   wire [3:0]Reg_Brakeout_Dout9;
@@ -2560,7 +2530,6 @@ module system
   wire [0:0]continuous_output_in_1;
   wire [63:0]conv_0_M_AXIS_TDATA;
   wire conv_0_M_AXIS_TVALID;
-  wire [0:0]displacement_int_ext_1;
   wire [31:0]feedback_and_generation_M00_AXIS_TDATA;
   wire [0:0]feedback_and_generation_M00_AXIS_TVALID;
   wire [31:0]feedback_and_generation_M01_AXIS_TDATA;
@@ -2630,7 +2599,6 @@ module system
   wire [0:0]slice_1_dout;
   wire [31:0]slice_3_dout;
   wire [127:0]sts_data_1;
-  wire [0:0]velocity_int_ext_1;
   wire [31:0]writer_0_M_AXI_AWADDR;
   wire [1:0]writer_0_M_AXI_AWBURST;
   wire [3:0]writer_0_M_AXI_AWCACHE;
@@ -2802,9 +2770,7 @@ module system
         .Dout(Reg_Brakeout_Dout),
         .Dout10(input_select1_1),
         .Dout11(input_select2_1),
-        .Dout12(velocity_int_ext_1),
         .Dout13(polynomial_target_1),
-        .Dout14(displacement_int_ext_1),
         .Dout15(Reg_Brakeout_Dout15),
         .Dout7(input_select_1),
         .Dout8(continuous_output_in_1),
@@ -2897,15 +2863,13 @@ module system
         .aclk(pll_0_clk_out1),
         .aresetn(rst_0_peripheral_aresetn),
         .continuous_output_in(continuous_output_in_1),
-        .displacement_int_ext(displacement_int_ext_1),
         .exp_p_tri_io(exp_p_tri_io[0]),
         .input_select(input_select_1),
         .input_select1(input_select1_1),
         .input_select2(input_select2_1),
         .polynomial_target(polynomial_target_1),
         .sel(Reg_Brakeout_Dout),
-        .trig_in(Reg_Brakeout_dout4),
-        .velocity_int_ext(velocity_int_ext_1));
+        .trig_in(Reg_Brakeout_dout4));
 endmodule
 
 module system_params_imp_1MROCIH

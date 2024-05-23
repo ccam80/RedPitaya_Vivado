@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2023 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2024 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -123,8 +123,7 @@ output wire [31 : 0] OFFSET;
     .PARAM_D_OFFSET(96),
     .PARAM_E_OFFSET(128),
     .PARAM_F_OFFSET(160),
-    .ADC_BUS_WIDTH(16),
-    .ADC_REAL_DATA_WIDTH(16),
+    .ADC_WIDTH(16),
     .DDS_WIDTH(16),
     .RNG_WIDTH(16),
     .OPERAND_WIDTH(32),

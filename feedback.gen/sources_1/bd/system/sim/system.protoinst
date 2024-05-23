@@ -694,7 +694,7 @@
 						"WVALID": { "actual": "s_axi_wvalid"}
 					}
 				},
-				"/Memory_IO/axis_ram_writer_0/M_AXI": {
+				"/Memory_IO/axis_ram_writer_1/m_axi": {
 					"interface": "xilinx.com:interface:aximm:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
@@ -717,7 +717,7 @@
 						"WVALID": { "actual": "m_axi_wvalid"}
 					}
 				},
-				"/Memory_IO/axis_ram_writer_0/S_AXIS": {
+				"/Memory_IO/axis_ram_writer_1/s_axis": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
@@ -727,7 +727,7 @@
 						"TVALID": { "actual": "s_axis_tvalid"}
 					}
 				},
-				"/Reg_Brakeout/CBC_config/ALL_Feedback_Params/M_AXIS": {
+				"/Reg_Brakeout/CBC_config_and_params/ALL_Feedback_Params/M_AXIS": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
@@ -735,7 +735,7 @@
 						"TVALID": { "actual": "m_axis_tvalid"}
 					}
 				},
-				"/Reg_Brakeout/CBC_config/M_AXIS": {
+				"/Reg_Brakeout/CBC_config_and_params/M_AXIS": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},

@@ -22,7 +22,6 @@ proc init_gui { IPINST } {
   ipgui::add_param $IPINST -name "PARAM_WIDTH" -parent ${Page_0}
   ipgui::add_param $IPINST -name "RHAT_INTERVAL_OFFSET" -parent ${Page_0}
   ipgui::add_param $IPINST -name "RHAT_START_OFFSET" -parent ${Page_0}
-  ipgui::add_param $IPINST -name "RNG_WIDTH" -parent ${Page_0}
   ipgui::add_param $IPINST -name "SEL_WIDTH" -parent ${Page_0}
 
 
@@ -199,15 +198,6 @@ proc validate_PARAM_VALUE.RHAT_START_OFFSET { PARAM_VALUE.RHAT_START_OFFSET } {
 	return true
 }
 
-proc update_PARAM_VALUE.RNG_WIDTH { PARAM_VALUE.RNG_WIDTH } {
-	# Procedure called to update RNG_WIDTH when any of the dependent parameters in the arguments change
-}
-
-proc validate_PARAM_VALUE.RNG_WIDTH { PARAM_VALUE.RNG_WIDTH } {
-	# Procedure called to validate RNG_WIDTH
-	return true
-}
-
 proc update_PARAM_VALUE.SEL_WIDTH { PARAM_VALUE.SEL_WIDTH } {
 	# Procedure called to update SEL_WIDTH when any of the dependent parameters in the arguments change
 }
@@ -306,11 +296,6 @@ proc update_MODELPARAM_VALUE.ADC_WIDTH { MODELPARAM_VALUE.ADC_WIDTH PARAM_VALUE.
 proc update_MODELPARAM_VALUE.DDS_WIDTH { MODELPARAM_VALUE.DDS_WIDTH PARAM_VALUE.DDS_WIDTH } {
 	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
 	set_property value [get_property value ${PARAM_VALUE.DDS_WIDTH}] ${MODELPARAM_VALUE.DDS_WIDTH}
-}
-
-proc update_MODELPARAM_VALUE.RNG_WIDTH { MODELPARAM_VALUE.RNG_WIDTH PARAM_VALUE.RNG_WIDTH } {
-	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
-	set_property value [get_property value ${PARAM_VALUE.RNG_WIDTH}] ${MODELPARAM_VALUE.RNG_WIDTH}
 }
 
 proc update_MODELPARAM_VALUE.OPERAND_WIDTH { MODELPARAM_VALUE.OPERAND_WIDTH PARAM_VALUE.OPERAND_WIDTH } {

@@ -694,7 +694,7 @@
 						"WVALID": { "actual": "s_axi_wvalid"}
 					}
 				},
-				"/Memory_IO/axis_ram_writer_0/M_AXI": {
+				"/Memory_IO/axis_ram_writer_1/m_axi": {
 					"interface": "xilinx.com:interface:aximm:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
@@ -717,7 +717,7 @@
 						"WVALID": { "actual": "m_axi_wvalid"}
 					}
 				},
-				"/Memory_IO/axis_ram_writer_0/S_AXIS": {
+				"/Memory_IO/axis_ram_writer_1/s_axis": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
@@ -727,7 +727,7 @@
 						"TVALID": { "actual": "s_axis_tvalid"}
 					}
 				},
-				"/Reg_Brakeout/CBC_config/ALL_Feedback_Params/M_AXIS": {
+				"/Reg_Brakeout/CBC_config_and_params/ALL_Feedback_Params/M_AXIS": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
@@ -735,7 +735,7 @@
 						"TVALID": { "actual": "m_axis_tvalid"}
 					}
 				},
-				"/Reg_Brakeout/CBC_config/M_AXIS": {
+				"/Reg_Brakeout/CBC_config_and_params/M_AXIS": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
@@ -933,11 +933,34 @@
 						"TVALID": { "actual": "s_axis_tvalid"}
 					}
 				},
+				"/downsampling/AXI_mux_0/M_AXIS": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"TDATA": { "actual": "M_AXIS_tdata"},
+						"TVALID": { "actual": "M_AXIS_tvalid"}
+					}
+				},
+				"/downsampling/AXI_mux_0/S_AXIS_FAST": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"TDATA": { "actual": "S_AXIS_FAST_tdata"},
+						"TVALID": { "actual": "S_AXIS_FAST_tvalid"}
+					}
+				},
+				"/downsampling/AXI_mux_0/S_AXIS_SLOW": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"TDATA": { "actual": "S_AXIS_SLOW_tdata"},
+						"TVALID": { "actual": "S_AXIS_SLOW_tvalid"}
+					}
+				},
 				"/downsampling/M_AXIS": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
-						"ARESETN": { "actual": "aresetn"},
 						"TDATA": { "actual": "M_AXIS_tdata"},
 						"TVALID": { "actual": "M_AXIS_tvalid"}
 					}
@@ -967,6 +990,36 @@
 						"ARESETN": { "actual": "aresetn"},
 						"TDATA": { "actual": "S01_AXIS1_tdata[31:16]"},
 						"TVALID": { "actual": "S01_AXIS1_tvalid[1:1]"}
+					}
+				},
+				"/downsampling/axis_broadcaster_0/M00_AXIS": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"ARESETN": { "actual": "aresetn"},
+						"TDATA": { "actual": "m_axis_tdata[63:0]"},
+						"TREADY": { "actual": "m_axis_tready[0:0]"},
+						"TVALID": { "actual": "m_axis_tvalid[0:0]"}
+					}
+				},
+				"/downsampling/axis_broadcaster_0/M01_AXIS": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"ARESETN": { "actual": "aresetn"},
+						"TDATA": { "actual": "m_axis_tdata[127:64]"},
+						"TREADY": { "actual": "m_axis_tready[1:1]"},
+						"TVALID": { "actual": "m_axis_tvalid[1:1]"}
+					}
+				},
+				"/downsampling/axis_broadcaster_0/S_AXIS": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"ARESETN": { "actual": "aresetn"},
+						"TDATA": { "actual": "s_axis_tdata"},
+						"TREADY": { "actual": "s_axis_tready"},
+						"TVALID": { "actual": "s_axis_tvalid"}
 					}
 				},
 				"/downsampling/axis_combiner_1/M_AXIS": {
@@ -1048,7 +1101,26 @@
 						"TVALID": { "actual": "s_axis_data_tvalid"}
 					}
 				},
-				"/feedback_and_generation/CBC/CBC_0/S_AXIS_ADC1": {
+				"/downsampling/fir_compiler_1/M_AXIS_DATA": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"ARESETN": { "actual": "aresetn"},
+						"TDATA": { "actual": "m_axis_data_tdata"},
+						"TVALID": { "actual": "m_axis_data_tvalid"}
+					}
+				},
+				"/downsampling/fir_compiler_1/S_AXIS_DATA": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"ARESETN": { "actual": "aresetn"},
+						"TDATA": { "actual": "s_axis_data_tdata"},
+						"TREADY": { "actual": "s_axis_data_tready"},
+						"TVALID": { "actual": "s_axis_data_tvalid"}
+					}
+				},
+				"/feedback_and_generation/CBC_0/S_AXIS_ADC1": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
@@ -1056,7 +1128,7 @@
 						"TVALID": { "actual": "S_AXIS_ADC1_tvalid"}
 					}
 				},
-				"/feedback_and_generation/CBC/CBC_0/S_AXIS_ADC2": {
+				"/feedback_and_generation/CBC_0/S_AXIS_ADC2": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
@@ -1064,7 +1136,7 @@
 						"TVALID": { "actual": "S_AXIS_ADC2_tvalid"}
 					}
 				},
-				"/feedback_and_generation/CBC/CBC_0/S_AXIS_CFG": {
+				"/feedback_and_generation/CBC_0/S_AXIS_CFG": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
@@ -1072,7 +1144,7 @@
 						"TVALID": { "actual": "S_AXIS_CFG_tvalid"}
 					}
 				},
-				"/feedback_and_generation/CBC/S_AXIS_ADC1": {
+				"/feedback_and_generation/CH1_multiplier_breakout/S_AXIS_ADC1": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
@@ -1080,7 +1152,7 @@
 						"TVALID": { "actual": "S_AXIS_ADC1_tvalid"}
 					}
 				},
-				"/feedback_and_generation/CBC/S_AXIS_ADC2": {
+				"/feedback_and_generation/CH1_multiplier_breakout/S_AXIS_ADC2": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
@@ -1088,7 +1160,7 @@
 						"TVALID": { "actual": "S_AXIS_ADC2_tvalid"}
 					}
 				},
-				"/feedback_and_generation/CBC/S_AXIS_CFG": {
+				"/feedback_and_generation/CH1_multiplier_breakout/S_AXIS_CFG": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
@@ -1096,31 +1168,7 @@
 						"TVALID": { "actual": "S_AXIS_CFG_tvalid"}
 					}
 				},
-				"/feedback_and_generation/CH1/CH1_multiplier_breakout/S_AXIS_ADC1": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "aclk"},
-						"TDATA": { "actual": "S_AXIS_ADC1_tdata"},
-						"TVALID": { "actual": "S_AXIS_ADC1_tvalid"}
-					}
-				},
-				"/feedback_and_generation/CH1/CH1_multiplier_breakout/S_AXIS_ADC2": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "aclk"},
-						"TDATA": { "actual": "S_AXIS_ADC2_tdata"},
-						"TVALID": { "actual": "S_AXIS_ADC2_tvalid"}
-					}
-				},
-				"/feedback_and_generation/CH1/CH1_multiplier_breakout/S_AXIS_CFG": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "aclk"},
-						"TDATA": { "actual": "S_AXIS_CFG_tdata"},
-						"TVALID": { "actual": "S_AXIS_CFG_tvalid"}
-					}
-				},
-				"/feedback_and_generation/CH1/CH1_multiplier_breakout/S_AXIS_RNG": {
+				"/feedback_and_generation/CH1_multiplier_breakout/S_AXIS_RNG": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
@@ -1128,7 +1176,7 @@
 						"TVALID": { "actual": "S_AXIS_RNG_tvalid"}
 					}
 				},
-				"/feedback_and_generation/CH1/S_AXIS_ADC1": {
+				"/feedback_and_generation/CH2_multiplier_breakout/S_AXIS_ADC1": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
@@ -1136,7 +1184,7 @@
 						"TVALID": { "actual": "S_AXIS_ADC1_tvalid"}
 					}
 				},
-				"/feedback_and_generation/CH1/S_AXIS_ADC2": {
+				"/feedback_and_generation/CH2_multiplier_breakout/S_AXIS_ADC2": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
@@ -1144,7 +1192,7 @@
 						"TVALID": { "actual": "S_AXIS_ADC2_tvalid"}
 					}
 				},
-				"/feedback_and_generation/CH1/S_AXIS_CFG": {
+				"/feedback_and_generation/CH2_multiplier_breakout/S_AXIS_CFG": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
@@ -1152,76 +1200,12 @@
 						"TVALID": { "actual": "S_AXIS_CFG_tvalid"}
 					}
 				},
-				"/feedback_and_generation/CH1/S_AXIS_RNG": {
+				"/feedback_and_generation/CH2_multiplier_breakout/S_AXIS_RNG": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
 						"TDATA": { "actual": "S_AXIS_RNG_tdata"},
 						"TVALID": { "actual": "S_AXIS_RNG_tvalid"}
-					}
-				},
-				"/feedback_and_generation/CH2/CH2_multiplier_breakout/S_AXIS_ADC1": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "aclk"},
-						"TDATA": { "actual": "S_AXIS_ADC1_tdata"},
-						"TVALID": { "actual": "S_AXIS_ADC1_tvalid"}
-					}
-				},
-				"/feedback_and_generation/CH2/CH2_multiplier_breakout/S_AXIS_ADC2": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "aclk"},
-						"TDATA": { "actual": "S_AXIS_ADC2_tdata"},
-						"TVALID": { "actual": "S_AXIS_ADC2_tvalid"}
-					}
-				},
-				"/feedback_and_generation/CH2/CH2_multiplier_breakout/S_AXIS_CFG": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "aclk"},
-						"TDATA": { "actual": "S_AXIS_CFG_tdata"},
-						"TVALID": { "actual": "S_AXIS_CFG_tvalid"}
-					}
-				},
-				"/feedback_and_generation/CH2/CH2_multiplier_breakout/S_AXIS_RNG": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "aclk"},
-						"TDATA": { "actual": "S_AXIS_RNG_tdata"},
-						"TVALID": { "actual": "S_AXIS_RNG_tvalid"}
-					}
-				},
-				"/feedback_and_generation/CH2/S_AXIS_ADC1": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "aclk"},
-						"TDATA": { "actual": "S_AXIS_ADC1_tdata"},
-						"TVALID": { "actual": "S_AXIS_ADC1_tvalid"}
-					}
-				},
-				"/feedback_and_generation/CH2/S_AXIS_ADC2": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "aclk"},
-						"TDATA": { "actual": "S_AXIS_ADC2_tdata"},
-						"TVALID": { "actual": "S_AXIS_ADC2_tvalid"}
-					}
-				},
-				"/feedback_and_generation/CH2/S_AXIS_CFG": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "aclk"},
-						"TDATA": { "actual": "S_AXIS_CFG_tdata"},
-						"TVALID": { "actual": "S_AXIS_CFG_tvalid"}
-					}
-				},
-				"/feedback_and_generation/CH2/S_AXIS_RNG2": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "aclk"},
-						"TDATA": { "actual": "S_AXIS_RNG2_tdata"},
-						"TVALID": { "actual": "S_AXIS_RNG2_tvalid"}
 					}
 				},
 				"/feedback_and_generation/M00_AXIS": {

@@ -1,43 +1,31 @@
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 17.06.2021 11:46:27
-// Design Name: 
-// Module Name: AXI_mux
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
 
 
 module AXI_mux #
 (
-    parameter AXIS_TDATA_WIDTH = 32,
-    parameter SELECT_WIDTH = 1
+    parameter FAST_AXIS_TDATA_WIDTH = 96,
+    parameter SLOW_AXIS_TDATA_WIDTH = 96,
+    parameter SLOW_SHIFT = 8,
+    parameter DAC_WIDTH = 14,
+    parameter CHANNEL_WIDTH_OUT = 16,
+    parameter CHANNEL_WIDTH_IN_SLOW = 24,
+    parameter CHANNEL_WIDTH_IN_FAST = 24,
+    parameter FAST_SHIFT = 9,
+    parameter S_AXIS_TDATA_WIDTH = 64,
+    parameter SEL_WIDTH = 1
 )
 (
-    input [SELECT_WIDTH-1:0] sel,
+    input [SEL_WIDTH - 1:00]               sel,
     input aclk,
       
     (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *)
-    input [AXIS_TDATA_WIDTH-1:0]        S_AXIS_FAST_tdata,
+    input [FAST_AXIS_TDATA_WIDTH-1:0]        S_AXIS_FAST_tdata,
     input                               S_AXIS_FAST_tvalid,
     (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *)
-    input [AXIS_TDATA_WIDTH-1:0]        S_AXIS_SLOW_tdata,
+    input [SLOW_AXIS_TDATA_WIDTH-1:0]        S_AXIS_SLOW_tdata,
     input                               S_AXIS_SLOW_tvalid,
 
     (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *)
-    output reg [AXIS_TDATA_WIDTH-1:0]  M_AXIS_tdata,
+    output reg [S_AXIS_TDATA_WIDTH-1:0]  M_AXIS_tdata,
     output reg                         M_AXIS_tvalid 
 );
    
@@ -47,12 +35,30 @@ module AXI_mux #
     
     case(sel)
          fast: begin
-                    M_AXIS_tdata <= S_AXIS_FAST_tdata;
+                       //Oof, this is hard reading. We take the lowest DAC_WITH bits of each CHANNEL_WIDTH_IN_FAST-bit input channel (4 in the bus).
+                        // First we grab the sign from the top bit and roll it out on the unused bits 15, 16, and sign bit 14
+                        ///Then we concat the remaining 13 
+                     M_AXIS_tdata <= {{3{S_AXIS_FAST_tdata[4*CHANNEL_WIDTH_IN_FAST-1]}},
+                                        S_AXIS_FAST_tdata[4*CHANNEL_WIDTH_IN_FAST - FAST_SHIFT - 3 -: DAC_WIDTH - 1],
+                                    {3{S_AXIS_FAST_tdata[3*CHANNEL_WIDTH_IN_FAST-1]}},
+                                         S_AXIS_FAST_tdata[3*CHANNEL_WIDTH_IN_FAST - FAST_SHIFT - 3 -: DAC_WIDTH - 1],
+                                    {3{S_AXIS_FAST_tdata[2*CHANNEL_WIDTH_IN_FAST-1]}},
+                                         S_AXIS_FAST_tdata[2*CHANNEL_WIDTH_IN_FAST - FAST_SHIFT - 3 -: DAC_WIDTH - 1],
+                                    {3{S_AXIS_FAST_tdata[1*CHANNEL_WIDTH_IN_FAST-1]}},
+                                         S_AXIS_FAST_tdata[1*CHANNEL_WIDTH_IN_FAST - FAST_SHIFT - 3 -: DAC_WIDTH - 1]};
                     M_AXIS_tvalid <= S_AXIS_FAST_tvalid;
                 end
                 
          slow :begin
-                    M_AXIS_tdata <= S_AXIS_SLOW_tdata;
+                        
+                    M_AXIS_tdata <= {{3{S_AXIS_SLOW_tdata[4*CHANNEL_WIDTH_IN_SLOW-1]}},
+                                        S_AXIS_SLOW_tdata[4*CHANNEL_WIDTH_IN_SLOW - SLOW_SHIFT - 3 -: DAC_WIDTH - 1],
+                                    {3{S_AXIS_SLOW_tdata[3*CHANNEL_WIDTH_IN_SLOW-1]}},
+                                         S_AXIS_SLOW_tdata[3*CHANNEL_WIDTH_IN_SLOW - SLOW_SHIFT - 3 -: DAC_WIDTH - 1],
+                                    {3{S_AXIS_SLOW_tdata[2*CHANNEL_WIDTH_IN_SLOW-1]}},
+                                         S_AXIS_SLOW_tdata[2*CHANNEL_WIDTH_IN_SLOW - SLOW_SHIFT - 3 -: DAC_WIDTH - 1],
+                                    {3{S_AXIS_SLOW_tdata[1*CHANNEL_WIDTH_IN_SLOW-1]}},
+                                         S_AXIS_SLOW_tdata[1*CHANNEL_WIDTH_IN_SLOW - SLOW_SHIFT - 3 -: DAC_WIDTH - 1]};
                     M_AXIS_tvalid <= S_AXIS_SLOW_tvalid;
                 end
                 

@@ -27,7 +27,7 @@ module testbench();
     reg [15:0] adc_in;
     reg [15:0] adc_in2;
     wire [13:0] dac_out;
-    reg signed [13:0] sine [0:99];
+    reg [15:0] sine [0:24];
     reg [7:0] i;
     
     system_wrapper sw (.adc_clk_p_i(clock_p),
@@ -41,14 +41,14 @@ begin
     clock_p = 1'b0;
     clock_n = 1'b1;
     adc_in = 0;
+    adc_in2 = 0;
     i=0;
     
-    sine[0] = 0;        sine[1] = 10;        sine[2] = 20;        sine[3] = 29;        sine[4] = 39;   
-    sine[5] = 48;       sine[6] = 58;        sine[7] = 67;        sine[8] = 75;        sine[9] = 84;
-    sine[10] = 92;      sine[11] = 100;      sine[12] = 107;      sine[13] = 114;      sine[14] = 120;
-    sine[15] = 126;     sine[16] = 132;      sine[17] = 137;      sine[18] = 141;      sine[19] = 145;   
-    sine[20] = 149;     sine[21] = 151;      sine[22] = 153;      sine[23] = 155;      sine[24] = 156;
-    sine[25] = 156;     
+    sine[0] = 8192;        sine[1] = 8727;        sine[2] = 9261;        sine[3] = 9789;        sine[4] = 10311;   
+    sine[5] = 10824;       sine[6] = 11326;        sine[7] = 11814;        sine[8] = 12287;        sine[9] = 12742;
+    sine[10] = 13178;      sine[11] = 13592;      sine[12] = 13983;      sine[13] = 14350;      sine[14] = 14690;
+    sine[15] = 15002;     sine[16] = 15285;      sine[17] = 15538;      sine[18] = 15759;      sine[19] = 15948;   
+    sine[20] = 16103;     sine[21] = 16225;      sine[22] = 16312;      sine[23] = 16365;      sine[24] = 16383;
 end
 
 always 
@@ -65,25 +65,25 @@ end
 always @(posedge clock_p)
 begin
     // values for a and b
-    if ( i < 25 )
+    if ( i < 24 )
        begin
        adc_in = sine[i];
-       adc_in2 = sine[50 - i];
+       adc_in2 = sine[24 - i];
        end
-    else if ( i < 50 )
+    else if ( i < 49 )
        begin
-       adc_in = sine[50 - i];
-       adc_in2 = - sine[i - 50];
+       adc_in = sine[48 - i];
+       adc_in2 = 16384 - sine[i-24];
        end
-    else if  ( i < 75 )
+    else if  ( i < 74 )
        begin
-       adc_in = - sine[i - 50];
-       adc_in2 = - sine[100 - i];
+       adc_in = 16384 - sine[i-49];
+       adc_in2 = 16384 - sine[73 - i];
        end
     else 
        begin
-       adc_in = - sine[100 - i];
-       adc_in2 = sine[i];
+       adc_in = 16384 - sine[98 - i];
+       adc_in2 = sine[i - 74];
        end
     i = i+ 1;
     if(i == 100)

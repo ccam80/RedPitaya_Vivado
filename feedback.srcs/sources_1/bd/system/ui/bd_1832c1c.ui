@@ -1,0 +1,30 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-301,-182",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port aclk -pg 1 -lvl 0 -x -10 -y 50 -defaultsOSRD
+preplace portBus CBC_input_A -pg 1 -lvl 0 -x -10 -y 110 -defaultsOSRD
+preplace portBus Channel_input_A -pg 1 -lvl 0 -x -10 -y 130 -defaultsOSRD
+preplace portBus CBC_input_B -pg 1 -lvl 0 -x -10 -y 150 -defaultsOSRD
+preplace portBus Channel_input_B -pg 1 -lvl 0 -x -10 -y 170 -defaultsOSRD
+preplace portBus sel -pg 1 -lvl 0 -x -10 -y 190 -defaultsOSRD
+preplace portBus P -pg 1 -lvl 3 -x 640 -y 70 -defaultsOSRD
+preplace inst bus_multiplexer_comb5 -pg 1 -lvl 1 -x 210 -y 150 -defaultsOSRD
+preplace inst Shared_mult5 -pg 1 -lvl 2 -x 520 -y 70 -defaultsOSRD
+preplace netloc bus_multiplexer_comb_1_mult_output_A 1 1 1 410 70n
+preplace netloc bus_multiplexer_comb_1_mult_output_B 1 1 1 420 90n
+preplace netloc CBC_0_OP7 1 0 1 NJ 110
+preplace netloc CH2_multiplier_breakout_OP1 1 0 1 NJ 130
+preplace netloc CBC_0_OP8 1 0 1 NJ 150
+preplace netloc CH2_multiplier_breakout_OP2 1 0 1 NJ 170
+preplace netloc sel_1 1 0 1 NJ 190
+preplace netloc pll_0_clk_out1 1 0 2 NJ 50 NJ
+preplace netloc CH2_mult1_P 1 2 1 N 70
+levelinfo -pg 1 -10 210 520 640
+pagesize -pg 1 -db -bbox -sgen -230 -10 750 250
+"
+}
+

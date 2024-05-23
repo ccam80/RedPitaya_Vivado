@@ -30,8 +30,7 @@ parameter PARAM_D_OFFSET = 96,
 parameter PARAM_E_OFFSET = 128,
 parameter PARAM_F_OFFSET = 160,
 
-parameter ADC_BUS_WIDTH = 16,
-parameter ADC_REAL_DATA_WIDTH = 16,
+parameter ADC_WIDTH = 16,
 parameter DDS_WIDTH = 16,
 parameter RNG_WIDTH = 16,
 parameter OPERAND_WIDTH = 32,    
@@ -48,11 +47,11 @@ parameter SEL_WIDTH=4
     input [SEL_WIDTH-1:0]                       sel,
     //Narrow inputs
     (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *)
-    input [ADC_BUS_WIDTH-1:0]                       S_AXIS_ADC1_tdata,
+    input [ADC_WIDTH-1:0]                       S_AXIS_ADC1_tdata,
     input                                       S_AXIS_ADC1_tvalid,
     
     (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *)
-    input [ADC_BUS_WIDTH-1:0]                       S_AXIS_ADC2_tdata,
+    input [ADC_WIDTH-1:0]                       S_AXIS_ADC2_tdata,
     input                                       S_AXIS_ADC2_tvalid,
     
     (* X_INTERFACE_PARAMETER = "FREQ_HZ 125000000" *)
@@ -71,34 +70,37 @@ parameter SEL_WIDTH=4
     output reg [OPERAND_WIDTH-1:0]              OP3,  
     output reg [OPERAND_WIDTH-1:0]              OP4,   
     output reg [OPERAND_WIDTH-1:0]              OP5,  
-    output reg [(ADC_BUS_WIDTH * 3) - 1:0]      OP6,
+    output reg [(ADC_WIDTH * 3) - 1:0]      OP6,
     output reg [OPERAND_WIDTH_LONG - 1:0]       OP7,   
     output reg [OPERAND_WIDTH-1:0]              OFFSET
     );
     
+    //State variable ddefinitions
+    reg [SEL_WIDTH-1:0] state;  
+    localparam fixed = 0, sweep = 1, lin = 2, parametric = 3,  A_x_plus_B = 4, random = 5, polynomial = 6, CBC=7; 
+
+    // Trigger delay chain
     reg trigger;
     reg trigger_1;
     reg trigger_2;
     reg trigger_3;
     reg trigger_4;    
     
-    
+    // Math parameters and outputs
     reg signed [PARAM_WIDTH-1:0] Param_A_in, Param_B_in, Param_C_in, Param_D_in, Param_E_in, Param_F_in;
     reg signed [OPERAND_WIDTH-1:0] Operand_1_out, Operand_2_out, Operand_3_out, Operand_4_out, Operand_5_out, Offset_out;   
     reg signed [OPERAND_WIDTH_LONG-1:0] Operand_7_out;
-    reg signed [ADC_BUS_WIDTH * 3 - 1:0] Operand_6_out;   
-    reg [SEL_WIDTH-1:0] state;  
-
-    
-    reg signed [ADC_BUS_WIDTH-1:0] IN1, IN2;
-    reg signed [RNG_WIDTH-1:0] RNG;
-    reg signed [OPERAND_WIDTH-1:0] IN1_DDS_result;  
-    reg signed [2*ADC_REAL_DATA_WIDTH - 1:0] IN1_squared_result, IN1_IN2_result;  
-    
-    localparam fixed = 0, sweep = 1, lin = 2, parametric = 3,  A_x_plus_B = 4, random = 5, polynomial = 6, CBC=7; 
-   
+    reg signed [ADC_WIDTH * 3 - 1:0] Operand_6_out;   
     reg signed [OPERAND_WIDTH-1:0] feedback_mult_next, feedback_mult = 32'b0;
     reg signed [OPERAND_WIDTH-1:0] feedback_add_next, feedback_add = 32'b0;
+
+    // Input signals and manipulations thereof    
+    reg signed [ADC_WIDTH-1:0] IN1, IN2;
+    reg signed [RNG_WIDTH-1:0] RNG;
+    reg signed [OPERAND_WIDTH-1:0] IN1_DDS_result;  
+    reg signed [2*ADC_WIDTH - 1:0] IN1_squared_result, IN1_IN2_result;  
+    reg signed [(ADC_WIDTH * 3) - 1:0] IN1_cubed_result;
+    
     
     //Signals for mult_counter
     reg mult_counter_en = 1'b1;
@@ -128,9 +130,9 @@ parameter SEL_WIDTH=4
     wire dds_M_AXIS_tvalid;       
     
     
-////////////////////////////////////
-////Instantiate further IP Cores////
-////////////////////////////////////
+    ////////////////////////////////////
+    ////Instantiate further IP Cores////
+    ////////////////////////////////////
     
     //Counter for feedback parameter "a" sweep
     rollover_counter mult_sweep_counter (
@@ -169,8 +171,11 @@ parameter SEL_WIDTH=4
     );
     
     
-    //**************************NARROW (Inferred) Multiplier ***************************** //                               
-    // Store variable inputs in first stage of pipeline
+    ////////////////////////////////////
+    ////Input Pipeline              ////
+    ////////////////////////////////////
+    
+    // Store signal inputs
     always @(posedge aclk)
     begin
         if (input_select)
@@ -187,17 +192,7 @@ parameter SEL_WIDTH=4
         RNG <= S_AXIS_RNG_tdata; 
         trigger <= trigger_in;
     end
-    
-    // Carry out narrow 16x16 multiplications using inferred multipliers - only multiply useful bits to cut down slack, then sign extend result
-    always @(posedge aclk)
-    begin
-        IN1_squared_result <= IN1[13:0] * IN1[13:0];
-        IN1_IN2_result <= IN1[13:0]  * IN2[13:0];
-        IN1_DDS_result <= {{2{IN1[15]^dds_out[15]}},IN1[13:0] * dds_out};
-    end      
-    
-    
-    // ####################  Multiplier outputs  ################ //
+
     
     //input pipeline stage for config parameters
     always @(posedge aclk)
@@ -213,9 +208,25 @@ parameter SEL_WIDTH=4
         Param_F_in <= S_AXIS_CFG_tdata[PARAM_F_OFFSET + PARAM_WIDTH - 1: PARAM_F_OFFSET];   
            
     end
+
+    
+    ////////////////////////////////////
+    ////Math and output assignments ////
+    ////////////////////////////////////
+    
+    // Carry out narrow multiplications using inferred single-cycle multipliers 
+    always @(posedge aclk)
+    begin
+        IN1_squared_result <= IN1 * IN1; // sign extend, as it's a 28-bit number going into a 32-bit hole. Square iis always positive
+        IN1_IN2_result <= IN1  * IN2; // Sign extend, as it's a 26-bit number going into a 32-bit hole
+        IN1_DDS_result <= {{2{IN1[15]^dds_out[15]}},IN1[13:0] * dds_out};
+        IN1_cubed_result <= IN1_squared_result * IN1; // This one might break assumptions - this is preevious sample squared multiplied by current sample. Far below filter frequencies so seems tolerable. 
+    end    
     
     //Assign multipliers to operand outputs 
-    //Applied equation: V_out = (OP1 * OP2)[63:8] + (OP3 * OP4)[63:8] + (OP5 * OP6)[63:21] + (OP7*LONG_F)[63:0] + OFFSET
+    //Applied equation: V_out = [(OP1 * OP2)[63:8] + (OP3 * OP4)[63:8] + (OP5 * OP6)[63:21] + (OP7*LONG_F)[63:0] + OFFSET << 15] >> 15
+    //EXCEPT for in linear feedback mode (Ax+b), where slicing is different:
+    // V_out(Ax+b) = (OP1*OP2[63:8] << 9 + OFFSET << 15) >> 15
     //Operand table given in readme.md
     always@(posedge aclk)
     begin
@@ -251,7 +262,7 @@ parameter SEL_WIDTH=4
                 Operand_3_out <= Param_D_in;
                 Operand_4_out <= IN1_squared_result;
                 Operand_5_out <= Param_E_in;
-                Operand_6_out <= {{6{IN1[15]}}, IN1_squared_result * IN1[13:0]};
+                Operand_6_out <= IN1_cubed_result;
                 Operand_7_out <= (Param_A_in << 15) - 1;
                 Offset_out <= 32'b0;
             end
@@ -263,7 +274,7 @@ parameter SEL_WIDTH=4
                 Operand_3_out <= Param_D_in;
                 Operand_4_out <= IN1_squared_result;
                 Operand_5_out <= Param_E_in;
-                Operand_6_out <= {{6{IN1[15]}}, IN1_squared_result * IN1[13:0]};
+                Operand_6_out <= IN1_cubed_result;
                 Operand_7_out <= (Param_A_in << 15) - 1;
                 Offset_out <= 32'b0;
             end
@@ -299,7 +310,7 @@ parameter SEL_WIDTH=4
                 Operand_3_out <= Param_B_in;
                 Operand_4_out <= IN1_squared_result;
                 Operand_5_out <= Param_C_in;
-                Operand_6_out <= {{6{IN1[15]}}, IN1_squared_result * IN1[13:0]};
+                Operand_6_out <= IN1_cubed_result;
                 Operand_7_out <= 32'b0;
                 Offset_out <= Param_E_in;
             end
@@ -317,32 +328,12 @@ parameter SEL_WIDTH=4
             end        
         endcase
     end
-    
-    //Output pipeline stage
-    always@(*)
-        begin
-        OP1 <= Operand_1_out;    
-        OP2 <= Operand_2_out;  
-        OP3 <= Operand_3_out;
-        OP4 <= Operand_4_out;
-        OP5 <= Operand_5_out;
-        OP6 <= Operand_6_out;
-        OP7 <= Operand_7_out;
-        OFFSET <= Offset_out;
-        end  
-        
-  //Trigger delay chain. pick one of these for trigger output which matches your multiplier latency
-    always @(posedge(aclk))
-        begin
-            trigger_1 <= trigger;
-            trigger_2 <= trigger_1;
-            trigger_3 <= trigger_2;
-            trigger_4 <= trigger_3;
-            trigger_out <= trigger_4;
-        end       
-        
-// ####################  Sweep logic  ################ //    
-           
+
+     
+    ////////////////////////////////////
+    ////Sweep logic                 ////
+    ////////////////////////////////////   
+   
    
     always @(posedge aclk)
     begin
@@ -385,6 +376,7 @@ parameter SEL_WIDTH=4
             
     end
        
+       
     always @(posedge aclk)
     begin
         // Parameter sweep setup and execution            
@@ -413,8 +405,6 @@ parameter SEL_WIDTH=4
                             feedback_mult_next <= (Param_D_in[31:31]) ? (feedback_mult - 1) :  (feedback_mult + 1); //add 1 if Param_B is positiv and -1 if negativ
                     end
 
-                
-                
                 // If triggered, check whether a sweep is required by seeing if there's a value in param_e
                 if (Param_E_in != 32'b0) 
                     begin  
@@ -424,7 +414,9 @@ parameter SEL_WIDTH=4
                             feedback_add_next <= (Param_E_in[31:31]) ? (feedback_add - 1) :  (feedback_add + 1); //add 1 if Param_B is positiv and -1 if negativ      
                     end
                 
-                end           
+                end    
+                
+                       
         else
             begin
                 add_counter_nreset <= 0;
@@ -433,11 +425,22 @@ parameter SEL_WIDTH=4
                 mult_counter_en <= 0;
                 add_counter_interval <= 32'h7FFFFFFF;
                 mult_counter_interval <= 32'h7FFFFFFF;
-            end
-                
-                             
-    
+            end  
     end
+    
+    ////////////////////////////////////
+    ////Output Pipeline             ////
+    ////////////////////////////////////
+    
+      //Trigger delay chain. pick one of these for trigger output which matches your multiplier latency
+    always @(posedge(aclk))
+        begin
+            trigger_1 <= trigger;
+            trigger_2 <= trigger_1;
+            trigger_3 <= trigger_2;
+            trigger_4 <= trigger_3;
+            trigger_out <= trigger_4;
+        end   
     
     //Swept output pipeline
     always @(posedge aclk)
@@ -447,6 +450,19 @@ parameter SEL_WIDTH=4
             feedback_mult <= feedback_mult_next;
             dds_phase_in <= phase_next[29:0];
         end
-    
+        
+    //Output pipeline stage
+    always@(*)
+        begin
+        OP1 <= Operand_1_out;    
+        OP2 <= Operand_2_out;  
+        OP3 <= Operand_3_out;
+        OP4 <= Operand_4_out;
+        OP5 <= Operand_5_out;
+        OP6 <= Operand_6_out;
+        OP7 <= Operand_7_out;
+        OFFSET <= Offset_out;
+        end  
+        
      
 endmodule

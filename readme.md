@@ -1,4 +1,8 @@
 # Getting started:
+## Vivado version
+Use Vivado 2020.2
+<https://www.xilinx.com/member/forms/download/xef.html?filename=Xilinx_Unified_2020.2_1118_1232_Win64.exe>
+
 ## IP Core location
 if project location is not
 ```
@@ -10,6 +14,7 @@ the IP Core location have to be changed. Therefore got to Tools --> Settings -->
 - Wihile bit file generation in the upper right corner a runing circle is shown, if the operation is finished there is written ""
 - the new bit file is located in ``*/feedback.runs/impl_1`` and is named ``system_wrapper.bit``
 - Coppy ``system_wrapper.bit`` with a FTP client (e.g. WinSCP) to the FPGA into ``/usr/src``, and rename to ``v2.bit``. 
+
 - if starting the server (<https://github.com/ccam80/RedPitaya_Onboard>) it is automatic implemented
 
 #Operations (high-level):
@@ -68,6 +73,7 @@ CH1 and CH2 have indepenent state/mode variables. CBC is activated when CH1's st
  
 ## Math Implementation:
 Arguments to feeback equations are collected by the multiplier\_breakout module, which performs narrow multiplications, then feeds operands to multiplier cores. There is one multiplier_breakout per channel. CBC has its own multiplier breakout, with multiple multiplexable signal pathways as described below. The feedback\_combined module then sums the products of these multiplications. The inputs and outputs for each stimulation mode are given by:
+
 
 | **Mode**     |     OP1     | OP2 |   OP3  |   OP4  |   OP5   |  OP6   |    OP7    | OFFSET |
 |--------------|:-----------:|:---:|:------:|:------:|:-------:|:------:|:---------:|:------:|

@@ -2345,12 +2345,6 @@
                   "s00_couplers/S_AXI"
                 ]
               },
-              "xbar_to_m01_couplers": {
-                "interface_ports": [
-                  "xbar/M01_AXI",
-                  "m01_couplers/S_AXI"
-                ]
-              },
               "m01_couplers_to_ps_0_axi_periph": {
                 "interface_ports": [
                   "M01_AXI",
@@ -2367,6 +2361,12 @@
                 "interface_ports": [
                   "M00_AXI",
                   "m00_couplers/M_AXI"
+                ]
+              },
+              "xbar_to_m01_couplers": {
+                "interface_ports": [
+                  "xbar/M01_AXI",
+                  "m01_couplers/S_AXI"
                 ]
               }
             },
@@ -2588,7 +2588,7 @@
             "inst_hier_path": "Memory_IO/xlconstant_0",
             "parameters": {
               "CONST_VAL": {
-                "value": "262143"
+                "value": "65535"
               },
               "CONST_WIDTH": {
                 "value": "18"
@@ -7557,18 +7557,6 @@
       }
     },
     "interface_nets": {
-      "S_AXIS_CFG_1": {
-        "interface_ports": [
-          "Reg_Brakeout/M_AXIS2",
-          "feedback_and_generation/S_AXIS_CFG"
-        ]
-      },
-      "ps_0_FIXED_IO": {
-        "interface_ports": [
-          "FIXED_IO",
-          "Core/FIXED_IO"
-        ]
-      },
       "ps_0_axi_periph_M00_AXI": {
         "interface_ports": [
           "Core/M00_AXI",
@@ -7653,12 +7641,6 @@
           "feedback_and_generation/M01_AXIS"
         ]
       },
-      "S_AXIS_ADC2_1": {
-        "interface_ports": [
-          "ch1_mem_fb_split/M03_AXIS",
-          "feedback_and_generation/S_AXIS_ADC2"
-        ]
-      },
       "ps_0_DDR": {
         "interface_ports": [
           "DDR",
@@ -7687,6 +7669,24 @@
         "interface_ports": [
           "ch1_mem_fb_split/M04_AXIS",
           "feedback_and_generation/S_AXIS_ADC3"
+        ]
+      },
+      "S_AXIS_ADC2_1": {
+        "interface_ports": [
+          "ch1_mem_fb_split/M03_AXIS",
+          "feedback_and_generation/S_AXIS_ADC2"
+        ]
+      },
+      "S_AXIS_CFG_1": {
+        "interface_ports": [
+          "Reg_Brakeout/M_AXIS2",
+          "feedback_and_generation/S_AXIS_CFG"
+        ]
+      },
+      "ps_0_FIXED_IO": {
+        "interface_ports": [
+          "FIXED_IO",
+          "Core/FIXED_IO"
         ]
       }
     },

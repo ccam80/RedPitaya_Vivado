@@ -1593,7 +1593,7 @@ proc create_hier_cell_Memory_IO { parentCell nameHier } {
   # Create instance: xlconstant_0, and set properties
   set xlconstant_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0 ]
   set_property -dict [ list \
-   CONFIG.CONST_VAL {262143} \
+   CONFIG.CONST_VAL {65535} \
    CONFIG.CONST_WIDTH {18} \
  ] $xlconstant_0
 

@@ -77,7 +77,7 @@ parameter SEL_WIDTH=4
     
     //State variable ddefinitions
     reg [SEL_WIDTH-1:0] state;  
-    localparam fixed = 0, sweep = 1, lin = 2, parametric = 3,  A_x_plus_B = 4, random = 5, polynomial = 6, CBC=7; 
+    localparam fixed = 0, sweep = 1, lin = 2, parametric = 3,  A_x_plus_B = 4, random = 5, polynomial = 6, CBC=7, OFF=15; 
 
     // Trigger delay chain
     reg trigger;
@@ -124,9 +124,8 @@ parameter SEL_WIDTH=4
     
     
     //Signals for I/O from DDS
-    reg signed [31:0] phase_next, phase, dds_phase_in = 32'b0;
+    reg signed [31:0] phase_next, dds_phase_in = 32'b0;
     wire signed [DDS_WIDTH - 1:0] dds_out;
-    reg signed [DDS_WIDTH - 1:0] dds_out_last;
     wire dds_M_AXIS_tvalid;       
     
     
@@ -217,9 +216,9 @@ parameter SEL_WIDTH=4
     // Carry out narrow multiplications using inferred single-cycle multipliers 
     always @(posedge aclk)
     begin
-        IN1_squared_result <= IN1 * IN1; // sign extend, as it's a 28-bit number going into a 32-bit hole. Square iis always positive
-        IN1_IN2_result <= IN1  * IN2; // Sign extend, as it's a 26-bit number going into a 32-bit hole
-        IN1_DDS_result <= {{2{IN1[15]^dds_out[15]}},IN1[13:0] * dds_out};
+        IN1_squared_result <= IN1 * IN1; 
+        IN1_IN2_result <= IN1  * IN2; 
+        IN1_DDS_result <= IN1 * dds_out;
         IN1_cubed_result <= IN1_squared_result * IN1; // This one might break assumptions - this is preevious sample squared multiplied by current sample. Far below filter frequencies so seems tolerable. 
     end    
     
@@ -269,7 +268,7 @@ parameter SEL_WIDTH=4
                     
             parametric: 
             begin 
-                Operand_1_out <= IN1_DDS_result;
+                Operand_1_out <= {{4{IN1[15] ^ dds_out[15]}}, IN1_DDS_result[31:2]};
                 Operand_2_out <= Param_C_in;
                 Operand_3_out <= Param_D_in;
                 Operand_4_out <= IN1_squared_result;

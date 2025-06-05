@@ -196,8 +196,8 @@ module feedback_combined #
                     //All polynomial products are pre-shifted left by 15 bits so are in the correct form. The offset, however, isn't, so gets shifted 15 bits here.
                     CH2_result <= CBC_PRODUCT_C_in + CBC_PRODUCT_D_in + CBC_PRODUCT_E_in + {{10{CBC_OFFSET_in[OFFSET_WIDTH - 1]}}, CBC_OFFSET_in, 15'b0};
                 end
+            OFF: CH1_result <= 64'b0;
             default: 
-            
                 //In all remaining feedback modes, the products are pre-shifted left by 15 bits, so we do the same to the offset before it's shifted back at the output.
                 CH1_result <= CH1_PRODUCT_A_in + CH1_PRODUCT_B_in + CH1_PRODUCT_C_in + CH1_PRODUCT_D_in + {{10{CH1_OFFSET_in[OFFSET_WIDTH - 1]}}, CH1_OFFSET_in, 15'b0};
         endcase
@@ -207,7 +207,7 @@ module feedback_combined #
             case(CH2_state)
                 // Linear feedback was set up differently initially, so has different slicing.This step sign extends the A*x result and right shifts by 9 bits, and right shifts the offset by 15 bits 
                 A_x_plus_B: CH2_result <= {{18{CH2_PRODUCT_A_in[CH_PRODUCT_A_WIDTH - 1]}}, CH2_PRODUCT_A_in[CH_PRODUCT_A_WIDTH - 2:9]} + {{10{CH2_OFFSET_in[OFFSET_WIDTH - 1]}}, CH2_OFFSET_in, 15'b0};
-              
+                OFF: CH2_result <= 64'b0;
                 //In all remaining feedback modes, the products are pre-shifted left by 15 bits, so we do the same to the offset before it's shifted back at the output.
                 default: CH2_result <= CH2_PRODUCT_A_in + CH2_PRODUCT_B_in + CH2_PRODUCT_C_in + CH2_PRODUCT_D_in + {{10{CH2_OFFSET_in[OFFSET_WIDTH - 1]}}, CH2_OFFSET_in, 15'b0};
             endcase

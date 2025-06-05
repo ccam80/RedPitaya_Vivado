@@ -92,7 +92,7 @@ architecture tb of tb_dds_compiler_0 is
 
   -- Phase slave channel signals
   signal s_axis_phase_tvalid             : std_logic := '0';  -- payload is valid
-  signal s_axis_phase_tdata              : std_logic_vector(31 downto 0) := (others => '0');  -- data payload
+  signal s_axis_phase_tdata              : std_logic_vector(39 downto 0) := (others => '0');  -- data payload
 
   -- Data master channel signals
   signal m_axis_data_tvalid              : std_logic := '0';  -- payload is valid
@@ -107,9 +107,11 @@ architecture tb of tb_dds_compiler_0 is
 
   -- Phase slave channel alias signals
   signal s_axis_phase_tdata_inc        : std_logic_vector(29 downto 0) := (others => '0');
+  signal s_axis_phase_tdata_resync     : std_logic := '0';
 
   -- Data master channel alias signals
-  signal m_axis_data_tdata_sine        : std_logic_vector(25 downto 0) := (others => '0');
+  signal m_axis_data_tdata_cosine      : std_logic_vector(13 downto 0) := (others => '0');
+  signal m_axis_data_tdata_sine        : std_logic_vector(13 downto 0) := (others => '0');
 
 
   signal end_of_simulation : boolean := false;
@@ -154,6 +156,7 @@ begin
   -----------------------------------------------------------------------
 
   stimuli : process
+    variable v_resync : std_logic := '0';
   begin
 
     -- Drive inputs T_HOLD time after rising edge of clock
@@ -214,7 +217,8 @@ begin
   s_axis_phase_tdata_inc        <= s_axis_phase_tdata(29 downto 0);
 
   -- Data master channel alias signals: update these only when they are valid
-  m_axis_data_tdata_sine        <= m_axis_data_tdata(25 downto 0) when m_axis_data_tvalid = '1';
+  m_axis_data_tdata_cosine      <= m_axis_data_tdata(13 downto 0) when m_axis_data_tvalid = '1';
+  m_axis_data_tdata_sine        <= m_axis_data_tdata(29 downto 16) when m_axis_data_tvalid = '1';
 
 end tb;
 

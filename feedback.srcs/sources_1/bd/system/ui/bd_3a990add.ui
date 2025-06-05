@@ -1,53 +1,121 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.660331",
-   "Default View_TopLeft":"-663,391",
+   "Default View_ScaleFactor":"0.871313",
+   "Default View_TopLeft":"671,121",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
-preplace port M_AXIS1 -pg 1 -lvl 3 -x 800 -y 70 -defaultsOSRD
-preplace port M_AXIS2 -pg 1 -lvl 3 -x 800 -y 240 -defaultsOSRD
-preplace port aclk -pg 1 -lvl 0 -x 0 -y 280 -defaultsOSRD
-preplace port aresetn -pg 1 -lvl 0 -x 0 -y 360 -defaultsOSRD
-preplace portBus dout1 -pg 1 -lvl 3 -x 800 -y 760 -defaultsOSRD
-preplace portBus dout2 -pg 1 -lvl 3 -x 800 -y 600 -defaultsOSRD
-preplace portBus In2 -pg 1 -lvl 0 -x 0 -y 540 -defaultsOSRD
-preplace portBus dout3 -pg 1 -lvl 3 -x 800 -y 520 -defaultsOSRD
-preplace portBus dout4 -pg 1 -lvl 3 -x 800 -y 860 -defaultsOSRD
-preplace portBus dout5 -pg 1 -lvl 3 -x 800 -y 1060 -defaultsOSRD
-preplace portBus dout6 -pg 1 -lvl 3 -x 800 -y 960 -defaultsOSRD
-preplace portBus Din1 -pg 1 -lvl 0 -x 0 -y 70 -defaultsOSRD
-preplace portBus Dout -pg 1 -lvl 3 -x 800 -y 660 -defaultsOSRD
-preplace inst status_concat_1 -pg 1 -lvl 2 -x 430 -y 520 -defaultsOSRD
-preplace inst external_reset_fake -pg 1 -lvl 1 -x 150 -y 480 -defaultsOSRD
+preplace port M_AXIS2 -pg 1 -lvl 3 -x 1380 -y 240 -defaultsOSRD
+preplace port M_AXIS3 -pg 1 -lvl 3 -x 1380 -y 350 -defaultsOSRD
+preplace port M_AXIS1 -pg 1 -lvl 3 -x 1380 -y 70 -defaultsOSRD
+preplace port M_AXIS4 -pg 1 -lvl 3 -x 1380 -y 200 -defaultsOSRD
+preplace port M_AXIS5 -pg 1 -lvl 3 -x 1380 -y 220 -defaultsOSRD
+preplace port aclk -pg 1 -lvl 0 -x -100 -y 280 -defaultsOSRD
+preplace port aresetn -pg 1 -lvl 0 -x -100 -y 360 -defaultsOSRD
+preplace portBus dout1 -pg 1 -lvl 3 -x 1380 -y 760 -defaultsOSRD
+preplace portBus dout2 -pg 1 -lvl 3 -x 1380 -y 600 -defaultsOSRD
+preplace portBus dout4 -pg 1 -lvl 3 -x 1380 -y 860 -defaultsOSRD
+preplace portBus dout5 -pg 1 -lvl 3 -x 1380 -y 1060 -defaultsOSRD
+preplace portBus dout6 -pg 1 -lvl 3 -x 1380 -y 960 -defaultsOSRD
+preplace portBus Dout8 -pg 1 -lvl 3 -x 1380 -y 880 -defaultsOSRD
+preplace portBus dout3 -pg 1 -lvl 3 -x 1380 -y 520 -defaultsOSRD
+preplace portBus In2 -pg 1 -lvl 0 -x -100 -y 540 -defaultsOSRD
+preplace portBus Dout7 -pg 1 -lvl 3 -x 1380 -y 370 -defaultsOSRD
+preplace portBus Dout -pg 1 -lvl 3 -x 1380 -y 660 -defaultsOSRD
+preplace portBus Dout10 -pg 1 -lvl 3 -x 1380 -y 150 -defaultsOSRD
+preplace portBus Dout9 -pg 1 -lvl 3 -x 1380 -y 130 -defaultsOSRD
+preplace portBus Dout11 -pg 1 -lvl 3 -x 1380 -y 110 -defaultsOSRD
+preplace portBus Dout13 -pg 1 -lvl 3 -x 1380 -y 90 -defaultsOSRD
+preplace portBus Din -pg 1 -lvl 0 -x -100 -y 560 -defaultsOSRD
+preplace portBus Dout15 -pg 1 -lvl 3 -x 1380 -y 920 -defaultsOSRD
+preplace inst external_reset_fake -pg 1 -lvl 1 -x 150 -y 520 -defaultsOSRD
+preplace inst dna_reader_0 -pg 1 -lvl 1 -x 150 -y 410 -defaultsOSRD
 preplace inst Feedback_config_bus -pg 1 -lvl 1 -x 150 -y 70 -defaultsOSRD
-preplace inst Feedback_State -pg 1 -lvl 2 -x 430 -y 650 -defaultsOSRD
-preplace inst RAM_addres -pg 1 -lvl 2 -x 430 -y 750 -defaultsOSRD
-preplace inst feedback_trigger -pg 1 -lvl 2 -x 430 -y 850 -defaultsOSRD
-preplace inst pre_memory_reset -pg 1 -lvl 2 -x 430 -y 950 -defaultsOSRD
-preplace inst ram_writer_reset -pg 1 -lvl 2 -x 430 -y 1050 -defaultsOSRD
-preplace inst dna_reader_0 -pg 1 -lvl 1 -x 150 -y 350 -defaultsOSRD
-preplace inst axis_constant_0 -pg 1 -lvl 2 -x 430 -y 70 -defaultsOSRD
-preplace inst gng_0 -pg 1 -lvl 2 -x 430 -y 240 -defaultsOSRD
-preplace inst input_select -pg 1 -lvl 2 -x 430 -y 1150 -defaultsOSRD
-preplace inst continuous_output -pg 1 -lvl 2 -x 430 -y 1260 -defaultsOSRD
-preplace netloc pll_0_clk_out1 1 0 2 20 230 290
-preplace netloc rst_0_peripheral_aresetn 1 0 2 30 250 NJ
-preplace netloc const_0_dout 1 1 2 300 440 560J
-preplace netloc writer_0_sts_data 1 0 2 NJ 540 NJ
-preplace netloc concat_1_dout 1 2 1 NJ 520
-preplace netloc RAM_addres_Dout 1 2 1 560J 750n
-preplace netloc feedback_trigger_Dout 1 2 1 560J 850n
-preplace netloc pre_memory_reset_Dout 1 2 1 560J 950n
-preplace netloc ram_writer_reset_Dout 1 2 1 560J 1050n
-preplace netloc dna_reader_0_dna_data 1 1 1 270 350n
-preplace netloc Feedback_config_bus_Dout 1 1 1 300J 70n
-preplace netloc Din1_1 1 0 2 20 10 280
-preplace netloc Feedback_State_Dout 1 2 1 560J 650n
-preplace netloc axis_constant_0_M_AXIS 1 2 1 NJ 70
-preplace netloc Conn1 1 2 1 N 240
-levelinfo -pg 1 0 150 430 800
-pagesize -pg 1 -db -bbox -sgen -140 0 950 1320
+preplace inst status_concat_1 -pg 1 -lvl 2 -x 850 -y 1252 -defaultsOSRD
+preplace inst CH1_Config -pg 1 -lvl 2 -x 850 -y 860 -defaultsOSRD
+preplace inst system_params -pg 1 -lvl 1 -x 150 -y 872 -defaultsOSRD
+preplace inst CH1_params -pg 1 -lvl 1 -x 150 -y 270 -defaultsOSRD
+preplace inst CH2_params -pg 1 -lvl 1 -x 150 -y 170 -defaultsOSRD
+preplace inst CH2_config -pg 1 -lvl 2 -x 850 -y 360 -defaultsOSRD
+preplace inst gng_0 -pg 1 -lvl 2 -x 850 -y 730 -defaultsOSRD
+preplace inst CBC_config_and_params -pg 1 -lvl 2 -x 850 -y -22 -defaultsOSRD
+preplace inst CH1_Config|Feedback_State -pg 1 -lvl 1 -x 910 -y 1090 -defaultsOSRD
+preplace inst CH1_Config|input_select -pg 1 -lvl 1 -x 910 -y 990 -defaultsOSRD
+preplace inst CH1_Config|CH1_Feedback_Params_1 -pg 1 -lvl 1 -x 910 -y 880 -defaultsOSRD
+preplace inst system_params|ram_writer_reset -pg 1 -lvl 1 -x 210 -y 852 -defaultsOSRD
+preplace inst system_params|continuous_output -pg 1 -lvl 1 -x 210 -y 952 -defaultsOSRD
+preplace inst system_params|feedback_trigger -pg 1 -lvl 1 -x 210 -y 1052 -defaultsOSRD
+preplace inst system_params|pre_memory_reset -pg 1 -lvl 1 -x 210 -y 1152 -defaultsOSRD
+preplace inst system_params|RAM_addres -pg 1 -lvl 1 -x 210 -y 1252 -defaultsOSRD
+preplace inst system_params|Fast_mode -pg 1 -lvl 1 -x 210 -y 1352 -defaultsOSRD
+preplace inst CH2_config|Feedback_State_1 -pg 1 -lvl 1 -x 900 -y 490 -defaultsOSRD
+preplace inst CH2_config|input_select_2 -pg 1 -lvl 1 -x 900 -y 590 -defaultsOSRD
+preplace inst CH2_config|CH2_Feedback_Params_2 -pg 1 -lvl 1 -x 900 -y 380 -defaultsOSRD
+preplace inst CBC_config_and_params|Polynomial_target -pg 1 -lvl 1 -x 900 -y -12 -defaultsOSRD
+preplace inst CBC_config_and_params|ALL_Feedback_Params -pg 1 -lvl 1 -x 900 -y 198 -defaultsOSRD
+preplace inst CBC_config_and_params|input_order -pg 1 -lvl 1 -x 900 -y 88 -defaultsOSRD
+preplace netloc pll_0_clk_out1 1 0 2 -50 330 600
+preplace netloc rst_0_peripheral_aresetn 1 0 2 -80 740 NJ
+preplace netloc const_0_dout 1 1 2 550 -102 1270J
+preplace netloc Din1_1 1 0 2 -70 10 580
+preplace netloc RAM_addres_Dout 1 1 2 490 1332 1320J
+preplace netloc pre_memory_reset_Dout 1 1 2 480 1352 1340J
+preplace netloc feedback_trigger_Dout 1 1 2 520 1170 1310J
+preplace netloc continuous_output_Dout 1 1 2 510J 1342 1330J
+preplace netloc ram_writer_reset_Dout 1 1 2 500 1362 1360J
+preplace netloc input_select_Dout 1 2 1 1280J 370n
+preplace netloc status_concat_1_dout 1 2 1 1300 520n
+preplace netloc In2_1 1 0 2 -60J 340 540
+preplace netloc dna_reader_0_dna_data 1 1 1 530 410n
+preplace netloc CH1_Config_Dout 1 2 1 1290 660n
+preplace netloc CH2_config_Dout10 1 2 1 1220J 150n
+preplace netloc CH2_config_Dout9 1 2 1 1210J 130n
+preplace netloc CH1_params_Dout 1 1 1 560 270n
+preplace netloc CH2_params_Dout 1 1 1 570 170n
+preplace netloc system_params_Dout15 1 1 2 470J 1372 1350J
+preplace netloc CBC_config_and_params_Dout11 1 2 1 1200J 110n
+preplace netloc CBC_config_and_params_Dout13 1 2 1 1190J 90n
+preplace netloc Feedback_config_bus_Dout 1 1 1 590J 70n
+preplace netloc CH2_config_M_AXIS2 1 2 1 1230 240n
+preplace netloc CH1_Config_M_AXIS3 1 2 1 1260J 350n
+preplace netloc gng_0_M_AXIS2 1 2 1 1250J 220n
+preplace netloc gng_0_M_AXIS1 1 2 1 1240J 200n
+preplace netloc CBC_config_and_params_M_AXIS 1 2 1 1180 70n
+preplace netloc CH1_Config|Din1_1 1 0 1 780 990n
+preplace netloc CH1_Config|input_select_Dout 1 1 1 NJ 990
+preplace netloc CH1_Config|Feedback_State_Dout 1 1 1 N 1090
+preplace netloc CH1_Config|cfg_data_1 1 0 1 780 850n
+preplace netloc CH1_Config|aclk_1 1 0 1 N 870
+preplace netloc CH1_Config|Conn1 1 1 1 N 880
+preplace netloc system_params|Din1_1 1 0 1 90 852n
+preplace netloc system_params|ram_writer_reset_Dout 1 1 1 NJ 852
+preplace netloc system_params|continuous_output_Dout 1 1 1 NJ 952
+preplace netloc system_params|feedback_trigger_Dout 1 1 1 NJ 1052
+preplace netloc system_params|pre_memory_reset_Dout 1 1 1 NJ 1152
+preplace netloc system_params|RAM_addres_Dout 1 1 1 NJ 1252
+preplace netloc system_params|Fast_mode_Dout 1 1 1 NJ 1352
+preplace netloc CH2_config|Din1_1 1 0 1 770 490n
+preplace netloc CH2_config|Feedback_State_1_Dout 1 1 1 NJ 490
+preplace netloc CH2_config|input_select_2_Dout 1 1 1 N 590
+preplace netloc CH2_config|cfg_data_1 1 0 1 770 350n
+preplace netloc CH2_config|aclk_1 1 0 1 N 370
+preplace netloc CH2_config|Conn1 1 1 1 N 380
+preplace netloc CBC_config_and_params|Din1_1 1 0 1 770 -12n
+preplace netloc CBC_config_and_params|Polynomial_target_Dout 1 1 1 1040 -12n
+preplace netloc CBC_config_and_params|aclk_1 1 0 1 N 188
+preplace netloc CBC_config_and_params|cfg_data_1 1 0 1 N 208
+preplace netloc CBC_config_and_params|input_order_Dout 1 1 1 1030 88n
+preplace netloc CBC_config_and_params|Conn1 1 1 1 N 198
+levelinfo -pg 1 -100 150 850 1380
+levelinfo -hier CH1_Config * 910 *
+levelinfo -hier system_params * 210 *
+levelinfo -hier CH2_config * 900 *
+levelinfo -hier CBC_config_and_params * 900 *
+pagesize -pg 1 -db -bbox -sgen -230 -120 1530 1670
+pagesize -hier CH1_Config -db -bbox -sgen 750 810 1070 1150
+pagesize -hier system_params -db -bbox -sgen 60 792 360 1412
+pagesize -hier CH2_config -db -bbox -sgen 740 310 1060 650
+pagesize -hier CBC_config_and_params -db -bbox -sgen 740 -72 1070 268
 "
 }
 0

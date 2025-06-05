@@ -14,7 +14,8 @@ the IP Core location have to be changed. Therefore got to Tools --> Settings -->
 - Wihile bit file generation in the upper right corner a runing circle is shown, if the operation is finished there is written ""
 - the new bit file is located in ``*/feedback.runs/impl_1`` and is named ``system_wrapper.bit``
 - Coppy ``system_wrapper.bit`` with a FTP client (e.g. WinSCP) to the FPGA into ``/usr/src``, and rename to ``v2.bit``. 
-
+_Note_ in the UC RedPitaya, the default "onboard" directory is ``/usr/adc_test``. After pulling from Git in to this directory, 
+execute ``cp ./v2.bit /usr/src/v2.bit`` to overwrite the auto-loaded bitstream.
 - if starting the server (<https://github.com/ccam80/RedPitaya_Onboard>) it is automatic implemented
 
 #Operations (high-level):

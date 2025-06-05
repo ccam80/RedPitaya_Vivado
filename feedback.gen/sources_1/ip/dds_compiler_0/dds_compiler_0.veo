@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2025 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -57,7 +57,7 @@
 dds_compiler_0 your_instance_name (
   .aclk(aclk),                                // input wire aclk
   .s_axis_phase_tvalid(s_axis_phase_tvalid),  // input wire s_axis_phase_tvalid
-  .s_axis_phase_tdata(s_axis_phase_tdata),    // input wire [31 : 0] s_axis_phase_tdata
+  .s_axis_phase_tdata(s_axis_phase_tdata),    // input wire [39 : 0] s_axis_phase_tdata
   .m_axis_data_tvalid(m_axis_data_tvalid),    // output wire m_axis_data_tvalid
   .m_axis_data_tdata(m_axis_data_tdata)      // output wire [31 : 0] m_axis_data_tdata
 );

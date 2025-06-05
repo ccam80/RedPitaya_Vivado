@@ -46,20 +46,20 @@
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="SimIpAutoExportScripts" Val="FALSE"/>
-    <Option Name="WTXSimLaunchSim" Val="249"/>
+    <Option Name="WTXSimLaunchSim" Val="256"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="55"/>
-    <Option Name="WTModelSimExportSim" Val="55"/>
-    <Option Name="WTQuestaExportSim" Val="55"/>
-    <Option Name="WTIesExportSim" Val="55"/>
-    <Option Name="WTVcsExportSim" Val="55"/>
-    <Option Name="WTRivieraExportSim" Val="55"/>
-    <Option Name="WTActivehdlExportSim" Val="55"/>
+    <Option Name="WTXSimExportSim" Val="57"/>
+    <Option Name="WTModelSimExportSim" Val="57"/>
+    <Option Name="WTQuestaExportSim" Val="57"/>
+    <Option Name="WTIesExportSim" Val="57"/>
+    <Option Name="WTVcsExportSim" Val="57"/>
+    <Option Name="WTRivieraExportSim" Val="57"/>
+    <Option Name="WTActivehdlExportSim" Val="57"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -145,22 +145,10 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/ip/mult_gen_0.xcix">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PSRCDIR/sources_1/ip/mult_gen_0/mult_gen_0.xci">
         <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/ip/dds_compiler_0_1.xcix">
-        <FileInfo>
+          <Attr Name="ImportPath" Val="$PSRCDIR/sources_1/ip/mult_gen_0/mult_gen_0.xci"/>
+          <Attr Name="ImportTime" Val="1716438883"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -168,6 +156,8 @@
       </File>
       <File Path="$PSRCDIR/sources_1/ip/dds_compiler_0_1/dds_compiler_0.xci">
         <FileInfo>
+          <Attr Name="ImportPath" Val="$PSRCDIR/sources_1/ip/dds_compiler_0_1/dds_compiler_0.xci"/>
+          <Attr Name="ImportTime" Val="1716438883"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -196,6 +186,8 @@
       </File>
       <File Path="$PSRCDIR/sources_1/ip/dds_compiler_1/dds_compiler_1.xci">
         <FileInfo>
+          <Attr Name="ImportPath" Val="$PSRCDIR/sources_1/ip/dds_compiler_1/dds_compiler_1.xci"/>
+          <Attr Name="ImportTime" Val="1639084180"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -329,6 +321,7 @@
         <Option Name="PamPseudoTop" Val="pseudo_tb"/>
         <Option Name="SrcSet" Val="sources_1"/>
         <Option Name="XSimWcfgFile" Val="$PPRDIR/../Pavel_Demin/tmp/testbench_behav.wcfg"/>
+        <Option Name="Incremental" Val="0"/>
         <Option Name="xsim.compile.xvlog.nosort" Val="false"/>
         <Option Name="xsim.simulate.runtime" Val="500ns"/>
         <Option Name="xsim.simulate.log_all_signals" Val="true"/>
@@ -336,6 +329,13 @@
     </FileSet>
     <FileSet Name="utils_1" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">
       <Filter Type="Utils"/>
+      <File Path="$PPRDIR/../../../C:/home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.srcs/utils_1/imports/synth_1/system_wrapper.dcp">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="AutoDcp" Val="1"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="TopAutoSet" Val="TRUE"/>
       </Config>
@@ -368,14 +368,16 @@
   <Runs Version="1" Minor="15">
     <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7z010clg400-1" ConstrsSet="constrs_1" Description="Higher performance designs, resource sharing is turned off, the global fanout guide is set to a lower number, FSM extraction forced to one-hot, LUT combining is disabled, equivalent registers are preserved, SRL are inferred  with a larger threshold" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/synth_1" IncludeInArchive="true" AutoIncrementalDir="C:/home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.srcs/utils_1/imports/synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Flow_PerfOptimized_high" Flow="Vivado Synthesis 2020"/>
+        <StratHandle Name="Flow_PerfOptimized_high" Flow="Vivado Synthesis 2020">
+          <Desc>Higher performance designs, resource sharing is turned off, the global fanout guide is set to a lower number, FSM extraction forced to one-hot, LUT combining is disabled, equivalent registers are preserved, SRL are inferred  with a larger threshold</Desc>
+        </StratHandle>
         <Step Id="synth_design">
-          <Option Id="ResourceSharing">2</Option>
           <Option Id="NoCombineLuts">1</Option>
+          <Option Id="ResourceSharing">2</Option>
           <Option Id="KeepEquivalentRegisters">1</Option>
           <Option Id="Directive">7</Option>
-          <Option Id="ShregMinSize">5</Option>
           <Option Id="FsmExtraction">1</Option>
+          <Option Id="ShregMinSize">5</Option>
         </Step>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -385,7 +387,9 @@
     </Run>
     <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="constrs_1" Description="To compensate for optimistic delay estimation, add extra delay cost to long distance and high fanout connections. (high setting, most pessimistic)" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/impl_1" SynthRun="synth_1" IncludeInArchive="true" GenFullBitstream="true" AutoIncrementalDir="C:/home/acoustics/Documents/RP/Pavel_Demin/tmp/adc_test.srcs/utils_1/imports/impl_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Performance_NetDelay_high" Flow="Vivado Implementation 2020"/>
+        <StratHandle Name="Performance_NetDelay_high" Flow="Vivado Implementation 2020">
+          <Desc>To compensate for optimistic delay estimation, add extra delay cost to long distance and high fanout connections. (high setting, most pessimistic)</Desc>
+        </StratHandle>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>

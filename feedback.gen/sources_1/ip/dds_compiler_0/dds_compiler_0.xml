@@ -304,7 +304,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>TDATA_NUM_BYTES</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXIS_PHASE.TDATA_NUM_BYTES">4</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXIS_PHASE.TDATA_NUM_BYTES">5</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -1073,24 +1073,6 @@
   <spirit:model>
     <spirit:views>
       <spirit:view>
-        <spirit:name>xilinx_externalfiles</spirit:name>
-        <spirit:displayName>External Files</spirit:displayName>
-        <spirit:envIdentifier>:vivado.xilinx.com:external.files</spirit:envIdentifier>
-        <spirit:fileSetRef>
-          <spirit:localName>xilinx_externalfiles_view_fileset</spirit:localName>
-        </spirit:fileSetRef>
-        <spirit:parameters>
-          <spirit:parameter>
-            <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 26 00:57:33 UTC 2021</spirit:value>
-          </spirit:parameter>
-          <spirit:parameter>
-            <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:303d52a2</spirit:value>
-          </spirit:parameter>
-        </spirit:parameters>
-      </spirit:view>
-      <spirit:view>
         <spirit:name>xilinx_veriloginstantiationtemplate</spirit:name>
         <spirit:displayName>Verilog Instantiation Template</spirit:displayName>
         <spirit:envIdentifier>verilogSource:vivado.xilinx.com:synthesis.template</spirit:envIdentifier>
@@ -1101,11 +1083,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 26 00:57:31 UTC 2021</spirit:value>
+            <spirit:value>Thu Jun 05 01:07:59 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:d095529d</spirit:value>
+            <spirit:value>9:e98a3e02</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1145,11 +1127,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 26 00:57:31 UTC 2021</spirit:value>
+            <spirit:value>Thu Jun 05 01:07:59 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:d095529d</spirit:value>
+            <spirit:value>9:e98a3e02</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1157,17 +1139,10 @@
         <spirit:name>xilinx_synthesisconstraints</spirit:name>
         <spirit:displayName>Synthesis Constraints</spirit:displayName>
         <spirit:envIdentifier>:vivado.xilinx.com:synthesis.constraints</spirit:envIdentifier>
-        <spirit:fileSetRef>
-          <spirit:localName>xilinx_synthesisconstraints_view_fileset</spirit:localName>
-        </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
-            <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 26 00:57:31 UTC 2021</spirit:value>
-          </spirit:parameter>
-          <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:d095529d</spirit:value>
+            <spirit:value>9:e98a3e02</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1183,11 +1158,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 26 00:57:31 UTC 2021</spirit:value>
+            <spirit:value>Thu Jun 05 01:07:59 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:d095529d</spirit:value>
+            <spirit:value>9:e98a3e02</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1227,11 +1202,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 26 00:57:31 UTC 2021</spirit:value>
+            <spirit:value>Thu Jun 05 01:07:59 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:6e02893f</spirit:value>
+            <spirit:value>9:ccfe76d8</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1247,11 +1222,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 26 00:57:31 UTC 2021</spirit:value>
+            <spirit:value>Thu Jun 05 01:07:59 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:6e02893f</spirit:value>
+            <spirit:value>9:ccfe76d8</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1266,11 +1241,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 26 00:57:31 UTC 2021</spirit:value>
+            <spirit:value>Thu Jun 05 01:07:59 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:d095529d</spirit:value>
+            <spirit:value>9:e98a3e02</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1286,11 +1261,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 26 00:57:31 UTC 2021</spirit:value>
+            <spirit:value>Thu Jun 05 01:08:00 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:d095529d</spirit:value>
+            <spirit:value>9:e98a3e02</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1304,11 +1279,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 26 00:57:31 UTC 2021</spirit:value>
+            <spirit:value>Thu Jun 05 01:08:00 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:d095529d</spirit:value>
+            <spirit:value>9:e98a3e02</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1427,7 +1402,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_PHASE_TDATA_WIDTH&apos;)) - 1)">31</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_PHASE_TDATA_WIDTH&apos;)) - 1)">39</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -2061,7 +2036,7 @@
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_LATENCY</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_LATENCY">10</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_LATENCY">7</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_MEM_TYPE</spirit:name>
@@ -2077,11 +2052,11 @@
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_NOISE_SHAPING</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_NOISE_SHAPING">2</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_NOISE_SHAPING">0</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_OUTPUTS_REQUIRED</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_OUTPUTS_REQUIRED">0</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_OUTPUTS_REQUIRED">2</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_OUTPUT_FORM</spirit:name>
@@ -2089,11 +2064,11 @@
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_OUTPUT_WIDTH</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_OUTPUT_WIDTH">26</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_OUTPUT_WIDTH">14</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_PHASE_ANGLE_WIDTH</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_PHASE_ANGLE_WIDTH">11</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_PHASE_ANGLE_WIDTH">14</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_PHASE_INCREMENT</spirit:name>
@@ -2105,7 +2080,7 @@
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_RESYNC</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_RESYNC">0</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_RESYNC">1</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_PHASE_OFFSET</spirit:name>
@@ -2153,7 +2128,7 @@
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_S_PHASE_TDATA_WIDTH</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_S_PHASE_TDATA_WIDTH">32</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_S_PHASE_TDATA_WIDTH">40</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_S_PHASE_HAS_TUSER</spirit:name>
@@ -2313,6 +2288,12 @@
       <spirit:enumeration spirit:text="Block ROM">Block_ROM</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
+      <spirit:name>choice_pairs_4898dbae</spirit:name>
+      <spirit:enumeration spirit:text="None">None</spirit:enumeration>
+      <spirit:enumeration spirit:text="Taylor Series Corrected">Taylor_Series_Corrected</spirit:enumeration>
+      <spirit:enumeration spirit:text="Phase Dithering">Phase_Dithering</spirit:enumeration>
+    </spirit:choice>
+    <spirit:choice>
       <spirit:name>choice_pairs_65a5252d</spirit:name>
       <spirit:enumeration spirit:text="Full Range">Full_Range</spirit:enumeration>
       <spirit:enumeration spirit:text="Unit Circle">Unit_Circle</spirit:enumeration>
@@ -2321,11 +2302,6 @@
       <spirit:name>choice_pairs_6bdc34ae</spirit:name>
       <spirit:enumeration spirit:text="System Parameters">System_Parameters</spirit:enumeration>
       <spirit:enumeration spirit:text="Hardware Parameters">Hardware_Parameters</spirit:enumeration>
-    </spirit:choice>
-    <spirit:choice>
-      <spirit:name>choice_pairs_73770831</spirit:name>
-      <spirit:enumeration spirit:text="Auto">Auto</spirit:enumeration>
-      <spirit:enumeration spirit:text="Taylor Series Corrected">Taylor_Series_Corrected</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
       <spirit:name>choice_pairs_75713637</spirit:name>
@@ -2360,42 +2336,6 @@
     </spirit:choice>
   </spirit:choices>
   <spirit:fileSets>
-    <spirit:fileSet>
-      <spirit:name>xilinx_externalfiles_view_fileset</spirit:name>
-      <spirit:file>
-        <spirit:name>dds_compiler_0.dcp</spirit:name>
-        <spirit:userFileType>dcp</spirit:userFileType>
-        <spirit:userFileType>USED_IN_implementation</spirit:userFileType>
-        <spirit:userFileType>USED_IN_synthesis</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>dds_compiler_0_stub.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>dds_compiler_0_stub.vhdl</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>dds_compiler_0_sim_netlist.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
-        <spirit:userFileType>USED_IN_single_language</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>dds_compiler_0_sim_netlist.vhdl</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
-        <spirit:userFileType>USED_IN_single_language</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-    </spirit:fileSet>
     <spirit:fileSet>
       <spirit:name>xilinx_veriloginstantiationtemplate_view_fileset</spirit:name>
       <spirit:file>
@@ -2533,16 +2473,6 @@
         <spirit:name>hdl/dds_compiler_v6_0_vh_rfs.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>dds_compiler_v6_0_20</spirit:logicalName>
-      </spirit:file>
-    </spirit:fileSet>
-    <spirit:fileSet>
-      <spirit:name>xilinx_synthesisconstraints_view_fileset</spirit:name>
-      <spirit:file>
-        <spirit:name>dds_compiler_0_ooc.xdc</spirit:name>
-        <spirit:userFileType>xdc</spirit:userFileType>
-        <spirit:userFileType>USED_IN_implementation</spirit:userFileType>
-        <spirit:userFileType>USED_IN_out_of_context</spirit:userFileType>
-        <spirit:userFileType>USED_IN_synthesis</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -2759,22 +2689,22 @@
     <spirit:parameter>
       <spirit:name>Parameter_Entry</spirit:name>
       <spirit:displayName>Parameter Selection</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Parameter_Entry" spirit:choiceRef="choice_pairs_6bdc34ae" spirit:order="5">System_Parameters</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Parameter_Entry" spirit:choiceRef="choice_pairs_6bdc34ae" spirit:order="5">Hardware_Parameters</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Spurious_Free_Dynamic_Range</spirit:name>
       <spirit:displayName>Spurious Free Dynamic Range</spirit:displayName>
-      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.Spurious_Free_Dynamic_Range" spirit:order="6" spirit:minimum="18" spirit:maximum="150">150</spirit:value>
+      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.Spurious_Free_Dynamic_Range" spirit:order="6" spirit:minimum="18" spirit:maximum="150">45</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Frequency_Resolution</spirit:name>
       <spirit:displayName>Frequency Resolution</spirit:displayName>
-      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.Frequency_Resolution" spirit:order="7" spirit:minimum="4.44089e-07" spirit:maximum="1.5625e+07">0.2</spirit:value>
+      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.Frequency_Resolution" spirit:order="7" spirit:minimum="4.44089e-07" spirit:maximum="1.5625e+07">0.4</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Noise_Shaping</spirit:name>
       <spirit:displayName>Noise Shaping</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Noise_Shaping" spirit:choiceRef="choice_pairs_73770831" spirit:order="8">Auto</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Noise_Shaping" spirit:choiceRef="choice_pairs_4898dbae" spirit:order="8">None</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Phase_Width</spirit:name>
@@ -2784,7 +2714,7 @@
     <spirit:parameter>
       <spirit:name>Output_Width</spirit:name>
       <spirit:displayName>Output Width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.Output_Width" spirit:order="10" spirit:minimum="12" spirit:maximum="26" spirit:rangeType="long">26</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.Output_Width" spirit:order="10" spirit:minimum="3" spirit:maximum="16" spirit:rangeType="long">14</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Phase_Increment</spirit:name>
@@ -2794,7 +2724,7 @@
     <spirit:parameter>
       <spirit:name>Resync</spirit:name>
       <spirit:displayName>Resync</spirit:displayName>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.Resync" spirit:order="11.1">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.Resync" spirit:order="11.1">true</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Phase_offset</spirit:name>
@@ -2804,7 +2734,7 @@
     <spirit:parameter>
       <spirit:name>Output_Selection</spirit:name>
       <spirit:displayName>Output Selection</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Output_Selection" spirit:choiceRef="choice_pairs_a54f933f" spirit:order="13">Sine</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Output_Selection" spirit:choiceRef="choice_pairs_a54f933f" spirit:order="13">Sine_and_Cosine</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Negative_Sine</spirit:name>
@@ -2887,7 +2817,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Latency</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Latency" spirit:choiceRef="choice_list_d819290b" spirit:order="29">10</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Latency" spirit:choiceRef="choice_list_d819290b" spirit:order="29">7</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Has_ARESETn</spirit:name>
@@ -3210,16 +3140,16 @@
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Latency" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.M_DATA_Has_TUSER" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Noise_Shaping" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Optimization_Goal" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Output_Frequency1" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Output_Selection" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Output_Width" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PINC1" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Parameter_Entry" xilinx:valueSource="user"/>
-        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PartsPresent" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Phase_Increment" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Phase_Width" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Resync" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S_PHASE_Has_TUSER" xilinx:valueSource="user"/>
-        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Spurious_Free_Dynamic_Range" xilinx:valueSource="user"/>
       </xilinx:configElementInfos>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
